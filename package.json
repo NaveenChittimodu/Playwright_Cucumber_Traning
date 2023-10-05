@@ -1,0 +1,26 @@
+{
+  "name": "playwright_cucumber_traning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js test" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NaveenChittimodu/Playwright_Cucumber_Traning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NaveenChittimodu/Playwright_Cucumber_Traning/issues"
+  },
+  "homepage": "https://github.com/NaveenChittimodu/Playwright_Cucumber_Traning#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.5.1",
+    "@playwright/test": "^1.38.1",
+    "@types/node": "^20.8.2",
+    "ts-node": "^10.9.1"
+  }
+}
