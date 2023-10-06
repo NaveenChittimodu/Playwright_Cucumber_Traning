@@ -1,0 +1,14 @@
+
+{
+  "loginPage": {
+    "usernameInput": "//input[@name='username']",
+    "passwordInput": "//input[@name='password']",
+    "loginButton": "//button[@type='submit']",
+    "forgotPasswordLink": "//a[@id='forgotPasswordLink']"
+  },
+  "homePage": {
+    "welcomeMessage": "//h1[@class='welcome-message']",
+    "logoutButton": "//button[@id='logoutButton']"
+  }
+  
+}

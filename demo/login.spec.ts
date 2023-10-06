@@ -8,7 +8,7 @@
 // setDefaultTimeout(60*1000*2)
 
 // Given('User navigate to the application', async function () {
-//     browser = await chromium.launch({ headless: false });
+//     browser = await chromium.launch({ headless: false });// need to change
 //     page = await browser.newPage();
 //     loginPage = new LoginPage(page);
 //     await loginPage.gotoLoginPage();
