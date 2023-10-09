@@ -21,7 +21,7 @@ export default defineConfig({
 },
 
 
-  testDir: './tests',
+  testDir: './test/steps',
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',

@@ -22,7 +22,7 @@ export class Loginlocators{
         this.password = "//p[text()='Password : admin123']";
         this.usernameInput = "//input[@name='username']"
         this.passwordInput = "//input[@name='password']"
-        this.loginBtn = "///button[@type='submit']"
+        this.loginBtn = "//button[@type='submit']"
         this.forgotPassword = "//a[@id='forgotPasswordLink']"
         this.welcomeMessage = "//h1[@class='welcome-message']"
         this.logoutButton = "//button[@id='logoutButton']"

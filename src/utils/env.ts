@@ -1,4 +1,5 @@
-import * as dotenv from "dotenv";
+import dotenv from "dotenv";
+dotenv.config({path:'./src/testData/env/.env'});
 
 export default class ENV {
     public static BASEURL = process.env.APP_BASEURL;

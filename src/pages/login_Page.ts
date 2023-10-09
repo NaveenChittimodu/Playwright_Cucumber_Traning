@@ -69,7 +69,7 @@ export  class LoginPage {
 
     async forgotPassword(){
         let forgot_password_visible = await this.page.locator(this.loginlocators.forgotPassword).isVisible()
-        console.log(forgot_password_visible)
-        await this.page.locator(this.loginlocators.forgotPassword).click()
+        console.log("=====ghzhtc",forgot_password_visible)
+        await this.page.locator(this.loginlocators.forgotPassword).click();
     }
 }

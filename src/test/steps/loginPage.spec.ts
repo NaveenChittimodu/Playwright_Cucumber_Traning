@@ -1,29 +1,39 @@
-import { Given, When, Then, Before, BeforeAll, setDefaultTimeout } from "@cucumber/cucumber";
+import { Given, When, Then, Before, BeforeAll, setDefaultTimeout, AfterAll } from "@cucumber/cucumber";
 import { Page, chromium, Browser, expect } from "@playwright/test";
-import { LoginPage } from "../../src/pages/login_Page"
-import { myBrowserFixture } from "../../src/common/Fixtures/fixtures";
-import ENV from "../../src/utils/env";
+import { LoginPage } from "../../../src/pages/login_Page"
+import { myBrowserFixture } from "../../../src/common/Fixtures/fixtures";
+import ENV from "../../../src/utils/env";
+import { Loginlocators } from "../../common/Locators/loginlocators";
+// Playwright_Cucumber_Traning\src\common\Locators\loginlocators.ts
 
 let page: Page;
 let loginpage: LoginPage;
 let browser: Browser;
+let loginlocators : Loginlocators;
 
 setDefaultTimeout(60 * 1000 * 2)
 
+
 BeforeAll(async () => {
-  browser = await chromium.launch({ headless: false });
+  browser = await chromium.launch({ headless: false ,args: ['--window-position=-8,0']});
   page = await browser.newPage();
   loginpage = new LoginPage(page);
+  loginlocators = new Loginlocators(page);
+
+
 });
+
 // 1) Scenario: User Verify the visible Components # src\test\features\loginPage.feature:6
 
 Given('User Login to OrangeHrm application', async function () {
+  console.log("`${ENV.BASEURL}`======",`${ENV.BASEURL}`);
   await loginpage.visit(`${ENV.BASEURL}`);
   await page.waitForTimeout(5000);
 });
 
 Then('User verify the OrangeHRM Logo', async function () {
   await loginpage.logoVisibility();
+  console.log("testing logo");
 });
 
 Then('User verify the loginPage Logo', async function () {
@@ -38,20 +48,19 @@ Then('User verify the username and password components', async function () {
 });
 
 Then('User verify the username input and password input', async function () {
-  await (await this.page.waitForSelector(this.loginlocators.usernameInput)).isVisible();
-  await (await this.page.waitForSelector(this.loginlocators.passwordInput)).isVisible();
+  await (await page.waitForSelector(loginlocators.usernameInput)).isVisible();
+  await (await page.waitForSelector(loginlocators.passwordInput)).isVisible();
   console.log("testing3");
 });
 
 Then('User verify the login button and forget password option', async function () {
-  await loginpage.loginbtn();
-  await loginpage.forgotPassword();
+  await (await page.waitForSelector(loginlocators.loginBtn)).isVisible();
+  await (await page.waitForSelector(loginlocators.loginBtn)).isVisible();
   console.log("testing4")
 });
 
 
 // 2) Scenario: User Login should be success # src\test\features\loginPage.feature:13
-
 
 Then('User enter the username ', async function () {
   console.log("username")
@@ -159,6 +168,13 @@ Then('verify the User back to login page', async function () {
 
 
 // });
+
+AfterAll(async () => {
+  await page.close();
+  await browser.close();
+})
+
+
 
 
 
