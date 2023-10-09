@@ -62,14 +62,14 @@ Then('User verify the login button and forget password option', async function (
 
 // 2) Scenario: User Login should be success # src\test\features\loginPage.feature:13
 
-Then('User enter the username ', async function () {
-  console.log("username")
+Then('User enter the username', async function () {
+  console.log("username",`${ENV.USERNAME}`)
   await loginpage.usernameinputComponent(`${ENV.USERNAME}`);
 });
 
-Then('User enter the password ', async function () {
+Then('User enter the password', async function () {
   console.log(" password", `${ENV.PASSWORD}`)
-  await loginpage.usernameinputComponent(`${ENV.PASSWORD}`);
+  await loginpage.passwordinputComponent(`${ENV.PASSWORD}`);
 
 });
 
@@ -81,13 +81,13 @@ Then('User click on the login button', async function () {
 
 Then('Login should be success', async function () {
   await page.waitForTimeout(5000);
-  await expect(page).toHaveURL(/.*dashboard/);
+  await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
   console.log("testing5")
 
 });
 
 
-// // // 3) Scenario: Verifying User should be able to click forget password button # src\test\features\loginPage.feature:19
+// 3) Scenario: Verifying User should be able to click forget password button # src\test\features\loginPage.feature:19
 
 Then('User should able to click the forgot password', async function () {
   console.log("testing6")

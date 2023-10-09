@@ -37,12 +37,12 @@ export  class LoginPage {
     async passwordinputComponent(password :string){
         await (await this.page.waitForSelector(this.loginlocators.passwordInput)).isVisible();
         await (await this.page.waitForSelector(this.loginlocators.passwordInput)).isEditable();
-        await  this.page.locator(this.loginlocators.usernameInput).fill(password);
+        await  this.page.locator(this.loginlocators.passwordInput).fill(password);
     }
     
     async loginbtn(){
         await (await this.page.waitForSelector(this.loginlocators.loginBtn)).isVisible();
-        await this.page.locator(this.loginlocators.loginBtn).click();
+        await this.page.locator(this.loginlocators.loginBtn).click({force : true});
     }
 
 
