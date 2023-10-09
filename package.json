@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/NaveenChittimodu/Playwright_Cucumber_Traning#readme",
   "devDependencies": {
-    "@cucumber/cucumber": "^9.5.1",
+    "@cucumber/cucumber": "^9.6.0",
     "@playwright/test": "^1.38.1",
     "@types/node": "^20.8.2",
     "ts-node": "^10.9.1"

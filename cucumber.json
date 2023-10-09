@@ -8,9 +8,9 @@
         ],
         "dryRun": false,
         "require": [
-            "src/test/steps/*.ts"
+            "src/test/steps/*.spec.ts"
         ],
-        "requireModule": [
+        "requireModule": [ 
             "ts-node/register"
         ],
         "format":[
