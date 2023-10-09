@@ -14,6 +14,11 @@ export class Loginlocators{
     readonly logoutButton : string;
     readonly resetusernamecomponent : string;
     readonly resetusernameInput : string;
+    readonly logoutBTN :string;
+    readonly resetPasswordCancelBtn: string;
+    readonly resetPasswordVerifyBtn:string;
+    readonly resetUsernameInput:string;
+
    
     constructor(page: Page){
         this.page = page
@@ -23,10 +28,16 @@ export class Loginlocators{
         this.usernameInput = "//input[@name='username']"
         this.passwordInput = "//input[@name='password']"
         this.loginBtn = "//button[@type='submit']"
-        this.forgotPassword = "//a[@id='forgotPasswordLink']"
+        this.forgotPassword = "//p[@class='oxd-text oxd-text--p orangehrm-login-forgot-header']"
         this.welcomeMessage = "//h1[@class='welcome-message']"
         this.logoutButton = "//button[@id='logoutButton']"
+        this.logoutBTN="//a[text()='Logout']"
         this.resetusernamecomponent = "//input[@name='username']"
         this.resetusernameInput = "//input[@name='username']"
+        this.resetPasswordCancelBtn="//button[@class='oxd-button oxd-button--large oxd-button--ghost orangehrm-forgot-password-button orangehrm-forgot-password-button--cancel']"
+        this.resetPasswordVerifyBtn="//button[@class='oxd-button oxd-button--large oxd-button--secondary orangehrm-forgot-password-button orangehrm-forgot-password-button--reset']"
+        this.resetUsernameInput ="//input[@class='oxd-input oxd-input--active']";
+        
+
     }
 }
