@@ -10,7 +10,7 @@
         "require": [
             "src/test/steps/*.ts"
         ],
-        "requireModule": [
+        "requireModule": [ 
             "ts-node/register"
         ],
         "format":[

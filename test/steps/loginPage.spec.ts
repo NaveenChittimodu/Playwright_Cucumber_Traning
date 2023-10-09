@@ -1,7 +1,8 @@
 import { Given, When, Then, Before, BeforeAll, setDefaultTimeout } from "@cucumber/cucumber";
-import { Page, chromium, Browser } from "@playwright/test";
-import LoginPage from "../../../e2e/pageObject/login_Page"
-import { myBrowserFixture } from "../../../e2e/common/fixtures";
+import { Page, chromium, Browser, expect } from "@playwright/test";
+import { LoginPage } from "../../src/pages/login_Page"
+import { myBrowserFixture } from "../../src/common/Fixtures/fixtures";
+import ENV from "../../src/utils/env";
 
 let page: Page;
 let loginpage: LoginPage;
@@ -10,71 +11,69 @@ let browser: Browser;
 setDefaultTimeout(60 * 1000 * 2)
 
 BeforeAll(async () => {
-    browser = await chromium.launch({ headless: false });
-    page = await browser.newPage();
-    loginpage = new LoginPage(page);
-    await loginpage.browserLaunch();
-    await page.waitForTimeout(5000)
+  browser = await chromium.launch({ headless: false });
+  page = await browser.newPage();
+  loginpage = new LoginPage(page);
 });
 // 1) Scenario: User Verify the visible Components # src\test\features\loginPage.feature:6
 
 Given('User Login to OrangeHrm application', async function () {
-
-    await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
-
+  await loginpage.visit(`${ENV.BASEURL}`);
+  await page.waitForTimeout(5000);
 });
 
 Then('User verify the OrangeHRM Logo', async function () {
-    await loginpage.logoVisibility();
+  await loginpage.logoVisibility();
 });
 
 Then('User verify the loginPage Logo', async function () {
-    await loginpage.logoVisibility();
-
+  await loginpage.logoVisibility();
+  console.log("testing1");
 });
+
 Then('User verify the username and password components', async function () {
-    await loginpage.logoVisibility();
-
-
+  await loginpage.usernameComponent();
+  await loginpage.passwordComponent();
+  console.log("testing2");
 });
 
 Then('User verify the username input and password input', async function () {
-    await loginpage.logoVisibility();
-    console.log("testing3")
-
+  await (await this.page.waitForSelector(this.loginlocators.usernameInput)).isVisible();
+  await (await this.page.waitForSelector(this.loginlocators.passwordInput)).isVisible();
+  console.log("testing3");
 });
 
 Then('User verify the login button and forget password option', async function () {
-    await loginpage.logoVisibility();
-    console.log("testing4")
-
+  await loginpage.loginbtn();
+  await loginpage.forgotPassword();
+  console.log("testing4")
 });
 
 
 // 2) Scenario: User Login should be success # src\test\features\loginPage.feature:13
 
 
-Then('User enter the username as {string}', async function (username) {
-    console.log("testing")
-    await loginpage.enterText("//input[@name='username']", username);
-
-
+Then('User enter the username ', async function () {
+  console.log("username")
+  await loginpage.usernameinputComponent(`${ENV.USERNAME}`);
 });
 
-Then('User enter the password as {string}', async function (password) {
-    await loginpage.enterText("//input[@name='password']", password);
-    console.log("testing")
+Then('User enter the password ', async function () {
+  console.log(" password", `${ENV.PASSWORD}`)
+  await loginpage.usernameinputComponent(`${ENV.PASSWORD}`);
 
 });
 
 Then('User click on the login button', async function () {
-    await loginpage.clickButton("//button[@type='submit']")
-    console.log("testing")
+  await loginpage.loginbtn();
+  console.log("login button");
 
 });
 
 Then('Login should be success', async function () {
-    console.log("testing5")
+  await page.waitForTimeout(5000);
+  await expect(page).toHaveURL(/.*dashboard/);
+  console.log("testing5")
 
 });
 
@@ -83,16 +82,12 @@ Then('Login should be success', async function () {
 
 Then('User should able to click the forgot password', async function () {
   console.log("testing6")
-  await loginpage.forgotPassword()
-
-
+  await loginpage.forgotPassword();
 });
 
 
-
 Then('User Verify the Username Components', async function () {
-  console.log("testing7")
-
+  console.log("testing7") 
 });
 
 

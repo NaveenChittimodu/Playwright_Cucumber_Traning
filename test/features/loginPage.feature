@@ -11,10 +11,11 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then User verify the login button and forget password option
 
     Scenario:User Login should be success  
-        Then User enter the username as "Admin"
-        Then User enter the password as "admin123"
-        Then User click on the login button
+        Then User enter the username
+        Then User enter the password 
+        When User click on the login button
         Then Login should be success
+
 
     Scenario:Verifying User should be able to click forget password button
         Then User should able to click the forgot password
