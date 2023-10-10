@@ -12,11 +12,6 @@ export class Loginlocators{
     readonly forgotPassword : string;
     readonly welcomeMessage : string;
     readonly logoutButton : string;
-<<<<<<< HEAD
-    readonly cancelBtn : string;
-    readonly usernameresetInput : string;
-    readonly resetPassword : string;
-=======
     readonly resetusernamecomponent : string;
     readonly resetusernameInput : string;
     readonly logoutBTN :string;
@@ -25,7 +20,6 @@ export class Loginlocators{
     readonly resetUsernameInput:string;
     readonly resetSuccessMessage:string;
 
->>>>>>> d1b950ecd90d6d48fd3a0c88fcce62e5aafc5f45
    
     constructor(page: Page){
         this.page = page
@@ -33,19 +27,8 @@ export class Loginlocators{
         this.userName = "//p[text()='Username : Admin']";
         this.password = "//p[text()='Password : admin123']";
         this.usernameInput = "//input[@name='username']"
-        this.usernameresetInput = "///label[text()='Username']/following::input"
         this.passwordInput = "//input[@name='password']"
         this.loginBtn = "//button[@type='submit']"
-<<<<<<< HEAD
-        this.cancelBtn = "//button[text()=' Cancel ']"
-        // this.forgotPassword = "//button[text()=' Reset Password ']"
-        this.forgotPassword = "//button[text()='Forgot your password? ']"
-        this.resetPassword = "//p[text()=' Reset Password ']"
-        // this.resetPassword = "//p[text()='Forgot your password? ']"
-        this.welcomeMessage = "//h1[@class='welcome-message']"
-        this.logoutButton = "//button[@id='logoutButton']"
-        
-=======
         this.forgotPassword = "//p[@class='oxd-text oxd-text--p orangehrm-login-forgot-header']"
         this.welcomeMessage = "//h1[@class='welcome-message']"
         this.logoutButton = "//button[@id='logoutButton']"
@@ -59,6 +42,5 @@ export class Loginlocators{
 
         
 
->>>>>>> d1b950ecd90d6d48fd3a0c88fcce62e5aafc5f45
     }
 }

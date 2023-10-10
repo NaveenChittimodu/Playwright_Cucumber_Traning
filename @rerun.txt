@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-src\test\features\loginPage.feature:20
-=======
-src\test\features\leavePage.feature:7
->>>>>>> d1b950ecd90d6d48fd3a0c88fcce62e5aafc5f45

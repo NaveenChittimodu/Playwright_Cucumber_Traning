@@ -17,11 +17,7 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then Login should be success
 
 
-<<<<<<< HEAD
-    Scenario: Verifying User should be able to click forget password button
-=======
     Scenario:Verifying User should be able to click forget password button
->>>>>>> d1b950ecd90d6d48fd3a0c88fcce62e5aafc5f45
         Then User should able to click the forgot password
         Then User Verify the Username Components
         Then User Verify the Cancel button
@@ -33,14 +29,4 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         When User should able to click the forgot password
         Then User pass the username in the input box
         Then User click the reset password
-<<<<<<< HEAD
-        Then verify the reset password success message 
-        
-    # Scenario: Login should not be success
-    #      Then User enter the username as "kasthuri"
-    #      Then User enter the password as "Kasthuri@123"
-    #      When User click on the login button
-    #      Then login should fail 
-=======
         Then verify the reset password success message
->>>>>>> d1b950ecd90d6d48fd3a0c88fcce62e5aafc5f45
