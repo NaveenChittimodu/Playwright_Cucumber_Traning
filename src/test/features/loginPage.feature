@@ -30,9 +30,3 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then User pass the username in the input box
         Then User click the reset password
         Then verify the reset password success message
-
-    Scenario: Login should not be success
-        Then User enter the username 
-        Then User enter the password
-        When User click on the login button
-        Then login should fail

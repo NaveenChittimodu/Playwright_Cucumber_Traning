@@ -18,6 +18,7 @@ export class Loginlocators{
     readonly resetPasswordCancelBtn: string;
     readonly resetPasswordVerifyBtn:string;
     readonly resetUsernameInput:string;
+    readonly resetSuccessMessage:string;
 
    
     constructor(page: Page){
@@ -37,6 +38,8 @@ export class Loginlocators{
         this.resetPasswordCancelBtn="//button[@class='oxd-button oxd-button--large oxd-button--ghost orangehrm-forgot-password-button orangehrm-forgot-password-button--cancel']"
         this.resetPasswordVerifyBtn="//button[@class='oxd-button oxd-button--large oxd-button--secondary orangehrm-forgot-password-button orangehrm-forgot-password-button--reset']"
         this.resetUsernameInput ="//input[@class='oxd-input oxd-input--active']";
+        this.resetSuccessMessage="//h6[@class='oxd-text oxd-text--h6 orangehrm-forgot-password-title']";
+
         
 
     }

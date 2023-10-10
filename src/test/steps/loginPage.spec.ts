@@ -129,8 +129,6 @@ When('User Click the cancel button', async function () {
 
 });
 
-
-
 Then('verify the User back to login page', async function () {
   await page.waitForTimeout(5000);
   await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
@@ -144,7 +142,7 @@ Then('verify the User back to login page', async function () {
 Then('User pass the username in the input box', async function () {
   await loginpage.resetUserName(`${ENV.USERNAME}`);
   await page.waitForTimeout(3000)
-    console.log("testing13")
+  console.log("User pass the username in the input box")
 
 
 });
@@ -152,27 +150,19 @@ Then('User pass the username in the input box', async function () {
 
 
 Then('User click the reset password', async function () {
-    console.log("testing14")
-
+  await loginpage.clickResetPassword()
+  await page.waitForTimeout(3000)
+  console.log("User click the reset password")
 
 });
-
 
 Then('verify the reset password success message', async function () {
-    console.log("testing15")
+  await loginpage.verifyResetMessage()
+  console.log("verify the reset password success message")
 
 
 });
 
-
-// // 5) Scenario: Login should not be success # src\test\features\loginPage.feature:33
-
-
-Then('login should fail', async function () {
-    console.log("testing12")
-
-
-});
 
 AfterAll(async () => {
   await page.close();

@@ -106,4 +106,15 @@ export class LoginPage {
         await this.page.waitForTimeout(5000);
         
     }
+    async clickResetPassword(){
+        await (await this.page.waitForSelector(this.loginlocators.resetPasswordVerifyBtn)).click({force:true})
+        console.log("clicked reset password button")
+    }
+    async verifyResetMessage(){
+        let verifyResetMessage = await (await this.page.waitForSelector(this.loginlocators.resetSuccessMessage)).isVisible();
+        let successMsg =await (await this.page.waitForSelector(this.loginlocators.resetSuccessMessage)).textContent()
+        console.log(successMsg)
+        console.log("Verification of usernameComponent:", verifyResetMessage)
+
+    }
 }
