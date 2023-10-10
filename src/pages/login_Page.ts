@@ -44,6 +44,10 @@ export  class LoginPage {
         await (await this.page.waitForSelector(this.loginlocators.loginBtn)).isVisible();
         await this.page.locator(this.loginlocators.loginBtn).click({force : true});
     }
+    async cancelbtn(){
+        await (await this.page.waitForSelector(this.loginlocators.cancelBtn)).isVisible();
+        await this.page.locator(this.loginlocators.cancelBtn).click({force : true});
+    }
 
 
     async fillValue(element: Locator, value: any) {
@@ -67,9 +71,20 @@ export  class LoginPage {
         await this.page.locator(locator).click({ force: true });
     }
 
+    async verifyforgotPassword(){
+        let forgot_password_visible = await (await this.page.waitForSelector(this.loginlocators.forgotPassword)).isVisible()
+        console.log("=====forgot_password_visible : ",forgot_password_visible)
+    }
     async forgotPassword(){
-        let forgot_password_visible = await this.page.locator(this.loginlocators.forgotPassword).isVisible()
-        console.log("=====ghzhtc",forgot_password_visible)
+        await (await this.page.waitForSelector(this.loginlocators.forgotPassword)).isVisible()
         await this.page.locator(this.loginlocators.forgotPassword).click();
+    }
+    async resetPassword(){
+        await (await this.page.waitForSelector(this.loginlocators.usernameInput)).isVisible()
+    }
+    async usernameReset(username:string){
+        await (await this.page.waitForSelector(this.loginlocators.usernameresetInput)).isVisible();
+        await (await this.page.waitForSelector(this.loginlocators.usernameresetInput)).isEditable();
+        await  this.page.locator(this.loginlocators.usernameresetInput).fill(username);
     }
 }

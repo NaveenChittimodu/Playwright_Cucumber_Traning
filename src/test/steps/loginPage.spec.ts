@@ -19,8 +19,6 @@ BeforeAll(async () => {
   page = await browser.newPage();
   loginpage = new LoginPage(page);
   loginlocators = new Loginlocators(page);
-
-
 });
 
 // 1) Scenario: User Verify the visible Components # src\test\features\loginPage.feature:6
@@ -90,32 +88,41 @@ Then('Login should be success', async function () {
 // 3) Scenario: Verifying User should be able to click forget password button # src\test\features\loginPage.feature:19
 
 Then('User should able to click the forgot password', async function () {
-  console.log("testing6")
   await loginpage.forgotPassword();
+  await loginpage.resetPassword();
+  console.log("testing6")
 });
 
 
 Then('User Verify the Username Components', async function () {
+  await (await page.waitForSelector(loginlocators.usernameInput)).isVisible();
   console.log("testing7") 
 });
 
 
 
 Then('User Verify the Cancel button', async function () {
+  await loginpage.cancelbtn();
   console.log("testing8")
-
 });
 
 
 
 Then('User Verify the Reset Password button', async function () {
+  await loginpage.visit(`${ENV.BASEURL}`);
+  await expect(page).toHaveURL(`${ENV.BASEURL}`);
+  await page.waitForTimeout(5000);
+  await loginpage.forgotPassword();
+  await loginpage.resetPassword();
+ 
   console.log("testing9")
-
 });
 
 
 
 When('User Click the cancel button', async function () {
+  await loginpage.cancelbtn();
+  
   console.log("testing10")
 
 });
@@ -123,51 +130,12 @@ When('User Click the cancel button', async function () {
 
 
 Then('verify the User back to login page', async function () {
+  await expect(page).toHaveURL(`${ENV.BASEURL}`);
   console.log("testing11")
 
 });
 
 
-// // 4) Scenario: Verifying User should be able reset password # src\test\features\loginPage.feature:27
-
-
-// When('User should able to click the forgot password', async function () {
-//     console.log("testing12")
-
-// });
-
-
-
-// Then('User pass the username in the input box', async function () {
-//     console.log("testing13")
-
-
-// });
-
-
-
-// Then('User click the reset password', async function () {
-//     console.log("testing14")
-
-
-// });
-
-
-// Then('verify the reset password success message', async function () {
-//     console.log("testing15")
-
-
-// });
-
-
-// // 5) Scenario: Login should not be success # src\test\features\loginPage.feature:33
-
-
-// Then('login should fail', async function () {
-//     console.log("testing12")
-
-
-// });
 
 AfterAll(async () => {
   await page.close();
