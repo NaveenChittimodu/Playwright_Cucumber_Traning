@@ -4,7 +4,7 @@ export class Loginlocators{
    
     readonly page: Page;
     readonly logoImg: string;
-     readonly userName: string;
+    readonly userName: string;
     readonly password: string;
     readonly usernameInput: string;
     readonly passwordInput : string;
@@ -19,6 +19,7 @@ export class Loginlocators{
     readonly resetPasswordVerifyBtn:string;
     readonly resetUsernameInput:string;
     readonly resetSuccessMessage:string;
+    readonly userIconDrop:string;
 
    
     constructor(page: Page){
@@ -39,6 +40,7 @@ export class Loginlocators{
         this.resetPasswordVerifyBtn="//button[@class='oxd-button oxd-button--large oxd-button--secondary orangehrm-forgot-password-button orangehrm-forgot-password-button--reset']"
         this.resetUsernameInput ="//input[@class='oxd-input oxd-input--active']";
         this.resetSuccessMessage="//h6[@class='oxd-text oxd-text--h6 orangehrm-forgot-password-title']";
+        this.userIconDrop="//p[@class='oxd-userdropdown-name']";
 
         
 

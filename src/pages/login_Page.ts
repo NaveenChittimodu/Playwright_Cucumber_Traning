@@ -19,6 +19,12 @@ export class LoginPage {
         let logoValidation = await (await this.page.waitForSelector(this.loginlocators.logoImg)).isVisible();
         console.log(logoValidation)
     }
+    async loginOrangeHRM(userName: string , password : string){
+        await this.logoVisibility();
+        await this.usernameinputComponent(userName);
+        await this.passwordinputComponent(password);
+        await this.loginbtn();
+     }
 
     async usernameComponent() {
         let usernameComponent = await (await this.page.waitForSelector(this.loginlocators.userName)).isVisible();
@@ -52,6 +58,7 @@ export class LoginPage {
         await this.page.locator(this.loginlocators.loginBtn).click({ force: true });
     }
     async LogoutBtn() {
+        await this.page.locator(this.loginlocators.userIconDrop).click({ force: true })
         await this.page.locator(this.loginlocators.logoutBTN).click({ force: true })
 
     }

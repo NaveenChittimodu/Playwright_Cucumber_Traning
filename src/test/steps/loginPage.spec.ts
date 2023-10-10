@@ -84,7 +84,7 @@ Then('Login should be success', async function () {
   await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
   console.log("testing5")
   await page.waitForTimeout(5000);
-  await page.locator("//p[@class='oxd-userdropdown-name']").click({ force: true })
+  
   await loginpage.LogoutBtn()
 
 });
@@ -146,8 +146,6 @@ Then('User pass the username in the input box', async function () {
 
 
 });
-
-
 
 Then('User click the reset password', async function () {
   await loginpage.clickResetPassword()
