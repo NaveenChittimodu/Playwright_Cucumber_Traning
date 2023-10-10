@@ -12,9 +12,20 @@ export class Loginlocators{
     readonly forgotPassword : string;
     readonly welcomeMessage : string;
     readonly logoutButton : string;
+<<<<<<< HEAD
     readonly cancelBtn : string;
     readonly usernameresetInput : string;
     readonly resetPassword : string;
+=======
+    readonly resetusernamecomponent : string;
+    readonly resetusernameInput : string;
+    readonly logoutBTN :string;
+    readonly resetPasswordCancelBtn: string;
+    readonly resetPasswordVerifyBtn:string;
+    readonly resetUsernameInput:string;
+    readonly resetSuccessMessage:string;
+
+>>>>>>> d1b950ecd90d6d48fd3a0c88fcce62e5aafc5f45
    
     constructor(page: Page){
         this.page = page
@@ -25,6 +36,7 @@ export class Loginlocators{
         this.usernameresetInput = "///label[text()='Username']/following::input"
         this.passwordInput = "//input[@name='password']"
         this.loginBtn = "//button[@type='submit']"
+<<<<<<< HEAD
         this.cancelBtn = "//button[text()=' Cancel ']"
         // this.forgotPassword = "//button[text()=' Reset Password ']"
         this.forgotPassword = "//button[text()='Forgot your password? ']"
@@ -33,5 +45,20 @@ export class Loginlocators{
         this.welcomeMessage = "//h1[@class='welcome-message']"
         this.logoutButton = "//button[@id='logoutButton']"
         
+=======
+        this.forgotPassword = "//p[@class='oxd-text oxd-text--p orangehrm-login-forgot-header']"
+        this.welcomeMessage = "//h1[@class='welcome-message']"
+        this.logoutButton = "//button[@id='logoutButton']"
+        this.logoutBTN="//a[text()='Logout']"
+        this.resetusernamecomponent = "//input[@name='username']"
+        this.resetusernameInput = "//input[@name='username']"
+        this.resetPasswordCancelBtn="//button[@class='oxd-button oxd-button--large oxd-button--ghost orangehrm-forgot-password-button orangehrm-forgot-password-button--cancel']"
+        this.resetPasswordVerifyBtn="//button[@class='oxd-button oxd-button--large oxd-button--secondary orangehrm-forgot-password-button orangehrm-forgot-password-button--reset']"
+        this.resetUsernameInput ="//input[@class='oxd-input oxd-input--active']";
+        this.resetSuccessMessage="//h6[@class='oxd-text oxd-text--h6 orangehrm-forgot-password-title']";
+
+        
+
+>>>>>>> d1b950ecd90d6d48fd3a0c88fcce62e5aafc5f45
     }
 }
