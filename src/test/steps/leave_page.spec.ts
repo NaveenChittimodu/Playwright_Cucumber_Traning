@@ -26,32 +26,94 @@ BeforeAll(async () => {
 Given('User Login to OrangeHrm application', async function () {
     console.log("`${ENV.BASEURL}`======", `${ENV.BASEURL}`);
     await loginPage.visit(`${ENV.BASEURL}`);
+    await page.waitForTimeout(3000);
     await loginPage.loginOrangeHRM(`${ENV.USERNAME}`, `${ENV.PASSWORD}`);
-    await page.waitForTimeout(4000);
+    
+    //
 });
-When('User click on leave Page menu', async function () {
+When('user is able to see Apply Leave page and components', async function () {
     await leavePage.clickMainLeave();
-    await page.waitForTimeout(2000);
+    await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewLeaveList");
+    await leavePage.leavePageComponent();
 
 });
 
-Then('User verify the leave Page visibility', async function () {
-    // // await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewLeaveList");
-    // console.log("User verify the leave Page visibility")
-    // // await page.waitForTimeout(3000);
+
+Then('user is able to see My leave list components', async function () {
+    await leavePage.myListComponent();
+});
+
+
+
+Then('user is able to see Reset functionality', async function () {
+    await leavePage.verifyReset();
+    
+
+});
+
+
+Then('user is able to see Search functionality', async function () {
+    await leavePage.verifySearch();
+
+    
+});
+
+Then('user is able to see List page components', async function () {
+    console.log("1234")
+
+});
+
+Then('user is able to perform List page components multiselect functionality', async function () {
+    console.log("1234")
+
+});
+
+
+Then('user is able to perform List page components individual select', async function () {
+    console.log("1234")
+
+});
+
+
+
+Then('user is able to perform view functionality', async function () {
+    console.log("1234")
+
+});
+
+
+Then('user is able to perform edit functionality', async function () {
+    console.log("1234")
+
+});
+
+
+
+Then('user is able to perform delete functionality', async function () {
+    console.log("1234")
+
+});
+// ##############################################
+
+
+When('user is able to see Add Entitlements Components', async function () {
+    await leavePage.addEntitleComponent();
 
 
 });
 
-Then('click on apply', async function () {
-    await leavePage.clickApplyBtn();
-    console.log("testing 3")
+
+Then('user is able to Perform Cancel functionality', async function () {
+    await leavePage.entitlePageCancel();
+});
+
+Then('user is able to Perform Save functionality', async function () {
+    await leavePage.entitilementSave();
 
 });
 
-Then('verify apply leave components', async function () {
-    console.log("testing 4")
 
+Then('user is able to see Employee entitlement components', async function () {
 
 });
 
