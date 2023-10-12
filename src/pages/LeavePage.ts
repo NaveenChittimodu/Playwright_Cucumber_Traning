@@ -12,8 +12,8 @@ export class LeavePage {
     }
     async clickMainLeave() {
         await this.page.waitForSelector(this.leavePageLocators.mainLeave);
-        await this.page.locator(this.leavePageLocators.mainLeave).isVisible();
-        await this.page.locator(this.leavePageLocators.mainLeave).click({force:true});
+        // await this.page.locator(this.leavePageLocators.mainLeave).isVisible();
+        await this.page.locator(this.leavePageLocators.mainLeave).click();
 
     }
     async leavePageComponent(){
@@ -40,6 +40,8 @@ export class LeavePage {
 
     }
     async verifyReset(){
+        await this.page.locator(this.leavePageLocators.myleave).isVisible();
+        await this.page.locator(this.leavePageLocators.myleave).click({force:true});
         await this.page.locator(this.leavePageLocators.myLeaveReset).isVisible();
         await this.page.locator(this.leavePageLocators.myLeaveReset).isEnabled()
 
@@ -48,10 +50,6 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.myLeaveSearch).isVisible();
     }
     async addEntitleComponent(){
-        await this.page.waitForSelector(this.leavePageLocators.entitlements);
-        await this.page.locator(this.leavePageLocators.entitlements).isVisible();
-        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
-        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
         await this.page.waitForSelector(this.leavePageLocators.entitlements);
         await this.page.locator(this.leavePageLocators.entitlements).isVisible();
         await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
@@ -69,17 +67,57 @@ export class LeavePage {
         await expect(this.page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewLeaveEntitlements");
     }
     async entitilementSave(){
+        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
+        await this.page.locator(this.leavePageLocators.editEntitle).click({force:true});
         await this.page.locator(this.leavePageLocators.entitlementSave).isVisible();
         await this.page.locator(this.leavePageLocators.entitlementSave).click()
     }
     async employeeEntitle(){
-        await this.page.waitForSelector(this.leavePageLocators.entitlements);
-        await this.page.locator(this.leavePageLocators.entitlements).isVisible();
+        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
         await this.page.waitForSelector(this.leavePageLocators.employeeEntitle);
         await this.page.locator(this.leavePageLocators.employeeEntitle).isVisible();
+    }
 
+    async employeeEntitlementSerch(){
+        await this.page.locator(this.leavePageLocators.employeeEntitle).isVisible();
+        await this.page.locator(this.leavePageLocators.employeeEntitle).click({force:true})
+        await this.page.locator(this.leavePageLocators.employeeEntitleSearch).isVisible();
+        await this.page.locator(this.leavePageLocators.employeeEntitleSearch).isVisible();
+    }
+    async myLeaveEntitlement(){
+        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
+        await this.page.locator(this.leavePageLocators.myEntitlements).isVisible();
+        await this.page.locator(this.leavePageLocators.myEntitlements).click({force:true});
+        await this.page.locator(this.leavePageLocators.myLeaveEntitlement).isVisible();
+    }
+
+    async myLeaveEntitlementSearch(){
+        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
+        await this.page.locator(this.leavePageLocators.myEntitlements).isVisible();
+        await this.page.locator(this.leavePageLocators.myEntitlements).click({force:true});
+        await this.page.locator(this.leavePageLocators.myLeaveEntitlement).isVisible();
+        await this.page.locator(this.leavePageLocators.myLeaveEntitlementSerch).isVisible();
 
     }
+    async myLeaveEntitlementComponents(){
+        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
+        await this.page.locator(this.leavePageLocators.myEntitlements).isVisible();
+        await this.page.locator(this.leavePageLocators.myEntitlements).click({force:true});
+        await this.page.locator(this.leavePageLocators.myLeaveEntitlement).isVisible();
+        await this.page.locator(this.leavePageLocators.myLeaveEntitlementSerch).isVisible();
+
+    }
+
+    async verifyLeaveEntitilementAndReport(){
+        await this.page.locator(this.leavePageLocators.leaveReport).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveReport).click({force:true});
+        await this.page.locator(this.leavePageLocators.LeaveEntitilementAndRepor).isVisible();
+
+    }
+
+
+
+    //
 
 
 }

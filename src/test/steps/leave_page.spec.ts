@@ -15,6 +15,8 @@ let browser: Browser;
 let leaveLocators: LeavePageLocators;
 let leavePage: LeavePage
 
+setDefaultTimeout(60 * 1000 * 2)
+
 BeforeAll(async () => {
     browser = await chromium.launch({ headless: false, args: ['--window-position=-8,0'] });
     page = await browser.newPage();
@@ -28,8 +30,9 @@ Given('User Login to OrangeHrm application', async function () {
     await loginPage.visit(`${ENV.BASEURL}`);
     await page.waitForTimeout(3000);
     await loginPage.loginOrangeHRM(`${ENV.USERNAME}`, `${ENV.PASSWORD}`);
-    
-    //
+
+
+
 });
 When('user is able to see Apply Leave page and components', async function () {
     await leavePage.clickMainLeave();
@@ -45,17 +48,15 @@ Then('user is able to see My leave list components', async function () {
 
 
 
-Then('user is able to see Reset functionality', async function () {
+Then('user is able to see Reset functionality', async function () { 
     await leavePage.verifyReset();
-    
 
 });
 
 
 Then('user is able to see Search functionality', async function () {
     await leavePage.verifySearch();
-
-    
+  
 });
 
 Then('user is able to see List page components', async function () {
@@ -97,6 +98,7 @@ Then('user is able to perform delete functionality', async function () {
 
 
 When('user is able to see Add Entitlements Components', async function () {
+    await leavePage.clickMainLeave();
     await leavePage.addEntitleComponent();
 
 
@@ -114,8 +116,35 @@ Then('user is able to Perform Save functionality', async function () {
 
 
 Then('user is able to see Employee entitlement components', async function () {
+    await leavePage.employeeEntitle();
 
 });
+
+
+Then('user is able to see Search Employee Entitlements Components', async function () {
+    await leavePage.employeeEntitlementSerch()
+
+});
+
+Then('user is able to see My leave entitlements components', async function () {
+    await leavePage.myLeaveEntitlement()
+
+});
+
+Then('user is able to Perform My leave entitlements search components', async function () {
+    await leavePage.myLeaveEntitlementSearch()
+
+});
+Then('user is able to see My leave entitlements List page components', async function () {
+    await leavePage.myLeaveEntitlementComponents()
+
+});
+
+Then('user is able to see Leave Entitlements and Usage Report components', async function () {
+    await leavePage.verifyLeaveEntitilementAndReport()
+
+});
+//
 
 
 

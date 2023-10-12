@@ -35,6 +35,15 @@ export class LeavePageLocators{
     readonly entitlementCancel:string;
     readonly entitlementSave:string;
     readonly employeeEntitle:string;
+    readonly employeeEntitleSearch:string;
+    readonly myEntitlements:string;
+    readonly myLeaveEntitlement:string;
+    readonly myLeaveEntitlementSerch:string;
+
+
+    // report
+    readonly leaveReport:string;
+    readonly LeaveEntitilementAndRepor:string;
 
 
     constructor(page:Page){
@@ -70,8 +79,20 @@ export class LeavePageLocators{
         this.entitlements="//span[text()='Entitlements ']";
         this.editEntitle="//a[contains(text(),'Add Entitlements')]";
         this.entitlementCancel="//button[text()=' Cancel ']";
-        this.entitlementSave="//button[text()=' Save ']";
+        this.entitlementSave="//button[@type='submit']";
         this.employeeEntitle="//a[text()='Employee Entitlements']";
+        this.employeeEntitleSearch="//button[@type='submit']";
+        this.myEntitlements="//a[text()='My Entitlements']";
+        this.myLeaveEntitlement="//h5[text()='My Leave Entitlements']";
+        this.myLeaveEntitlementSerch="//button[@type='submit']";
+
+
+        //// report
+
+        this.leaveReport="//span[text()='Reports ']";
+        this.LeaveEntitilementAndRepor="//a[text()='Leave Entitlements and Usage Report']";
+
+
 
 
     }

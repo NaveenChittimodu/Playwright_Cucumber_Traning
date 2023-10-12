@@ -55,7 +55,7 @@ Then('User verify the username input and password input', async function () {
 
 Then('User verify the login button and forget password option', async function () {
   await (await page.waitForSelector(loginlocators.loginBtn)).isVisible();
-  await (await page.waitForSelector(loginlocators.loginBtn)).isVisible();
+  await (await page.waitForSelector(loginlocators.forgotPassword)).isVisible();
   console.log("testing4")
 });
 
