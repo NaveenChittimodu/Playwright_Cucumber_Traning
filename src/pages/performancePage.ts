@@ -1,21 +1,25 @@
 import { Page, expect, Locator } from "@playwright/test";
-
-import {Performancelocators } from "../common/Locators/Performancelocators";
+import { GenericPage } from "../utils/Genericmethods";
+import { Adminlocators} from "../common/Locators/adminlocators"
 
 
 export class PerformancePage {
     readonly page: Page;
-    private readonly performancelocators: Performancelocators;
+    readonly adminlocator : Adminlocators
+    private readonly genericmethodpage: GenericPage;
 
 
     constructor(page: Page) {
         this.page = page;
-        this.performancelocators = new Performancelocators(page);
+        this.genericmethodpage = new GenericPage(page)
+        this.adminlocator = new Adminlocators(page)
     }
 
 
-    async clickPerformance(){
-        await this.page.locator(this.performancelocators.performance).isVisible();
-        await this.page.locator(this.performancelocators.performance).click();
+    async clickAdmin(){
+        await this.page.locator(this.adminlocator.admin).isVisible();
+        await this.page.locator(this.adminlocator.admin).click();
     }
+
+
 }
