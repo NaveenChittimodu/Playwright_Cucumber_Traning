@@ -30,10 +30,26 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to see My leave entitlements components
         Then user is able to Perform My leave entitlements search components
         Then user is able to see My leave entitlements List page components
+        # Then user is able to Perform Add new entitlements functionality
 
 
         # record
         Then user is able to see Leave Entitlements and Usage Report components
         Then user is able to see My Leave Entitlements and Usage Report components
+        Then user is able to see My Leave Entitlements and Usage Report list page components
+
+
+
+        # config
+        Then user is able to see Leave Period components
+        Then user is able to see Leave Types list page components
+        Then user is able to see Work Week components
+        Then user is able to see Holidays components
+        # Then user is able to see Add Holiday page components
+        # Then user is able to see leave list components 
+        # Then user is able to see total leave list record in list page
+        
+
+
 
 

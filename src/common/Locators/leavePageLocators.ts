@@ -8,6 +8,8 @@ export class LeavePageLocators{
     readonly entitlements:string;
     readonly reports:string;
     readonly more :string;
+
+
   
 
 
@@ -41,10 +43,36 @@ export class LeavePageLocators{
     readonly myLeaveEntitlementSerch:string;
 
 
+    readonly employeeName:string;
+    readonly employeenameList: string;
+    readonly employeenameNumber:any;
+    readonly leaveTypeEntitlement:string;
+    readonly selectLeaveType:string;
+
+
     // report
     readonly leaveReport:string;
     readonly LeaveEntitilementAndRepor:string;
-    readonly myLeaveEntitilementAndRepor:string;
+    readonly myLeaveEntitilementAndReport:string;
+    readonly myLeaveEntitilementAndReportComponent:string;
+    readonly leavePeriod:string;
+    readonly generate:string;
+
+
+    // config 
+    readonly config:string;
+    readonly leavePeriodComponent:string;
+    readonly leaveTypeComponent:string;
+    readonly workWeekComponent :string;
+    readonly holidayComponent:string;
+
+    // holiday
+    readonly addHoliday:string;
+
+
+
+
+
 
 
     constructor(page:Page){
@@ -52,7 +80,8 @@ export class LeavePageLocators{
         this.page = page
         this.mainLeave ="//span[text()='Leave']";
         this.apply="//a[text()='Apply']";
-       
+
+    
         
         this.reports="//span[text()='Reports ']";
         this.more="//span[text()='More ']";
@@ -87,12 +116,32 @@ export class LeavePageLocators{
         this.myLeaveEntitlement="//h5[text()='My Leave Entitlements']";
         this.myLeaveEntitlementSerch="//button[@type='submit']";
 
+        this.employeeName="//input[@placeholder='Type for hints...']";
+        this.employeenameList="//div[@role='option']//span[text()='Lavonne  Casper']"
+        this.employeenameNumber="//div[@class='oxd-grid-item oxd-grid-item--gutters']//input[@class='oxd-input oxd-input--active']";
+        this.leaveTypeEntitlement="//div[text()='-- Select --']";
+        this.selectLeaveType="//span[text()='CAN - Bereavement']";
+
 
         //// report
 
         this.leaveReport="//span[text()='Reports ']";
         this.LeaveEntitilementAndRepor="//a[text()='Leave Entitlements and Usage Report']";
-        this.myLeaveEntitilementAndRepor="//a[text()='My Leave Entitlements and Usage Report']";
+        this.myLeaveEntitilementAndReport="//a[text()='My Leave Entitlements and Usage Report']";
+        this.myLeaveEntitilementAndReportComponent="div[@class='oxd-report-table --frame']";
+        this.leavePeriod="//div[@class='oxd-select-text oxd-select-text--active']";
+        this.generate="//button[@type='submit']";
+
+
+        // confif
+        this.config="//span[text()='Configure ']";
+        this.leavePeriodComponent="//a[text()='Leave Period']";
+        this.leaveTypeComponent="//a[text()='Leave Types']";
+        this.workWeekComponent="//a[text()='Work Week']";
+        this.holidayComponent="//a[text()='Holidays']";
+        this.addHoliday="";
+
+
 
 
 

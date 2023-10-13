@@ -122,34 +122,83 @@ Then('user is able to see Employee entitlement components', async function () {
 
 
 Then('user is able to see Search Employee Entitlements Components', async function () {
-    await leavePage.employeeEntitlementSerch()
+    await leavePage.employeeEntitlementSerch();
 
 });
 
 Then('user is able to see My leave entitlements components', async function () {
-    await leavePage.myLeaveEntitlement()
+    await leavePage.myLeaveEntitlement();
 
 });
 
 Then('user is able to Perform My leave entitlements search components', async function () {
-    await leavePage.myLeaveEntitlementSearch()
+    await leavePage.myLeaveEntitlementSearch();
 
 });
 Then('user is able to see My leave entitlements List page components', async function () {
-    await leavePage.myLeaveEntitlementComponents()
-
+    await leavePage.myLeaveEntitlementComponents();
+;
+});
+Then('user is able to Perform Add new entitlements functionality', async function () {
+    await leavePage.addNewEntitlement();
+;
 });
 
+
+//
+
+
 Then('user is able to see Leave Entitlements and Usage Report components', async function () {
-    await leavePage.verifyLeaveEntitilementAndReport()
+    await leavePage.verifyLeaveEntitilementAndReport();
 
 });
 
 Then('user is able to see My Leave Entitlements and Usage Report components', async function () {
-    await leavePage.myLeaveEntitilementAndReport()
+    await leavePage.myLeaveEntitilementAndReport();
+
+});
+Then('user is able to see My Leave Entitlements and Usage Report list page components', async function () {
+    await leavePage.myLeaveEntitilementAndReportListComponent();
 
 });
 
+
+// Config page
+//
+Then('user is able to see Leave Period components', async function () {
+    await leavePage.leavePeriodComponent();
+
+});
+Then('user is able to see Leave Types list page components', async function () {
+    await leavePage.leaveTypeComponent();
+
+});
+
+Then('user is able to see Work Week components', async function () {
+    await leavePage.workWeekComponent();
+
+});
+
+Then('user is able to see Holidays components', async function () {
+    await leavePage.holidaysComponent();
+
+});
+Then('user is able to see Add Holiday page components', async function () {
+    await leavePage.addHolidaysComponent();
+
+});
+
+
+Then('user is able to see leave list components', async function () {
+    await leavePage.leaveListComponent();
+
+});
+
+// //
+// Then('user is able to see total leave list record in list page', async function () {
+//     await leavePage.totalLeaveList();
+
+// });
 
 
 
