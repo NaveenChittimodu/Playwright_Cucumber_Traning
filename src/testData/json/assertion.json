@@ -1,0 +1,9 @@
+{
+    "assertionURL": {
+        "addCandidatesURL": "https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate"
+    },
+    "assertion": {
+        "invalidCredentials": "Invalid credentials",
+        "requiredCredentials": "Required"
+    }
+}
