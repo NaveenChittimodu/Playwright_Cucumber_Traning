@@ -57,6 +57,14 @@ export class LoginPage {
     }
 
 
+
+    async loginOrangeHRM(userName: string , password : string){
+        await this.logoVisibility();
+        await this.usernameinputComponent(userName);
+        await this.passwordinputComponent(password);
+        await this.loginbtn();
+     }
+
     async fillValue(element: Locator, value: any) {
         await element.scrollIntoViewIfNeeded();
         await element.waitFor({ state: 'visible' });
