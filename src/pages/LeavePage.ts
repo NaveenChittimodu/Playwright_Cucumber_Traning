@@ -1,5 +1,5 @@
 import { Page, expect } from "@playwright/test";
-import {LeavePageLocators} from "../common/Locators/leavePageLocators"
+import { LeavePageLocators } from "../common/Locators/leavePageLocators"
 
 
 export class LeavePage {
@@ -16,21 +16,21 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.mainLeave).click();
 
     }
-    async leavePageComponent(){
+    async leavePageComponent() {
         await this.page.waitForSelector(this.leavePageLocators.apply);
         await this.page.locator(this.leavePageLocators.apply).isVisible();
-        await this.page.locator(this.leavePageLocators.apply).click({force:true});
+        await this.page.locator(this.leavePageLocators.apply).click({ force: true });
 
         await this.page.locator(this.leavePageLocators.applyLeave).isVisible();
         await this.page.locator(this.leavePageLocators.leaveBalance).isVisible();
         await this.page.locator(this.leavePageLocators.toDate).isVisible();
         await this.page.locator(this.leavePageLocators.leaveBalance).isVisible();
         await this.page.locator(this.leavePageLocators.applyBtn).isVisible()
-        
+
     }
-    async myListComponent(){
+    async myListComponent() {
         await this.page.locator(this.leavePageLocators.myleave).isVisible();
-        await this.page.locator(this.leavePageLocators.myleave).click({force:true});
+        await this.page.locator(this.leavePageLocators.myleave).click({ force: true });
         await this.page.locator(this.leavePageLocators.myLeaveList).isVisible();
         await this.page.locator(this.leavePageLocators.myLeaveFromDate).isVisible();
         await this.page.locator(this.leavePageLocators.myLeaveToDate).isVisible();
@@ -39,87 +39,87 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.leave_Type).isVisible();
 
     }
-    async verifyReset(){
+    async verifyReset() {
         await this.page.locator(this.leavePageLocators.myleave).isVisible();
-        await this.page.locator(this.leavePageLocators.myleave).click({force:true});
+        await this.page.locator(this.leavePageLocators.myleave).click({ force: true });
         await this.page.locator(this.leavePageLocators.myLeaveReset).isVisible();
         await this.page.locator(this.leavePageLocators.myLeaveReset).isEnabled()
 
     }
-    async verifySearch(){
+    async verifySearch() {
         await this.page.locator(this.leavePageLocators.myLeaveSearch).isVisible();
     }
-    async addEntitleComponent(){
+    async addEntitleComponent() {
         await this.page.waitForSelector(this.leavePageLocators.entitlements);
         await this.page.locator(this.leavePageLocators.entitlements).isVisible();
-        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
+        await this.page.locator(this.leavePageLocators.entitlements).click({ force: true });
         await this.page.waitForSelector(this.leavePageLocators.editEntitle);
         await this.page.locator(this.leavePageLocators.editEntitle).isVisible();
-        await this.page.locator(this.leavePageLocators.editEntitle).click({force:true});
+        await this.page.locator(this.leavePageLocators.editEntitle).click({ force: true });
         await this.page.waitForTimeout(3000)
 
     }
 
-    async entitlePageCancel(){
+    async entitlePageCancel() {
         await this.page.locator(this.leavePageLocators.entitlementCancel).isVisible();
         await expect(this.page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/leave/addLeaveEntitlement");
         await this.page.locator(this.leavePageLocators.entitlementCancel).click()
         await expect(this.page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewLeaveEntitlements");
     }
-    async entitilementSave(){
-        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
-        await this.page.locator(this.leavePageLocators.editEntitle).click({force:true});
+    async entitilementSave() {
+        await this.page.locator(this.leavePageLocators.entitlements).click({ force: true });
+        await this.page.locator(this.leavePageLocators.editEntitle).click({ force: true });
         await this.page.locator(this.leavePageLocators.entitlementSave).isVisible();
         await this.page.locator(this.leavePageLocators.entitlementSave).click()
     }
-    async employeeEntitle(){
-        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
+    async employeeEntitle() {
+        await this.page.locator(this.leavePageLocators.entitlements).click({ force: true });
         await this.page.waitForSelector(this.leavePageLocators.employeeEntitle);
         await this.page.locator(this.leavePageLocators.employeeEntitle).isVisible();
     }
 
-    async employeeEntitlementSerch(){
+    async employeeEntitlementSerch() {
         await this.page.locator(this.leavePageLocators.employeeEntitle).isVisible();
-        await this.page.locator(this.leavePageLocators.employeeEntitle).click({force:true})
+        await this.page.locator(this.leavePageLocators.employeeEntitle).click({ force: true })
         await this.page.locator(this.leavePageLocators.employeeEntitleSearch).isVisible();
         await this.page.locator(this.leavePageLocators.employeeEntitleSearch).isVisible();
     }
-    async myLeaveEntitlement(){
-        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
+    async myLeaveEntitlement() {
+        await this.page.locator(this.leavePageLocators.entitlements).click({ force: true });
         await this.page.locator(this.leavePageLocators.myEntitlements).isVisible();
-        await this.page.locator(this.leavePageLocators.myEntitlements).click({force:true});
+        await this.page.locator(this.leavePageLocators.myEntitlements).click({ force: true });
         await this.page.locator(this.leavePageLocators.myLeaveEntitlement).isVisible();
     }
 
-    async myLeaveEntitlementSearch(){
-        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
+    async myLeaveEntitlementSearch() {
+        await this.page.locator(this.leavePageLocators.entitlements).click({ force: true });
         await this.page.locator(this.leavePageLocators.myEntitlements).isVisible();
-        await this.page.locator(this.leavePageLocators.myEntitlements).click({force:true});
+        await this.page.locator(this.leavePageLocators.myEntitlements).click({ force: true });
         await this.page.locator(this.leavePageLocators.myLeaveEntitlement).isVisible();
         await this.page.locator(this.leavePageLocators.myLeaveEntitlementSerch).isVisible();
 
     }
-    async myLeaveEntitlementComponents(){
-        await this.page.locator(this.leavePageLocators.entitlements).click({force:true});
+    async myLeaveEntitlementComponents() {
+        await this.page.locator(this.leavePageLocators.entitlements).click({ force: true });
         await this.page.locator(this.leavePageLocators.myEntitlements).isVisible();
-        await this.page.locator(this.leavePageLocators.myEntitlements).click({force:true});
+        await this.page.locator(this.leavePageLocators.myEntitlements).click({ force: true });
         await this.page.locator(this.leavePageLocators.myLeaveEntitlement).isVisible();
         await this.page.locator(this.leavePageLocators.myLeaveEntitlementSerch).isVisible();
 
     }
 
-    async verifyLeaveEntitilementAndReport(){
+    async verifyLeaveEntitilementAndReport() {
         await this.page.locator(this.leavePageLocators.leaveReport).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveReport).click({force:true});
+        await this.page.locator(this.leavePageLocators.leaveReport).click({ force: true });
         await this.page.locator(this.leavePageLocators.LeaveEntitilementAndRepor).isVisible();
 
     }
+    async myLeaveEntitilementAndReport() {
+        await this.page.locator(this.leavePageLocators.leaveReport).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveReport).click({ force: true });
+        await this.page.locator(this.leavePageLocators.myLeaveEntitilementAndRepor).isVisible();
 
-
-
-    //
-
-
+    }
 }
 
 

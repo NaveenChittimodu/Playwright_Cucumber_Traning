@@ -34,5 +34,6 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
 
         # record
         Then user is able to see Leave Entitlements and Usage Report components
+        Then user is able to see My Leave Entitlements and Usage Report components
 
 

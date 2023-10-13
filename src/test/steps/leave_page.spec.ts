@@ -144,7 +144,14 @@ Then('user is able to see Leave Entitlements and Usage Report components', async
     await leavePage.verifyLeaveEntitilementAndReport()
 
 });
-//
+
+Then('user is able to see My Leave Entitlements and Usage Report components', async function () {
+    await leavePage.myLeaveEntitilementAndReport()
+
+});
+
+
+
 
 
 

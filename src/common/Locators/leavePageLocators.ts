@@ -44,6 +44,7 @@ export class LeavePageLocators{
     // report
     readonly leaveReport:string;
     readonly LeaveEntitilementAndRepor:string;
+    readonly myLeaveEntitilementAndRepor:string;
 
 
     constructor(page:Page){
@@ -91,6 +92,7 @@ export class LeavePageLocators{
 
         this.leaveReport="//span[text()='Reports ']";
         this.LeaveEntitilementAndRepor="//a[text()='Leave Entitlements and Usage Report']";
+        this.myLeaveEntitilementAndRepor="//a[text()='My Leave Entitlements and Usage Report']";
 
 
 
