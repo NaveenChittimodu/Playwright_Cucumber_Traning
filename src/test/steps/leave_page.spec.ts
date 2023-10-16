@@ -152,15 +152,35 @@ Then('user is able to see Leave Entitlements and Usage Report components', async
     await leavePage.verifyLeaveEntitilementAndReport();
 
 });
+Then('user is able to perform Leave Entitlements and Usage Report generate functionality', async function () {
+    await leavePage.genrateLeaveEntitilementAndReport();
+
+});
+
+
+
+
 
 Then('user is able to see My Leave Entitlements and Usage Report components', async function () {
     await leavePage.myLeaveEntitilementAndReport();
 
 });
+Then('user is able to perform My Leave Entitlements and Usage Report generate functionality', async function () {
+    await leavePage.performMyLeaveEntitilementAndReport();
+
+});
+
 Then('user is able to see My Leave Entitlements and Usage Report list page components', async function () {
     await leavePage.myLeaveEntitilementAndReportListComponent();
 
 });
+Then('user is able to perform My Leave Entitlements and Usage Report full screen functionality', async function () {
+    await leavePage.fullScreenReportListComponent();
+
+});
+
+
+
 
 
 // Config page
@@ -169,6 +189,17 @@ Then('user is able to see Leave Period components', async function () {
     await leavePage.leavePeriodComponent();
 
 });
+Then('user is able to perform Leave Period reset functionality', async function () {
+    await leavePage.leavePeriodResetComponent();
+    console.log("tc27")
+
+});
+
+
+
+
+
+
 Then('user is able to see Leave Types list page components', async function () {
     await leavePage.leaveTypeComponent();
 
