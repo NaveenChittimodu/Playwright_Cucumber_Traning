@@ -1,0 +1,17 @@
+{
+    "TestData" : {
+        "Fname" : "Vimal ",
+        "Mname" : "Raj",
+        "Lname" :"Arumugam",
+        "NickName" : "Mandhan",
+        "employeeID" : "emp100",
+        "otherID" : "otherID100",
+        "licenseExpDate": "2023-14-10",
+        "ssnNumber" : "111111",
+        "ssiNumber" : "222222"
+
+    },
+    "textBoxPage" : "https://demoqa.com/text-box",
+    "checkBoxPage" : "https://demoqa.com/checkbox",
+    "expectURL": "https://demoqa.com/upload-download"
+}

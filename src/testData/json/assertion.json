@@ -4,6 +4,17 @@
     },
     "assertion": {
         "invalidCredentials": "Invalid credentials",
-        "requiredCredentials": "Required"
+        "requiredCredentials": "Required",
+        "Fname" : "Vimal",
+        "Mname" : "Raj",
+        "Lname" :"Arumugam",
+        "NickName" : "Mandhan",
+        "employeeID" : "emp100",
+        "otherID" : "otherID100",
+        "licenseExpDate": "2023-14-10",
+        "ssnNumber" : "111111",
+        "ssiNumber" : "222222",
+        "nationality" : "Australian",
+        "maritialStatus" : "Married"
     }
 }
