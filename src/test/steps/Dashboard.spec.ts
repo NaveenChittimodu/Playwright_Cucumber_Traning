@@ -6,6 +6,7 @@ import ENV from "../../utils/env";
 import { Loginlocators } from "../../common/Locators/loginlocators";
 import { DashboardLocator } from "../../common/Locators/DashboardLocator";
 import { Dashboard } from "../../pages/DashboardPage";
+import { count } from "console";
 
 
 let page: Page;
@@ -74,5 +75,88 @@ Then('User click on the Self review link',async function(){
 
     await dashboard.selfreviewlink();
 
+
+});
+
+
+Then('User click on the interview link',async function(){
+
+
+    await dashboard.interviewLink();
+
+
+});
+
+
+Then('User click on the quickmodule title',async function(){
+
+
+    await dashboard.quickmoduleTitile();
+
+
+});
+
+Then('User click on the assignleave',async function(){
+
+
+    await dashboard.assignLeaveLink();
+
+});
+
+Then('User click on the leavelist',async function(){
+
+
+    await dashboard.leaveList();
+
+});
+
+Then('User Click on the timesheetlink',async function(){
+
+
+    await dashboard.timesheetLinkTab();
+
+});
+
+
+Then('User Click on the applyleave',async function(){
+
+
+    await dashboard.applyLeaveLink();
+
+});
+
+
+Then('User Click on the myleave',async function(){
+
+
+    await dashboard.myLeave();
+
+});
+
+Then('User Click on the mytimesheet',async function(){
+
+    await dashboard.mytimesheetLink();
+
+});
+
+
+Then('User Click on the buzzlatest',async function(){
+
+    await dashboard.bazzlatestTitle();
+
+});
+  
+Then('User Click on the buzzpostcount',async function(){
+
+    const postcount  = await page.locator("//div[@class='oxd-grid-1 orangehrm-buzz-widget']").count();
+
+    console.log(postcount,'count passed')
+
+});
+  
+Then('User Click on the employeeleave setings toogle cancel button',async function(){
+
+
+    await dashboard.employee();
 
 });

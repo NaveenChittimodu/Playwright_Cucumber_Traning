@@ -11,6 +11,17 @@ Feature: Fill the data in pim
     Then User click on the leave request link
     Then User click on the timesheet link
     Then User click on the Self review link
-    Then Use click on the interview link
+    Then User click on the interview link
+    Then User click on the quickmodule title
+    Then User click on the assignleave
+    Then User click on the leavelist
+    Then User Click on the timesheetlink
+    Then User Click on the applyleave
+    Then User Click on the myleave
+    Then User Click on the mytimesheet
+    Then User Click on the buzzlatest
+    Then User Click on the buzzpostcount
+    Then User Click on the employeeleave setings toogle cancel button
+  
 
    
