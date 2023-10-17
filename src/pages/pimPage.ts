@@ -1,7 +1,6 @@
 import { Page, expect,Locator } from "@playwright/test";
 import { Pimlocators } from "../common/Locators/pimLocators";
 
-
 export  class Pimmenu {
     readonly page: Page;
     private readonly pimlocators: Pimlocators;

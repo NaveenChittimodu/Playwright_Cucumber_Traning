@@ -46,15 +46,15 @@ export class Pimlocators{
         this.lastname = "//input[@placeholder='Last Name']";
         this.employeeId="(//label[text()='Employee Id']/following::div/input)";
         this.savebutton="//button[@type='submit']";
-        this.otherID ="(//label[text()='Other Id']/following::input)[1]";
-        this.ssnNumber="(//label[text()='SSN Number']/following::input)[1]";
+        this.otherID =`//label[normalize-space(text())='Other Id']//parent::div//following-sibling::div//input`;
+        this.ssnNumber=`//label[text()='SSN Number']//parent::div//following-sibling::div//input`;
         this.driversLicenseNumber="";
-        this.licenseExpiryDate="(//label[text()='License Expiry Date']/following::input)[1]";
-        this.sinNumber ="(//label[text()='SIN Number']/following::div/input)[1]";
+        this.licenseExpiryDate=`//label[text()='License Expiry Date']//parent::div//following-sibling::div/div//input`;
+        this.sinNumber =`//label[text()='SIN Number']//parent::div//following-sibling::div//input`;
         this.selectnationality = "(//div[@class='oxd-select-text--after']//i)[1]";
         this.selectmaritalstatus="(//div[@class='oxd-select-text oxd-select-text--active'])[2]";
         this.maleRadioButton= "//label[text()='Male']";
-        this.requiredsavebutton = "(//div[@class='oxd-form-actions']//button)[1]";
+        this.requiredsavebutton = "//p[text()=' * Required']/following-sibling::button"
         this.bloodtype = "(//div[@class='oxd-select-text oxd-select-text--active'])[3]";
         this.customsavebutton = "(//form/following::div/hr/following::div/button)[1]";
         this.attachmentAddButton ="//button[text()=' Add ']";
@@ -73,6 +73,7 @@ export class Pimlocators{
         this.name_AssignedEmergencyContacts ="(//label[text()='Name']/following::input)[1]";
         this.relationship_AssignedEmergencyContacts ="(//label[text()='Relationship']/following::input)[1]";
         this.mobile_AssignedEmergencyContacts ="(//input[@modelmodifiers='[object Object]'])[2]"
+        // `//div[@class='oxd-form-row']//child::div//label[text()='Vacancy']//parent::div//following-sibling::div//child::div[@class='oxd-select-text-input']`,
 
     }
 }

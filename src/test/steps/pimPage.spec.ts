@@ -1,14 +1,9 @@
 import { Given, When, Then, Before, BeforeAll, setDefaultTimeout, AfterAll } from "@cucumber/cucumber";
 import { Page, chromium, Browser, expect } from "@playwright/test";
 import { LoginPage } from "../../../src/pages/login_Page"
-// import { myBrowserFixture } from "../../../src/common/Fixtures/fixtures";
 import ENV from "../../../src/utils/env";
 import { Pimmenu } from "../../pages/pimPage";
 import { Pimlocators } from "../../common/Locators/pimLocators";
-import { TIMEOUT } from "dns";
-// import { Loginlocators } from "../../common/Locators/loginlocators";
-// import PIM_DATA from "../../testData/json/pimtestData.json"
-// src\utils\env.ts
 
 
 let page: Page;
@@ -85,10 +80,11 @@ Then('User click on Save button', async function () {
 
 Then('User enter the Other Id', async function () {
     console.log("otherid",`${ENV.OTHERID}`)
+    await pimmenu.fillOtherId(`${ENV.OTHERID}`)
     const otherID = await pimmenu.fillOtherId(`${ENV.OTHERID}`)
     console.log("enter",otherID)
     console.log("test8")
-    // await page.waitForTimeout(3000);
+    await page.waitForTimeout(3000);
 });
 
 // Then('User enter the driversLicenseNumber',async function () {
@@ -129,10 +125,10 @@ Then('User enter the Sin Number', async function () {
 //     console.log("test14")
 // });
 
-// Then('User click on Male Radio button',async function () {
-//     await pimmenu.clickonMaleRadiobutton();
-//     console.log("test15") 
-// })
+Then('User click on Male Radio button',async function () {
+    await pimmenu.clickonMaleRadiobutton();
+    console.log("test15") 
+})
 
 Then('User click on RequiredSave button', async function () {
     await pimmenu.clickSavebutton();
