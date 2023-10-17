@@ -37,4 +37,10 @@ async selectDropDownElements(clickDropDownLocator: string,dropdownLocator: strin
     }
 }
 
+async selectDropDownElement(dropdownLocator: string, dropDownTextValue: string) {
+    if (await this.page.locator(dropdownLocator).isVisible()) {
+        await this.page.locator(dropDownTextValue).click();
+    }
+}
+
 }

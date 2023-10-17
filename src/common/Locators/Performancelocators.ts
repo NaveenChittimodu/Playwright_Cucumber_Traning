@@ -10,9 +10,15 @@ export class Performancelocators{
     readonly configureTrackers: string;
     readonly addbtn: string;
     readonly keyindicator: string;
+    readonly Addkeyindicator: string;
     readonly dropdown : string;
-    readonly dropdownlocator : string;
+    readonly minimum : string;
+    readonly maximum : string;
     readonly selectdropdown : string;
+    readonly save : string;
+    readonly trackerName : string;
+    readonly  employeeName: string;
+    readonly ReviewerName : string;
 
 
    
@@ -21,12 +27,20 @@ export class Performancelocators{
         this.performance = "//span[text()='Performance']";
         this.configure = "//span[text()='Configure ']";
         this.configureKPIs = "//li/a[text() = 'KPIs']";
-        this.configureTrackers = "//li/a[text() = 'Trackers']";
+        this.configureTrackers = "//a[text()='Trackers']";
         this.addbtn = "//button[text()=' Add ']";
         this.keyindicator = "(//label[text()='Key Performance Indicator']/following::div/input)[1]";
-        this.selectdropdown = `div.oxd-select-text`
-        this.dropdownlocator= `div.oxd-select-dropdown div[role='listbox']`
-        this.dropdown = `div.oxd-select-dropdown`
+        this.minimum = "(//label[text()='Minimum Rating']/following::input)[1]";
+        this.maximum = "(//label[text()='Maximum Rating']/following::input)[1]";
+        this.Addkeyindicator = "//p[text() ='Add Key Performance Indicator']"
+        this.selectdropdown = `.oxd-select-wrapper`//`//div[@class='oxd-select-text-input']`
+        this.dropdown = `//div[text()='Account Assistant'] .oxd-select-dropdown .oxd-select-option`//div[@role='listbox']`
+        this.save = `//button[text()=' Save ']`
+
+        this.trackerName = `(//label[text()='Tracker Name']/following::input)[1]`
+        this.employeeName = `(//label[text()='Tracker Name']/following::input)[1]`
+        this.ReviewerName = `(//label[text()='Tracker Name']/following::input)[1]`
+
 
     }
 }

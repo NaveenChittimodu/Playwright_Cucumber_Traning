@@ -42,6 +42,10 @@ When('User click on Performance', async function () {
   await performancePage.clickKPIs();
   await performancePage.clickKPI_Addbtn();
   await performancePage.keyindicator_KPI();
+  await performancePage.Trackers();
+  await performancePage.clickTrackers();
+  await performancePage.clickTracker_Addbtn();
+  await performancePage.Trackers();
 });
 
 
