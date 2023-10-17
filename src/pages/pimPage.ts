@@ -160,10 +160,37 @@ export  class Pimmenu {
         await this.page.locator(this.pimlocators.contatDetails).click();
     }
 
-    async fillstreet1() {
-
+    async fillstreet1(street1:string) {
+        await (await this.page.waitForSelector(this.pimlocators.street1)).isVisible();
+        await (await this.page.waitForSelector(this.pimlocators.street1)).isEditable();
+        await  this.page.locator(this.pimlocators.street1).fill(street1);
+    }
+    
+    async clickEmergencyContacts() {
+        await (await this.page.waitForSelector(this.pimlocators.emergencyContacts)).isVisible();
+        await this.page.locator(this.pimlocators.emergencyContacts).click();
     }
 
+    async clickADDEmergencyContacts() {
+        await (await this.page.waitForSelector(this.pimlocators.add_AssignedEmergencyContacts)).isVisible();
+        await this.page.locator(this.pimlocators.add_AssignedEmergencyContacts).click();
+    }
 
+    async fillname_AssignedEmergencyContacts(name:string) {
+        await (await this.page.waitForSelector(this.pimlocators.name_AssignedEmergencyContacts)).isVisible();
+        await (await this.page.waitForSelector(this.pimlocators.name_AssignedEmergencyContacts)).isEditable();
+        await  this.page.locator(this.pimlocators.name_AssignedEmergencyContacts).fill(name);
+    }
 
+    async fillrelationship_AssignedEmergencyContacts(relationship:string) {
+        await (await this.page.waitForSelector(this.pimlocators.relationship_AssignedEmergencyContacts)).isVisible();
+        await (await this.page.waitForSelector(this.pimlocators.relationship_AssignedEmergencyContacts)).isEditable();
+        await  this.page.locator(this.pimlocators.relationship_AssignedEmergencyContacts).fill(relationship);
+    }
+
+    async fillmobile_AssignedEmergencyContacts(mobile:string) {
+        await (await this.page.waitForSelector(this.pimlocators.mobile_AssignedEmergencyContacts)).isVisible();
+        await (await this.page.waitForSelector(this.pimlocators.mobile_AssignedEmergencyContacts)).isEditable();
+        await  this.page.locator(this.pimlocators.mobile_AssignedEmergencyContacts).fill(mobile);
+    }
 }

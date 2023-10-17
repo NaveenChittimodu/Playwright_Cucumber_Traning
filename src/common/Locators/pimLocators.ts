@@ -30,6 +30,11 @@ export class Pimlocators{
     readonly deleteSelected :string;
     readonly contatDetails :string;
     readonly street1 :string;
+    readonly emergencyContacts :string;
+    readonly add_AssignedEmergencyContacts :string;
+    readonly name_AssignedEmergencyContacts :string;
+    readonly relationship_AssignedEmergencyContacts :string;
+    readonly mobile_AssignedEmergencyContacts :string;
    
    
     constructor(page: Page){
@@ -61,6 +66,13 @@ export class Pimlocators{
         this.deleteSelected ="//i[@class='oxd-icon bi-trash']";
 
         this.contatDetails ="//a[contains(text(),'Contact Details')]";
-        this.street1="//label[text()='Street 1']"
+        this.street1 ="(//span[text()='Configuration ']/following::input)[1]";
+        this.emergencyContacts ="//a[contains(text(),'Emergency Contacts')]";
+        this.add_AssignedEmergencyContacts ="//h6[text()='Assigned Emergency Contacts']/following-sibling::button";
+
+        this.name_AssignedEmergencyContacts ="(//label[text()='Name']/following::input)[1]";
+        this.relationship_AssignedEmergencyContacts ="(//label[text()='Relationship']/following::input)[1]";
+        this.mobile_AssignedEmergencyContacts ="(//input[@modelmodifiers='[object Object]'])[2]"
+
     }
 }

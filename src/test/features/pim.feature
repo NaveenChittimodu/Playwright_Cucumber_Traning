@@ -30,3 +30,10 @@ Feature: Fill the data in pim
     Then User click on Add attachment Save Button
     # Then User click on Delete Button
     Then User click on Contct Details
+    # Then User enter the street1
+
+    Then User click on Emergency Contacts
+    Then User click on Add Assigned Emergency Contacts
+    Then User enter the name in Assigned Emergency Contacts
+    Then User enter the relationship in Assigned Emergency Contacts
+    Then User enter the mobile in Assigned Emergency Contacts
