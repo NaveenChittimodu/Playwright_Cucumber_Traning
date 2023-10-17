@@ -94,6 +94,31 @@ export class LeavePageLocators{
     readonly leavePeriodReset:string;
     readonly startDate:string;
     readonly startDateValue:string;
+    readonly leavePeriodSave:string;
+
+    readonly addLeaveType:string;
+    readonly addLeaveTypeName:string;
+    readonly saveLeaveType:string;
+    readonly leaveListName:string;
+    readonly singleLeaveName:string;
+    readonly deleteLeaveName:string;
+
+    readonly editleave:string;
+    readonly editLeaveType:string;
+    readonly saveEditLeave:string;
+
+    readonly mondayFullDay:string;
+    readonly mondayDropDown:string;
+    readonly mondayHalfDay:string;
+    readonly mondayNonWorkingDay:string;
+    readonly mondaySave:string;
+
+
+
+
+
+
+
 
     // holiday
     readonly addHoliday:string;
@@ -101,6 +126,7 @@ export class LeavePageLocators{
     readonly leaveDuration:string;
     readonly saveHoliday:string;
     readonly fulldayHoliday:string;
+    
 
 
 
@@ -185,14 +211,10 @@ export class LeavePageLocators{
         this.GenerateReport="//button[text()=' Generate ']";   
         
         this.myLeavePeriod="//div[@class='oxd-select-text-input']"; 
-        this.myLeavePeriodValue="//span[text()='2020-01-01 - 2020-12-31']"; 
+        this.myLeavePeriodValue="//div[@class='oxd-select-option --selected']"; 
         this.myLeaveGenerate="//button[text()=' Generate ']";  
         this.fillScreenReport="//i[@class='oxd-icon bi-arrows-fullscreen oxd-icon-button__icon --toggable-icon']";                
 
-
-
-
-        
 
 
 
@@ -219,6 +241,28 @@ export class LeavePageLocators{
         this.startDate="(//div[@class='oxd-select-text--after']//i)[2]";
         this.startDateValue="//span[text()='05']";
         this.leavePeriodReset="//button[text()=' Reset ']";
+        this.leavePeriodSave="//button[text()=' Save ']";
+
+
+        this.addLeaveType="//button[@class='oxd-button oxd-button--medium oxd-button--secondary']";
+        this.addLeaveTypeName="(//input[@class='oxd-input oxd-input--active'])[2]";
+        this.saveLeaveType="//button[@type='submit']";
+        this.leaveListName="(//div[@class='oxd-checkbox-wrapper']//input[@type='checkbox'])[1]";
+        this.singleLeaveName="//div[text()='CAN - Personal']";
+        this.deleteLeaveName="(//button[@class='oxd-icon-button oxd-table-cell-action-space'])[1]";
+
+
+        this.editleave="(//i[@class='oxd-icon bi-pencil-fill'])[1]";
+        this.editLeaveType="(//input[@class='oxd-input oxd-input--active'])[2]";
+        this.saveEditLeave="//button[@type='submit']";
+        
+        this.mondayDropDown="//label[text()='Monday']//parent::div//following-sibling::div/div";
+        this.mondayFullDay="//span[text()='Full Day']";
+        this.mondayHalfDay="//span[text()='Half Day']";
+        this.mondayNonWorkingDay="//span[text()='Non-working Day']";
+        this.mondaySave="//button[@type='submit']";
+
+
 
 
 

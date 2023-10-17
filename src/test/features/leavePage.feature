@@ -46,13 +46,31 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         # config
         Then user is able to see Leave Period components
         Then user is able to perform Leave Period reset functionality
-
+        Then user is able to perform Leave Period save functionality
         Then user is able to see Leave Types list page components
+        Then user is able to perform Leave Types Add functionality
+        Then user is able to perform Leave Types list page multiselectlect functionality
+        Then user is able to perform Leave Types list page individual select functionality
+        Then user is able to perform Leave Types list page delete functionality
+        Then user is able to perform Leave Types list page edit functionality
         Then user is able to see Work Week components
+
+
+        
+
+
         Then user is able to see Holidays components
         Then user is able to see Add Holiday page components
-       
         Then user is able to see leave list components 
+
+
+        # Then user is able to perform Work Week Monday sort functionality
+
+
+
+
+
+
         # Then user is able to see total leave list record in list page
         
 

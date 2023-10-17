@@ -194,21 +194,55 @@ Then('user is able to perform Leave Period reset functionality', async function 
     console.log("tc27")
 
 });
+Then('user is able to perform Leave Period save functionality', async function () {
+    await leavePage.leavePeriodSaveComponent();
+    console.log("tc28")
 
-
-
-
-
+});
 
 Then('user is able to see Leave Types list page components', async function () {
     await leavePage.leaveTypeComponent();
 
 });
 
+Then('user is able to perform Leave Types Add functionality', async function () {
+    await leavePage.addLeaveTypeComponent();
+
+});
+
+Then('user is able to perform Leave Types list page multiselectlect functionality', async function () {
+    await leavePage.multiSelectFunctionality();
+
+});
+Then('user is able to perform Leave Types list page individual select functionality', async function () {
+    await leavePage.singleSelectFunctionality();
+
+});
+
+Then('user is able to perform Leave Types list page delete functionality', async function () {
+    await leavePage.deleteLeavePageList();
+
+});
+Then('user is able to perform Leave Types list page edit functionality', async function () {
+    await leavePage.editLeavePage();
+
+});
 Then('user is able to see Work Week components', async function () {
     await leavePage.workWeekComponent();
 
 });
+
+Then('user is able to perform Work Week Monday sort functionality', async function () {
+    await leavePage.workWeekMondaySort();
+
+});
+
+
+
+
+
+
+
 
 Then('user is able to see Holidays components', async function () {
     await leavePage.holidaysComponent();
