@@ -64,7 +64,15 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to see leave list components 
 
 
-        # Then user is able to perform Work Week Monday sort functionality
+        Then user is able to perform Work Week Monday sort functionality
+        Then user is able to perform Work Week Tuesday sort functionality
+        Then user is able to perform Work Week Wednesday sort functionality
+        Then user is able to perform Work Week Thursday sort functionality
+        Then user is able to perform Work Week Friday sort functionality
+        Then user is able to perform Work Week Saturday sort functionality
+        Then user is able to perform Work Week Sunday sort functionality
+        Then user is able to perform Work Week save sort functionality
+
 
 
 

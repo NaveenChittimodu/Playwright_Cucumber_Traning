@@ -347,17 +347,110 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
     }
     async workWeekMondaySort() {
+        await this.page.pause();
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
         await this.page.locator(this.leavePageLocators.workWeekComponent).click();
         await this.page.locator(this.leavePageLocators.mondayDropDown).click({ force: true });
-        // await this.page.locator(this.leavePageLocators.mondayFullDay).click({ force: true });
-        await this.page.locator(this.leavePageLocators.mondaySave).click({ force: true });
+        await this.page.waitForTimeout(2000);
+        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
+        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.page.locator(this.leavePageLocators.Save).click({ force: true });
     }
+    async workWeekTuesdaySort() {
+        await this.page.pause();
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
+        await this.page.locator(this.leavePageLocators.tuesdayDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.tuesdayDropDown).click({ force: true });
+        await this.page.waitForTimeout(2000);
+        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
+        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.page.locator(this.leavePageLocators.Save).click({ force: true });
+    }
+    async workWeekWednesdaySort() {
+        await this.page.pause();
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
+        await this.page.locator(this.leavePageLocators.wednesdayDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.wednesdayDropDown).click({ force: true });
+        await this.page.waitForTimeout(2000);
+        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
+        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.page.locator(this.leavePageLocators.Save).click({ force: true });
+    }
+    async workWeekThursdaySort() {
+        await this.page.pause();
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
+        await this.page.locator(this.leavePageLocators.thursdayDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.thursdayDropDown).click({ force: true });
+        await this.page.waitForTimeout(2000);
+        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
+        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.page.locator(this.leavePageLocators.Save).click({ force: true });
+    }
+
+    async workWeekFridaySort() {
+        await this.page.pause();
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
+        await this.page.locator(this.leavePageLocators.fridayDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.fridayDropDown).click({ force: true });
+        await this.page.waitForTimeout(2000);
+        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
+        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.page.locator(this.leavePageLocators.Save).click({ force: true });
+    }
+    async workWeekSaturdaySort() {
+        await this.page.pause();
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
+        await this.page.locator(this.leavePageLocators.saturdayDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.saturdayDropDown).click({ force: true });
+        await this.page.waitForTimeout(2000);
+        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
+        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.page.locator(this.leavePageLocators.Save).click({ force: true });
+    }
+    async workWeekSundaySort() {
+        await this.page.pause();
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
+        await this.page.locator(this.leavePageLocators.sundayDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.sundayDropDown).click({ force: true });
+        await this.page.waitForTimeout(2000);
+        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
+        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.page.locator(this.leavePageLocators.Save).click({ force: true });
+    }
+    async verifyWorkWeekSave() {
+        await this.page.pause();
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
+        await this.page.locator(this.leavePageLocators.Save).isVisible();
+    }
+    
 
     
 
+
+    
 
 
 

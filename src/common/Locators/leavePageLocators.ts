@@ -107,17 +107,17 @@ export class LeavePageLocators{
     readonly editLeaveType:string;
     readonly saveEditLeave:string;
 
-    readonly mondayFullDay:string;
+    readonly FullDay:string;
     readonly mondayDropDown:string;
-    readonly mondayHalfDay:string;
+    readonly HalfDay:string;
     readonly mondayNonWorkingDay:string;
-    readonly mondaySave:string;
-
-
-
-
-
-
+    readonly Save:string;
+    readonly tuesdayDropDown:string;
+    readonly wednesdayDropDown:string;
+    readonly thursdayDropDown:string;
+    readonly fridayDropDown:string;
+    readonly saturdayDropDown:string;
+    readonly sundayDropDown:string;
 
 
     // holiday
@@ -127,13 +127,7 @@ export class LeavePageLocators{
     readonly saveHoliday:string;
     readonly fulldayHoliday:string;
     
-
-
-
-
-
-
-
+    
     constructor(page:Page){
        
         this.page = page
@@ -257,18 +251,18 @@ export class LeavePageLocators{
         this.saveEditLeave="//button[@type='submit']";
         
         this.mondayDropDown="//label[text()='Monday']//parent::div//following-sibling::div/div";
-        this.mondayFullDay="//span[text()='Full Day']";
-        this.mondayHalfDay="//span[text()='Half Day']";
+        this.FullDay="//span[text()='Full Day']";
+        this.HalfDay="//span[text()='Half Day']";
         this.mondayNonWorkingDay="//span[text()='Non-working Day']";
-        this.mondaySave="//button[@type='submit']";
-
-
-
-
-
-
-
-
+        this.Save="//button[@type='submit']";
+        this.tuesdayDropDown="//label[text()='Tuesday']//parent::div//following-sibling::div/div";
+        this.wednesdayDropDown="//label[text()='Wednesday']//parent::div//following-sibling::div/div";
+        this.thursdayDropDown="//label[text()='Thursday']//parent::div//following-sibling::div/div";
+        this.fridayDropDown="//label[text()='Friday']//parent::div//following-sibling::div/div";
+        this.saturdayDropDown="//label[text()='Saturday']//parent::div//following-sibling::div/div";
+        this.sundayDropDown="//label[text()='Sunday']//parent::div//following-sibling::div/div";
+        
+        
     }
 
 }

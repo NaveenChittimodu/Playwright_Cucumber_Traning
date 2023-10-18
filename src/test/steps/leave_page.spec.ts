@@ -236,9 +236,35 @@ Then('user is able to perform Work Week Monday sort functionality', async functi
     await leavePage.workWeekMondaySort();
 
 });
+Then('user is able to perform Work Week Tuesday sort functionality', async function () {
+    await leavePage.workWeekTuesdaySort();
 
+});
 
+Then('user is able to perform Work Week Wednesday sort functionality', async function () {
+    await leavePage.workWeekWednesdaySort();
 
+});
+Then('user is able to perform Work Week Thursday sort functionality', async function () {
+    await leavePage.workWeekThursdaySort();
+
+});
+Then('user is able to perform Work Week Friday sort functionality', async function () {
+    await leavePage.workWeekFridaySort();
+
+});
+Then('user is able to perform Work Week Saturday sort functionality', async function () {
+    await leavePage.workWeekSaturdaySort();
+
+});
+Then('user is able to perform Work Week Sunday sort functionality', async function () {
+    await leavePage.workWeekSundaySort();
+
+});
+Then('user is able to perform Work Week save sort functionality', async function () {
+    await leavePage.verifyWorkWeekSave();
+
+});
 
 
 
