@@ -5,6 +5,7 @@ import { myBrowserFixture } from "../../../src/common/Fixtures/fixtures";
 import ENV from "../../../src/utils/env";
 import { MyInfoLocators } from "../../common/Locators/myInfoLocators";
 import { MyInfoPage } from "../../pages/myInfo_Page";
+import { waitForDebugger } from "inspector";
 
 
 let page: Page;
@@ -36,44 +37,121 @@ Given('User Login to OrangeHrm application', async function () {
     await myInfoPage.employeeFullName();
     await myInfoPage.employeeMiddleName();
     await myInfoPage.employeeLastName();
+
 });
 
 When('User is able to fill the Employee Nickname', async function () {
-    // await myInfoPage.navigateToMyInfo();
     await myInfoPage.employeeNickName();
 });
 
 When('User is able to fill the Employee Id and Other Id', async function () {
-    // await myInfoPage.navigateToMyInfo();
     await myInfoPage.employeeID();
     await myInfoPage.employeeOtherID();
 });
 
 When('User is able to fill the Drivers License Number', async function () {
-    // await myInfoPage.navigateToMyInfo();
-    await myInfoPage.employeeID();
-    await myInfoPage.employeeOtherID();
+    await myInfoPage.employeeDriversLicenseNo();
+});
+
+When('User is able to select the License Expiry Date', async function () {
+    await myInfoPage.employeeLicenseExpDate();
 });
 
 When('User is able to fill the SSN Number', async function () {
-    // await myInfoPage.navigateToMyInfo();
     await myInfoPage.employeeSSNNumber();
 });
 
 When('User is able to fill the SIN Number', async function () {
-    // await myInfoPage.navigateToMyInfo();
     await myInfoPage.employeeSSINumber();
 });
 
 When('User is able to select the Nationality', async function () {
-    // await myInfoPage.navigateToMyInfo();
     await myInfoPage.employeeNationality();
+    await page.waitForTimeout(2000);
 });
 
 When('User is able to select the Marital Status', async function () {
-    // await myInfoPage.navigateToMyInfo();
     await myInfoPage.employeeMaritialStatus();
-    await page.waitForTimeout(4000);
+});
+
+When('User is able to select the Date of Birth', async function () {
+    await myInfoPage.employeeDOB();
+});
+
+When('User is able to select the Gender Radio options', async function () {
+    await myInfoPage.employeeGender();
+});
+
+When('User is able to fill the Military Service textbox', async function () {
+    await myInfoPage.employeeMilitaryService();
+});
+
+When('User is able to Check and Uncheck the Smoker checkbox', async function () {
+    await myInfoPage.employeeSmoker();
+});
+
+Then('User is able to save the personal details', async function () {
+    await myInfoPage.employeeSaveBtn();
+});
+
+When('User is able to select the blood type', async function () {
+    await myInfoPage.customBloodType();
+});
+
+Then('User is able to save the custom field details', async function () {
+    await myInfoPage.customSaveBtn();
+});
+
+When('User is able to attach the file using Add and Browse button', async function () {
+    await myInfoPage.clickattachmentAddandUploadfile();
+});
+
+When('User is able to fill the Comment in Add Attachment section', async function () {
+    await myInfoPage.addComments();
+});
+
+When('User is able to save the Attachments', async function () {
+    await myInfoPage.personalDetailsSaveBtn();
+});
+
+When('User is able to Cancel the Attachments', async function () {
+    await myInfoPage.personalDetailsCancelBtn();
+});
+
+When('User is able to fill the Address fields', async function () {
+    await myInfoPage.contactDetailsAddressField();
+});
+
+When('User is able to fill the Telephone fields', async function () {
+    await myInfoPage.contactDetailsTelephoneField();
+});
+
+When('User is able to fill the Email fields', async function () {
+    await myInfoPage.contactDetailsEmailField();
+    const toastMsg = await myInfoPage.getToastMessage()
+    await expect(toastMsg).toBe("Successfully Updated");
+    await page.waitForTimeout(5000);
+});
+
+When('User is able to fill the Assigned Emergency Contacts fields', async function () {
+    await myInfoPage.emergencyDetails();
+    const toastMsg = await myInfoPage.getToastMessage()
+    await expect(toastMsg).toBe("Successfully Saved");
+    await page.waitForTimeout(5000);
+});
+
+When('User is able to fill the Add and save Dependents fields', async function () {
+    await myInfoPage.dependentsDetails();
+    const toastMsg = await myInfoPage.getToastMessage()
+    await expect(toastMsg).toBe("Successfully Saved");
+    await page.waitForTimeout(5000);
+});
+
+When('User is able to fill the Add Immigration fields and save the details', async function () {
+    await myInfoPage.immigrationDetails();
+    const toastMsg = await myInfoPage.getToastMessage()
+    await expect(toastMsg).toBe("Successfully Saved");
+    await page.waitForTimeout(5000);
 });
 
 
