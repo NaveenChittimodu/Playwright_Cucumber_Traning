@@ -160,3 +160,27 @@ Then('User Click on the employeeleave setings toogle cancel button',async functi
     await dashboard.employee();
 
 });
+
+Then('User click on the employee distribution',async function(){
+
+
+    await dashboard.employeeDistribution();
+
+});
+Then('User click on the distribution subunit',async function(){
+
+
+    await dashboard.distributionSubunit();
+
+});
+
+Then('User click on the employee distribution location',async function(){
+
+
+    await dashboard.distributionLocationUnit();
+
+});
+
+
+
+

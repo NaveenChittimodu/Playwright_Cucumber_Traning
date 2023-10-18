@@ -22,6 +22,9 @@ Feature: Fill the data in pim
     Then User Click on the buzzlatest
     Then User Click on the buzzpostcount
     Then User Click on the employeeleave setings toogle cancel button
-  
+    Then User click on the employee distribution
+    Then User click on the distribution subunit
+    Then User click on the employee distribution location
+   
 
    

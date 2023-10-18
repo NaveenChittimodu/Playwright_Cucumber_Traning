@@ -25,6 +25,9 @@ export  class Dashboard {
     private readonly settingsbutton:DashboardLocator;
     private readonly toggle:DashboardLocator;
     private readonly cancelbutton:DashboardLocator;
+    private readonly employeedistribution:DashboardLocator;
+    private readonly distributionsubunit:DashboardLocator;
+    private readonly distributionlocationunit:DashboardLocator;
     
     
 
@@ -52,6 +55,9 @@ export  class Dashboard {
         this.settingsbutton = new DashboardLocator(page);
         this.cancelbutton = new DashboardLocator(page);
         this.toggle = new DashboardLocator(page);
+        this.employeedistribution = new DashboardLocator(page);
+        this.distributionsubunit = new DashboardLocator(page);
+        this.distributionlocationunit = new DashboardLocator(page);
     }
 
     async clickBtn(){
@@ -167,6 +173,32 @@ export  class Dashboard {
          await this.page.locator(this.cancelbutton.dashboardbtn).click();
  
      }
+
+     async employeeDistribution(){
+
+        await (await this.page.waitForSelector(this.employeedistribution.dashboardbtn)).isVisible();
+        
+    }
+
+
+
+    async distributionSubunit(){
+
+       const unit  = await (await this.page.waitForSelector(this.distributionsubunit.dashboardbtn)).isVisible();
+       console.log('subunit ',unit);
+        
+    }
+
+    async distributionLocationUnit(){
+
+        const unit  = await (await this.page.waitForSelector(this.distributionlocationunit.dashboardbtn)).isVisible();
+        
+         
+     }
+ 
+
+
+     
 
 
 

@@ -28,6 +28,9 @@ export class DashboardLocator{
     readonly closebtn:any;
     readonly employeechart:any;
     readonly subunit:any;
+    readonly emplocation:any;
+    readonly empsubunit:any;
+ 
 
   
    
@@ -61,6 +64,9 @@ export class DashboardLocator{
         this.closebtn = "//button[@class='oxd-dialog-close-button oxd-dialog-close-button-position']";
         this.employeechart = "//p[text()='Employee Distribution by Sub Unit']";
         this.subunit = "//span[@title='Human Resources']";
+        this.emplocation = "//p[text()='Employee Distribution by Location']";
+        this.empsubunit = "//span[@title='New York Sales Office']";
+
         
 }
 }
