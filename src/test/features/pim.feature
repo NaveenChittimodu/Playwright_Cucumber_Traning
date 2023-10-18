@@ -18,7 +18,7 @@ Feature: Fill the data in pim
     Then User enter the Sin Number
     # Then User selects nationality as Indian
     # Then User selects Marital Status as Single
-    # Then User click on Male Radio button
+    Then User click on Male Radio button
     Then User click on RequiredSave button
     # Then User selects Blood type as A+
     Then User click on CustonSave button
@@ -30,10 +30,18 @@ Feature: Fill the data in pim
     Then User click on Add attachment Save Button
     # Then User click on Delete Button
     Then User click on Contct Details
-    # Then User enter the street1
+    Then User enter the street1 Contct Details
+    Then User enter the street2 Contct Details
+    Then User enter the city Contct Details
+    Then User enter the HomeNO Contct Details
+    Then User enter the otherEmail Contct Details
+    Then User click on Contct Details Save Button
+
+
 
     Then User click on Emergency Contacts
     Then User click on Add Assigned Emergency Contacts
     Then User enter the name in Assigned Emergency Contacts
     Then User enter the relationship in Assigned Emergency Contacts
+    Then User enter the Home Telephone in Assigned Emergency Contacts
     Then User enter the mobile in Assigned Emergency Contacts

@@ -45,29 +45,25 @@ Then('User click on Add Employee menu', async function () {
 });
 
 Then('User enter the First Name', async function () {
-    console.log("firstname",`${ENV.FIRSTNAME}`)
-    await pimmenu.fillPIMfirstname(`${ENV.FIRSTNAME}`)
+    await pimmenu.fillPIMfirstname()
     console.log("test3");
     // await page.waitForTimeout(3000);
 });
 
 Then('User enter the Middle Name', async function () {
-    console.log("middlename",`${ENV.MIDDLENAME}`)
-    await pimmenu.fillPIMmiddlename(`${ENV.MIDDLENAME}`)
+    await pimmenu.fillPIMmiddlename()
     console.log("test4")
     // await page.waitForTimeout(3000);
 });
 
 Then('User enter the Last Name', async function () {
-    console.log("lastname",`${ENV.LASTNAME}`)
-    await pimmenu.fillPIMlastname(`${ENV.LASTNAME}`)
+    await pimmenu.fillPIMlastname()
     console.log("test5")
     // await page.waitForTimeout(3000);
 });
 
 Then('User enter the Employee Id', async function () {
-    console.log("employeeid",`${ENV.EMPLOYEEID}`)
-    await pimmenu.fillEmployeeid(`${ENV.EMPLOYEEID}`)
+    await pimmenu.fillEmployeeid()
     console.log("test6")
     // await page.waitForTimeout(3000);
 });
@@ -79,12 +75,9 @@ Then('User click on Save button', async function () {
 });
 
 Then('User enter the Other Id', async function () {
-    console.log("otherid",`${ENV.OTHERID}`)
-    await pimmenu.fillOtherId(`${ENV.OTHERID}`)
-    const otherID = await pimmenu.fillOtherId(`${ENV.OTHERID}`)
-    console.log("enter",otherID)
+    await pimmenu.fillOtherId()
     console.log("test8")
-    await page.waitForTimeout(3000);
+    // await page.waitForTimeout(3000);
 });
 
 // Then('User enter the driversLicenseNumber',async function () {
@@ -94,22 +87,19 @@ Then('User enter the Other Id', async function () {
 // }); 
 
 Then('User enter the licenseExpiryDate', async function () {
-    console.log("licenseexpirydate",`${ENV.LICENSEEXPIRYDATE}`)
-    await pimmenu.filllicenseexpiryDate(`${ENV.LICENSEEXPIRYDATE}`)
+    await pimmenu.filllicenseexpiryDate()
     console.log("test10")
     // await page.waitForTimeout(3000);
 });
 
 Then('User enter the Snn Number', async function () {
-    console.log("snnnumber",`${ENV.SNNNUMBER}`)
-    await pimmenu.fillSnnNumber(`${ENV.SNNNUMBER}`)
+    await pimmenu.fillSnnNumber()
     console.log("test11")
     // await page.waitForTimeout(3000);
 });
 
 Then('User enter the Sin Number', async function () {
-    console.log("sinnumber",`${ENV.SINNUMBER}`)
-    await pimmenu.fillSinNumber(`${ENV.SINNUMBER}`)
+    await pimmenu.fillSinNumber()
     console.log("test12")
 });
 
@@ -131,7 +121,7 @@ Then('User click on Male Radio button',async function () {
 })
 
 Then('User click on RequiredSave button', async function () {
-    await pimmenu.clickSavebutton();
+    await pimmenu.clickrequiredSavebutton();
     console.log("test16")
     // await page.waitForTimeout(3000); 
 });
@@ -155,8 +145,7 @@ Then('User click on Add attachment and upload file',async function () {
 })
 
 Then('User enter the Attachment Comment', async function () {
-    console.log("Comment",`${ENV.ATTACHMENTCOMMENT}`)
-    await pimmenu.fillAttacmentComment(`${ENV.ATTACHMENTCOMMENT}`)
+    await pimmenu.fillAttacmentComment()
     console.log("test20")
     // await page.waitForTimeout(3000);
 });
@@ -174,8 +163,7 @@ Then('User click on Add reattachment and upload file',async function () {
 })
 
 Then('User enter the Attachment reComment', async function () {
-    console.log("Comment",`${ENV.ATTACHMENTCOMMENT}`)
-    await pimmenu.fillAttacmentComment(`${ENV.ATTACHMENTCOMMENT}`)
+    await pimmenu.fillAttacmentComment()
     console.log("test23")
     // await page.waitForTimeout(3000);
 });
@@ -198,48 +186,79 @@ Then('User click on Contct Details',async function () {
     // await page.waitForTimeout(3000);
 })
 
-// Then('User enter the street1',async function () {
-//     console.log("street1",`${ENV.STREET1}`)
-//     await pimmenu.fillAttacmentComment(`${ENV.STREET1}`)
-//     console.log("test27")
-//     // await page.waitForTimeout(3000);
-// })
+Then('User enter the street1 Contct Details',async function () {
+    await pimmenu.fillstreet1()
+    console.log("test27")
+    // await page.waitForTimeout(3000);
+})
+
+Then('User enter the street2 Contct Details', async function () {
+    await pimmenu.fillstreet2()
+    console.log("test28")
+});
+
+Then('User enter the city Contct Details', async function () {
+    await pimmenu.fillcity()
+    console.log("test29")
+ });
+
+Then('User enter the HomeNO Contct Details', async function () {
+    await pimmenu.fillHomeNO()
+    console.log("test30")
+});
+
+Then('User enter the otherEmail Contct Details', async function () {
+    await pimmenu.fillotherEmail()
+    console.log("test31")
+    await page.waitForTimeout(3000);
+
+});
+
+Then('User click on Contct Details Save Button', async function () {
+    await pimmenu.clickContact_Details_Save()
+    console.log("test32")
+});
 
 Then('User click on Emergency Contacts',async function () {
     await pimmenu.clickEmergencyContacts();
-    console.log("test28")
+    console.log("test33")
+    // await page.waitForTimeout(3000);
 })
 
 Then('User click on Add Assigned Emergency Contacts',async function () {
     await pimmenu.clickADDEmergencyContacts();
-    console.log("test29")
+    console.log("test34")
+        // await page.waitForTimeout(3000);
+
 })
 
 Then('User enter the name in Assigned Emergency Contacts', async function () {
-    console.log("name",`${ENV.NAMEADDEMERGANCYCONTACT}`)
-    await pimmenu.fillname_AssignedEmergencyContacts(`${ENV.NAMEADDEMERGANCYCONTACT}`)
-    console.log("test30")
-    await page.waitForTimeout(3000);
+    await pimmenu.fillname_AssignedEmergencyContacts()
+    console.log("test35")
+    // await page.waitForTimeout(3000);
 });
 
 Then('User enter the relationship in Assigned Emergency Contacts', async function () {
-    console.log("relationship",`${ENV.RELATIONSHIPADDEMERGANCYCONTACT}`)
-    await pimmenu.fillname_AssignedEmergencyContacts(`${ENV.RELATIONSHIPADDEMERGANCYCONTACT}`)
-    console.log("test31")
-    await page.waitForTimeout(3000);
+    await pimmenu.fillrelationship_AssignedEmergencyContacts()
+    console.log("test36")
+    // await page.waitForTimeout(3000);
+});
+
+Then('User enter the Home Telephone in Assigned Emergency Contacts', async function () {
+    await pimmenu.fillHomeTelephone_AssignedEmergencyContacts()
+    console.log("test37")
 });
 
 Then('User enter the mobile in Assigned Emergency Contacts', async function () {
-    console.log("mobile",`${ENV.MOBILEADDEMERGANCYCONTACT}`)
-    await pimmenu.fillname_AssignedEmergencyContacts(`${ENV.MOBILEADDEMERGANCYCONTACT}`)
-    console.log("test32")
-    await page.waitForTimeout(3000);
+    await pimmenu.fillmobile_AssignedEmergencyContacts()
+    console.log("test38")
+    // await page.waitForTimeout(3000);
 });
 
 
 
 // AfterAll(async () => {
-   
+
 //     await page.close();
 //     await browser.close();
 
