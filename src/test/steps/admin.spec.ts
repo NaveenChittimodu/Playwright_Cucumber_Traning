@@ -37,11 +37,6 @@ Given('User Login to OrangeHrm application', async function () {
 
 When('User click on admin', async function () {
   await  adminPage.clickAdmin();
-  // console.log("testing performance is clicked ");
-  // await performancePage.clickConfigure();
-  // await performancePage.clickKPIs();
-  // await performancePage.clickKPI_Addbtn();
-  // await performancePage.keyindicator_KPI();
 });
 
 

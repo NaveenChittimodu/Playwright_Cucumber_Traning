@@ -6,6 +6,7 @@ export class Performancelocators{
     readonly page: Page;
     readonly performance: string;
     readonly configure: string;
+    readonly managerReviews: string;
     readonly configureKPIs: string;
     readonly configureTrackers: string;
     readonly addbtn: string;
@@ -19,6 +20,7 @@ export class Performancelocators{
     readonly trackerName : string;
     readonly  employeeName: string;
     readonly ReviewerName : string;
+    readonly manageReviews : string;
 
 
    
@@ -26,6 +28,7 @@ export class Performancelocators{
         this.page = page
         this.performance = "//span[text()='Performance']";
         this.configure = "//span[text()='Configure ']";
+        this.managerReviews = "//span[text()='Manage Reviews ']";
         this.configureKPIs = "//li/a[text() = 'KPIs']";
         this.configureTrackers = "//a[text()='Trackers']";
         this.addbtn = "//button[text()=' Add ']";
@@ -33,14 +36,26 @@ export class Performancelocators{
         this.minimum = "(//label[text()='Minimum Rating']/following::input)[1]";
         this.maximum = "(//label[text()='Maximum Rating']/following::input)[1]";
         this.Addkeyindicator = "//p[text() ='Add Key Performance Indicator']"
-        this.selectdropdown = `.oxd-select-wrapper`//`//div[@class='oxd-select-text-input']`
-        this.dropdown = `//div[text()='Account Assistant'] .oxd-select-dropdown .oxd-select-option`//div[@role='listbox']`
+        this.selectdropdown = `.oxd-select-text-input`
+        this.dropdown = `//div/span[text() = 'Chief Financial Officer']`
         this.save = `//button[text()=' Save ']`
 
         this.trackerName = `(//label[text()='Tracker Name']/following::input)[1]`
-        this.employeeName = `(//label[text()='Tracker Name']/following::input)[1]`
-        this.ReviewerName = `(//label[text()='Tracker Name']/following::input)[1]`
+        this.employeeName = `(//label[text()='Employee Name']/following::input)[1]`
+        this.ReviewerName = `//label[text()='Reviewers']/following::input`
+
+        // managereviews
+        this.manageReviews = `//a[contains(text(),'Manage Reviews')]`
+
 
 
     }
 }
+
+
+
+
+// https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/admin/job-titles?limit=0
+
+
+

@@ -35,14 +35,14 @@ export class PerformancePage {
         await this.page.locator(this.performancelocators.addbtn).isVisible();
         await this.page.locator(this.performancelocators.addbtn).click();
     }
+    
+
     async keyindicator_KPI(){
         await this.page.locator(this.performancelocators.keyindicator).isVisible();
         await this.page.locator(this.performancelocators.keyindicator).click();
         await this.page.locator(this.performancelocators.keyindicator).fill("key indicators1");
         await this.page.locator(this.performancelocators.Addkeyindicator).click();
-        await this.page.waitForTimeout(3000)
-        await this.page.locator(this.performancelocators.selectdropdown).click();
-        await this.genericmethods.selectDropDownElements(this.performancelocators.selectdropdown,this.performancelocators.dropdown,"Account Assistant");
+        await this.genericmethods.selectDropDownElement(this.performancelocators.selectdropdown,"Customer Success Manager");
         await this.page.locator(this.performancelocators.minimum).click();
         await this.page.locator(this.performancelocators.minimum).clear();
         await this.page.locator(this.performancelocators.minimum).fill("30");
@@ -52,7 +52,7 @@ export class PerformancePage {
         await this.page.locator(this.performancelocators.save).click();
     }
 
-    
+
     async clickTrackers(){
         await this.page.locator(this.performancelocators.configureTrackers).isVisible();
         await this.page.locator(this.performancelocators.configureTrackers).click();
@@ -62,15 +62,55 @@ export class PerformancePage {
         await this.page.locator(this.performancelocators.addbtn).isVisible();
         await this.page.locator(this.performancelocators.addbtn).click();
     }
+
+
     async Trackers(){
         await this.page.locator(this.performancelocators.trackerName).isVisible();
         await this.page.locator(this.performancelocators.trackerName).click();
-        await this.page.locator(this.performancelocators.trackerName).fill("Tracker1");
+        await this.page.locator(this.performancelocators.trackerName).fill("Tracker2");
+        await this.page.waitForTimeout(3000)
         await this.page.locator(this.performancelocators.employeeName).isVisible();;
         await this.page.locator(this.performancelocators.employeeName).click();
-        await this.page.locator(this.performancelocators.employeeName).fill("Naveen");
+        await this.page.locator(this.performancelocators.employeeName).fill("c");
+        await this.page.waitForTimeout(3000)
+        await this.page.locator(`//span[text()='Cecil  Bonaparte']`).click();
         await this.page.locator(this.performancelocators.ReviewerName).isVisible();;
         await this.page.locator(this.performancelocators.ReviewerName).click();
-        await this.page.locator(this.performancelocators.ReviewerName).fill("Gowtham");
+        await this.page.locator(this.performancelocators.ReviewerName).fill("n");
+        await this.page.waitForTimeout(3000)
+        await this.page.locator(`//span[text()='Odis  Adalwin']`).click();
+        await this.page.locator(this.performancelocators.save).click();
     }
+
+   
+ async managefields(){
+        await this.page.locator(this.performancelocators.managerReviews).isVisible();
+        await this.page.locator(this.performancelocators.managerReviews).click();
+    }
+
+    async managefields_ManageReviews(){
+        await this.page.locator(this.performancelocators.manageReviews).isVisible();
+        await this.page.locator(this.performancelocators.manageReviews).click();
+        await this.page.locator(this.performancelocators.addbtn).isVisible();
+        await this.page.locator(this.performancelocators.addbtn).click();
+    }
+
+    async managePerformanceReview(){
+        await this.page.locator(this.performancelocators.employeeName).isVisible();;
+        await this.page.locator(this.performancelocators.employeeName).click();
+        await this.page.locator(this.performancelocators.employeeName).fill("n");
+        await this.page.waitForTimeout(3000)
+        await this.page.locator(`//span[text()='Odis  Adalwin']`).click();
+        await this.page.locator(this.performancelocators.employeeName).isVisible();;
+        await this.page.locator(this.performancelocators.employeeName).click();
+        await this.page.locator(this.performancelocators.employeeName).fill("n");
+        await this.page.waitForTimeout(3000)
+        await this.page.locator(`//span[text()='Odis  Adalwin']`).click();
+        await this.page.locator(this.performancelocators.employeeName).isVisible();;
+        await this.page.locator(this.performancelocators.employeeName).click();
+        await this.page.locator(this.performancelocators.employeeName).fill("n");
+        await this.page.waitForTimeout(3000)
+        await this.page.locator(`//span[text()='Odis  Adalwin']`).click();
+    }
+
 }

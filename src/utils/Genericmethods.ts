@@ -37,9 +37,11 @@ async selectDropDownElements(clickDropDownLocator: string,dropdownLocator: strin
     }
 }
 
-async selectDropDownElement(dropdownLocator: string, dropDownTextValue: string) {
-    if (await this.page.locator(dropdownLocator).isVisible()) {
-        await this.page.locator(dropDownTextValue).click();
+async selectDropDownElement(selectdropdown : string ,dropdownText : string) {
+    let dropdownvalue = `//div/span[text() = '${dropdownText}']`
+    if (await this.page.locator(selectdropdown).isVisible()) {
+        await this.page.locator(selectdropdown).click();
+        await this.page.locator(dropdownvalue).click();
     }
 }
 

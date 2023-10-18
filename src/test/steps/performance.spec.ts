@@ -38,14 +38,24 @@ Given('User Login to OrangeHrm application', async function () {
 When('User click on Performance', async function () {
   await  performancePage.clickPerformance();
   console.log("testing performance is clicked ");
-  await performancePage.clickConfigure();
-  await performancePage.clickKPIs();
-  await performancePage.clickKPI_Addbtn();
-  await performancePage.keyindicator_KPI();
-  await performancePage.Trackers();
-  await performancePage.clickTrackers();
-  await performancePage.clickTracker_Addbtn();
-  await performancePage.Trackers();
+
+  //** configure */
+  // await performancePage.clickConfigure();
+  // await performancePage.clickKPIs();
+  // await performancePage.clickKPI_Addbtn();
+  // await performancePage.keyindicator_KPI();
+  // await performancePage.clickConfigure();
+  // await performancePage.clickTrackers();
+  // await performancePage.clickTracker_Addbtn();
+  // await performancePage.Trackers();
+
+  //** manage reviews */
+   await performancePage.managefields();
+   await performancePage.managefields_ManageReviews();
+   await performancePage.managePerformanceReview();
+
+
+
 });
 
 
