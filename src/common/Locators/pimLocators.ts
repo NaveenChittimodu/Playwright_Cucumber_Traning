@@ -11,10 +11,12 @@ export class Pimlocators{
     readonly employeeId : string;
     readonly savebutton : string;
     readonly otherID : string;
-    readonly ssnNumber: string;
     readonly driversLicenseNumber : string;
     readonly licenseExpiryDate:string;
+    readonly licenseExpiryDateSelect:string;
+    readonly ssnNumber: string;
     readonly sinNumber:string;
+    readonly nationality :string;
     readonly selectnationality:string;
     readonly selectmaritalstatus:string;
     readonly requiredsavebutton: string; 
@@ -54,11 +56,13 @@ export class Pimlocators{
         this.employeeId="(//label[text()='Employee Id']/following::div/input)";
         this.savebutton="//button[@type='submit']";
         this.otherID ="//label[normalize-space(text())='Other Id']//parent::div//following-sibling::div//input";
-        this.ssnNumber="//label[text()='SSN Number']//parent::div//following-sibling::div//input";
         this.driversLicenseNumber="";
         this.licenseExpiryDate="//label[text()='License Expiry Date']//parent::div//following-sibling::div/div//input";
+        this.licenseExpiryDateSelect="//div[text()='31']"
+        this.ssnNumber="//label[text()='SSN Number']//parent::div//following-sibling::div//input";
         this.sinNumber =`//label[text()='SIN Number']//parent::div//following-sibling::div//input`;
-        this.selectnationality = "(//div[@class='oxd-select-text--after']//i)[1]";
+        this.nationality = "(//div[text()='-- Select --'])[1]";
+        this.selectnationality="//span[text()='Indian']"
         this.selectmaritalstatus="(//div[@class='oxd-select-text oxd-select-text--active'])[2]";
         this.maleRadioButton= "//label[text()='Male']";
         this.requiredsavebutton = "//p[text()=' * Required']/following-sibling::button"

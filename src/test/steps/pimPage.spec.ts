@@ -103,11 +103,11 @@ Then('User enter the Sin Number', async function () {
     console.log("test12")
 });
 
-// Then('User selects nationality as Indian', async function () {
-//     console.log("nationality",pimlocators.selectnationality,`${ENV.NATIONALITYDROPDOWNTEXT}`)
-//     await pimmenu.selectdropdownNationality(pimlocators.selectnationality,`${ENV.NATIONALITYDROPDOWNTEXT}`)
-//     console.log("test13")
-// });
+Then('User selects nationality as Indian', async function () {
+    await pimmenu.selectdropdown_Nationality()
+    console.log("test13")
+    await page.waitForTimeout(3000);
+});
 
 // Then('User selects Marital Status as Single', async function () {
 //     console.log("Marital Status",pimlocators.selectmaritalstatus,`${ENV.MARITALSTATUSDROPDOWNTEXT}`)
@@ -189,22 +189,25 @@ Then('User click on Contct Details',async function () {
 Then('User enter the street1 Contct Details',async function () {
     await pimmenu.fillstreet1()
     console.log("test27")
-    // await page.waitForTimeout(3000);
+    await page.waitForTimeout(3000);
 })
 
 Then('User enter the street2 Contct Details', async function () {
     await pimmenu.fillstreet2()
     console.log("test28")
+    await page.waitForTimeout(3000);
 });
 
 Then('User enter the city Contct Details', async function () {
     await pimmenu.fillcity()
     console.log("test29")
+    await page.waitForTimeout(3000);
  });
 
 Then('User enter the HomeNO Contct Details', async function () {
     await pimmenu.fillHomeNO()
     console.log("test30")
+    await page.waitForTimeout(3000);
 });
 
 Then('User enter the otherEmail Contct Details', async function () {

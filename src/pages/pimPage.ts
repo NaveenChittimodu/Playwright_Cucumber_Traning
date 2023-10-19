@@ -71,8 +71,8 @@ export  class Pimmenu {
     async filllicenseexpiryDate() {
         await (await this.page.waitForSelector(this.pimlocators.licenseExpiryDate)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.licenseExpiryDate)).isEditable();
-        await (await this.page.waitForSelector(this.pimlocators.licenseExpiryDate)).click();
-        await  this.page.locator(this.pimlocators.ssnNumber).fill('2023-04-12');
+        await this.page.locator(this.pimlocators.licenseExpiryDate).click();
+        await this.page.locator(this.pimlocators.licenseExpiryDateSelect).click();
     }
     
     async fillSinNumber() {
@@ -81,11 +81,12 @@ export  class Pimmenu {
         await  this.page.locator(this.pimlocators.sinNumber).fill('5535');
     }
     
-    // async selectdropdown_Nationality(dropdownLocator: string, dropDownText: string) {
-    //     if(await this.page.locator(dropdownLocator).isVisible()){
-    //         await this.page.locator(dropDownText).click()
-    //     }
-    // }
+    async selectdropdown_Nationality() {
+        await (await this.page.waitForSelector(this.pimlocators.nationality)).isVisible();
+        await this.page.locator(this.pimlocators.nationality).click();
+        await this.page.locator(this.pimlocators.selectnationality).click();
+        
+    }
 
     // async selectdropdown_Marital_Status(dropdownLocator: string, dropDownText: string) {
     //     if(await this.page.locator(dropdownLocator).isVisible()){
@@ -161,30 +162,35 @@ export  class Pimmenu {
     async fillstreet1() {
         await (await this.page.waitForSelector(this.pimlocators.street1)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.street1)).isEditable();
+        await (await this.page.waitForSelector(this.pimlocators.street1)).click();
         await  this.page.locator(this.pimlocators.street1).fill('Lanchohills');
     }
 
     async fillstreet2() {
         await (await this.page.waitForSelector(this.pimlocators.street2)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.street2)).isEditable();
+        await (await this.page.waitForSelector(this.pimlocators.street2)).click();
         await  this.page.locator(this.pimlocators.street2).fill('Manikonda');
     }
 
     async fillcity() {
         await (await this.page.waitForSelector(this.pimlocators.city)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.city)).isEditable();
+        await (await this.page.waitForSelector(this.pimlocators.city)).click();
         await  this.page.locator(this.pimlocators.city).fill('Hyderabad');
     }
 
     async fillHomeNO() {
         await (await this.page.waitForSelector(this.pimlocators.homeNO)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.homeNO)).isEditable();
+        await (await this.page.waitForSelector(this.pimlocators.homeNO)).click();
         await  this.page.locator(this.pimlocators.homeNO).fill('456787');
     }
 
     async fillotherEmail() {
         await (await this.page.waitForSelector(this.pimlocators.otherEmail)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.otherEmail)).isEditable();
+        await (await this.page.waitForSelector(this.pimlocators.otherEmail)).click();
         await  this.page.locator(this.pimlocators.otherEmail).fill('yas@gmail.com');
     }
     

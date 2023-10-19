@@ -16,7 +16,7 @@ Feature: Fill the data in pim
     Then User enter the licenseExpiryDate
     Then User enter the Snn Number
     Then User enter the Sin Number
-    # Then User selects nationality as Indian
+    Then User selects nationality as Indian
     # Then User selects Marital Status as Single
     Then User click on Male Radio button
     Then User click on RequiredSave button
