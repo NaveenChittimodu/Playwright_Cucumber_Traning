@@ -54,16 +54,6 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to perform Leave Types list page delete functionality
         Then user is able to perform Leave Types list page edit functionality
         Then user is able to see Work Week components
-
-
-        
-
-
-        Then user is able to see Holidays components
-        Then user is able to see Add Holiday page components
-        Then user is able to see leave list components 
-
-
         Then user is able to perform Work Week Monday sort functionality
         Then user is able to perform Work Week Tuesday sort functionality
         Then user is able to perform Work Week Wednesday sort functionality
@@ -72,6 +62,26 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to perform Work Week Saturday sort functionality
         Then user is able to perform Work Week Sunday sort functionality
         Then user is able to perform Work Week save sort functionality
+
+
+    
+        Then user is able to see Holidays components
+        Then user is able to perform Holidays reset functionality
+        Then user is able to perform Holidays search functionality
+        Then user is able to perform Holidays add functionality in list page
+        Then user is able to see Add Holiday page components
+        Then user is able to perform Add Holiday page cancel functionality
+        Then user is able to perform Add Holiday page save functionality
+        Then user is able to perform Add Holiday list page multiselectlect 
+        Then user is able to perform Add Holiday list page individual select functionality
+
+
+
+
+        Then user is able to see leave list components 
+
+
+  
 
 
 

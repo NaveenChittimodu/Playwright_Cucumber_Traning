@@ -1,3 +1,4 @@
+import StepDefinition from '@cucumber/cucumber/lib/models/step_definition';
 import {Locator, Page} from '@playwright/test'
 
 export class LeavePageLocators{
@@ -120,14 +121,33 @@ export class LeavePageLocators{
     readonly sundayDropDown:string;
 
 
+
+
+
     // holiday
     readonly addHoliday:string;
     readonly holidayDate:string;
     readonly leaveDuration:string;
     readonly saveHoliday:string;
     readonly fulldayHoliday:string;
-    
-    
+
+    readonly holidayFromDate:string;
+    readonly holidayToDate:string;
+    readonly holidayReset:string;
+    readonly holidaySearch:string;
+
+    readonly addHolidays:string;
+    readonly holidaysname:string;
+    readonly holidaysDate:string;
+    readonly holidayDropDown:string;
+    readonly fullHoliday:string;
+    readonly saveHolidays:string;
+    readonly cancelHoliday:string;
+    readonly multipleHolidays:string;
+    readonly singleHoliday:string;
+
+
+
     constructor(page:Page){
        
         this.page = page
@@ -251,7 +271,7 @@ export class LeavePageLocators{
         this.saveEditLeave="//button[@type='submit']";
         
         this.mondayDropDown="//label[text()='Monday']//parent::div//following-sibling::div/div";
-        this.FullDay="//span[text()='Full Day']";
+        this.FullDay=".oxd-select-dropdown .oxd-select-option";
         this.HalfDay="//span[text()='Half Day']";
         this.mondayNonWorkingDay="//span[text()='Non-working Day']";
         this.Save="//button[@type='submit']";
@@ -262,7 +282,20 @@ export class LeavePageLocators{
         this.saturdayDropDown="//label[text()='Saturday']//parent::div//following-sibling::div/div";
         this.sundayDropDown="//label[text()='Sunday']//parent::div//following-sibling::div/div";
         
+        this.holidayFromDate="(//input[@class='oxd-input oxd-input--active'])[1]";
+        this.holidayToDate="(//input[@class='oxd-input oxd-input--active'])[2]";
+        this.holidayReset="//button[text()=' Reset ']"; 
+        this.holidaySearch="//button[@type='submit']"; 
         
+        this.addHolidays="//button[text()=' Add ']";
+        this.holidaysname="(//input[@class='oxd-input oxd-input--active'])[2]";
+        this.holidaysDate="(//input[@class='oxd-input oxd-input--active'])[3]";
+        this.holidayDropDown="//div[@class='oxd-select-text oxd-select-text--active']";
+        this.fullHoliday=".oxd-select-dropdown .oxd-select-option";
+        this.saveHolidays="//button[text()=' Save ']";
+        this.cancelHoliday="//button[text()=' Cancel ']";
+        this.multipleHolidays="(//i[@class='oxd-icon bi-check oxd-checkbox-input-icon'])[1]";
+        this.singleHoliday="(//span[@class='oxd-checkbox-input oxd-checkbox-input--active --label-right oxd-checkbox-input'])[2]";
     }
 
 }

@@ -54,6 +54,40 @@ export class LeavePage {
         await this.selectDropDownElements(this.leavePageLocators.jobTitle, this.leavePageLocators.jobTitleDropdown, "Chief Executive Officer")
 
     }
+    async mondayFullDay(){
+        await this.selectDropDownElements(this.leavePageLocators.mondayDropDown,this.leavePageLocators.FullDay,"Full Day");
+    }
+
+    async tuesdayFullDay(){
+        await this.selectDropDownElements(this.leavePageLocators.tuesdayDropDown,this.leavePageLocators.FullDay,"Full Day");
+    }
+
+    async wednesdayFullDay(){
+        await this.selectDropDownElements(this.leavePageLocators.wednesdayDropDown,this.leavePageLocators.FullDay,"Full Day");
+    }
+    async thursdayFullDay(){
+        await this.selectDropDownElements(this.leavePageLocators.thursdayDropDown,this.leavePageLocators.FullDay,"Full Day");
+    }
+    async fridayFullDay(){
+        await this.selectDropDownElements(this.leavePageLocators.fridayDropDown,this.leavePageLocators.FullDay,"Full Day");
+    }
+    async saturdayHalfDay(){
+        await this.selectDropDownElements(this.leavePageLocators.saturdayDropDown,this.leavePageLocators.FullDay,"Non-working Day");
+    }
+    async sundayNonWorking(){
+        await this.selectDropDownElements(this.leavePageLocators.sundayDropDown,this.leavePageLocators.FullDay,"Non-working Day");
+    }
+    
+    
+
+
+
+
+
+
+
+
+    
     async leavePageComponent() {
         await this.page.waitForSelector(this.leavePageLocators.apply);
         await this.page.locator(this.leavePageLocators.apply).isVisible();
@@ -347,98 +381,46 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
     }
     async workWeekMondaySort() {
-        await this.page.pause();
+        // await this.page.pause();
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
         await this.page.locator(this.leavePageLocators.workWeekComponent).click();
-        await this.page.locator(this.leavePageLocators.mondayDropDown).click({ force: true });
-        await this.page.waitForTimeout(2000);
-        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
-        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.mondayFullDay()
         await this.page.locator(this.leavePageLocators.Save).click({ force: true });
     }
     async workWeekTuesdaySort() {
-        await this.page.pause();
-        await this.page.locator(this.leavePageLocators.config).isVisible();
-        await this.page.locator(this.leavePageLocators.config).click({ force: true });
-        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
-        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
-        await this.page.locator(this.leavePageLocators.tuesdayDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.tuesdayDropDown).click({ force: true });
         await this.page.waitForTimeout(2000);
-        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
-        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.tuesdayFullDay();
         await this.page.locator(this.leavePageLocators.Save).click({ force: true });
     }
     async workWeekWednesdaySort() {
-        await this.page.pause();
-        await this.page.locator(this.leavePageLocators.config).isVisible();
-        await this.page.locator(this.leavePageLocators.config).click({ force: true });
-        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
-        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
-        await this.page.locator(this.leavePageLocators.wednesdayDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.wednesdayDropDown).click({ force: true });
         await this.page.waitForTimeout(2000);
-        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
-        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.wednesdayFullDay();
         await this.page.locator(this.leavePageLocators.Save).click({ force: true });
     }
     async workWeekThursdaySort() {
-        await this.page.pause();
-        await this.page.locator(this.leavePageLocators.config).isVisible();
-        await this.page.locator(this.leavePageLocators.config).click({ force: true });
-        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
-        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
-        await this.page.locator(this.leavePageLocators.thursdayDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.thursdayDropDown).click({ force: true });
         await this.page.waitForTimeout(2000);
-        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
-        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.thursdayFullDay();
         await this.page.locator(this.leavePageLocators.Save).click({ force: true });
     }
 
     async workWeekFridaySort() {
-        await this.page.pause();
-        await this.page.locator(this.leavePageLocators.config).isVisible();
-        await this.page.locator(this.leavePageLocators.config).click({ force: true });
-        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
-        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
-        await this.page.locator(this.leavePageLocators.fridayDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.fridayDropDown).click({ force: true });
         await this.page.waitForTimeout(2000);
-        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
-        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
+        await this.fridayFullDay();
         await this.page.locator(this.leavePageLocators.Save).click({ force: true });
     }
     async workWeekSaturdaySort() {
-        await this.page.pause();
-        await this.page.locator(this.leavePageLocators.config).isVisible();
-        await this.page.locator(this.leavePageLocators.config).click({ force: true });
-        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
-        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
-        await this.page.locator(this.leavePageLocators.saturdayDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.saturdayDropDown).click({ force: true });
+        await this.saturdayHalfDay();
         await this.page.waitForTimeout(2000);
-        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
-        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
         await this.page.locator(this.leavePageLocators.Save).click({ force: true });
     }
     async workWeekSundaySort() {
-        await this.page.pause();
-        await this.page.locator(this.leavePageLocators.config).isVisible();
-        await this.page.locator(this.leavePageLocators.config).click({ force: true });
-        await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
-        await this.page.locator(this.leavePageLocators.workWeekComponent).click();
-        await this.page.locator(this.leavePageLocators.sundayDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.sundayDropDown).click({ force: true });
+        await this.sundayNonWorking();
         await this.page.waitForTimeout(2000);
-        await this.page.locator(this.leavePageLocators.FullDay).isVisible();
-        await this.page.locator(this.leavePageLocators.FullDay).click({ force: true });
         await this.page.locator(this.leavePageLocators.Save).click({ force: true });
     }
     async verifyWorkWeekSave() {
-        await this.page.pause();
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.workWeekComponent).isVisible();
@@ -459,6 +441,38 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
+    }
+    async holidaysReset(){
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayComponent).click();
+        await this.page.locator(this.leavePageLocators.holidayFromDate).fill("2023-02-14");
+        await this.page.locator(this.leavePageLocators.holidayToDate).fill("2023-04-21");
+        await this.page.locator(this.leavePageLocators.holidayReset).click()
+    }
+
+    async holidaysSearch(){
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayComponent).click();
+        await this.page.locator(this.leavePageLocators.holidayFromDate).fill("2023-02-14");
+        await this.page.locator(this.leavePageLocators.holidayToDate).fill("2023-04-21");
+        await this.page.locator(this.leavePageLocators.holidaySearch).click()
+    }
+
+    async addHolidays(){
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayComponent).click();
+        await this.page.locator(this.leavePageLocators.addHolidays).click();
+        await this.page.locator(this.leavePageLocators.holidaysname).click();
+        await this.page.locator(this.leavePageLocators.holidayDate).click();
+        await this.selectDropDownElements(this.leavePageLocators.holidayDropDown,this.leavePageLocators.fullHoliday,"Full Day");
+        await this.page.locator(this.leavePageLocators.saveHoliday).click();
+        
     }
     async addHolidaysComponent() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
@@ -481,6 +495,64 @@ export class LeavePage {
     }
 
 
+    
+    async cancelHolidaysComponent() {
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayComponent).click({ force: true });
+        await this.page.locator(this.leavePageLocators.addHoliday).isVisible();
+        await this.page.locator(this.leavePageLocators.addHoliday).click({ force: true });
+        await this.page.waitForTimeout(2000);
+        await this.page.locator(this.leavePageLocators.holidayName).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayName).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayName).fill("Pongal");
+        await this.page.locator(this.leavePageLocators.holidayDate).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayDate).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayDate).type("2024-01-16");
+        await this.page.locator(this.leavePageLocators.leaveDuration).click()
+        await this.page.locator(this.leavePageLocators.fulldayHoliday).click()
+        await this.page.locator(this.leavePageLocators.cancelHoliday).click();
+
+    }
+
+    async saveHolidays() {
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayComponent).click({ force: true });
+        await this.page.locator(this.leavePageLocators.addHoliday).isVisible();
+        await this.page.locator(this.leavePageLocators.addHoliday).click({ force: true });
+        await this.page.waitForTimeout(2000);
+        await this.page.locator(this.leavePageLocators.holidayName).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayName).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayName).fill("Pongal");
+        await this.page.locator(this.leavePageLocators.holidayDate).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayDate).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayDate).type("2024-01-16");
+        await this.page.locator(this.leavePageLocators.leaveDuration).click()
+        await this.page.locator(this.leavePageLocators.fulldayHoliday).click()
+        await this.page.locator(this.leavePageLocators.saveHoliday).click();
+
+    }
+    
+    async multipleHolidaysSelection() {
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayComponent).click({ force: true });
+        await this.page.locator(this.leavePageLocators.multipleHolidays).isVisible();
+        await this.page.locator(this.leavePageLocators.multipleHolidays).click({ force: true });
+    }
+    async individualHolidaySelection() {
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayComponent).click({ force: true });
+        await this.page.locator(this.leavePageLocators.singleHoliday).isVisible();
+        await this.page.locator(this.leavePageLocators.singleHoliday).click({ force: true });
+        await this.page.waitForTimeout(3000);
+    }
     async leaveListComponent() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });

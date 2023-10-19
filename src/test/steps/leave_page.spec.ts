@@ -266,18 +266,65 @@ Then('user is able to perform Work Week save sort functionality', async function
 
 });
 
-
-
-
-
 Then('user is able to see Holidays components', async function () {
     await leavePage.holidaysComponent();
+   
 
 });
+
+
+
+
+
+
+Then('user is able to perform Holidays reset functionality', async function () {
+    await leavePage.holidaysReset();
+    console.log("tc45")
+
+});
+Then('user is able to perform Holidays search functionality', async function () {
+    await leavePage.holidaysSearch();
+    console.log("tc46")
+
+});
+Then('user is able to perform Holidays add functionality in list page', async function () {
+    await leavePage.addHolidays();
+    console.log("tc47")
+
+});
+
+
+
 Then('user is able to see Add Holiday page components', async function () {
     await leavePage.addHolidaysComponent();
+    console.log("tc48")
 
 });
+Then('user is able to perform Add Holiday page cancel functionality', async function () {
+    await leavePage.cancelHolidaysComponent();
+    console.log("tc49")
+
+});
+
+Then('user is able to perform Add Holiday page save functionality', async function () {
+    await leavePage.saveHolidays();
+    console.log("tc50")
+
+});
+Then('user is able to perform Add Holiday list page multiselectlect', async function () {
+    await leavePage.multipleHolidaysSelection();
+    console.log("tc51")
+
+});
+
+
+Then('user is able to perform Add Holiday list page individual select functionality', async function () {
+    await leavePage.individualHolidaySelection();
+    console.log("tc52")
+
+});
+
+
 
 
 Then('user is able to see leave list components', async function () {
