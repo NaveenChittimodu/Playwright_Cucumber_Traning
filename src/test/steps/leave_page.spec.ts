@@ -30,9 +30,6 @@ Given('User Login to OrangeHrm application', async function () {
     await loginPage.visit(`${ENV.BASEURL}`);
     await page.waitForTimeout(3000);
     await loginPage.loginOrangeHRM(`${ENV.USERNAME}`, `${ENV.PASSWORD}`);
-
-
-
 });
 When('user is able to see Apply Leave page and components', async function () {
     await leavePage.clickMainLeave();
@@ -40,55 +37,37 @@ When('user is able to see Apply Leave page and components', async function () {
     await leavePage.leavePageComponent();
 
 });
-
-
 Then('user is able to see My leave list components', async function () {
     await leavePage.myListComponent();
 });
-
-
-
-Then('user is able to see Reset functionality', async function () { 
+Then('user is able to see Reset functionality', async function () {
     await leavePage.verifyReset();
 
 });
-
-
 Then('user is able to see Search functionality', async function () {
     await leavePage.verifySearch();
-  
-});
 
+});
 Then('user is able to see List page components', async function () {
     console.log("1234")
 
 });
-
 Then('user is able to perform List page components multiselect functionality', async function () {
     console.log("1234")
 
 });
-
-
 Then('user is able to perform List page components individual select', async function () {
     console.log("1234")
 
 });
-
-
-
 Then('user is able to perform view functionality', async function () {
     console.log("1234")
 
 });
-
-
 Then('user is able to perform edit functionality', async function () {
     console.log("1234")
 
 });
-
-
 
 Then('user is able to perform delete functionality', async function () {
     console.log("1234")
@@ -101,9 +80,7 @@ When('user is able to see Add Entitlements Components', async function () {
     await leavePage.clickMainLeave();
     await leavePage.addEntitleComponent();
 
-
 });
-
 
 Then('user is able to Perform Cancel functionality', async function () {
     await leavePage.entitlePageCancel();
@@ -113,7 +90,6 @@ Then('user is able to Perform Save functionality', async function () {
     await leavePage.entitilementSave();
 
 });
-
 
 Then('user is able to see Employee entitlement components', async function () {
     await leavePage.employeeEntitle();
@@ -137,17 +113,12 @@ Then('user is able to Perform My leave entitlements search components', async fu
 });
 Then('user is able to see My leave entitlements List page components', async function () {
     await leavePage.myLeaveEntitlementComponents();
-;
+
 });
 Then('user is able to Perform Add new entitlements functionality', async function () {
     await leavePage.addNewEntitlement();
-;
+
 });
-
-
-//
-
-
 Then('user is able to see Leave Entitlements and Usage Report components', async function () {
     await leavePage.verifyLeaveEntitilementAndReport();
 
@@ -156,11 +127,6 @@ Then('user is able to perform Leave Entitlements and Usage Report generate funct
     await leavePage.genrateLeaveEntitilementAndReport();
 
 });
-
-
-
-
-
 Then('user is able to see My Leave Entitlements and Usage Report components', async function () {
     await leavePage.myLeaveEntitilementAndReport();
 
@@ -178,11 +144,6 @@ Then('user is able to perform My Leave Entitlements and Usage Report full screen
     await leavePage.fullScreenReportListComponent();
 
 });
-
-
-
-
-
 // Config page
 //
 Then('user is able to see Leave Period components', async function () {
@@ -268,15 +229,9 @@ Then('user is able to perform Work Week save sort functionality', async function
 
 Then('user is able to see Holidays components', async function () {
     await leavePage.holidaysComponent();
-   
+
 
 });
-
-
-
-
-
-
 Then('user is able to perform Holidays reset functionality', async function () {
     await leavePage.holidaysReset();
     console.log("tc45")
@@ -323,14 +278,37 @@ Then('user is able to perform Add Holiday list page individual select functional
     console.log("tc52")
 
 });
-
-
-
-
-Then('user is able to see leave list components', async function () {
-    await leavePage.leaveListComponent();
+Then('user is able to perform Add Holiday list page delete functionality', async function () {
+    await leavePage.deleteHoliday();
+    console.log("tc53")
 
 });
+Then('user is able to perform Add Holiday list page edit functionality', async function () {
+    await leavePage.editHoliday();
+    console.log("tc54")
+
+});
+Then('user is able to see leave list components', async function () {
+    await leavePage.leaveListComponent();
+    console.log("tc55")
+
+});
+Then('user is able to perform leave list reset functionality in the list page', async function () {
+    await leavePage.leaveListResetFunctionality();
+    console.log("tc56")
+
+});
+Then('user is able to perform leave list search functionality in the list page', async function () {
+    await leavePage.leaveListSearchFunctionality();
+    console.log("tc56")
+
+});
+
+
+
+
+
+
 
 // //
 // Then('user is able to see total leave list record in list page', async function () {

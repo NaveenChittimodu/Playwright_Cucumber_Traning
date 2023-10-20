@@ -1,4 +1,4 @@
-import { Page, expect,Keyboard } from "@playwright/test";
+import { Page, expect, Keyboard } from "@playwright/test";
 import { LeavePageLocators } from "../common/Locators/leavePageLocators"
 
 
@@ -46,48 +46,34 @@ export class LeavePage {
         }
     }
 
-
-
-
     async performance() {
 
         await this.selectDropDownElements(this.leavePageLocators.jobTitle, this.leavePageLocators.jobTitleDropdown, "Chief Executive Officer")
 
     }
-    async mondayFullDay(){
-        await this.selectDropDownElements(this.leavePageLocators.mondayDropDown,this.leavePageLocators.FullDay,"Full Day");
+    async mondayFullDay() {
+        await this.selectDropDownElements(this.leavePageLocators.mondayDropDown, this.leavePageLocators.FullDay, "Full Day");
     }
 
-    async tuesdayFullDay(){
-        await this.selectDropDownElements(this.leavePageLocators.tuesdayDropDown,this.leavePageLocators.FullDay,"Full Day");
+    async tuesdayFullDay() {
+        await this.selectDropDownElements(this.leavePageLocators.tuesdayDropDown, this.leavePageLocators.FullDay, "Full Day");
     }
 
-    async wednesdayFullDay(){
-        await this.selectDropDownElements(this.leavePageLocators.wednesdayDropDown,this.leavePageLocators.FullDay,"Full Day");
+    async wednesdayFullDay() {
+        await this.selectDropDownElements(this.leavePageLocators.wednesdayDropDown, this.leavePageLocators.FullDay, "Full Day");
     }
-    async thursdayFullDay(){
-        await this.selectDropDownElements(this.leavePageLocators.thursdayDropDown,this.leavePageLocators.FullDay,"Full Day");
+    async thursdayFullDay() {
+        await this.selectDropDownElements(this.leavePageLocators.thursdayDropDown, this.leavePageLocators.FullDay, "Full Day");
     }
-    async fridayFullDay(){
-        await this.selectDropDownElements(this.leavePageLocators.fridayDropDown,this.leavePageLocators.FullDay,"Full Day");
+    async fridayFullDay() {
+        await this.selectDropDownElements(this.leavePageLocators.fridayDropDown, this.leavePageLocators.FullDay, "Full Day");
     }
-    async saturdayHalfDay(){
-        await this.selectDropDownElements(this.leavePageLocators.saturdayDropDown,this.leavePageLocators.FullDay,"Non-working Day");
+    async saturdayHalfDay() {
+        await this.selectDropDownElements(this.leavePageLocators.saturdayDropDown, this.leavePageLocators.FullDay, "Non-working Day");
     }
-    async sundayNonWorking(){
-        await this.selectDropDownElements(this.leavePageLocators.sundayDropDown,this.leavePageLocators.FullDay,"Non-working Day");
+    async sundayNonWorking() {
+        await this.selectDropDownElements(this.leavePageLocators.sundayDropDown, this.leavePageLocators.FullDay, "Non-working Day");
     }
-    
-    
-
-
-
-
-
-
-
-
-    
     async leavePageComponent() {
         await this.page.waitForSelector(this.leavePageLocators.apply);
         await this.page.locator(this.leavePageLocators.apply).isVisible();
@@ -200,16 +186,12 @@ export class LeavePage {
 
     }
 
-
-
-
     async verifyLeaveEntitilementAndReport() {
         await this.page.locator(this.leavePageLocators.leaveReport).isVisible();
         await this.page.locator(this.leavePageLocators.leaveReport).click({ force: true });
         await this.page.locator(this.leavePageLocators.LeaveEntitilementAndRepor).isVisible();
 
     }
-
 
     async genrateLeaveEntitilementAndReport() {
         await this.page.locator(this.leavePageLocators.leaveReport).isVisible();
@@ -224,24 +206,8 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.reportLeavePeriod).click({ force: true })
         await this.page.locator(this.leavePageLocators.leavedays).isVisible();
         await this.page.locator(this.leavePageLocators.leavedays).click({ force: true });
-        // await this.page.locator(this.leavePageLocators.Location).isVisible();
-        // await this.page.locator(this.leavePageLocators.Location).click({ force: true })
-        // await this.page.locator(this.leavePageLocators.emplocation).isVisible();
-        // await this.page.locator(this.leavePageLocators.emplocation).click({ force: true });
-        // await this.page.locator(this.leavePageLocators.subUnit).isVisible();
-        // await this.page.locator(this.leavePageLocators.subUnit).click({ force: true })
-        // await this.page.locator(this.leavePageLocators.subUnitValue).isVisible();
-        // await this.page.locator(this.leavePageLocators.subUnitValue).click({ force: true });
-        // await this.performance();
         await this.page.locator(this.leavePageLocators.GenerateReport).click({ force: true });
-
-
-
-
-
     }
-
-
 
     async myLeaveEntitilementAndReport() {
         await this.page.locator(this.leavePageLocators.leaveReport).isVisible();
@@ -249,10 +215,7 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.myLeaveEntitilementAndReport).isVisible();
 
     }
-
-
-
-    async performMyLeaveEntitilementAndReport(){
+    async performMyLeaveEntitilementAndReport() {
         await this.page.locator(this.leavePageLocators.leaveReport).isVisible();
         await this.page.locator(this.leavePageLocators.leaveReport).click({ force: true });
         await this.page.locator(this.leavePageLocators.myLeaveEntitilementAndReport).isVisible();
@@ -280,9 +243,9 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.fillScreenReport).click()
         const keyboard: Keyboard = this.page.keyboard;
         await keyboard.press('Escape');
-       
+
     }
-    
+
     // config
 
     async leavePeriodComponent() {
@@ -307,7 +270,7 @@ export class LeavePage {
 
     }
 
-    async leavePeriodSaveComponent(){
+    async leavePeriodSaveComponent() {
         // await this.leavePeriodResetComponent();
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
@@ -320,16 +283,11 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.leavePeriodSave).click
 
     }
-
-    
     async leaveTypeComponent() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.leaveTypeComponent).isVisible();
     }
-
-    
-
     async addLeaveTypeComponent() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
@@ -345,7 +303,7 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.leaveTypeComponent).isVisible();
         await this.page.locator(this.leavePageLocators.leaveTypeComponent).click();
         await this.page.locator(this.leavePageLocators.leaveListName).click({ force: true })
-       
+
 
     }
     async singleSelectFunctionality() {
@@ -427,22 +385,12 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.workWeekComponent).click();
         await this.page.locator(this.leavePageLocators.Save).isVisible();
     }
-    
-
-    
-
-
-    
-
-
-
-
     async holidaysComponent() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
     }
-    async holidaysReset(){
+    async holidaysReset() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
@@ -452,7 +400,7 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.holidayReset).click()
     }
 
-    async holidaysSearch(){
+    async holidaysSearch() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
@@ -462,7 +410,7 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.holidaySearch).click()
     }
 
-    async addHolidays(){
+    async addHolidays() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
@@ -470,9 +418,9 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.addHolidays).click();
         await this.page.locator(this.leavePageLocators.holidaysname).click();
         await this.page.locator(this.leavePageLocators.holidayDate).click();
-        await this.selectDropDownElements(this.leavePageLocators.holidayDropDown,this.leavePageLocators.fullHoliday,"Full Day");
+        await this.selectDropDownElements(this.leavePageLocators.holidayDropDown, this.leavePageLocators.fullHoliday, "Full Day");
         await this.page.locator(this.leavePageLocators.saveHoliday).click();
-        
+
     }
     async addHolidaysComponent() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
@@ -493,9 +441,6 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.saveHoliday).click();
 
     }
-
-
-    
     async cancelHolidaysComponent() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
@@ -535,7 +480,7 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.saveHoliday).click();
 
     }
-    
+
     async multipleHolidaysSelection() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
@@ -553,20 +498,45 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.singleHoliday).click({ force: true });
         await this.page.waitForTimeout(3000);
     }
-    async leaveListComponent() {
+    async deleteHoliday() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
         await this.page.locator(this.leavePageLocators.holidayComponent).click({ force: true });
-        await this.page.locator(this.leavePageLocators.addHoliday).isVisible();
+        await this.page.locator(this.leavePageLocators.deleteHoliday).isVisible();
+        // await this.page.locator(this.leavePageLocators.deleteHoliday).click();
+    }
+    async editHoliday() {
+        await this.page.locator(this.leavePageLocators.config).isVisible();
+        await this.page.locator(this.leavePageLocators.config).click({ force: true });
+        await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
+        await this.page.locator(this.leavePageLocators.holidayComponent).click({ force: true });
+        await this.page.locator(this.leavePageLocators.editHoliday).isVisible();
+        // await this.page.locator(this.leavePageLocators.editHoliday).click();
 
     }
-    // async totalLeaveList(){
-    //     await this.page.locator(this.leavePageLocators.)
-    // }
+
+    async leaveListComponent() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+
+    }
+    async leaveListResetFunctionality() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.leaveListReset).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveListReset).click();
+        await expect(this.page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewLeaveList");
 
 
+    }
+    async leaveListSearchFunctionality() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.leaveListSearch).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveListSearch).click();
 
+    }
 }
 
 

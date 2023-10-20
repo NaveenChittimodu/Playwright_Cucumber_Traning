@@ -9,11 +9,6 @@ export class LeavePageLocators{
     readonly entitlements:string;
     readonly reports:string;
     readonly more :string;
-
-
-  
-
-
     // locators for items below apply button
     readonly applyLeave : string;
     readonly leaveType:any;
@@ -32,12 +27,7 @@ export class LeavePageLocators{
     readonly leave_Type:string;
     readonly myLeaveReset:any;
     readonly myLeaveSearch:string;
-
-
     readonly holidayName:string;
-
-
-
     readonly editEntitle:string;
     readonly entitlementCancel:string;
     readonly entitlementSave:string;
@@ -46,8 +36,6 @@ export class LeavePageLocators{
     readonly myEntitlements:string;
     readonly myLeaveEntitlement:string;
     readonly myLeaveEntitlementSerch:string;
-
-
     readonly employeeName:string;
     readonly employeenameList: string;
     readonly employeenameNumber:any;
@@ -79,11 +67,7 @@ export class LeavePageLocators{
     readonly myLeavePeriod:string;
     readonly myLeavePeriodValue:string;
     readonly myLeaveGenerate:string;
-
     readonly fillScreenReport:string;
-
-
-
     // config 
     readonly config:string;
     readonly leavePeriodComponent:string;
@@ -120,10 +104,6 @@ export class LeavePageLocators{
     readonly saturdayDropDown:string;
     readonly sundayDropDown:string;
 
-
-
-
-
     // holiday
     readonly addHoliday:string;
     readonly holidayDate:string;
@@ -145,6 +125,12 @@ export class LeavePageLocators{
     readonly cancelHoliday:string;
     readonly multipleHolidays:string;
     readonly singleHoliday:string;
+    readonly deleteHoliday:string;
+    readonly editHoliday:string;
+    readonly holidayListComponent:string;
+    readonly leaveList:string;
+    readonly leaveListReset:string;
+    readonly leaveListSearch:string;
 
 
 
@@ -153,9 +139,6 @@ export class LeavePageLocators{
         this.page = page
         this.mainLeave ="//span[text()='Leave']";
         this.apply="//a[text()='Apply']";
-
-    
-        
         this.reports="//span[text()='Reports ']";
         this.more="//span[text()='More ']";
         
@@ -176,19 +159,12 @@ export class LeavePageLocators{
         this.leave_Type="(//div[@class='oxd-select-text oxd-select-text--active'])[2]";
         this.myLeaveReset="//button[text()=' Reset ']";
         this.myLeaveSearch="//button[text()=' Search ']";
-       
-      
-        
-
         // add leave
         this.holidayName="//label[text()='Name']//parent::div//following-sibling::div//input";
         this.holidayDate="//div[@class='oxd-date-input']";
         this.leaveDuration="//div[@class='oxd-select-text oxd-select-text--active']";
         this.fulldayHoliday="//span[text()='Full Day']";
         this.saveHoliday="//button[text()=' Save ']";
-        
-
-
 
         /// entitlement
         this.entitlements="//span[text()='Entitlements ']";
@@ -208,8 +184,7 @@ export class LeavePageLocators{
         this.selectLeaveType="//span[text()='CAN - Bereavement']";
 
 
-        //// report
-
+        //// reports
         this.leaveReport="//span[text()='Reports ']";
         this.LeaveEntitilementAndRepor="//a[text()='Leave Entitlements and Usage Report']";
         this.reportLeaveType="//div[@class='oxd-select-wrapper']//div[text()='CAN - Bereavement']"
@@ -228,19 +203,10 @@ export class LeavePageLocators{
         this.myLeavePeriodValue="//div[@class='oxd-select-option --selected']"; 
         this.myLeaveGenerate="//button[text()=' Generate ']";  
         this.fillScreenReport="//i[@class='oxd-icon bi-arrows-fullscreen oxd-icon-button__icon --toggable-icon']";                
-
-
-
-
-
-
         this.myLeaveEntitilementAndReport="//a[text()='My Leave Entitlements and Usage Report']";
         this.myLeaveEntitilementAndReportComponent="div[@class='oxd-report-table --frame']";
         this.leavePeriod="//div[@class='oxd-select-text oxd-select-text--active']";
         this.generate="//button[@type='submit']";
-
-
-
 
         // confif
         this.config="//span[text()='Configure ']";
@@ -296,6 +262,13 @@ export class LeavePageLocators{
         this.cancelHoliday="//button[text()=' Cancel ']";
         this.multipleHolidays="(//i[@class='oxd-icon bi-check oxd-checkbox-input-icon'])[1]";
         this.singleHoliday="(//span[@class='oxd-checkbox-input oxd-checkbox-input--active --label-right oxd-checkbox-input'])[2]";
+        this.deleteHoliday="(//button[@class='oxd-icon-button oxd-table-cell-action-space'])[1]";
+        this.editHoliday="(//button[@class='oxd-icon-button oxd-table-cell-action-space'])[1]";
+        this.holidayListComponent="//div[@class='orangehrm-container']";
+        
+        this.leaveList="//a[text()='Leave List']";
+        this.leaveListReset="//button[text()=' Reset ']";
+        this.leaveListSearch="//button[text()=' Search ']";
     }
 
 }

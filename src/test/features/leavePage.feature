@@ -41,8 +41,6 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to see My Leave Entitlements and Usage Report list page components
         Then user is able to perform My Leave Entitlements and Usage Report full screen functionality
 
-
-
         # config
         Then user is able to see Leave Period components
         Then user is able to perform Leave Period reset functionality
@@ -74,11 +72,13 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to perform Add Holiday page save functionality
         Then user is able to perform Add Holiday list page multiselectlect 
         Then user is able to perform Add Holiday list page individual select functionality
-
-
-
-
+        Then user is able to perform Add Holiday list page delete functionality
+        Then user is able to perform Add Holiday list page edit functionality
         Then user is able to see leave list components 
+
+
+        Then user is able to perform leave list reset functionality in the list page
+        Then user is able to perform leave list search functionality in the list page
 
 
   
