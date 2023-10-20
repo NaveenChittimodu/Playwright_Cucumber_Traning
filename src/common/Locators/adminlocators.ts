@@ -5,11 +5,30 @@ export class Adminlocators{
    
     readonly page: Page;
     readonly admin: string;
+    readonly adminAddbtn: string;
+    readonly userSelectdropdown: string;
+    readonly admindropdown: string;
+    readonly statusSelectdropdown: string;
+    readonly statusdropdown: string;
+    readonly employeename : string
+    readonly userName : string
+    readonly password : string
+    readonly confirmPassword : string
 
 
    
     constructor(page: Page){
         this.page = page
         this.admin = "//span[text()='Admin']";
+        this.adminAddbtn = "//button[text()=' Add ']";
+        this.userSelectdropdown = `(//div[@class='oxd-select-text-input'])[1]`
+        this.admindropdown = `//div/span[text() = 'Admin']`
+        this.statusSelectdropdown = `(//div[@class='oxd-select-text-input'])[2]`
+        this.statusdropdown = `//div/span[text() = 'Enabled']`
+        this.employeename = `(//label[text()='Employee Name']/following::input)[1]`
+        this.userName  = `(//label[text()='Username']/following::input)[1]`
+        this.password  = `(//label[text()='Password']/following::input)[1]`
+        this.confirmPassword  = `(//label[text()='Confirm Password']/following::input)[1]`
+
     }
 }

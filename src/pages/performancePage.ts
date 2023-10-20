@@ -112,5 +112,4 @@ export class PerformancePage {
         await this.page.waitForTimeout(3000)
         await this.page.locator(`//span[text()='Odis  Adalwin']`).click();
     }
-
 }

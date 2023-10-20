@@ -3,7 +3,7 @@ import { Page, chromium, Browser, expect } from "@playwright/test";
 import { LoginPage } from "../../pages/loginPage"
 import { myBrowserFixture } from "../../common/Fixtures/fixtures";
 import ENV from "../../utils/env";
-import { Loginlocators } from "../../common/Locators/loginlocators";
+import { Adminlocators } from "../../common/Locators/adminlocators";
 import { Performancelocators } from "../../common/Locators/Performancelocators";
 import {AdminPage} from "../../pages/adminPage"
 // Playwright_Cucumber_Traning\src\pages\performancePage.ts
@@ -13,6 +13,7 @@ let page: Page;
 let loginpage: LoginPage;
 let browser: Browser;
 let adminPage : AdminPage;
+let adminlocators : Adminlocators;
 
 
 setDefaultTimeout(60 * 1000 * 2)
@@ -23,6 +24,7 @@ BeforeAll(async () => {
   page = await browser.newPage();
   loginpage = new LoginPage(page);
   adminPage = new AdminPage(page);
+  adminlocators = new Adminlocators(page);
   
 });
 
@@ -37,6 +39,13 @@ Given('User Login to OrangeHrm application', async function () {
 
 When('User click on admin', async function () {
   await  adminPage.clickAdmin();
+  await adminPage.adminAddBtn();
+  await adminPage.adminUserSelect();
+  await adminPage.adminStatusSelect();
+  await adminPage.employeeName();
+  await adminPage.userName();
+  await adminPage.password();
+  await adminPage.confirmPassword();
 });
 
 
