@@ -41,7 +41,29 @@
         "immigrationEligibleStatus": "true",
         "immigrationIssuedBy" : "Albania",
         "immigrationEligibleReviewDate": "2030-07-30",
-        "immigrationComments": "Testing"
+        "immigrationComments": "Testing",
+        "qualificationCompany" : "Vimal Company",
+        "qualificationJobTitle" : "QA",
+        "qualificationFrom" : "2020-07-30",
+        "qualificationTO" : "2030-03-10",
+        "qualificationComments" : "QA Automation",
+        "educationLevel" : "Master's Degree",
+        "educationInstitude" : "Anna University",
+        "educationSpecification" : "CSE",
+        "educationYear" : "2011",
+        "educationScore" : "6.5",
+        "skill" : "C#",
+        "Experiance" : "7",
+        "skillComment" : "Testing",
+        "language" : "English",
+        "fluency": "Reading",
+        "competency": "Good",
+        "LicenseType": "Certified Digital Marketing Professional (CDMP)",
+        "licenseNumber": "909090",
+        "membership" : "CIMA",
+        "membershipSubscription" : "Company",
+        "memberSubscriptionAmount": "25000",
+        "membershipCurrency" : "Belize Dollar"
 
     }
 }

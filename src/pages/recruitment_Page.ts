@@ -13,6 +13,34 @@ export class RecruitmentPage {
         this.recruitmentLocators = new Recruitmentlocators(page);
     }
 
+    async selectDropDownElements(clickDropDownLocator: string,dropdownLocator: string, dropDownValue: string) {
+        try {
+            await this.page.locator(clickDropDownLocator).click();
+            await this.page.waitForTimeout(1000);
+            const dropdownOptions = await this.page.$$(dropdownLocator);
+            console.log(dropdownOptions);
+
+            for (const dropdownoption of dropdownOptions) {
+                
+                if (await dropdownoption.isVisible() && await dropdownoption.isEnabled()) {
+                    const dropdowntext = await dropdownoption.textContent();
+                    console.log(dropdowntext);
+                    
+                    if (dropdowntext === dropDownValue) {
+                        await dropdownoption.click();
+                        console.log(`Selected option: ${dropDownValue}`);
+                        return; 
+                    }
+                }
+            }
+    
+            console.error(`Option "${dropDownValue}" was not found or not interactable.`);
+        } catch (error) {
+            console.error('Error selecting dropdown option:', error);
+        
+        }
+    }
+
     async vacancyNameAutoGenerate() {
         if (this.vacancyName === '') {
             let num = Math.floor(Math.random() * 3 + 919);
@@ -51,6 +79,21 @@ export class RecruitmentPage {
         } else {
             return this.middleName;
         }
+    }
+
+    async clickSave(messageToVerify?: string) {
+        await this.page.locator(this.recruitmentLocators.candidates.candidateSaveBtn).click({ force: true });
+        if (messageToVerify) {
+            const toastText = await this.getToastMessage();
+            console.log("clickSave Method" + toastText);
+            expect(toastText).toEqual(messageToVerify);
+        }
+    }
+
+    async getToastMessage() {
+        const getToastText = await this.page.locator(this.recruitmentLocators.candidates.candidateToastMsg).textContent();
+        console.log(`GetToastMessage Method` , getToastText);
+        return getToastText;
     }
 
     async navigateToRecruitment() {
@@ -112,34 +155,6 @@ export class RecruitmentPage {
         }
     }
 
-    async selectDropDownElements(clickDropDownLocator: string,dropdownLocator: string, dropDownValue: string) {
-        try {
-            await this.page.locator(clickDropDownLocator).click();
-            await this.page.waitForTimeout(1000);
-            const dropdownOptions = await this.page.$$(dropdownLocator);
-            console.log(dropdownOptions);
-
-            for (const dropdownoption of dropdownOptions) {
-                
-                if (await dropdownoption.isVisible() && await dropdownoption.isEnabled()) {
-                    const dropdowntext = await dropdownoption.textContent();
-                    console.log(dropdowntext);
-                    
-                    if (dropdowntext === dropDownValue) {
-                        await dropdownoption.click();
-                        console.log(`Selected option: ${dropDownValue}`);
-                        return; 
-                    }
-                }
-            }
-    
-            console.error(`Option "${dropDownValue}" was not found or not interactable.`);
-        } catch (error) {
-            console.error('Error selecting dropdown option:', error);
-        
-        }
-    }
-
     async addNewCandidateWithBlankData() {
         await this.page.waitForSelector(this.recruitmentLocators.candidates.firstName);
         await this.page.locator(this.recruitmentLocators.candidates.firstName).fill(``);
@@ -181,21 +196,6 @@ export class RecruitmentPage {
         await this.page.waitForTimeout(5000);
         await this.clickSave();
         await this.getToastMessage();
-    }
-
-    async clickSave(messageToVerify?: string) {
-        await this.page.locator(this.recruitmentLocators.candidates.candidateSaveBtn).click({ force: true });
-        if (messageToVerify) {
-            const toastText = await this.getToastMessage();
-            console.log("clickSave Method" + toastText);
-            expect(toastText).toEqual(messageToVerify);
-        }
-    }
-
-    async getToastMessage() {
-        const getToastText = await this.page.locator(this.recruitmentLocators.candidates.candidateToastMsg).textContent();
-        console.log(`GetToastMessage Method` , getToastText);
-        return getToastText;
     }
 
     async clickVacancies() {

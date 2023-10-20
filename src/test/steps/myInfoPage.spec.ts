@@ -149,6 +149,62 @@ When('User is able to fill the Add and save Dependents fields', async function (
 
 When('User is able to fill the Add Immigration fields and save the details', async function () {
     await myInfoPage.immigrationDetails();
+    // const toastMsg = await myInfoPage.getToastMessage()
+    // await expect(toastMsg).toBe("Successfully Saved");
+    // await page.waitForTimeout(5000);
+});
+
+When('Verify the Job Details fields is filled with value', async function () {
+    await myInfoPage.jobDetails();
+    // const toastMsg = await myInfoPage.getToastMessage()
+    // await expect(toastMsg).toBe("Successfully Saved");
+    // await page.waitForTimeout(5000);
+}); 
+
+When('User is able to click on Include Employment Contract Details checkbox', async function () {
+    await myInfoPage.jobDetails();
+    // const toastMsg = await myInfoPage.getToastMessage()
+    // await expect(toastMsg).toBe("Successfully Saved");
+    // await page.waitForTimeout(5000);
+});
+
+When('User is able to fill the Work Experience fields', async function () {
+    await myInfoPage.qualificationDetails();
+    const toastMsg = await myInfoPage.getToastMessage()
+    await expect(toastMsg).toBe("Successfully Saved");
+    await page.waitForTimeout(5000);
+});
+
+When('User is able to fill the Education fields', async function () {
+    await myInfoPage.educationDetails();
+    const toastMsg = await myInfoPage.getToastMessage()
+    await expect(toastMsg).toBe("Successfully Saved");
+    await page.waitForTimeout(5000);
+});
+
+When('User is able to fill the Skills fields', async function () {
+    await myInfoPage.skillDetails();
+    const toastMsg = await myInfoPage.getToastMessage()
+    await expect(toastMsg).toBe("Successfully Saved");
+    await page.waitForTimeout(5000);
+});
+
+When('User is able to fill the Languages fields', async function () {
+    await myInfoPage.languageDetails();
+    const toastMsg = await myInfoPage.getToastMessage()
+    await expect(toastMsg).toBe("Successfully Saved");
+    await page.waitForTimeout(5000);
+});
+
+When('User is able to fill the License fields', async function () {
+    await myInfoPage.licenseDetails();
+    const toastMsg = await myInfoPage.getToastMessage()
+    await expect(toastMsg).toBe("Successfully Saved");
+    await page.waitForTimeout(5000);
+});
+
+When('User is able to fill the License fields', async function () {
+    await myInfoPage.licenseDetails();
     const toastMsg = await myInfoPage.getToastMessage()
     await expect(toastMsg).toBe("Successfully Saved");
     await page.waitForTimeout(5000);

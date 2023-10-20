@@ -30,5 +30,13 @@ Feature: Fill the data in recruitment page
     When User is able to fill the Assigned Emergency Contacts fields
     When User is able to fill the Add and save Dependents fields
     When User is able to fill the Add Immigration fields and save the details
+    When Verify the Job Details fields is filled with value
+    When User is able to click on Include Employment Contract Details checkbox
+    When User is able to fill the Work Experience fields
+    When User is able to fill the Education fields
+    When User is able to fill the Skills fields
+    When User is able to fill the Languages fields
+    When User is able to fill the License fields
+    When User is able to fill the License fields
 
     

@@ -4,9 +4,6 @@ import { MyInfoLocators } from "../common/Locators/myInfoLocators";
 import * as assertion from "../testData/json/assertion.json"
 import { addAbortListener } from "events";
 
-const currentDate = new Date();
-
-const formattedDate = currentDate.toISOString();
 
 export class MyInfoPage {
     readonly page: Page; middleName: any = ''; vacancyName: any = '';
@@ -376,6 +373,41 @@ export class MyInfoPage {
       await this.getToastMessage();
     }
 
+    // async clickButtonAndVerifyToast(locatorBtn: string, locatorText: string, messageToVerify?: string) {
+    //   await this.page.waitForSelector(locatorBtn)
+    //   await this.page.locator(locatorBtn).click({ force: true });
+    //   if (messageToVerify) {
+    //     const toastText = await this.getToastTextMessage(locatorText);
+    //     console.log("clickButtonAndVerifyToast Method: " + toastText);
+    //     expect(toastText).toEqual(messageToVerify);
+    //   }
+    // }
+    
+    // async getToastTextMessage(locatorText: string) {
+    //   await this.page.waitForSelector(locatorText);
+    //   const getToastText = await this.page.locator(locatorText).textContent();
+    //   console.log(`GetToastTextMessage Method: `, getToastText);
+    //   return getToastText;
+    // }
+
+    async clickElementAndVerifyToast(elementLocator:string, messageToVerify:string) {
+      await this.page.locator(elementLocator).click({ force: true });
+  
+      if (messageToVerify) {
+          const toastText = await this.getToastMessage();
+          console.log("clickElementAndVerifyToast Method", toastText);
+          expect(toastText).toEqual(messageToVerify);
+      }
+  }
+  
+  async getNewToastMessage(locator:string) {
+      const toastLocator = locator;
+      const getToastText = await this.page.locator(toastLocator).textContent();
+      console.log("getToastMessage Method", getToastText);
+      return getToastText;
+  }
+  
+    
     async immigrationDetails(){
       await this.page.waitForSelector(this.myInfoLocators.immigration.immigrationTab);
       await this.clickElement(this.myInfoLocators.immigration.immigrationTab);
@@ -389,8 +421,145 @@ export class MyInfoPage {
       await this.selectDropDownElements(this.myInfoLocators.immigration.immigrationIssuedBy,this.myInfoLocators.immigration.immigrationIssuedByDraopDown,assertion.assertion.immigrationIssuedBy);
       await this.enterText(this.myInfoLocators.immigration.immigrationEligibleData,assertion.assertion.immigrationEligibleReviewDate);
       await this.enterText(this.myInfoLocators.immigration.immigrationComments,assertion.assertion.immigrationComments);
-      await this.clickSave();
-      await this.getToastMessage();
+      // await this.clickElementAndVerifyToast(this.myInfoLocators.immigration.immigrationSaveBtn,"Successfully Saved");
+      // await this.getNewToastMessage(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
+    }
+
+    async getTextFromElement(locator: string): Promise<string> {
+      try {
+        const element = await this.page.locator(locator).first();
+        if (element) {
+          return await element.textContent();
+        } else {
+          console.error(`Element not found with locator: ${locator}`);
+          return '';
+        }
+      } catch (error) {
+        console.error(`Error getting text from the element: ${error}`);
+        return '';
+      }
+    }
+    
+    async jobDetails(){
+      await this.page.waitForSelector(this.myInfoLocators.job.jobTab);
+      await this.clickElement(this.myInfoLocators.job.jobTab);
+      await this.page.waitForTimeout(5000);
+      const JoinedDate = await this.getTextFromElement(this.myInfoLocators.job.jobJoinedDate);
+      console.log(JoinedDate);
+      const title = await this.getTextFromElement(this.myInfoLocators.job.jobJobTitle);
+      console.log(title);
+      const jobSpec = await this.getTextFromElement(this.myInfoLocators.job.jobNotDefined);
+      console.log(jobSpec);
+      const jobCat = await this.getTextFromElement(this.myInfoLocators.job.jobJobCategory);
+      console.log(jobCat);
+      const subUnits = await this.getTextFromElement(this.myInfoLocators.job.jobSubUnit);
+      console.log(subUnits);
+      const jobLocations = await this.getTextFromElement(this.myInfoLocators.job.jobLocation);
+      console.log(jobLocations);
+      const jobEmpStatus = await this.getTextFromElement(this.myInfoLocators.job.jobEmployementStatus);
+      console.log(jobEmpStatus);
+      await this.clickElement(this.myInfoLocators.job.jobInclude);
+      await this.page.waitForSelector(this.myInfoLocators.job.jobContractStartDate);
+      await this.page.locator(this.myInfoLocators.job.jobContractStartDate).isVisible();
+      await this.page.waitForSelector(this.myInfoLocators.job.jobContractEndDate);
+      await this.page.locator(this.myInfoLocators.job.jobContractEndDate).isVisible();
+      await this.page.waitForSelector(this.myInfoLocators.job.jobContactDetails);
+      await this.page.locator(this.myInfoLocators.job.jobContactDetails).isVisible();
+
+    }
+
+    async clickElementAndVerifyToastNew(elementLocator: string, messageToVerify?: string) {
+      await this.page.locator(elementLocator).click({ force: true });
+  
+      if (messageToVerify) {
+          const toastText = await this.getToastMessageNew(elementLocator);
+          console.log("clickElementAndVerifyToast Method", toastText);
+          expect(toastText).toEqual(messageToVerify);
+      }
+  }
+  
+  async getToastMessageNew(toastLocator: string) {
+      const getToastText = await this.page.locator(toastLocator).textContent();
+      console.log("getToastMessage Method", getToastText);
+      return getToastText;
+  }
+  
+
+    async qualificationDetails(){
+      await this.page.waitForSelector(this.myInfoLocators.qualification.qualificationTab);
+      await this.clickElement(this.myInfoLocators.qualification.qualificationTab);
+      await this.page.waitForTimeout(5000);
+      await this.page.waitForSelector(this.myInfoLocators.qualification.qualificationAddBtn);
+      await this.clickElement(this.myInfoLocators.qualification.qualificationAddBtn);
+      await this.enterText(this.myInfoLocators.qualification.qualificationCompany,assertion.assertion.qualificationCompany);
+      await this.enterText(this.myInfoLocators.qualification.qualificationJobTitle,assertion.assertion.qualificationJobTitle);
+      await this.enterText(this.myInfoLocators.qualification.qualificationFrom,assertion.assertion.qualificationFrom);
+      await this.page.waitForSelector(this.myInfoLocators.qualification.qualificationTo);
+      await this.enterText(this.myInfoLocators.qualification.qualificationTo,assertion.assertion.qualificationTO);
+      await this.page.click(this.myInfoLocators.qualification.qualificationTo);
+      await this.enterText(this.myInfoLocators.qualification.qualificationComments,assertion.assertion.qualificationComments);
+      // await this.page.waitForSelector(this.myInfoLocators.qualification.qualificationSaveBtn);
+      await this.clickElementAndVerifyToastNew(this.myInfoLocators.qualification.qualificationSaveBtn);
+      await this.getToastMessageNew(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
+    }
+
+    async educationDetails(){
+      await this.page.waitForSelector(this.myInfoLocators.qualification.qualificationEducationAddBtn);
+      await this.clickElement(this.myInfoLocators.qualification.qualificationEducationAddBtn);
+      await this.page.waitForTimeout(5000);
+      await this.page.waitForSelector(this.myInfoLocators.qualification.qualificationEducationAddBtn);
+      await this.clickElement(this.myInfoLocators.qualification.qualificationEducationAddBtn);
+      await this.selectDropDownElements(this.myInfoLocators.qualification.qualificationLevel,this.myInfoLocators.qualification.qualificationLevelDropDown,assertion.assertion.educationLevel);
+      await this.enterText(this.myInfoLocators.qualification.qualificationInstitute,assertion.assertion.educationInstitude);
+      await this.enterText(this.myInfoLocators.qualification.qualificationMajor,assertion.assertion.educationSpecification);
+      await this.enterText(this.myInfoLocators.qualification.qualificationYear,assertion.assertion.educationYear);
+      await this.enterText(this.myInfoLocators.qualification.qualificationScore,assertion.assertion.educationScore);
+      await this.enterText(this.myInfoLocators.qualification.qualificationStartDate,assertion.assertion.qualificationFrom);
+      await this.enterText(this.myInfoLocators.qualification.qualificationEndDate,assertion.assertion.qualificationFrom);
+      await this.page.click(this.myInfoLocators.qualification.qualificationEndDate);
+      await this.clickElementAndVerifyToastNew(this.myInfoLocators.qualification.qualificationEduSaveBtn);
+      await this.getToastMessageNew(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
+    }
+
+    async skillDetails(){
+      await this.page.waitForSelector(this.myInfoLocators.qualification.qualificationSkillAddBtn);
+      await this.clickElement(this.myInfoLocators.qualification.qualificationSkillAddBtn);
+      await this.page.waitForTimeout(5000);
+      await this.selectDropDownElements(this.myInfoLocators.qualification.qualificationSkill,this.myInfoLocators.qualification.qualificationSkillDropDown,assertion.assertion.skill);
+      await this.enterText(this.myInfoLocators.qualification.qualificationYearOfExperiance,assertion.assertion.Experiance);
+      await this.enterText(this.myInfoLocators.qualification.qualificationSkillComments,assertion.assertion.skillComment);
+      await this.clickElementAndVerifyToastNew(this.myInfoLocators.qualification.qualificationSkillSaveBtn);
+      await this.getToastMessageNew(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
+    }
+
+    async languageDetails(){
+      await this.page.waitForSelector(this.myInfoLocators.qualification.qualificationLanguageAddBtn);
+      await this.clickElement(this.myInfoLocators.qualification.qualificationLanguageAddBtn);
+      await this.page.waitForTimeout(5000);
+      await this.selectDropDownElements(this.myInfoLocators.qualification.qualificationLanguage,this.myInfoLocators.qualification.qualificationLanguageDropDown,assertion.assertion.language);
+      await this.selectDropDownElements(this.myInfoLocators.qualification.qualificationLanguageFluency,this.myInfoLocators.qualification.qualificationLanguageFluencyDropDown,assertion.assertion.fluency);
+      await this.selectDropDownElements(this.myInfoLocators.qualification.qualificationLanguageCompetency,this.myInfoLocators.qualification.qualificationLanguageCompetencyDropDown,assertion.assertion.competency);
+      await this.enterText(this.myInfoLocators.qualification.qualificationLanguageCommets,assertion.assertion.skillComment);
+      await this.clickElementAndVerifyToastNew(this.myInfoLocators.qualification.qualificationSkillSaveBtn);
+      await this.getToastMessageNew(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
+    }
+
+    async licenseDetails(){
+      await this.page.waitForSelector(this.myInfoLocators.membership.membershipTab);
+      await this.clickElement(this.myInfoLocators.membership.membershipTab);
+      await this.page.waitForTimeout(5000);
+      await this.page.waitForSelector(this.myInfoLocators.membership.membershipAddBtn);
+      await this.clickElement(this.myInfoLocators.membership.membershipAddBtn);
+      await this.selectDropDownElements(this.myInfoLocators.membership.memberships,this.myInfoLocators.membership.membershipDropDown,assertion.assertion.membership);
+      await this.selectDropDownElements(this.myInfoLocators.membership.membershipSubscription,this.myInfoLocators.membership.membershipSubscriptionDropDown,assertion.assertion.membershipSubscription);
+      await this.enterText(this.myInfoLocators.membership.membershipSubscriptionAmount,assertion.assertion.memberSubscriptionAmount);
+      await this.selectDropDownElements(this.myInfoLocators.membership.membershipCurency,this.myInfoLocators.membership.membershipCurencyDropDown,assertion.assertion.membershipCurrency);
+      await this.enterText(this.myInfoLocators.membership.membershipSubscriptionCommenceDate,assertion.assertion.qualificationFrom);
+      await this.page.waitForSelector(this.myInfoLocators.membership.membershipSubscriptionRenewalDate);
+      await this.enterText(this.myInfoLocators.membership.membershipSubscriptionRenewalDate,assertion.assertion.qualificationTO);
+      await this.page.click(this.myInfoLocators.membership.membershipSubscriptionRenewalDate);
+      await this.clickElementAndVerifyToastNew(this.myInfoLocators.qualification.qualificationSkillSaveBtn);
+      await this.getToastMessageNew(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
     }
 
 }

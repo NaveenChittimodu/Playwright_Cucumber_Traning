@@ -110,8 +110,8 @@ export class MyInfoLocators{
             immigrationIssuedByDraopDown:`.oxd-select-dropdown .oxd-select-option`,
             immigrationEligibleData:`//label[text()='Eligible Review Date']//parent::div//following-sibling::div/div//input`,
             immigrationComments:`textarea[placeholder='Type Comments here']`,
-            immigrationCancelBtn:`button.oxd-button.oxd-button--medium.oxd-button--ghost`,
-            immigrationSaveBtn:`button[type='submit']`,
+            immigrationCancelBtn:`//p[text()=' * Required']/following-sibling::button[text()=' Cancel ']`,
+            immigrationSaveBtn:`//p[text()=' * Required']/following-sibling::button[text()=' Save ']`,
             immigrationRequired:`p.oxd-text.oxd-text--p.orangehrm-form-hint`
         };
         this.job = {
@@ -123,7 +123,10 @@ export class MyInfoLocators{
             jobSubUnit:`//div[text()='Human Resources']`,
             jobLocation:`//div[text()='Texas R&D']`,
             jobEmployementStatus:`//label[text()='Employment Status']`,
-            jobInclude:`//span[contains(@class,'oxd-switch-input oxd-switch-input--active')]`
+            jobInclude:`//span[contains(@class,'oxd-switch-input oxd-switch-input--active')]`,
+            jobContractStartDate:`//label[text()='Contract Start Date']//parent::div//following-sibling::div/div//input`,
+            jobContractEndDate:`//label[text()='Contract End Date']//parent::div//following-sibling::div/div//input`,
+            jobContactDetails:`//label[text()='Contract Details']//parent::div//following-sibling::div/child::div`
 
         };
 
@@ -134,7 +137,7 @@ export class MyInfoLocators{
             qualificationJobTitle:`//label[text()='Job Title']//parent::div//following-sibling::div/input`,
             qualificationFrom:`//label[text()='From']//parent::div//following-sibling::div//input`,
             qualificationTo:`//label[text()='To']//parent::div//following-sibling::div//input`,
-            qualificationComments:`textarea.oxd-textarea.oxd-textarea--active`,
+            qualificationComments:`//textarea[contains(@class,'oxd-textarea oxd-textarea--active')]`,
             qualificationRequired:`p.oxd-text.oxd-text--p.orangehrm-form-hint`,
             qualificationCancelBtn:`button.oxd-button.oxd-button--medium.oxd-button--ghost`,
             qualificationSaveBtn:`button[type='submit']`,
@@ -178,7 +181,7 @@ export class MyInfoLocators{
         this.membership = {
             membershipTab : `//a[contains(text(),'Memberships')]`,
             membershipAddBtn:`//h6[text()='Assigned Memberships']/following-sibling::button`,
-            membership: `//label[text()='Membership']//parent::div//following-sibling::div`,
+            memberships: `//label[text()='Membership']//parent::div//following-sibling::div`,
             membershipDropDown:`.oxd-select-dropdown .oxd-select-option`,
             membershipSubscription:`//label[text()='Subscription Paid By']//parent::div//following-sibling::div`,
             membershipSubscriptionDropDown:`.oxd-select-dropdown .oxd-select-option`,
