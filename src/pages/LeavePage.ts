@@ -1,18 +1,25 @@
+// ***************** Importing Libraries ************************//
+// ***************** Auther Name: Kasthuri Kandavelu ************//
+
 import { Page, expect, Keyboard } from "@playwright/test";
 import { LeavePageLocators } from "../common/Locators/leavePageLocators"
 
+// ************* Leave Page class consist of all methods for intracting with Leave page **************//
 
 export class LeavePage {
     readonly page: Page;
     private readonly leavePageLocators: LeavePageLocators;
 
+// Creating object for page and Leave locators class to access All Locators in leave Page//
+
     constructor(page: Page) {
         this.page = page;
         this.leavePageLocators = new LeavePageLocators(page);
     }
+
+// **************    Methods for Leave Module    ******************** //
     async clickMainLeave() {
         await this.page.waitForSelector(this.leavePageLocators.mainLeave);
-        // await this.page.locator(this.leavePageLocators.mainLeave).isVisible();
         await this.page.locator(this.leavePageLocators.mainLeave).click();
 
     }
@@ -51,34 +58,11 @@ export class LeavePage {
         await this.selectDropDownElements(this.leavePageLocators.jobTitle, this.leavePageLocators.jobTitleDropdown, "Chief Executive Officer")
 
     }
-    async mondayFullDay() {
-        await this.selectDropDownElements(this.leavePageLocators.mondayDropDown, this.leavePageLocators.FullDay, "Full Day");
-    }
-
-    async tuesdayFullDay() {
-        await this.selectDropDownElements(this.leavePageLocators.tuesdayDropDown, this.leavePageLocators.FullDay, "Full Day");
-    }
-
-    async wednesdayFullDay() {
-        await this.selectDropDownElements(this.leavePageLocators.wednesdayDropDown, this.leavePageLocators.FullDay, "Full Day");
-    }
-    async thursdayFullDay() {
-        await this.selectDropDownElements(this.leavePageLocators.thursdayDropDown, this.leavePageLocators.FullDay, "Full Day");
-    }
-    async fridayFullDay() {
-        await this.selectDropDownElements(this.leavePageLocators.fridayDropDown, this.leavePageLocators.FullDay, "Full Day");
-    }
-    async saturdayHalfDay() {
-        await this.selectDropDownElements(this.leavePageLocators.saturdayDropDown, this.leavePageLocators.FullDay, "Non-working Day");
-    }
-    async sundayNonWorking() {
-        await this.selectDropDownElements(this.leavePageLocators.sundayDropDown, this.leavePageLocators.FullDay, "Non-working Day");
-    }
+  
     async leavePageComponent() {
         await this.page.waitForSelector(this.leavePageLocators.apply);
         await this.page.locator(this.leavePageLocators.apply).isVisible();
         await this.page.locator(this.leavePageLocators.apply).click({ force: true });
-
         await this.page.locator(this.leavePageLocators.applyLeave).isVisible();
         await this.page.locator(this.leavePageLocators.leaveBalance).isVisible();
         await this.page.locator(this.leavePageLocators.toDate).isVisible();
@@ -165,8 +149,29 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.myLeaveEntitlementSerch).isVisible();
 
     }
+    async mondayFullDay() {
+        await this.selectDropDownElements(this.leavePageLocators.mondayDropDown, this.leavePageLocators.FullDay, "Full Day");
+    }
 
-    /////////////////////////////////////
+    async tuesdayFullDay() {
+        await this.selectDropDownElements(this.leavePageLocators.tuesdayDropDown, this.leavePageLocators.FullDay, "Full Day");
+    }
+
+    async wednesdayFullDay() {
+        await this.selectDropDownElements(this.leavePageLocators.wednesdayDropDown, this.leavePageLocators.FullDay, "Full Day");
+    }
+    async thursdayFullDay() {
+        await this.selectDropDownElements(this.leavePageLocators.thursdayDropDown, this.leavePageLocators.FullDay, "Full Day");
+    }
+    async fridayFullDay() {
+        await this.selectDropDownElements(this.leavePageLocators.fridayDropDown, this.leavePageLocators.FullDay, "Full Day");
+    }
+    async saturdayHalfDay() {
+        await this.selectDropDownElements(this.leavePageLocators.saturdayDropDown, this.leavePageLocators.FullDay, "Non-working Day");
+    }
+    async sundayNonWorking() {
+        await this.selectDropDownElements(this.leavePageLocators.sundayDropDown, this.leavePageLocators.FullDay, "Non-working Day");
+    }
     async addNewEntitlement() {
         await this.page.locator(this.leavePageLocators.entitlements).click({ force: true });
         await this.page.locator(this.leavePageLocators.editEntitle).isVisible();
@@ -176,7 +181,6 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.employeeName).type('e');
         await this.page.waitForTimeout(5000)
         await this.page.locator(this.leavePageLocators.employeenameList).click();
-
         await this.page.locator(this.leavePageLocators.leaveTypeEntitlement).click();
         await this.page.locator(this.leavePageLocators.selectLeaveType).click();
         await this.page.locator(this.leavePageLocators.employeenameNumber).click();
@@ -255,8 +259,6 @@ export class LeavePage {
     }
 
     async leavePeriodResetComponent() {
-        // await this.page.waitForTimeout(4000)
-        // await this.page.pause()
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.leavePeriodComponent).isVisible();
@@ -266,12 +268,9 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.startDate).click()
         await this.page.locator(this.leavePageLocators.startDateValue).click();
         await this.page.locator(this.leavePageLocators.leavePeriodReset).click();
-
-
     }
 
     async leavePeriodSaveComponent() {
-        // await this.leavePeriodResetComponent();
         await this.page.locator(this.leavePageLocators.config).isVisible();
         await this.page.locator(this.leavePageLocators.config).click({ force: true });
         await this.page.locator(this.leavePageLocators.leavePeriodComponent).isVisible();
@@ -504,7 +503,6 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
         await this.page.locator(this.leavePageLocators.holidayComponent).click({ force: true });
         await this.page.locator(this.leavePageLocators.deleteHoliday).isVisible();
-        // await this.page.locator(this.leavePageLocators.deleteHoliday).click();
     }
     async editHoliday() {
         await this.page.locator(this.leavePageLocators.config).isVisible();
@@ -512,7 +510,6 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.holidayComponent).isVisible();
         await this.page.locator(this.leavePageLocators.holidayComponent).click({ force: true });
         await this.page.locator(this.leavePageLocators.editHoliday).isVisible();
-        // await this.page.locator(this.leavePageLocators.editHoliday).click();
 
     }
 
@@ -535,8 +532,79 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.leaveList).click();
         await this.page.locator(this.leavePageLocators.leaveListSearch).isVisible();
         await this.page.locator(this.leavePageLocators.leaveListSearch).click();
+    }
+
+    async totalLeaveListRecord() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.leaveListRecord).isVisible();
+
 
     }
+    async multiSelectionLeaveList() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.multiSelectionLeaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.multiSelectionLeaveList).click();
+    }
+    async singleSelectionLeaveList() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.singleSelectionLeaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.singleSelectionLeaveList).click();
+    }
+    async leaveListApprove() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.leaveListApprove).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveListApprove).click();
+    }
+    async leaveListReject() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.leaveListReject).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveListReject).click();
+    }
+    async leaveListAddComments() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.dotDropDown).click();
+        await this.page.waitForTimeout(3000)
+        await this.page.locator(this.leavePageLocators.addComments).isVisible();
+        await this.page.locator(this.leavePageLocators.addComments).click();
+        await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
+        await this.page.locator(this.leavePageLocators.addCommentsTextBox).fill("Leave request approved");
+        await this.page.locator(this.leavePageLocators.commentsSave).click();
+
+    }
+    async leaveListCommentsComponent() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.dotDropDown).click();
+        await this.page.waitForTimeout(3000)
+        await this.page.locator(this.leavePageLocators.addComments).isVisible();
+        await this.page.locator(this.leavePageLocators.addComments).click();
+        await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
+    }
+    async leaveListCommentsCancel() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.dotDropDown).click();
+        await this.page.waitForTimeout(3000)
+        await this.page.locator(this.leavePageLocators.addComments).isVisible();
+        await this.page.locator(this.leavePageLocators.addComments).click();
+        await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
+        await this.page.locator(this.leavePageLocators.addCommentsTextBox).fill("Leave request approved");
+        await this.page.locator(this.leavePageLocators.commentsCancel).click();
+
+    }
+
 }
+
+
+// ********************** End of the Code **********************************//
 
 

@@ -1,10 +1,13 @@
+// ***************** Importing Libraries ***********
+// ***************** Auther Name: Kasthuri Kandavelu ************
+
 import { Given, When, Then, Before, BeforeAll, setDefaultTimeout, AfterAll } from "@cucumber/cucumber";
 import { Page, chromium, Browser, expect } from "@playwright/test";
 import { LoginPage } from "../../../src/pages/login_Page"
 import { myBrowserFixture } from "../../../src/common/Fixtures/fixtures";
 import ENV from "../../../src/utils/env";
 import { Loginlocators } from "../../common/Locators/loginlocators";
-// Playwright_Cucumber_Traning\src\common\Locators\loginlocators.ts
+
 
 let page: Page;
 let loginpage: LoginPage;
@@ -12,7 +15,7 @@ let browser: Browser;
 let loginlocators: Loginlocators;
 
 setDefaultTimeout(60 * 1000 * 2)
-
+ 
 
 BeforeAll(async () => {
   browser = await chromium.launch({ headless: false, args: ['--window-position=-8,0'] });
@@ -84,7 +87,7 @@ Then('Login should be success', async function () {
   await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
   console.log("testing5")
   await page.waitForTimeout(5000);
-  
+
   await loginpage.LogoutBtn()
 
 });

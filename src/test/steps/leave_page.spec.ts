@@ -1,3 +1,5 @@
+// ***************** Importing Libraries ***********
+// ***************** Auther Name: Kasthuri Kandavelu ************
 import { Given, When, Then, Before, BeforeAll, setDefaultTimeout, AfterAll } from "@cucumber/cucumber";
 import { Page, chromium, Browser, expect } from "@playwright/test";
 import { LoginPage } from "../../../src/pages/login_Page"
@@ -11,7 +13,6 @@ import { LeavePage } from "../../pages/LeavePage"
 let page: Page;
 let loginPage: LoginPage;
 let browser: Browser;
-// let loginlocators: Loginlocators;
 let leaveLocators: LeavePageLocators;
 let leavePage: LeavePage
 
@@ -24,6 +25,8 @@ BeforeAll(async () => {
     leavePage = new LeavePage(page);
 
 });
+
+
 
 Given('User Login to OrangeHrm application', async function () {
     console.log("`${ENV.BASEURL}`======", `${ENV.BASEURL}`);
@@ -49,36 +52,41 @@ Then('user is able to see Search functionality', async function () {
 
 });
 Then('user is able to see List page components', async function () {
-    console.log("1234")
+    await leavePage.verifySearch();
+    console.log("need to need to work on these testcase.. application not supporting")
 
 });
 Then('user is able to perform List page components multiselect functionality', async function () {
-    console.log("1234")
+    await leavePage.verifySearch();
+    console.log("need to work on these testcase.. application not supporting")
 
 });
 Then('user is able to perform List page components individual select', async function () {
-    console.log("1234")
+    await leavePage.verifySearch();
+    console.log("need to work on these testcase.. application not supporting")
 
 });
 Then('user is able to perform view functionality', async function () {
-    console.log("1234")
+    await leavePage.verifySearch();
+    console.log("need to work on these testcase.. application not supporting")
 
 });
 Then('user is able to perform edit functionality', async function () {
-    console.log("1234")
+    await leavePage.verifySearch();
+    console.log("need to work on these testcase.. application not supporting")
 
 });
 
 Then('user is able to perform delete functionality', async function () {
-    console.log("1234")
+    await leavePage.verifySearch();
+    console.log("need to work on these testcase.. application not supporting")
 
 });
-// ##############################################
-
 
 When('user is able to see Add Entitlements Components', async function () {
     await leavePage.clickMainLeave();
     await leavePage.addEntitleComponent();
+
 
 });
 
@@ -144,6 +152,7 @@ Then('user is able to perform My Leave Entitlements and Usage Report full screen
     await leavePage.fullScreenReportListComponent();
 
 });
+
 // Config page
 //
 Then('user is able to see Leave Period components', async function () {
@@ -248,8 +257,6 @@ Then('user is able to perform Holidays add functionality in list page', async fu
 
 });
 
-
-
 Then('user is able to see Add Holiday page components', async function () {
     await leavePage.addHolidaysComponent();
     console.log("tc48")
@@ -300,7 +307,51 @@ Then('user is able to perform leave list reset functionality in the list page', 
 });
 Then('user is able to perform leave list search functionality in the list page', async function () {
     await leavePage.leaveListSearchFunctionality();
-    console.log("tc56")
+    console.log("tc57")
+
+});
+
+Then('user is able to see total leave list record in list page', async function () {
+    await leavePage.totalLeaveListRecord();
+    console.log("tc58")
+
+});
+
+Then('user is able to perform Multiselect functionality in the list page', async function () {
+    await leavePage.multiSelectionLeaveList();
+    console.log("tc59")
+
+});
+Then('user is able to perform individual select functionality in the list page', async function () {
+    await leavePage.singleSelectionLeaveList();
+    console.log("tc60")
+
+});
+
+Then('user is able to perform approve functionality in the list page', async function () {
+    await leavePage.leaveListApprove();
+    console.log("tc61")
+
+});
+Then('user is able to perform reject functionality in the list page', async function () {
+    await leavePage.leaveListReject();
+    console.log("tc62")
+
+});
+
+Then('user is able to perform Add comment functionality in the list page', async function () {
+    await leavePage.leaveListAddComments();
+    console.log("tc63")
+
+});
+Then('user is able to see leave request Comments components in the list page', async function () {
+    await leavePage.leaveListCommentsComponent();
+    console.log("tc64")
+
+});
+Then('user is able to perform leave request comments cancel functionality in the list page', async function () {
+    await leavePage.leaveListCommentsCancel();
+    console.log("tc65")
 
 });
 
@@ -310,11 +361,16 @@ Then('user is able to perform leave list search functionality in the list page',
 
 
 
-// //
-// Then('user is able to see total leave list record in list page', async function () {
-//     await leavePage.totalLeaveList();
 
-// });
+
+
+
+
+
+
+
+
+
 
 
 

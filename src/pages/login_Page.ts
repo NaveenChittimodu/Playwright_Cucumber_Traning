@@ -1,17 +1,21 @@
+// ***************** Importing Libraries ***********
+// ***************** Auther Name: Kasthuri Kandavelu ************
 import { Page, expect, Locator } from "@playwright/test";
-
 import { Loginlocators } from "../common/Locators/loginlocators";
 
-
+// ************* login Page class consist of all methods for intracting with login page **************//
 export class LoginPage {
     readonly page: Page;
     private readonly loginlocators: Loginlocators;
 
+//    Creating object for page and login locators class to access All Locators in login Page//
 
     constructor(page: Page) {
         this.page = page;
         this.loginlocators = new Loginlocators(page);
     }
+
+// **************    Methods for Leave Module    ******************** //    
     async visit(url: string) {
         this.page.goto(url)
     }
@@ -19,12 +23,12 @@ export class LoginPage {
         let logoValidation = await (await this.page.waitForSelector(this.loginlocators.logoImg)).isVisible();
         console.log(logoValidation)
     }
-    async loginOrangeHRM(userName: string , password : string){
+    async loginOrangeHRM(userName: string, password: string) {
         await this.logoVisibility();
         await this.usernameinputComponent(userName);
         await this.passwordinputComponent(password);
         await this.loginbtn();
-     }
+    }
 
     async usernameComponent() {
         let usernameComponent = await (await this.page.waitForSelector(this.loginlocators.userName)).isVisible();
@@ -40,7 +44,7 @@ export class LoginPage {
         await (await this.page.waitForSelector(this.loginlocators.usernameInput)).isEditable();
         await this.page.locator(this.loginlocators.usernameInput).fill(username);
     }
-    async resetUserName(username:string){
+    async resetUserName(username: string) {
         await (await this.page.waitForSelector(this.loginlocators.resetUsernameInput)).isVisible();
         await (await this.page.waitForSelector(this.loginlocators.resetUsernameInput)).isEditable();
         await this.page.locator(this.loginlocators.usernameInput).fill(username);
@@ -71,14 +75,6 @@ export class LoginPage {
         await element.fill(value);
     }
 
-    // async invalidCredentilas() {
-    //     await this.page.waitForTimeout(5000);
-    //     return await this.page.locator(this.invalidMsg).textContent();
-    // }
-    // async required() {
-    //     return await this.page.locator(this.requiredMsg).textContent();
-    // }
-
     async clickElement(locator: string) {
         await this.page.waitForSelector(locator);
         await expect(await this.page.locator(locator)).toBeVisible();
@@ -101,27 +97,30 @@ export class LoginPage {
         console.log("resetCancelBtnVerify:", resetCancelBtnVerfy)
 
     }
-    async resetPasswordVerify(){
+    async resetPasswordVerify() {
         let resetPasswordVerify = await (await this.page.waitForSelector(this.loginlocators.resetPasswordVerifyBtn)).isVisible()
-        console.log("resetPasswordVerify:",resetPasswordVerify)
+        console.log("resetPasswordVerify:", resetPasswordVerify)
 
     }
-    async cancelResetPW(){
+    async cancelResetPW() {
         // let cancelResetPW = await (await this.page.waitForSelector(this.loginlocators.resetPasswordCancelBtn)).isVisible()
         // console.log("cancelResetPW:",cancelResetPW)
-        await this.page.locator(this.loginlocators.resetPasswordCancelBtn).click({force:true})
+        await this.page.locator(this.loginlocators.resetPasswordCancelBtn).click({ force: true })
         await this.page.waitForTimeout(5000);
-        
+
     }
-    async clickResetPassword(){
-        await (await this.page.waitForSelector(this.loginlocators.resetPasswordVerifyBtn)).click({force:true})
+    async clickResetPassword() {
+        await (await this.page.waitForSelector(this.loginlocators.resetPasswordVerifyBtn)).click({ force: true })
         console.log("clicked reset password button")
     }
-    async verifyResetMessage(){
+    async verifyResetMessage() {
         let verifyResetMessage = await (await this.page.waitForSelector(this.loginlocators.resetSuccessMessage)).isVisible();
-        let successMsg =await (await this.page.waitForSelector(this.loginlocators.resetSuccessMessage)).textContent()
+        let successMsg = await (await this.page.waitForSelector(this.loginlocators.resetSuccessMessage)).textContent()
         console.log(successMsg)
         console.log("Verification of usernameComponent:", verifyResetMessage)
 
     }
 }
+
+
+// ********************** End of the Program **************************//

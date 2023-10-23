@@ -1,28 +1,31 @@
-import {Locator, Page} from '@playwright/test'
+// ***************** Importing Libraries ***********
+// ***************** Auther Name: Kasthuri Kandavelu ************
+import { Locator, Page } from '@playwright/test'
+// *********** Login Page Locators class used to store all locators locators in the Login page ******//
 
-export class Loginlocators{
-   
+export class Loginlocators {
+
     readonly page: Page;
     readonly logoImg: string;
     readonly userName: string;
     readonly password: string;
     readonly usernameInput: string;
-    readonly passwordInput : string;
-    readonly loginBtn : string;
-    readonly forgotPassword : string;
-    readonly welcomeMessage : string;
-    readonly logoutButton : string;
-    readonly resetusernamecomponent : string;
-    readonly resetusernameInput : string;
-    readonly logoutBTN :string;
+    readonly passwordInput: string;
+    readonly loginBtn: string;
+    readonly forgotPassword: string;
+    readonly welcomeMessage: string;
+    readonly logoutButton: string;
+    readonly resetusernamecomponent: string;
+    readonly resetusernameInput: string;
+    readonly logoutBTN: string;
     readonly resetPasswordCancelBtn: string;
-    readonly resetPasswordVerifyBtn:string;
-    readonly resetUsernameInput:string;
-    readonly resetSuccessMessage:string;
-    readonly userIconDrop:string;
+    readonly resetPasswordVerifyBtn: string;
+    readonly resetUsernameInput: string;
+    readonly resetSuccessMessage: string;
+    readonly userIconDrop: string;
 
-   
-    constructor(page: Page){
+
+    constructor(page: Page) {
         this.page = page
         this.logoImg = ".orangehrm-login-branding img ";
         this.userName = "//p[text()='Username : Admin']";
@@ -33,16 +36,16 @@ export class Loginlocators{
         this.forgotPassword = "//p[@class='oxd-text oxd-text--p orangehrm-login-forgot-header']"
         this.welcomeMessage = "//h1[@class='welcome-message']"
         this.logoutButton = "//button[@id='logoutButton']"
-        this.logoutBTN="//a[text()='Logout']"
+        this.logoutBTN = "//a[text()='Logout']"
         this.resetusernamecomponent = "//input[@name='username']"
         this.resetusernameInput = "//input[@name='username']"
-        this.resetPasswordCancelBtn="//button[@class='oxd-button oxd-button--large oxd-button--ghost orangehrm-forgot-password-button orangehrm-forgot-password-button--cancel']"
-        this.resetPasswordVerifyBtn="//button[@class='oxd-button oxd-button--large oxd-button--secondary orangehrm-forgot-password-button orangehrm-forgot-password-button--reset']"
-        this.resetUsernameInput ="//input[@class='oxd-input oxd-input--active']";
-        this.resetSuccessMessage="//h6[@class='oxd-text oxd-text--h6 orangehrm-forgot-password-title']";
-        this.userIconDrop="//p[@class='oxd-userdropdown-name']";
+        this.resetPasswordCancelBtn = "//button[@class='oxd-button oxd-button--large oxd-button--ghost orangehrm-forgot-password-button orangehrm-forgot-password-button--cancel']"
+        this.resetPasswordVerifyBtn = "//button[@class='oxd-button oxd-button--large oxd-button--secondary orangehrm-forgot-password-button orangehrm-forgot-password-button--reset']"
+        this.resetUsernameInput = "//input[@class='oxd-input oxd-input--active']";
+        this.resetSuccessMessage = "//h6[@class='oxd-text oxd-text--h6 orangehrm-forgot-password-title']";
+        this.userIconDrop = "//p[@class='oxd-userdropdown-name']";
 
-        
+
 
     }
 }

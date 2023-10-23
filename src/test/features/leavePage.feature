@@ -79,6 +79,14 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
 
         Then user is able to perform leave list reset functionality in the list page
         Then user is able to perform leave list search functionality in the list page
+        Then user is able to see total leave list record in list page
+        Then user is able to perform Multiselect functionality in the list page
+        Then user is able to perform individual select functionality in the list page
+        Then user is able to perform approve functionality in the list page
+        Then user is able to perform reject functionality in the list page
+        Then user is able to perform Add comment functionality in the list page
+        Then user is able to see leave request Comments components in the list page
+        Then user is able to perform leave request comments cancel functionality in the list page
 
 
   
