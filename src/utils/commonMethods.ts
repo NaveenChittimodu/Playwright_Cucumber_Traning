@@ -265,8 +265,52 @@ export class CommonMethods {
         }
     }
 
-    
+    async checkAndExpectCheckbox(checkboxLocator: Locator, shouldBeChecked: boolean = true) {
+        // Check the checkbox
+        await checkboxLocator.check();
+      
+        // Check if it should be checked and assert accordingly
+        if (shouldBeChecked) {
+          await expect(checkboxLocator).toBeChecked();
+          await expect(checkboxLocator.isChecked()).toBeTruthy();
+        } else {
+          await expect(checkboxLocator.isChecked()).toBeFalsy();
+        }
+      }
 
+      async getElementText1(locator: string) {
+        try {
+          const element = await this.page.locator(locator);
+          const text = await element.textContent();
+          return text || '';
+        } catch (error) {
+          console.error(`Error while getting text: ${error}`);
+          return null;
+        }
+      }
+
+      async getElementText(locator: string) {
+        try {
+          const element = await this.page.locator(locator);
+          const text = await element.textContent();
+      
+          if (text !== null && text !== '') {
+            // Add your specific condition here
+            if (text.includes('Some Expected Text')) {
+              console.log('Text contains expected text.');
+            } else {
+              console.log('Text does not contain expected text.');
+            }
+          } else {
+            console.log('Text is empty.');
+          }
+      
+          return text || '';
+        } catch (error) {
+          console.error(`Error while getting text: ${error}`);
+          return null;
+        }
+      }
 
 }
 

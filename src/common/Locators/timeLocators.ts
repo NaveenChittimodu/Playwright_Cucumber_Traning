@@ -86,6 +86,7 @@ export class TimeLocators{
         projectViewBtn:`//button[contains(@class,'oxd-button oxd-button--medium')]`,
         reportEmpName:`//label[text()='Employee Name']//parent::div//following-sibling::div`,
         reportProjectName:`//label[text()='Project Name']//parent::div//following-sibling::div`,
+        reportProjectNameDropDown:`.oxd-autocomplete-dropdown .oxd-autocomplete-option`,
         reportActivityName:`//label[text()='Activity Name']//parent::div//following-sibling::div`,
         reportActivityNameDropDown:`div.oxd-select-dropdown .oxd-select-option`,
         reportProjectDateRange:`//label[text()='Project Date Range']//parent::div//following-sibling::div`,

@@ -43,7 +43,7 @@ When('Verify the Timesheet period should be Current week date', async function (
 
 When('Verify the Edit Timesheet after clicking cancel button', async function () {
     await timePage.timeSheetEditCancel();
-    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet?startDate=2023-10-23");
+    expect(page.url()).toBe(assertion.assertionURL.viewMyTimeSheetDate);
     const toastMsg = await timePage.getToastMessageNew(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
     await expect(toastMsg).toBe("No Records Found");
     await page.waitForTimeout(5000);
@@ -90,6 +90,30 @@ When('Verify the user is able to fill the Punch In and Punch Out details', async
 
 When('Verify the user is able to enable and disable all the configuraiton option', async function () {
     await timePage.attendancePunchInOut();
+    // const noSheetFount = await timePage.getTextFromElement(timeLocators.attendanceDetails.noRecordsFound);
+    // console.log(noSheetFount);
+    // expect(noSheetFount).toBe("No Records Found");
+    
+});
+
+When('Verify the user is able to search and retrieve project reports', async function () {
+    await timePage.reportProjectReports();
+    // const noSheetFount = await timePage.getTextFromElement(timeLocators.attendanceDetails.noRecordsFound);
+    // console.log(noSheetFount);
+    // expect(noSheetFount).toBe("No Records Found");
+    
+});
+
+When('Verify the user is able to search and retrieve employee reports', async function () {
+    await timePage.reportEmployeeReports();
+    // const noSheetFount = await timePage.getTextFromElement(timeLocators.attendanceDetails.noRecordsFound);
+    // console.log(noSheetFount);
+    // expect(noSheetFount).toBe("No Records Found");
+    
+});
+
+When('Verify the user is able to search and retrieve employee Attendance Summary', async function () {
+    await timePage.reportEmployeeSummary();
     // const noSheetFount = await timePage.getTextFromElement(timeLocators.attendanceDetails.noRecordsFound);
     // console.log(noSheetFount);
     // expect(noSheetFount).toBe("No Records Found");

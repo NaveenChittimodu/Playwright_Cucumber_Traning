@@ -2,6 +2,7 @@
     "assertionURL": {
         "addCandidatesURL": "https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate",
         "viewMyTimeSheet" : "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet",
+        "viewMyTimeSheetDate": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet?startDate=2023-10-23",
         "viewEmployeeTimeSheet": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewEmployeeTimesheet"
     },
     "assertion": {
