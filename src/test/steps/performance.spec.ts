@@ -40,14 +40,14 @@ When('User click on Performance', async function () {
   console.log("testing performance is clicked ");
 
   //** configure */
-  // await performancePage.clickConfigure();
-  // await performancePage.clickKPIs();
-  // await performancePage.clickKPI_Addbtn();
-  // await performancePage.keyindicator_KPI();
-  // await performancePage.clickConfigure();
-  // await performancePage.clickTrackers();
-  // await performancePage.clickTracker_Addbtn();
-  // await performancePage.Trackers();
+  await performancePage.clickConfigure();
+  await performancePage.clickKPIs();
+  await performancePage.clickKPI_Addbtn();
+  await performancePage.keyindicator_KPI();
+  await performancePage.clickConfigure();
+  await performancePage.clickTrackers();
+  await performancePage.clickTracker_Addbtn();
+  await performancePage.Trackers();
 
   //** manage reviews */
    await performancePage.managefields();

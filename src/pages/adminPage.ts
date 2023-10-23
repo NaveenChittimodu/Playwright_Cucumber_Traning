@@ -26,6 +26,10 @@ export class AdminPage {
         await this.page.locator(this.adminloctators.adminAddbtn).isVisible();
         await this.page.locator(this.adminloctators.adminAddbtn).click();
     }
+    async clickJob(){
+        await this.page.locator(this.adminloctators.job).isVisible();
+        await this.page.locator(this.adminloctators.job).click();
+    }
     async adminUserSelect(){
         await this.page.locator(this.adminloctators.userSelectdropdown).isVisible();
         await this.page.locator(this.adminloctators.userSelectdropdown).click();
@@ -62,5 +66,11 @@ export class AdminPage {
         await this.page.locator(this.adminloctators.confirmPassword).isVisible();;
         await this.page.locator(this.adminloctators.confirmPassword).click();
         await this.page.locator(this.adminloctators.confirmPassword).fill("admin1232");
+    }
+    async clickJobTitles(){
+        await this.page.locator(this.adminloctators.jobTitles).isVisible();
+        await this.page.locator(this.adminloctators.jobTitles).click();
+        await this.page.locator(this.adminloctators.adminAddbtn).isVisible();
+        await this.page.locator(this.adminloctators.adminAddbtn).click();
     }
 }
