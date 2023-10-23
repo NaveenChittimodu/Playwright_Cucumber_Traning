@@ -30,6 +30,7 @@ export class DashboardLocator{
     readonly subunit:any;
     readonly emplocation:any;
     readonly empsubunit:any;
+    readonly password:any;
  
 
   
@@ -66,6 +67,7 @@ export class DashboardLocator{
         this.subunit = "//span[@title='Human Resources']";
         this.emplocation = "//p[text()='Employee Distribution by Location']";
         this.empsubunit = "//span[@title='New York Sales Office']";
+        this.password = "//input[@name='password']";
 
         
 }

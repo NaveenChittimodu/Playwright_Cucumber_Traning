@@ -37,6 +37,8 @@ When('User click on Maintenance menu',async function(){
     await maintenance.maintainanceMenu();
     console.log("main passed");
 
+    await maintenance.verifymenu();
+    console.log("menu verified passed");
     
 
 
