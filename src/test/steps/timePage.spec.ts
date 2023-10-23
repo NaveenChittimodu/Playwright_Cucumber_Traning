@@ -1,16 +1,17 @@
 import { Given, When, Then, Before, BeforeAll, setDefaultTimeout, AfterAll } from "@cucumber/cucumber";
 import { Page, chromium, Browser, expect } from "@playwright/test";
 import { LoginPage } from "../../../src/pages/login_Page"
-import { myBrowserFixture } from "../../../src/common/Fixtures/fixtures";
+import { CommonMethods } from "../../utils/commonMethods";
 import ENV from "../../../src/utils/env";
 import { TimeLocators } from "../../common/Locators/timeLocators";
 import { TimePage } from "../../pages/time_page";
-import { time } from "console";
+import * as assertion from "../../testData/json/assertion.json";
 
 
 let page: Page;
 let browser: Browser;
 let loginpage: LoginPage;
+let commonMethods: CommonMethods
 let timeLocators: TimeLocators;
 let timePage: TimePage;
 
@@ -34,13 +35,15 @@ Given('User Login to OrangeHrm application', async function () {
 
 When('Verify the Timesheet period should be Current week date', async function () {
     await timePage.navigateToTime();
+    expect(page.url()).toBe(assertion.assertionURL.viewEmployeeTimeSheet);
     await timePage.timeSheetPeriod();
+    expect(page.url()).toBe(assertion.assertionURL.viewMyTimeSheet);
     
 });
 
 When('Verify the Edit Timesheet after clicking cancel button', async function () {
     await timePage.timeSheetEditCancel();
-    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet?startDate=2023-10-16");
+    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet?startDate=2023-10-23");
     const toastMsg = await timePage.getToastMessageNew(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
     await expect(toastMsg).toBe("No Records Found");
     await page.waitForTimeout(5000);
@@ -91,6 +94,30 @@ When('Verify the user is able to enable and disable all the configuraiton option
     // console.log(noSheetFount);
     // expect(noSheetFount).toBe("No Records Found");
     
+});
+
+When('Verify the user is able to Add the new Customer - Edit the new Customer - Delete the existing Customer - from step 15 to 17', async function () {
+    await timePage.projectInfoCustomerAdd();
+    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/viewCustomers");
+   
+});
+
+When('Verify the user is able to Reset the filled fileds and Search the Project records - from step 17 to 18', async function () {
+    await timePage.projectsInfoValidateProjectsAdd();
+    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/viewProjects");
+   
+});
+
+When('Verify the user is able to Add the Project records', async function () {
+    await timePage.projectsInfoAddNewProject();
+    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/viewProjects");
+   
+});
+
+When('Verify the user is able to cancel the filled fields of Add Project records', async function () {
+    await timePage.projectsInfoAddNewProjectclickCancel();
+    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/viewProjects");
+   
 });
 
 

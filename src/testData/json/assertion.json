@@ -1,6 +1,8 @@
 {
     "assertionURL": {
-        "addCandidatesURL": "https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate"
+        "addCandidatesURL": "https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate",
+        "viewMyTimeSheet" : "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet",
+        "viewEmployeeTimeSheet": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewEmployeeTimesheet"
     },
     "assertion": {
         "invalidCredentials": "Invalid credentials",
@@ -63,7 +65,14 @@
         "membership" : "CIMA",
         "membershipSubscription" : "Company",
         "memberSubscriptionAmount": "25000",
-        "membershipCurrency" : "Belize Dollar"
+        "membershipCurrency" : "Belize Dollar",
+        "projectInfocustomerName" : "ArunKumar",
+        "projectInfocustomerName1" : "QA Engineer1",
+        "projectInfoDescription" : "QA Engineer",
+        "projectInfocustomerEditedName": "Vimalraj",
+        "projectInfocustomerEditedDesc": "QA Tester",
+        "projectCustomerName" : "ACME Ltd",
+        "projectAddDescription": "Testing "
 
     }
 }

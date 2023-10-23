@@ -29,6 +29,7 @@ export class TimeLocators{
 
     this.timeSheetDetails = {
         timeSheetTitle: `orangehrm-timesheet-header--title`,
+        timeSheetTitle1:`//span[@class='oxd-topbar-header-breadcrumb']/h6[text()='Timesheets']`,
         timeSheetPeriodTitle: `//p[text()='Timesheet Period']`,
         timeSheetPeriodInput:`//span[text()='Project Info ']/following::input`,
         timeSheetEdit:`button.oxd-button.oxd-button--medium.oxd-button--ghost`,
@@ -90,17 +91,42 @@ export class TimeLocators{
         reportProjectDateRange:`//label[text()='Project Date Range']//parent::div//following-sibling::div`,
         reportProjectToDate:`//input[@placeholder='To']`,
         reportIncude:`//span[contains(@class,'oxd-switch-input oxd-switch-input--active')]`,
-        reportViewBtn:`//button[contains(@class,'oxd-button oxd-button--medium')]`
+        reportViewBtn:`//button[contains(@class,'oxd-button oxd-button--medium')]`,
+        timePageToastMsg:`.oxd-text.oxd-text--p.oxd-text--toast-message.oxd-toast-content-text`
 
     };
 
     this.projectInfoDetails = {
-        customer: `//h6[text()='Customers']`,
+        customer: `//a[contains(text(),'Customers')]`,
         customerAddBtn: `//button[contains(@class,'oxd-button oxd-button--medium')]`,
-        customerName:`//label[text()='Name']//parent::div//following-sibling::div`,
-        customerDescription:`//label[text()='Description']//parent::div//following-sibling::div`,
+        customerName:`//label[text()='Name']//parent::div//following-sibling::div//input`,
+        customerDescription:`//label[text()='Description']//parent::div//following-sibling::div//textarea`,
         customerCancel:`//button[text()=' Cancel ']`,
-        customerSaveBtn:`//button[@type='submit']`
+        customerSaveBtn:`//button[@type='submit']`,
+        tableSelector:`div.oxd-table`,
+        headerSelector:`div.oxd-table-header`,
+        allRows:`div.oxd-table-body div.oxd-table-row`,
+        tableCells:`div.oxd-table-cell`,
+        deleteSelectedItem:`//button[text()=' Delete Selected ']`,
+        confirmationDeletePopup:`//button[text()=' Yes, Delete ']`,
+        projects:`//a[contains(text(),'Projects')]`,
+        projectsCustomerName:`//label[text()='Customer Name']//parent::div//following-sibling::div//input`,
+        projectsName:`//label[text()='Project']//parent::div//following-sibling::div//input`,
+        projectsAdmin:`//label[text()='Project Admin']//parent::div//following-sibling::div//input`,
+        projectReset:`button.oxd-button.oxd-button--medium.oxd-button--ghost`,
+        projectsSearch:`//button[text()=' Reset ']/following-sibling::button`,
+        projectsAddBtn:`//button[text()=' Add ']`,
+        addProjectsTitle:`//h6[text()='Add Project']`,
+        addProjectsName:`//label[text()='Name']//parent::div//following-sibling::div//input`,
+        addProjectsCustomerName:`//label[text()='Customer Name']//parent::div//following-sibling::div//input`,
+        addProjectsDescription:`//label[text()='Description']//parent::div//following-sibling::div//textarea`,
+        addProjectsAdmin:`//label[text()='Project Admin']//parent::div//following-sibling::div//input`,
+        addPfojectsCancelBtn:`//button[text()=' Cancel ']`,
+        addProjectsSaveBtn:`//button[text()=' Cancel ']`,
+        projectName:`//span[text()='ACME Ltd']`,
+        project:`//span[text()='ACME Ltd']`,
+        projectAdmin:`(//div[@class='oxd-autocomplete-option']//span)[1]`
+
     }
 
     }
