@@ -5,23 +5,23 @@ export class CommonMethods {
 
     public page: Page;
 
-    constructor(page: Page){
+    constructor(page: Page) {
         this.page = page;
-        
+
     }
-    
-    async clickElement(locator:string){
+
+    async clickElement(locator: string) {
 
         try {
             await this.page.waitForSelector(locator);
             await expect(await this.page.locator(locator)).toBeVisible();
             await this.page.locator(locator).click({ force: true });
             console.log("Button has been clicked...")
-        } 
+        }
         catch (error) {
             console.log("Button hasn't been clicked...")
         }
-        
+
     }
 
     async enterText(locator: Locator, text: string) {
@@ -268,48 +268,107 @@ export class CommonMethods {
     async checkAndExpectCheckbox(checkboxLocator: Locator, shouldBeChecked: boolean = true) {
         // Check the checkbox
         await checkboxLocator.check();
-      
+
         // Check if it should be checked and assert accordingly
         if (shouldBeChecked) {
-          await expect(checkboxLocator).toBeChecked();
-          await expect(checkboxLocator.isChecked()).toBeTruthy();
+            await expect(checkboxLocator).toBeChecked();
+            await expect(checkboxLocator.isChecked()).toBeTruthy();
         } else {
-          await expect(checkboxLocator.isChecked()).toBeFalsy();
+            await expect(checkboxLocator.isChecked()).toBeFalsy();
         }
-      }
+    }
 
-      async getElementText1(locator: string) {
+    async getElementText1(locator: string) {
         try {
-          const element = await this.page.locator(locator);
-          const text = await element.textContent();
-          return text || '';
+            const element = await this.page.locator(locator);
+            const text = await element.textContent();
+            return text || '';
         } catch (error) {
-          console.error(`Error while getting text: ${error}`);
-          return null;
+            console.error(`Error while getting text: ${error}`);
+            return null;
         }
-      }
+    }
 
-      async getElementText(locator: string) {
+    async getElementText(locator: string) {
         try {
-          const element = await this.page.locator(locator);
-          const text = await element.textContent();
-      
-          if (text !== null && text !== '') {
-            // Add your specific condition here
-            if (text.includes('Some Expected Text')) {
-              console.log('Text contains expected text.');
+            const element = await this.page.locator(locator);
+            const text = await element.textContent();
+
+            if (text !== null && text !== '') {
+                // Add your specific condition here
+                if (text.includes('Some Expected Text')) {
+                    console.log('Text contains expected text.');
+                } else {
+                    console.log('Text does not contain expected text.');
+                }
             } else {
-              console.log('Text does not contain expected text.');
+                console.log('Text is empty.');
             }
-          } else {
-            console.log('Text is empty.');
-          }
-      
-          return text || '';
+
+            return text || '';
         } catch (error) {
-          console.error(`Error while getting text: ${error}`);
-          return null;
+            console.error(`Error while getting text: ${error}`);
+            return null;
         }
+    }
+    // This method uploads a single file to a web page using Playwright.
+    // For Example: 
+    //  const fileInputSelector = ".mqfihd-upload"; // Selector for the file input element
+    //  const filePaths = "tests/UploadFiles/1.txt"; // Paths to the files you want to upload
+
+    async uploadSingleFile(fileInputSelector: string, filePath: string) {
+        await this.page.waitForSelector(fileInputSelector); // Wait for the file input element
+        await this.page.locator(fileInputSelector).click(); // Click the file input to trigger the file dialog
+        await this.page.locator(fileInputSelector).setInputFiles(filePath); // Set the file to upload
+        await this.page.waitForTimeout(5000); // Wait for some time (you can adjust this)
+    }
+
+    //This method uploads a multiple file to a web page using Playwright
+    // For Example: 
+    //  const fileInputSelector = ".mqfihd-upload"; // Selector for the file input element
+    //  const filePaths = ["tests/UploadFiles/1.txt", "tests/UploadFiles/2.txt", "tests/UploadFiles/3.txt"]; // Paths to the files you want to upload
+
+    async uploadMultipleFiles(fileInputSelector: string, filePaths: string[]) {
+        await this.page.waitForSelector(fileInputSelector); // Wait for the file input element
+        await this.page.locator(fileInputSelector).click(); // Click the file input to trigger the file dialog
+
+        for (const filePath of filePaths) {
+            await this.page.locator(fileInputSelector).setInputFiles(filePath); // Set the file to upload
+            await this.page.waitForTimeout(2000); // Wait for some time between file uploads (you can adjust this)
+        }
+    }
+
+    async selectOptionFromAutocomplete(inputSelector: string, dropdownSelector:string, optionText: string) {
+        // await this.page.goto("https://www.redbus.in/"); // Navigate to the webpage
+      
+        await this.page.locator(inputSelector).fill(optionText); // Fill the input field
+      
+        await this.page.waitForSelector(dropdownSelector); // Wait for the dropdown options to appear
+      
+        const options = await this.page.$$(dropdownSelector); // Get the dropdown options
+      
+        for (const option of options) {
+          const value = await option.textContent();
+          if (value?.includes(optionText)) {
+            await option.click(); // Click the desired option
+            break;
+          }
+        }
+      
+        await this.page.waitForTimeout(5000); // Wait for some time (you can adjust this)
+      }
+
+      async isCheckboxChecked(checkboxSelector: string) {
+        // Wait for the checkbox element to be present
+        await this.page.waitForSelector(checkboxSelector);
+      
+        // Get the checkbox element
+        const checkbox = this.page.locator(checkboxSelector);
+      
+        // Check if the checkbox is checked
+        const isChecked = await checkbox.isChecked();
+      
+        return isChecked;
       }
 
 }

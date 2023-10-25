@@ -198,26 +198,22 @@ export class TimePage {
     async attendanceMyRecords() {
         await this.page.waitForSelector(this.timeLocators.timeSheet.attendance);
         await this.clickElement(this.timeLocators.timeSheet.attendance);
-        await this.page.waitForTimeout(5000);
         await this.page.waitForSelector(this.timeLocators.timeSheet.myRecords);
         await this.clickElement(this.timeLocators.timeSheet.myRecords);
-        await this.page.waitForTimeout(5000);
-        await this.enterText(this.timeLocators.attendanceDetails.attendanceDate, "2023-10-19");
-        await this.clickElement(this.timeLocators.attendanceDetails.attendanceDate);
-        await this.page.waitForSelector(this.timeLocators.attendanceDetails.noRecordsFound);
-        const noSheetFound = await this.getTextFromElement(this.timeLocators.attendanceDetails.noRecordsFound);
-        console.log(noSheetFound);
-        await this.page.waitForSelector(this.timeLocators.attendanceDetails.attendaceViewBtn);
+        await this.enterText(this.timeLocators.attendanceDetails.attendanceDate, assertion.assertion.todayDate);
         await this.clickElement(this.timeLocators.attendanceDetails.attendaceViewBtn);
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.totalRecordText);
+        const noSheetFound = await this.getTextFromElement(this.timeLocators.attendanceDetails.totalRecordText);
+        console.log(noSheetFound);
+        expect(noSheetFound).toBe(" (3) Records Found");
+
     }
 
     async attendancePunchInOut() {
-        // await this.page.waitForSelector(this.timeLocators.timeSheet.attendance);
+        await this.page.waitForSelector(this.timeLocators.timeSheet.attendance);
         await this.clickElement(this.timeLocators.timeSheet.attendance);
-        await this.page.waitForTimeout(5000);
         await this.page.waitForSelector(this.timeLocators.timeSheet.punchInOut);
         await this.clickElement(this.timeLocators.timeSheet.punchInOut);
-        await this.page.waitForTimeout(5000);
         await this.enterText(this.timeLocators.attendanceDetails.punchInDate, "2023-10-19");
         // await this.clickElement(this.timeLocators.attendanceDetails.punchInDate);
         await this.enterText(this.timeLocators.attendanceDetails.punchInTime, "07:23 PM");
@@ -233,20 +229,67 @@ export class TimePage {
 
     }
 
+    async isCheckboxChecked(checkboxSelector: string) {
+        // Wait for the checkbox element to be present
+        await this.page.waitForSelector(checkboxSelector);
+      
+        // Get the checkbox element
+        const checkbox = this.page.locator(checkboxSelector);
+      
+        // Check if the checkbox is checked
+        const isChecked = await checkbox.isChecked();
+      
+        return isChecked;
+      }
+
+      async employeeAttendanceRecord() {
+        await this.page.waitForSelector(this.timeLocators.timeSheet.attendance);
+        await this.clickElement(this.timeLocators.timeSheet.attendance);
+        await this.page.waitForSelector(this.timeLocators.timeSheet.employeeRecords);
+        await this.clickElement(this.timeLocators.timeSheet.employeeRecords);
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.employeeName);
+        await this.selectOptionFromAutocomplete(this.timeLocators.attendanceDetails.employeeName,assertion.assertion.employeeName,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.employeeDate);
+        await this.enterText(this.timeLocators.attendanceDetails.employeeDate, assertion.assertion.projectDateRangeTo);
+        await this.clickElement(this.timeLocators.attendanceDetails.employeeViewBtn);
+        const textTrue = await this.getToastMessageNew(this.timeLocators.attendanceDetails.timePageToastMsg);
+        expect(textTrue).toBe("No Records Found");
+      }
+
 
     async attendanceConfiguration() {
-
+        await this.page.waitForSelector(this.timeLocators.timeSheet.attendance);
         await this.clickElement(this.timeLocators.timeSheet.attendance);
-        await this.page.waitForTimeout(5000);
         await this.page.waitForSelector(this.timeLocators.timeSheet.configuration);
         await this.clickElement(this.timeLocators.timeSheet.configuration);
-        await this.page.waitForTimeout(5000);
-
         await this.clickElement(this.timeLocators.attendanceDetails.configurationInOut);
+        const CheckedInOut = await this.isCheckboxChecked(this.timeLocators.attendanceDetails.configurationInOut);
+        console.log(`The checkbox is checked :` + CheckedInOut);
         await this.clickElement(this.timeLocators.attendanceDetails.configurationRecord);
+        const CheckedRecord = await this.isCheckboxChecked(this.timeLocators.attendanceDetails.configurationRecord);
+        console.log(`The checkbox is checked :` + CheckedRecord);
         await this.clickElement(this.timeLocators.attendanceDetails.configurationSubOrdinate);
-        await this.page.waitForSelector(this.timeLocators.attendanceDetails.configuration);
+        const CheckedSubOrdinate = await this.isCheckboxChecked(this.timeLocators.attendanceDetails.configurationSubOrdinate);
+        console.log(`The checkbox is checked :` + CheckedSubOrdinate);
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.configurationSaveBtn);
         await this.clickElement(this.timeLocators.attendanceDetails.configurationSaveBtn);
+        const textTrue = await this.getToastMessageNew(this.timeLocators.attendanceDetails.timePageToastMsg);
+        expect(textTrue).toBe("Successfully Saved");
+
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.configurationInOut);
+        await this.clickElement(this.timeLocators.attendanceDetails.configurationInOut);
+        const isCheckedInOut = await this.isCheckboxChecked(this.timeLocators.attendanceDetails.configurationInOut);
+        console.log(`The checkbox is checked :` + isCheckedInOut);
+        await this.clickElement(this.timeLocators.attendanceDetails.configurationRecord);
+        const isCheckedRecord = await this.isCheckboxChecked(this.timeLocators.attendanceDetails.configurationRecord);
+        console.log(`The checkbox is checked :` + isCheckedRecord);
+        await this.clickElement(this.timeLocators.attendanceDetails.configurationSubOrdinate);
+        const isCheckedSubOrdinate = await this.isCheckboxChecked(this.timeLocators.attendanceDetails.configurationSubOrdinate);
+        console.log(`The checkbox is checked :` + isCheckedSubOrdinate);
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.configurationSaveBtn);
+        await this.clickElement(this.timeLocators.attendanceDetails.configurationSaveBtn);
+        const textFalse = await this.getToastMessageNew(this.timeLocators.attendanceDetails.timePageToastMsg);
+        expect(textFalse).toBe("Successfully Saved");
     }
 
     //   async interactWithTable(tableSelector:string, cellTextToFind:string) {
@@ -502,61 +545,63 @@ export class TimePage {
         
         await this.page.waitForSelector(this.timeLocators.timeSheet.reports);
         await this.clickElement(this.timeLocators.timeSheet.reports);
-        // await this.page.waitForTimeout(5000);
         await this.page.waitForSelector(this.timeLocators.timeSheet.projectReports);
         await this.clickElement(this.timeLocators.timeSheet.projectReports);
-        await this.clickElementSelectDropDownValue(this.timeLocators.projectInfoDetails.projectReports,"a",this.timeLocators.projectInfoDetails.reportProjectNameDropDown,"ACME Ltd - ACME Ltd");
-        // await this.enterText(this.timeLocators.projectInfoDetails.addProjectsName, assertion.assertion.projectInfocustomerName);
-        // await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsCustomerName);
-        // await this.page.locator(this.timeLocators.projectInfoDetails.projectsCustomerName).fill("a");
-        // await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsCustomerName);
-        // await this.clickElement(this.timeLocators.projectInfoDetails.projectName);
-        await this.page.waitForTimeout(5000);
-        await this.enterText(this.timeLocators.projectInfoDetails.projectDateRange, "2023-10-19");
-        await this.enterText(this.timeLocators.projectInfoDetails.projectToDate, "2023-10-19");
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectToDate);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectInclude);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectViewBtn);
+        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.addProjectsName);
+        await this.selectOptionFromAutocomplete(this.timeLocators.projectInfoDetails.addProjectsName,assertion.assertion.projectCustomerName,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.projectDateRange);
+        await this.enterText(this.timeLocators.attendanceDetails.projectDateRange, assertion.assertion.projectDateRange);
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.projectToDate);
+        await this.enterText(this.timeLocators.attendanceDetails.projectToDate, assertion.assertion.projectDateRangeTo);
+        await this.clickElement(this.timeLocators.attendanceDetails.projectInclude);
+        await this.clickElement(this.timeLocators.attendanceDetails.projectViewBtn);
+        const text = await this.getToastMessageNew(this.timeLocators.attendanceDetails.timePageToastMsg);
+        expect(text).toBe("No Records Found");
     }
 
     async reportEmployeeReports() {
         
-        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.reports);
-        await this.clickElement(this.timeLocators.projectInfoDetails.reports);
-        // await this.page.waitForTimeout(5000);
-        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectReports);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectReports);
-        await this.enterText(this.timeLocators.projectInfoDetails.addProjectsName, assertion.assertion.projectInfocustomerName);
-        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsCustomerName);
-        await this.page.locator(this.timeLocators.projectInfoDetails.projectsCustomerName).fill("a");
-        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsCustomerName);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectName);
-        await this.page.waitForTimeout(5000);
-        await this.enterText(this.timeLocators.projectInfoDetails.projectDateRange, "2023-10-19");
-        await this.enterText(this.timeLocators.projectInfoDetails.projectToDate, "2023-10-19");
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectToDate);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectInclude);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectViewBtn);
+        await this.page.waitForSelector(this.timeLocators.timeSheet.reports);
+        await this.clickElement(this.timeLocators.timeSheet.reports);
+        await this.page.waitForSelector(this.timeLocators.timeSheet.employeeReports);
+        await this.clickElement(this.timeLocators.timeSheet.employeeReports);
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.reportEmpName);
+        await this.selectOptionFromAutocomplete(this.timeLocators.attendanceDetails.reportEmpName,assertion.assertion.reportEmployeeName,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.reportProjectName);
+        await this.selectOptionFromAutocomplete(this.timeLocators.attendanceDetails.reportProjectName,assertion.assertion.reportProjectName,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
+        await this.page.waitForSelector(this.timeLocators.timeSheetDetails.timeSheetActivity);
+        await this.selectDropDownElements(this.timeLocators.timeSheetDetails.timeSheetActivity, this.timeLocators.timeSheetDetails.timeSheetActivityDropDown, assertion.assertion.reportActivityName);
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.projectDateRange);
+        await this.enterText(this.timeLocators.attendanceDetails.projectDateRange, assertion.assertion.projectDateRange);
+        await this.page.waitForSelector(this.timeLocators.attendanceDetails.projectToDate);
+        await this.enterText(this.timeLocators.attendanceDetails.projectToDate, assertion.assertion.projectDateRangeTo);
+        await this.clickElement(this.timeLocators.attendanceDetails.projectInclude);
+        await this.clickElement(this.timeLocators.attendanceDetails.projectViewBtn);
+        const text = await this.getToastMessageNew(this.timeLocators.attendanceDetails.timePageToastMsg);
+        expect(text).toBe("No Records Found");
     }
 
-    async reportEmployeeSummary() {
+    async reportAttendenceSummary() {
         
-        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.reports);
-        await this.clickElement(this.timeLocators.projectInfoDetails.reports);
-        // await this.page.waitForTimeout(5000);
-        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectReports);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectReports);
-        await this.enterText(this.timeLocators.projectInfoDetails.addProjectsName, assertion.assertion.projectInfocustomerName);
-        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsCustomerName);
-        await this.page.locator(this.timeLocators.projectInfoDetails.projectsCustomerName).fill("a");
-        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsCustomerName);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectName);
-        await this.page.waitForTimeout(5000);
-        await this.enterText(this.timeLocators.projectInfoDetails.projectDateRange, "2023-10-19");
-        await this.enterText(this.timeLocators.projectInfoDetails.projectToDate, "2023-10-19");
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectToDate);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectInclude);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectViewBtn);
+        await this.page.waitForSelector(this.timeLocators.timeSheet.reports);
+        await this.clickElement(this.timeLocators.timeSheet.reports);
+        await this.page.waitForSelector(this.timeLocators.timeSheet.attendenceSummary);
+        await this.clickElement(this.timeLocators.timeSheet.attendenceSummary);
+        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.employeeName);
+        await this.selectOptionFromAutocomplete(this.timeLocators.projectInfoDetails.employeeName,assertion.assertion.reportEmployeeName,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
+        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.jobTitle);
+        await this.selectDropDownElements(this.timeLocators.projectInfoDetails.jobTitle, this.timeLocators.projectInfoDetails.jobTitleDropDown, assertion.assertion.reportJobTitle);
+        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.subUnit);
+        await this.selectDropDownElements(this.timeLocators.projectInfoDetails.subUnit, this.timeLocators.projectInfoDetails.subUnitDropDown, assertion.assertion.reportSubUnit);
+        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.employeeStatus);
+        await this.selectDropDownElements(this.timeLocators.projectInfoDetails.employeeStatus, this.timeLocators.projectInfoDetails.employeeStatusDropdown, assertion.assertion.reportEmployeeStatus);
+        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.dateRange);
+        await this.enterText(this.timeLocators.projectInfoDetails.dateRange, assertion.assertion.projectDateRange);
+        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.toDate);
+        await this.enterText(this.timeLocators.projectInfoDetails.toDate, assertion.assertion.projectDateRangeTo);
+        await this.clickElement(this.timeLocators.attendanceDetails.projectViewBtn);
+        const text = await this.getToastMessageNew(this.timeLocators.attendanceDetails.timePageToastMsg);
+        expect(text).toBe("No Records Found");
     }
 
     async projectsInfoValidateProjectsAdd() {
@@ -596,17 +641,12 @@ export class TimePage {
         await this.page.waitForSelector(this.timeLocators.projectInfoDetails.addProjectsName);
         await this.enterText(this.timeLocators.projectInfoDetails.addProjectsName, assertion.assertion.projectInfocustomerName);
         await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsCustomerName);
-        await this.page.locator(this.timeLocators.projectInfoDetails.projectsCustomerName).fill("a");
-        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsCustomerName);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectName);
-        // await this.page.waitForSelector(this.timeLocators.projectInfoDetails.addProjectsDescription);
+        await this.selectOptionFromAutocomplete(this.timeLocators.projectInfoDetails.projectsCustomerName,assertion.assertion.projectsCustomerName,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
+        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.addProjectsDescription);
         await this.clickElement(this.timeLocators.projectInfoDetails.addProjectsDescription);
         await this.page.fill(this.timeLocators.projectInfoDetails.addProjectsDescription, assertion.assertion.projectAddDescription);
         await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsAdmin);
-        // await this.page.waitForTimeout(3000);
-        await this.page.locator(this.timeLocators.projectInfoDetails.projectsAdmin).fill("a");
-        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsAdmin);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectAdmin);
+        await this.selectOptionFromAutocomplete(this.timeLocators.projectInfoDetails.projectsAdmin,assertion.assertion.projectsAdmin,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
         await this.clickElement(this.timeLocators.projectInfoDetails.addProjectsSaveBtn);
     }
 
@@ -618,18 +658,73 @@ export class TimePage {
         await this.page.waitForSelector(this.timeLocators.projectInfoDetails.addProjectsName);
         await this.enterText(this.timeLocators.projectInfoDetails.addProjectsName, assertion.assertion.projectInfocustomerName);
         await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsCustomerName);
-        await this.page.locator(this.timeLocators.projectInfoDetails.projectsCustomerName).fill("a");
-        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsCustomerName);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectName);
-        // await this.page.waitForSelector(this.timeLocators.projectInfoDetails.addProjectsDescription);
+        await this.selectOptionFromAutocomplete(this.timeLocators.projectInfoDetails.projectsCustomerName,assertion.assertion.projectsCustomerName,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
+        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.addProjectsDescription);
         await this.clickElement(this.timeLocators.projectInfoDetails.addProjectsDescription);
         await this.page.fill(this.timeLocators.projectInfoDetails.addProjectsDescription, assertion.assertion.projectAddDescription);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectsAdmin);
-        // await this.page.waitForTimeout(3000);
-        await this.page.locator(this.timeLocators.projectInfoDetails.projectsAdmin).fill("a");
         await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projectsAdmin);
-        await this.clickElement(this.timeLocators.projectInfoDetails.projectAdmin);
+        await this.selectOptionFromAutocomplete(this.timeLocators.projectInfoDetails.projectsAdmin,assertion.assertion.projectsAdmin,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
         await this.clickElement(this.timeLocators.projectInfoDetails.addPfojectsCancelBtn);
        
     }
+
+    async selectOptionFromAutocomplete(inputSelector: string, optionText: string, dropdownSelector: string) {
+        try {
+          await this.page.waitForSelector(inputSelector); // Wait for the input field
+          await this.page.locator(inputSelector).fill(optionText); // Fill the input field
+          await this.page.waitForSelector(dropdownSelector); // Wait for the dropdown options to appear
+          const options = await this.page.$$(dropdownSelector); // Get the dropdown options
+        
+          for (const option of options) {
+            const value = await option.textContent();
+            if (value?.includes(optionText)) {
+              await option.click(); // Click the desired option
+              break;
+            }
+          }
+
+        } catch (error) {
+          console.error(`An error occurred: ${error}`);
+          // Handle the error as needed (e.g., log it or perform error-specific actions)
+        }
+      }
+
+      async isInputFieldEmpty(inputSelector: string) {
+        // Wait for the input field to be present
+        await this.page.waitForSelector(inputSelector);
+        
+        // Get the input element
+        const inputElement = this.page.locator(inputSelector);
+        
+        // Get the value of the input field
+        const inputValue = await inputElement.inputValue();
+        
+        // Check if the input field is empty
+        return inputValue.trim() === '';
+      }
+      
+
+    async projectInfoProjects() {
+        // await this.page.waitForSelector(this.timeLocators.timeSheet.projectInfo);
+        await this.clickElement(this.timeLocators.timeSheet.projectInfo);
+        await this.page.waitForTimeout(5000);
+        await this.page.waitForSelector(this.timeLocators.projectInfoDetails.projects);
+        await this.clickElement(this.timeLocators.projectInfoDetails.projects);
+        await this.page.waitForTimeout(5000);
+        await this.selectOptionFromAutocomplete(this.timeLocators.projectInfoDetails.projectsCustomerName,assertion.assertion.projectsCustomerName,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
+        await this.selectOptionFromAutocomplete(this.timeLocators.projectInfoDetails.projectsName,assertion.assertion.projectsName,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
+        await this.selectOptionFromAutocomplete(this.timeLocators.projectInfoDetails.projectsAdmin,assertion.assertion.projectsAdmin,this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
+        await this.clickElement(this.timeLocators.projectInfoDetails.projectsSearch);
+        const projectsText = await this.getToastMessageNew(this.timeLocators.attendanceDetails.timePageToastMsg);
+        console.log(projectsText);
+        expect(projectsText).toBe("No Records Found");
+        await this.clickElement(this.timeLocators.projectInfoDetails.projectReset);
+        const customerName = await this.isInputFieldEmpty(this.timeLocators.projectInfoDetails.projectsCustomerName);
+        console.log(`The customer field is Empty :` + customerName);
+        const projectName = await this.isInputFieldEmpty(this.timeLocators.projectInfoDetails.projectsName);
+        console.log(`The project field is Empty :` + projectName);
+        const adminName = await this.isInputFieldEmpty(this.timeLocators.projectInfoDetails.projectsAdmin);
+        console.log(`The admin field is Empty :` + adminName);
+        
+}
 }

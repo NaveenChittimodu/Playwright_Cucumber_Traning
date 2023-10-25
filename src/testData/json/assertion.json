@@ -3,7 +3,14 @@
         "addCandidatesURL": "https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate",
         "viewMyTimeSheet" : "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet",
         "viewMyTimeSheetDate": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet?startDate=2023-10-23",
-        "viewEmployeeTimeSheet": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewEmployeeTimesheet"
+        "viewEmployeeTimeSheet": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewEmployeeTimesheet",
+        "viewProject" : "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewProjects",
+        "viewCustomer" :"https://opensource-demo.orangehrmlive.com/web/index.php/time/viewCustomers",
+        "displayProjectReportCreteria":"https://opensource-demo.orangehrmlive.com/web/index.php/time/displayProjectReportCriteria",
+        "displayEmployeeReportCreteria":"https://opensource-demo.orangehrmlive.com/web/index.php/time/displayEmployeeReportCriteria",
+        "displayAttendanceSummaryReportCriteria":"https://opensource-demo.orangehrmlive.com/web/index.php/time/displayAttendanceSummaryReportCriteria",
+        "configure" : "https://opensource-demo.orangehrmlive.com/web/index.php/attendance/configure",
+        "viewMyAttendanceRecord":"https://opensource-demo.orangehrmlive.com/web/index.php/attendance/viewMyAttendanceRecord"
     },
     "assertion": {
         "invalidCredentials": "Invalid credentials",
@@ -73,7 +80,20 @@
         "projectInfocustomerEditedName": "Vimalraj",
         "projectInfocustomerEditedDesc": "QA Tester",
         "projectCustomerName" : "ACME Ltd",
-        "projectAddDescription": "Testing "
+        "projectAddDescription": "Testing ",
+        "projectsCustomerName" : "FreeWave Technologies, Inc.",
+        "projectsName": "Training and Development",
+        "projectsAdmin": "Ravi M B",
+        "projectDateRange": "2023-10-20",
+        "projectDateRangeTo": "2023-10-25",
+        "reportEmployeeName" : "Odis  Adalwin",
+        "reportProjectName": "FreeWave Technologies",
+        "reportActivityName": "Bug Fixes",
+        "reportJobTitle": "accountant",
+        "reportSubUnit": "Administration",
+        "reportEmployeeStatus": "Freelance",
+        "employeeName":"Haneen M Ibrahem",
+        "todayDate": "2023-10-25"
 
     }
 }

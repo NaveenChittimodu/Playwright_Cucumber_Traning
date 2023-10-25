@@ -57,7 +57,7 @@ export class TimeLocators{
     };
     this.attendanceDetails = {
         attendeanceTitle: `//h5[text()='My Attendance Records']`,
-        attendanceDate: `//label[text()='Date']//parent::div//following-sibling::div`,
+        attendanceDate: `//label[text()='Date']//parent::div//following-sibling::div//input`,
         attendaceViewBtn:`//button[text()=' View ']`,
         noRecordsFound:`//span[text()='No Records Found']`,
         punchInTitle:`//h6[text()='Punch In']`,
@@ -66,13 +66,13 @@ export class TimeLocators{
         punchInComments:`//label[text()='Note']//parent::div//following-sibling::div`,
         punchInBtn:`//button[@type='submit']`,
         punchOutPunchedTime:`//label[text()='Punched in time']//parent::div//following-sibling::div`,
-        punchedOutDate:`//label[text()='Date']//parent::div//following-sibling::div`,
+        punchedOutDate:`//label[text()='Date']//parent::div//following-sibling::div//input`,
         punchedOutTime:`//label[text()='Time']//parent::div//following-sibling::div`,
         punchOutComments:`//label[text()='Note']//parent::div//following-sibling::div`,
         punchOutBtn:`//button[contains(@class,'oxd-button oxd-button--medium')]`,
         employeeTitle:`//h5[text()='Employee Attendance Records']`,
-        employeeName:`//label[text()='Employee Name']//parent::div//following-sibling::div`,
-        employeeDate:`//label[text()='Date']//parent::div//following-sibling::div`,
+        employeeName:`//label[text()='Employee Name']//parent::div//following-sibling::div//input`,
+        employeeDate:`//label[text()='Date']//parent::div//following-sibling::div//input`,
         employeeViewBtn:`//button[@type='submit']`,
         configurationTitle:`//h6[text()='Attendance Configuration']`,
         configurationInOut:`(//input[@type='checkbox']/following-sibling::span)[1]`,
@@ -80,12 +80,15 @@ export class TimeLocators{
         configurationSubOrdinate:`(//input[@type='checkbox']/following-sibling::span)[3]`,
         configurationSaveBtn:`//button[text()=' Save ']`,
         projectName:`//label[text()='Project Name']//parent::div//following-sibling::div`,
-        projectDateRange:`//label[text()='Project Date Range']//parent::div//following-sibling::div`,
+        projectInfoCustomerName:`//label[text()='Customer Name']//parent::div//following-sibling::div//input`,
+        projectInfoProject:`//label[text()='Project']//parent::div//following-sibling::div//input`,
+        projectInfoProjectAdmin:`//label[text()='Project Admin']//parent::div//following-sibling::div//input`,
+        projectDateRange:`//label[text()='Project Date Range']//parent::div//following-sibling::div//input`,
         projectToDate:`//input[@placeholder='To']`,
         projectInclude:`//span[contains(@class,'oxd-switch-input oxd-switch-input--active')]`,
         projectViewBtn:`//button[contains(@class,'oxd-button oxd-button--medium')]`,
-        reportEmpName:`//label[text()='Employee Name']//parent::div//following-sibling::div`,
-        reportProjectName:`//label[text()='Project Name']//parent::div//following-sibling::div`,
+        reportEmpName:`//label[text()='Employee Name']//parent::div//following-sibling::div//input`,
+        reportProjectName:`//label[text()='Project Name']//parent::div//following-sibling::div//input`,
         reportProjectNameDropDown:`.oxd-autocomplete-dropdown .oxd-autocomplete-option`,
         reportActivityName:`//label[text()='Activity Name']//parent::div//following-sibling::div`,
         reportActivityNameDropDown:`div.oxd-select-dropdown .oxd-select-option`,
@@ -93,7 +96,9 @@ export class TimeLocators{
         reportProjectToDate:`//input[@placeholder='To']`,
         reportIncude:`//span[contains(@class,'oxd-switch-input oxd-switch-input--active')]`,
         reportViewBtn:`//button[contains(@class,'oxd-button oxd-button--medium')]`,
-        timePageToastMsg:`.oxd-text.oxd-text--p.oxd-text--toast-message.oxd-toast-content-text`
+        timePageToastMsg:`.oxd-text.oxd-text--p.oxd-text--toast-message.oxd-toast-content-text`,
+        totalRecordText:`.orangehrm-horizontal-padding.orangehrm-vertical-padding .oxd-text`
+        
 
     };
 
@@ -118,7 +123,7 @@ export class TimeLocators{
         projectsSearch:`//button[text()=' Reset ']/following-sibling::button`,
         projectsAddBtn:`//button[text()=' Add ']`,
         addProjectsTitle:`//h6[text()='Add Project']`,
-        addProjectsName:`//label[text()='Name']//parent::div//following-sibling::div//input`,
+        addProjectsName:`//label[text()='Project Name']//parent::div//following-sibling::div//input`,
         addProjectsCustomerName:`//label[text()='Customer Name']//parent::div//following-sibling::div//input`,
         addProjectsDescription:`//label[text()='Description']//parent::div//following-sibling::div//textarea`,
         addProjectsAdmin:`//label[text()='Project Admin']//parent::div//following-sibling::div//input`,
@@ -126,7 +131,17 @@ export class TimeLocators{
         addProjectsSaveBtn:`//button[text()=' Cancel ']`,
         projectName:`//span[text()='ACME Ltd']`,
         project:`//span[text()='ACME Ltd']`,
-        projectAdmin:`(//div[@class='oxd-autocomplete-option']//span)[1]`
+        projectAdmin:`(//div[@class='oxd-autocomplete-option']//span)[1]`,
+        projectInfoCustomerNameDropdown:`.oxd-autocomplete-dropdown .oxd-autocomplete-option span`,
+        employeeName: `//label[text()='Employee Name']//parent::div//following-sibling::div//input`,
+        jobTitle:`//label[text()='Job Title']//parent::div//following-sibling::div`,
+        jobTitleDropDown:`div.oxd-select-dropdown .oxd-select-option`,
+        subUnit:`//label[text()='Sub Unit']//parent::div//following-sibling::div`,
+        subUnitDropDown:`div.oxd-select-dropdown .oxd-select-option`,
+        employeeStatus:`//label[text()='Employment Status']//parent::div//following-sibling::div`,
+        employeeStatusDropdown:`div.oxd-select-dropdown .oxd-select-option`,
+        dateRange:`//label[text()='Date Range']//parent::div//following-sibling::div//input`,
+        toDate:`//input[@placeholder='To']`
 
     }
 

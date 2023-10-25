@@ -73,11 +73,7 @@ When('Verify the user is able to search and view the Employee timesheet', async 
 
 When('Verify the user is able to search and view the My Attendance Recods', async function () {
     await timePage.attendanceMyRecords();
-    await page.waitForTimeout(2000);
-    const noSheetFount = await timePage.getTextFromElement(timeLocators.attendanceDetails.noRecordsFound);
-    console.log(noSheetFount);
-    expect(noSheetFount).toBe("No Records Found");
-    
+        expect(page.url()).toBe(assertion.assertionURL.viewMyAttendanceRecord);
 });
 
 When('Verify the user is able to fill the Punch In and Punch Out details', async function () {
@@ -88,59 +84,55 @@ When('Verify the user is able to fill the Punch In and Punch Out details', async
     
 });
 
+When('Verify the user is able to search and retrieve Employee Attendance Records', async function () {
+    await timePage.employeeAttendanceRecord();
+    // expect(page.url()).toBe(assertion.assertionURL.configure);
+    
+});
+
 When('Verify the user is able to enable and disable all the configuraiton option', async function () {
-    await timePage.attendancePunchInOut();
-    // const noSheetFount = await timePage.getTextFromElement(timeLocators.attendanceDetails.noRecordsFound);
-    // console.log(noSheetFount);
-    // expect(noSheetFount).toBe("No Records Found");
+    await timePage.attendanceConfiguration();
+    expect(page.url()).toBe(assertion.assertionURL.configure);
     
 });
 
 When('Verify the user is able to search and retrieve project reports', async function () {
     await timePage.reportProjectReports();
-    // const noSheetFount = await timePage.getTextFromElement(timeLocators.attendanceDetails.noRecordsFound);
-    // console.log(noSheetFount);
-    // expect(noSheetFount).toBe("No Records Found");
+    expect(page.url()).toBe(assertion.assertionURL.displayProjectReportCreteria);
     
 });
 
 When('Verify the user is able to search and retrieve employee reports', async function () {
     await timePage.reportEmployeeReports();
-    // const noSheetFount = await timePage.getTextFromElement(timeLocators.attendanceDetails.noRecordsFound);
-    // console.log(noSheetFount);
-    // expect(noSheetFount).toBe("No Records Found");
-    
+    expect(page.url()).toBe(assertion.assertionURL.displayEmployeeReportCreteria);   
 });
 
 When('Verify the user is able to search and retrieve employee Attendance Summary', async function () {
-    await timePage.reportEmployeeSummary();
-    // const noSheetFount = await timePage.getTextFromElement(timeLocators.attendanceDetails.noRecordsFound);
-    // console.log(noSheetFount);
-    // expect(noSheetFount).toBe("No Records Found");
-    
+    await timePage.reportAttendenceSummary();
+    expect(page.url()).toBe(assertion.assertionURL.displayAttendanceSummaryReportCriteria); 
 });
 
 When('Verify the user is able to Add the new Customer - Edit the new Customer - Delete the existing Customer - from step 15 to 17', async function () {
     await timePage.projectInfoCustomerAdd();
-    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/viewCustomers");
+    expect(page.url()).toBe(assertion.assertionURL.viewCustomer);
    
 });
 
 When('Verify the user is able to Reset the filled fileds and Search the Project records - from step 17 to 18', async function () {
-    await timePage.projectsInfoValidateProjectsAdd();
-    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/viewProjects");
+    await timePage.projectInfoProjects();
+    expect(page.url()).toBe(assertion.assertionURL.viewProject);
    
 });
 
 When('Verify the user is able to Add the Project records', async function () {
     await timePage.projectsInfoAddNewProject();
-    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/viewProjects");
+    expect(page.url()).toBe(assertion.assertionURL.viewProject);
    
 });
 
 When('Verify the user is able to cancel the filled fields of Add Project records', async function () {
     await timePage.projectsInfoAddNewProjectclickCancel();
-    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/viewProjects");
+    expect(page.url()).toBe(assertion.assertionURL.viewProject);
    
 });
 
