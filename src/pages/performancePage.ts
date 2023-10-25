@@ -2,6 +2,7 @@ import { Page, expect, Locator } from "@playwright/test";
 
 import {Performancelocators } from "../common/Locators/Performancelocators";
 import {GenericPage } from "../../src/utils/Genericmethods";
+import testdata from "../testData/json/perf_testData.json"
 
 
 export class PerformancePage {
@@ -40,15 +41,15 @@ export class PerformancePage {
     async keyindicator_KPI(){
         await this.page.locator(this.performancelocators.keyindicator).isVisible();
         await this.page.locator(this.performancelocators.keyindicator).click();
-        await this.page.locator(this.performancelocators.keyindicator).fill("key indicators1");
+        await this.page.locator(this.performancelocators.keyindicator).fill(testdata.configure.key_indicatorName);
         await this.page.locator(this.performancelocators.Addkeyindicator).click();
-        await this.genericmethods.selectDropDownElement(this.performancelocators.selectdropdown,"Customer Success Manager");
+        await this.genericmethods.selectDropDownElement(this.performancelocators.selectdropdown,testdata.configure.dropdown);
         await this.page.locator(this.performancelocators.minimum).click();
         await this.page.locator(this.performancelocators.minimum).clear();
-        await this.page.locator(this.performancelocators.minimum).fill("30");
+        await this.page.locator(this.performancelocators.minimum).fill(testdata.configure.minValue);
         await this.page.locator(this.performancelocators.maximum).click();
         await this.page.locator(this.performancelocators.maximum).clear();
-        await this.page.locator(this.performancelocators.maximum).fill("80");
+        await this.page.locator(this.performancelocators.maximum).fill(testdata.configure.maxValue);
         await this.page.locator(this.performancelocators.save).click();
     }
 
@@ -67,18 +68,18 @@ export class PerformancePage {
     async Trackers(){
         await this.page.locator(this.performancelocators.trackerName).isVisible();
         await this.page.locator(this.performancelocators.trackerName).click();
-        await this.page.locator(this.performancelocators.trackerName).fill("Tracker2");
+        await this.page.locator(this.performancelocators.trackerName).fill(testdata.trackers.TrackerName);
         await this.page.waitForTimeout(3000)
         await this.page.locator(this.performancelocators.employeeName).isVisible();;
         await this.page.locator(this.performancelocators.employeeName).click();
-        await this.page.locator(this.performancelocators.employeeName).fill("c");
+        await this.page.locator(this.performancelocators.employeeName).fill(testdata.trackers.employeeName);
         await this.page.waitForTimeout(3000)
-        await this.page.locator(`//span[text()='Cecil  Bonaparte']`).click();
+        await this.page.locator(this.performancelocators.employeeNametext).click();
         await this.page.locator(this.performancelocators.ReviewerName).isVisible();;
         await this.page.locator(this.performancelocators.ReviewerName).click();
-        await this.page.locator(this.performancelocators.ReviewerName).fill("n");
+        await this.page.locator(this.performancelocators.ReviewerName).fill(testdata.trackers.ReviewerName);
         await this.page.waitForTimeout(3000)
-        await this.page.locator(`//span[text()='Odis  Adalwin']`).click();
+        await this.page.locator(this.performancelocators.ReviewerNametext).click();
         await this.page.locator(this.performancelocators.save).click();
     }
 
@@ -98,26 +99,26 @@ export class PerformancePage {
     async managePerformanceReview(){
         await this.page.locator(this.performancelocators.employeeName).isVisible();;
         await this.page.locator(this.performancelocators.employeeName).click();
-        await this.page.locator(this.performancelocators.employeeName).fill("n");
+        await this.page.locator(this.performancelocators.employeeName).fill(testdata.manageReviews.employeeName);
         await this.page.waitForTimeout(3000)
-        await this.page.locator(`//span[text()='Odis  Adalwin']`).click();
+        await this.page.locator(this.performancelocators.ReviewerNametext).click();
         await this.page.locator(this.performancelocators.supervisorName).isVisible();;
         await this.page.locator(this.performancelocators.supervisorName).click();
-        await this.page.locator(this.performancelocators.supervisorName).fill("n");
+        await this.page.locator(this.performancelocators.supervisorName).fill(testdata.manageReviews.supervisorName);
         await this.page.waitForTimeout(3000)
-        await this.page.locator(`//span[text()='John  Smith']`).click();
+        await this.page.locator(this.performancelocators.supervisorNameText).click();
         await this.page.locator(this.performancelocators.reviewPeriodStartDate).isVisible();;
         await this.page.locator(this.performancelocators.reviewPeriodStartDate).click();
-        await this.page.locator(this.performancelocators.reviewPeriodStartDate).fill("2023-10-25");
+        await this.page.locator(this.performancelocators.reviewPeriodStartDate).fill(testdata.manageReviews.reviewstartDate);
         await this.page.waitForTimeout(3000)
         await this.page.locator(this.performancelocators.reviewPeriodEndDate).isVisible();;
         await this.page.locator(this.performancelocators.reviewPeriodEndDate).click();
-        await this.page.locator(this.performancelocators.reviewPeriodEndDate).fill("2023-10-28");
+        await this.page.locator(this.performancelocators.reviewPeriodEndDate).fill(testdata.manageReviews.reviewEndDate);
         await this.page.locator(this.performancelocators.reviewPeriodDueDate).isVisible();;
         await this.page.locator(this.performancelocators.reviewPeriodDueDate).click();
-        await this.page.locator(this.performancelocators.reviewPeriodDueDate).fill("2023-10-29");  
-        await this.page.locator(`//p[text()=' * Required']`).isVisible();
-        await this.page.locator(`//p[text()=' * Required']`).click();    
+        await this.page.locator(this.performancelocators.reviewPeriodDueDate).fill(testdata.manageReviews.reviewDueDate);  
+        await this.page.locator(this.performancelocators.required).isVisible();
+        await this.page.locator(this.performancelocators.required).click();    
         await this.page.locator(this.performancelocators.save).isVisible();;
         await this.page.locator(this.performancelocators.save).click();    
     }

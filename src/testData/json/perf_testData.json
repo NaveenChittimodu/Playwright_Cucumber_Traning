@@ -1,0 +1,21 @@
+{
+    "configure": {
+         "key_indicatorName": "Key_indicator",
+         "dropdown" : "Customer Success Manager",
+         "minValue":"30",
+         "maxValue":"80"
+    },
+    "trackers":{
+        "TrackerName": "Tracker2",
+        "employeeName":"c",
+        "ReviewerName":"n"
+    },
+    "manageReviews": {
+        "employeeName": "n",
+        "supervisorName": "n",
+        "reviewstartDate": "2023-10-25",
+        "reviewEndDate": "2023-10-27",
+        "reviewDueDate": "2023-10-30"
+    }
+
+}
