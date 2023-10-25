@@ -148,6 +148,7 @@ export class LeavePageLocators {
     readonly commentsCancel: string;
     readonly commentClose:string;
     readonly viewLeaveDetails:string;
+    readonly leaveListNoRecord:string;
 
 
 
@@ -300,6 +301,7 @@ export class LeavePageLocators {
         this.commentsCancel = "//button[text()=' Cancel ']";
         this.commentClose="//button[text()='×']";
         this.viewLeaveDetails="//p[text()='View Leave Details']";
+        this.leaveListNoRecord="//span[text()='No Records Found']";
 
     }
 
