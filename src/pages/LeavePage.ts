@@ -3,6 +3,7 @@
 
 import { Page, expect, Keyboard } from "@playwright/test";
 import { LeavePageLocators } from "../common/Locators/leavePageLocators"
+// import * as testData from "../testData/json/testData.json";
 
 // ************* Leave Page class consist of all methods for intracting with Leave page **************//
 
@@ -583,10 +584,10 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.leaveList).click();
         await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
         await this.page.locator(this.leavePageLocators.dotDropDown).click();
-        await this.page.waitForTimeout(3000)
         await this.page.locator(this.leavePageLocators.addComments).isVisible();
         await this.page.locator(this.leavePageLocators.addComments).click();
         await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
+        await this.page.locator(this.leavePageLocators.commentClose).click();
     }
     async leaveListCommentsCancel() {
         await this.page.locator(this.leavePageLocators.leaveList).isVisible();
@@ -600,7 +601,48 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.addCommentsTextBox).fill("Leave request approved");
         await this.page.locator(this.leavePageLocators.commentsCancel).click();
 
+
     }
+    async leaveListCommentsSave() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.dotDropDown).click();
+        await this.page.waitForTimeout(3000)
+        await this.page.locator(this.leavePageLocators.addComments).isVisible();
+        await this.page.locator(this.leavePageLocators.addComments).click();
+        await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
+        await this.page.locator(this.leavePageLocators.addCommentsTextBox).fill("Leave request approved");
+        await this.page.locator(this.leavePageLocators.commentsSave).click();
+
+    }
+
+    async leaveListCommentsClose() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.dotDropDown).click();
+        await this.page.locator(this.leavePageLocators.addComments).isVisible();
+        await this.page.locator(this.leavePageLocators.addComments).click();
+        await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
+        await this.page.locator(this.leavePageLocators.commentClose).click();
+    }
+    async viewLeaveDetails() {
+        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+        await this.page.locator(this.leavePageLocators.leaveList).click();
+        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+        await this.page.locator(this.leavePageLocators.dotDropDown).click();
+        await this.page.locator(this.leavePageLocators.viewLeaveDetails).isVisible();
+        
+    }
+    
+
+
+    
+
+
+
+    
 
 }
 

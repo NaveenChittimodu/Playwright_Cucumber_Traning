@@ -355,6 +355,27 @@ Then('user is able to perform leave request comments cancel functionality in the
 
 });
 
+Then('user is able to perform leave request comments save functionality in the list', async function () {
+    await leavePage.leaveListCommentsSave();
+    console.log("tc66")
+
+});
+Then('user is able to perform leave request comments close functionality in the list page', async function () {
+    await leavePage.leaveListCommentsClose();
+    console.log("tc67")
+
+});
+Then('user is able to see view leave details in the list page', async function () {
+    await leavePage.viewLeaveDetails();
+    console.log("tc68")
+
+});
+
+
+
+
+
+
 
 
 

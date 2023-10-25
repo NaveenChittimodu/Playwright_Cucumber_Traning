@@ -146,6 +146,12 @@ export class LeavePageLocators {
     readonly addCommentsTextBox: string;
     readonly commentsSave: string;
     readonly commentsCancel: string;
+    readonly commentClose:string;
+    readonly viewLeaveDetails:string;
+
+
+
+
 
     constructor(page: Page) {
 
@@ -292,6 +298,8 @@ export class LeavePageLocators {
         this.addCommentsTextBox = "//textarea[@class='oxd-textarea oxd-textarea--active oxd-textarea--resize-vertical']";
         this.commentsSave = "//button[text()=' Save ']";
         this.commentsCancel = "//button[text()=' Cancel ']";
+        this.commentClose="//button[text()='×']";
+        this.viewLeaveDetails="//p[text()='View Leave Details']";
 
     }
 

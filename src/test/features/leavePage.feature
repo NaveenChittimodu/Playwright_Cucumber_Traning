@@ -87,6 +87,9 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to perform Add comment functionality in the list page
         Then user is able to see leave request Comments components in the list page
         Then user is able to perform leave request comments cancel functionality in the list page
+        Then user is able to perform leave request comments save functionality in the list
+        Then user is able to perform leave request comments close functionality in the list page 
+        Then user is able to see view leave details in the list page
 
 
   
