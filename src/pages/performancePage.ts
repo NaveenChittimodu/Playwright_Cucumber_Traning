@@ -101,15 +101,24 @@ export class PerformancePage {
         await this.page.locator(this.performancelocators.employeeName).fill("n");
         await this.page.waitForTimeout(3000)
         await this.page.locator(`//span[text()='Odis  Adalwin']`).click();
-        await this.page.locator(this.performancelocators.employeeName).isVisible();;
-        await this.page.locator(this.performancelocators.employeeName).click();
-        await this.page.locator(this.performancelocators.employeeName).fill("n");
+        await this.page.locator(this.performancelocators.supervisorName).isVisible();;
+        await this.page.locator(this.performancelocators.supervisorName).click();
+        await this.page.locator(this.performancelocators.supervisorName).fill("n");
         await this.page.waitForTimeout(3000)
-        await this.page.locator(`//span[text()='Odis  Adalwin']`).click();
-        await this.page.locator(this.performancelocators.employeeName).isVisible();;
-        await this.page.locator(this.performancelocators.employeeName).click();
-        await this.page.locator(this.performancelocators.employeeName).fill("n");
+        await this.page.locator(`//span[text()='John  Smith']`).click();
+        await this.page.locator(this.performancelocators.reviewPeriodStartDate).isVisible();;
+        await this.page.locator(this.performancelocators.reviewPeriodStartDate).click();
+        await this.page.locator(this.performancelocators.reviewPeriodStartDate).fill("2023-10-25");
         await this.page.waitForTimeout(3000)
-        await this.page.locator(`//span[text()='Odis  Adalwin']`).click();
+        await this.page.locator(this.performancelocators.reviewPeriodEndDate).isVisible();;
+        await this.page.locator(this.performancelocators.reviewPeriodEndDate).click();
+        await this.page.locator(this.performancelocators.reviewPeriodEndDate).fill("2023-10-28");
+        await this.page.locator(this.performancelocators.reviewPeriodDueDate).isVisible();;
+        await this.page.locator(this.performancelocators.reviewPeriodDueDate).click();
+        await this.page.locator(this.performancelocators.reviewPeriodDueDate).fill("2023-10-29");  
+        await this.page.locator(`//p[text()=' * Required']`).isVisible();
+        await this.page.locator(`//p[text()=' * Required']`).click();    
+        await this.page.locator(this.performancelocators.save).isVisible();;
+        await this.page.locator(this.performancelocators.save).click();    
     }
 }

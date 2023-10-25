@@ -19,8 +19,12 @@ export class Performancelocators{
     readonly save : string;
     readonly trackerName : string;
     readonly  employeeName: string;
+    readonly  supervisorName: string;
     readonly ReviewerName : string;
     readonly manageReviews : string;
+    readonly reviewPeriodStartDate : string;
+    readonly reviewPeriodEndDate : string;
+    readonly reviewPeriodDueDate : string;
 
 
    
@@ -47,7 +51,10 @@ export class Performancelocators{
         // managereviews
         this.manageReviews = `//a[contains(text(),'Manage Reviews')]`
 
-
+        this.reviewPeriodStartDate = `(//label[text()='Review Period Start Date']/following::input)[1]`
+        this.reviewPeriodEndDate = `(//label[text()='Review Period End Date']/following::input)[1]`
+        this.reviewPeriodDueDate = `(//label[text()='Due Date']/following::input)[1]`
+        this.supervisorName = `(//label[text()='Supervisor Reviewer']/following::input)[1]`
 
     }
 }
