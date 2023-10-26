@@ -2,14 +2,17 @@ import { expect,Locator, Page } from "@playwright/test";
 import { Recruitmentlocators } from "../common/Locators/recruitmentLocators";
 import { Loginlocators } from "../common/Locators/loginlocators";
 import { urlToHttpOptions } from "url";
+import * as assertion from "../testData/json/assertion.json"
+import { TimeLocators } from "../common/Locators/timeLocators";
 
 export class RecruitmentPage {
     readonly page: Page; middleName: any = ''; vacancyName: any = '';
-
+    readonly timeLocators: TimeLocators;
     readonly recruitmentLocators: Recruitmentlocators;
 
     constructor(page: Page) {
         this.page = page;
+        this.timeLocators = new TimeLocators(page);
         this.recruitmentLocators = new Recruitmentlocators(page);
     }
 
@@ -186,13 +189,13 @@ export class RecruitmentPage {
         await this.page.waitForSelector(this.recruitmentLocators.candidates.vaccancy);
         await this.selectDropDownElements(this.recruitmentLocators.candidates.vaccancy,this.recruitmentLocators.candidates.dropDownSelector,"Sales Representative");
         await this.page.waitForSelector(this.recruitmentLocators.candidates.email);
-        await this.page.locator(this.recruitmentLocators.candidates.email).fill("Vimalraj@gmail.com");
+        await this.page.locator(this.recruitmentLocators.candidates.email).fill(assertion.assertion.email);
         await this.page.waitForSelector(this.recruitmentLocators.candidates.contactNumber);
-        await this.page.locator(this.recruitmentLocators.candidates.contactNumber).fill("9999887766");
+        await this.page.locator(this.recruitmentLocators.candidates.contactNumber).fill(assertion.assertion.contactNo);
         await this.page.waitForSelector(this.recruitmentLocators.candidates.keywords);
-        await this.page.locator(this.recruitmentLocators.candidates.keywords).fill("Software Engineer");
+        await this.page.locator(this.recruitmentLocators.candidates.keywords).fill(assertion.assertion.keywords);
         await this.page.waitForSelector(this.recruitmentLocators.candidates.notes);
-        await this.page.locator(this.recruitmentLocators.candidates.notes).fill("Good Person");
+        await this.page.locator(this.recruitmentLocators.candidates.notes).fill(assertion.assertion.notes);
         await this.page.waitForTimeout(5000);
         await this.clickSave();
         await this.getToastMessage();
@@ -251,23 +254,225 @@ export class RecruitmentPage {
         await this.page.waitForTimeout(5000);
     }
 
+    async fillInputFieldAndGetText(inputSelector: string, textToFill: string) {
+        await this.page.waitForSelector(inputSelector); // Wait for the input field
+        await this.page.locator(inputSelector).isVisible(); // check the input field visible
+        await this.page.locator(inputSelector).fill(textToFill); // Fill the input field
+      
+        // To get the value of the input field, use inputValue()
+        const inputValue = this.page.locator(inputSelector).inputValue();
+        // const inputValue = await inputElement.inputValue();
+      
+        return inputValue;
+      }
+
+      async selectOptionFromAutocomplete(inputSelector: string, optionText: string, dropdownSelector: string) {
+        try {
+            await this.page.waitForSelector(inputSelector); // Wait for the input field
+            await this.page.locator(inputSelector).fill(optionText); // Fill the input field
+            await this.page.waitForSelector(dropdownSelector); // Wait for the dropdown options to appear
+            const options = await this.page.$$(dropdownSelector); // Get the dropdown options
+
+            for (const option of options) {
+                const value = await option.textContent();
+                if (value?.includes(optionText)) {
+                    await option.click(); // Click the desired option
+                    break;
+                }
+            }
+
+        } catch (error) {
+            console.error(`An error occurred: ${error}`);
+            // Handle the error as needed (e.g., log it or perform error-specific actions)
+        }
+    }
+
+    async interactWithTableTextField(tableSelector: string, headerSelector: string, allRows: string, tableCells: string, cellTextToFind: string) {
+        try {
+            // Wait for the table to load
+            await this.page.waitForSelector(tableSelector);
+            const table = await this.page.locator(tableSelector);
+            await this.page.waitForTimeout(5000);
+            const header = table.locator(headerSelector);
+            console.log(await header.innerText());
+            await this.page.waitForTimeout(2000);
+
+            // Get all rows in the table
+            const rows = table.locator(allRows);
+            console.log(`Rows Count: `, await rows.count());
+
+            for (let i = 0; i < await rows.count(); i++) {
+                const row = rows.nth(i);
+                const cells = row.locator(tableCells);
+
+                for (let j = 0; j < await cells.count(); j++) {
+                    const cellText = await cells.nth(j).innerText();
+
+                    if (cellText.includes(cellTextToFind)) {
+                        console.log(`The value "${cellTextToFind}" is found in the cell: ${cellText}`);
+                        await this.page.waitForTimeout(2000);
+                        // const checkbox = row.locator('.oxd-icon-button .bi-trash');
+                        // await checkbox.click({ force: true });
+                        // await this.page.waitForTimeout(2000);
+                        return; // Found the cell text, so exit the function
+                    }
+                    //   else{
+                    //     console.log(`The value "${cellTextToFind}" is not found in the cell: ${cellText}`);
+                    //   }
+                }
+            }
+            console.error(`The value "${cellTextToFind}" is not found in the cell: `);
+        } catch (error) {
+            console.error('An error occurred while interacting with the table:', error);
+            //   this.page.screenshot({ path: 'error.png' });
+
+        }
+    }
+
+    async getToastMessageNew(toastLocator: string) {
+        const getToastText = await this.page.locator(toastLocator).textContent();
+        console.log("getToastMessage Method", getToastText);
+        return getToastText;
+    }
+
+
     async addNewVacancie() {
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.click(this.recruitmentLocators.vacancies.addNewVacancie);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieName);
-        await this.page.locator(this.recruitmentLocators.vacancies.vacancieName).fill(await this.vacancyNameAutoGenerate());
+        const vacancyName = await this.fillInputFieldAndGetText(this.recruitmentLocators.vacancies.vacancieName,await this.vacancyNameAutoGenerate())
+        console.log(`The Vacancy Name is : `, vacancyName);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieJobTitle);
-        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancieRole,this.recruitmentLocators.vacancies.vacancieJobTitileDropDown,"Chief Technical Officer");
-        await this.page.waitForTimeout(5000);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancieRole,this.recruitmentLocators.vacancies.vacancieJobTitileDropDown,assertion.assertion.role);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieDescription);
-        await this.page.locator(this.recruitmentLocators.vacancies.vacancieDescription).fill("Testing");
-        await this.page.waitForTimeout(5000);
+        await this.page.locator(this.recruitmentLocators.vacancies.vacancieDescription).fill(assertion.assertion.description);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieHiringManager);
-        await this.page.locator(this.recruitmentLocators.vacancies.vacancieHiringManager).type("Peter Mac Anderson");
-        // await this.page.getByRole('option', { name: username }).getByText(username, { exact: true }).click();
+        await this.selectOptionFromAutocomplete(this.recruitmentLocators.vacancies.vacancieHiringManager, assertion.assertion.hiringManage, this.timeLocators.projectInfoDetails.projectInfoCustomerNameDropdown);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.totalOpenings);
-        await this.page.locator(this.recruitmentLocators.vacancies.totalOpenings).fill('10');
+        await this.page.locator(this.recruitmentLocators.vacancies.totalOpenings).fill(assertion.assertion.totalOpening);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieSave);
-        await this.page.locator(this.recruitmentLocators.vacancies.vacancieSave).click();
-        await this.page.waitForTimeout(5000);
+        await this.page.locator(this.recruitmentLocators.vacancies.vacancieSave).click({force:true});
+        // await this.page.waitForSelector(this.timeLocators.attendanceDetails.timePageToastMsg);
+        // const toastText =await this.getToastMessageNew(this.timeLocators.attendanceDetails.timePageToastMsg);
+        // expect(toastText).toBe("Successfully Saved");
+
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.interactWithTableTextField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, this.vacancyName);
+        
+    }
+
+    async addNewVacancieWithInvalideData() {
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.click(this.recruitmentLocators.vacancies.addNewVacancie);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieName);
+        const vacancyName = await this.fillInputFieldAndGetText(this.recruitmentLocators.vacancies.vacancieName,await this.vacancyNameAutoGenerate())
+        console.log(`The Vacancy Name is : `, vacancyName);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieJobTitle);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancieRole,this.recruitmentLocators.vacancies.vacancieJobTitileDropDown,assertion.assertion.role);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieDescription);
+        await this.page.locator(this.recruitmentLocators.vacancies.vacancieDescription).fill(assertion.assertion.description);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieHiringManager);
+        await this.page.fill(this.recruitmentLocators.vacancies.vacancieHiringManager, "bab");
+        await this.page.keyboard.press('Tab');
+        // await this.page.click(this.recruitmentLocators.vacancies.totalOpenings);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacaciesRequired);
+        const errorMessage = await this.page.textContent(this.recruitmentLocators.vacancies.vacaciesRequired);
+        expect(errorMessage).toBe("Invalid")
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.totalOpenings);
+        await this.page.locator(this.recruitmentLocators.vacancies.totalOpenings).fill(assertion.assertion.totalOpening);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieSave);
+        await this.page.locator(this.recruitmentLocators.vacancies.vacancieSave).click({force:true});
+        const afterClickerrorMessage = await this.page.textContent(this.recruitmentLocators.vacancies.vacaciesRequired);
+        expect(afterClickerrorMessage).toBe("Invalid")
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.interactWithTableTextField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, this.vacancyName);
+        
+    }
+
+    async interactWithTableEditField(tableSelector: string, headerSelector: string, allRows: string, tableCells: string, cellTextToFind: string) {
+        try {
+            // Wait for the table to load
+            await this.page.waitForSelector(tableSelector);
+            const table = await this.page.locator(tableSelector);
+            await this.page.waitForTimeout(5000);
+            const header = table.locator(headerSelector);
+            console.log(await header.innerText());
+            await this.page.waitForTimeout(2000);
+
+            // Get all rows in the table
+            const rows = table.locator(allRows);
+            console.log(`Rows Count: `, await rows.count());
+
+            for (let i = 0; i < await rows.count(); i++) {
+                const row = rows.nth(i);
+                const cells = row.locator(tableCells);
+
+                for (let j = 0; j < await cells.count(); j++) {
+                    const cellText = await cells.nth(j).innerText();
+
+                    if (cellText.includes(cellTextToFind)) {
+                        console.log(`The value "${cellTextToFind}" is found in the cell: ${cellText}`);
+                        await this.page.waitForTimeout(2000);
+                        const checkbox = row.locator('.oxd-icon-button .bi-eye-fill');
+                        await checkbox.click({ force: true });
+                        await this.page.waitForTimeout(2000);
+                        return; // Found the cell text, so exit the function
+                    }
+                    //   else{
+                    //     console.log(`The value "${cellTextToFind}" is not found in the cell: ${cellText}`);
+                    //   }
+                }
+            }
+            console.error(`The value "${cellTextToFind}" is not found in the cell: `);
+        } catch (error) {
+            console.error('An error occurred while interacting with the table:', error);
+            //   this.page.screenshot({ path: 'error.png' });
+
+        }
+    }
+    async modifyVacancyCreatedRecord() {
+        // await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        // await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancy);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancy,this.recruitmentLocators.vacancies.vacancyDropDown,assertion.assertion.vacancy);
+        await this.page.waitForTimeout(2000);
+        await this.page.click(this.recruitmentLocators.vacancies.vacancySearch);
+        await this.interactWithTableEditField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, assertion.assertion.vacancy);
+
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieName);
+        const vacancyName = await this.fillInputFieldAndGetText(this.recruitmentLocators.vacancies.vacancieName,assertion.assertion.modifiedName)
+        console.log(`The Vacancy Name is : `, vacancyName);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieSave);
+        await this.page.locator(this.recruitmentLocators.vacancies.vacancieSave).click({force:true});
+
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
+
+        await this.interactWithTableTextField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, this.vacancyName);
+    }
+
+    async modifyDataInTheList() {
+
+        await this.interactWithTableEditField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, "Vimalraja");
+        await this.page.click(this.recruitmentLocators.vacancies.vacancyEditBtn);
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.firstName);
+        await this.page.fill(this.recruitmentLocators.candidates.firstName,assertion.assertion.modifiedName);
+        await this.page.click(this.recruitmentLocators.vacancies.afterModifySave);
+
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.interactWithTableTextField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, "Madhan");
     }
 
 }

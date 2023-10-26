@@ -49,8 +49,8 @@ export class Recruitmentlocators{
         };
 
         this.vacancies = {
-            vacanciesTab: `//a[contains(text(),'Vacancies')]`,
-            addANewVacancie: `//button[text()=' Add ']`,
+            vacanciesTab: `//a[text()='Vacancies']`,
+            addNewVacancie: `//button[text()=' Add ']`,
             vacancieName: `//div[@class='oxd-grid-3 orangehrm-full-width-grid']/child::div//label[text()='Vacancy Name']//parent::div//following-sibling::div//input`,
             vacancieJobTitle: `div.oxd-select-text.oxd-select-text--active`,
             vacancieJobTitileDropDown: `div.oxd-select-dropdown div[role='option'] span`,
@@ -71,7 +71,12 @@ export class Recruitmentlocators{
             vacanciesVacancy: `//div[@class='oxd-form-row']//child::div//label[text()='Vacancy']//parent::div//following-sibling::div//child::div[@class='oxd-select-text-input']`,
             vacanciesHaringManager: `//div[@class='oxd-grid-3 orangehrm-full-width-grid']/child::div//label[text()='Hiring Manager']//parent::div//following-sibling::div//input`,
             vacanciesStatus: `//div[@clear='false']`,
-            vacaciesRequired: `//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message']`
+            vacaciesRequired: `//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message']`,
+            vacancy:`//label[text()='Vacancy']//parent::div//following-sibling::div/div/div`,
+            vacancyDropDown:`.oxd-select-dropdown .oxd-select-option`,
+            vacancySearch:`//button[text()=' Search ']`,
+            vacancyEditBtn:`span.oxd-switch-input`,
+            afterModifySave:`//button[@type='submit']`
         };
 
         this.shortlistLocators = {

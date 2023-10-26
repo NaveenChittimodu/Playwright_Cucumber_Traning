@@ -1,5 +1,6 @@
 import { expect,Locator, Page } from "@playwright/test";
 import { MyInfoLocators } from "../common/Locators/myInfoLocators";
+import { TimeLocators } from "../common/Locators/timeLocators";
 // import * as constants from "../common/constants.json"
 import * as assertion from "../testData/json/assertion.json"
 import { addAbortListener } from "events";
@@ -7,11 +8,12 @@ import { addAbortListener } from "events";
 
 export class MyInfoPage {
     readonly page: Page; middleName: any = ''; vacancyName: any = '';
-
+    readonly timeLocators: TimeLocators;
     readonly myInfoLocators: MyInfoLocators;
 
     constructor(page: Page) {
         this.page = page;
+        this.timeLocators = new TimeLocators(page);
         this.myInfoLocators = new MyInfoLocators(page);
     }
 
@@ -20,7 +22,7 @@ export class MyInfoPage {
         try {
             await this.page.waitForSelector(locator);
             await expect(await this.page.locator(locator)).toBeVisible();
-            await this.page.locator(locator).click({ force: true });
+            await this.page.locator(locator).click();
             console.log("Button has been clicked...")
         } 
         catch (error) {
@@ -160,22 +162,22 @@ export class MyInfoPage {
   }
       async employeeFullName(){
         await this.enterText(this.myInfoLocators.personalDetails.empFullName,assertion.assertion.Fname);
-        const fullnameText = await this.page.locator(this.myInfoLocators.personalDetails.empFullName).textContent();
-        return fullnameText;
-        // expect(fullnameText).toBe(assertion.assertion.Fname);
+        return await this.page.locator(this.myInfoLocators.personalDetails.empFullName).textContent();
+        console.log(this.employeeFullName);
+        
         
       }
 
       async employeeMiddleName(){
         await this.enterText(this.myInfoLocators.personalDetails.empMiddleName,assertion.assertion.Mname);
         const fullnameText = await this.page.locator(this.myInfoLocators.personalDetails.empMiddleName).textContent();
-        // expect(fullnameText).toBe(assertion.assertion.Mname);
+        expect(fullnameText).toBe(assertion.assertion.Mname);
       }
 
       async employeeLastName(){
         await this.enterText(this.myInfoLocators.personalDetails.empLastName,assertion.assertion.Lname);
         const fullnameText = await this.page.locator(this.myInfoLocators.personalDetails.empLastName).textContent();
-        // expect(fullnameText).toBe(assertion.assertion.Lname);
+        expect(fullnameText).toBe(assertion.assertion.Lname);
       }
 
       async employeeNickName(){
@@ -403,9 +405,51 @@ export class MyInfoPage {
   async getNewToastMessage(locator:string) {
       const toastLocator = locator;
       const getToastText = await this.page.locator(toastLocator).textContent();
-      console.log("getToastMessage Method", getToastText);
+      // console.log("getToastMessage Method", getToastText);
       return getToastText;
   }
+
+  async interactWithTableTextField(tableSelector: string, headerSelector: string, allRows: string, tableCells: string, cellTextToFind: string) {
+    try {
+        // Wait for the table to load
+        await this.page.waitForSelector(tableSelector);
+        const table = await this.page.locator(tableSelector);
+        await this.page.waitForTimeout(5000);
+        const header = table.locator(headerSelector);
+        console.log(await header.innerText());
+        await this.page.waitForTimeout(2000);
+
+        // Get all rows in the table
+        const rows = table.locator(allRows);
+        console.log(`Rows Count: `, await rows.count());
+
+        for (let i = 0; i < await rows.count(); i++) {
+            const row = rows.nth(i);
+            const cells = row.locator(tableCells);
+
+            for (let j = 0; j < await cells.count(); j++) {
+                const cellText = await cells.nth(j).innerText();
+
+                if (cellText.includes(cellTextToFind)) {
+                    console.log(`The value "${cellTextToFind}" is found in the cell: ${cellText}`);
+                    await this.page.waitForTimeout(2000);
+                    // const checkbox = row.locator('.oxd-icon-button .bi-trash');
+                    // await checkbox.click({ force: true });
+                    // await this.page.waitForTimeout(2000);
+                    return; // Found the cell text, so exit the function
+                }
+                //   else{
+                //     console.log(`The value "${cellTextToFind}" is not found in the cell: ${cellText}`);
+                //   }
+            }
+        }
+        console.error(`The value "${cellTextToFind}" is not found in the cell: `);
+    } catch (error) {
+        console.error('An error occurred while interacting with the table:', error);
+        //   this.page.screenshot({ path: 'error.png' });
+
+    }
+}
   
     
     async immigrationDetails(){
@@ -519,6 +563,7 @@ export class MyInfoPage {
       await this.page.click(this.myInfoLocators.qualification.qualificationEndDate);
       await this.clickElementAndVerifyToastNew(this.myInfoLocators.qualification.qualificationEduSaveBtn);
       await this.getToastMessageNew(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
+      await this.interactWithTableTextField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, assertion.assertion.projectInfocustomerEditedName);
     }
 
     async skillDetails(){
@@ -547,19 +592,24 @@ export class MyInfoPage {
     async licenseDetails(){
       await this.page.waitForSelector(this.myInfoLocators.membership.membershipTab);
       await this.clickElement(this.myInfoLocators.membership.membershipTab);
-      await this.page.waitForTimeout(5000);
       await this.page.waitForSelector(this.myInfoLocators.membership.membershipAddBtn);
       await this.clickElement(this.myInfoLocators.membership.membershipAddBtn);
+      await this.page.waitForSelector(this.myInfoLocators.membership.memberships);
       await this.selectDropDownElements(this.myInfoLocators.membership.memberships,this.myInfoLocators.membership.membershipDropDown,assertion.assertion.membership);
+      await this.page.waitForSelector(this.myInfoLocators.membership.membershipSubscription);
       await this.selectDropDownElements(this.myInfoLocators.membership.membershipSubscription,this.myInfoLocators.membership.membershipSubscriptionDropDown,assertion.assertion.membershipSubscription);
+      await this.page.waitForSelector(this.myInfoLocators.membership.membershipSubscriptionAmount);
       await this.enterText(this.myInfoLocators.membership.membershipSubscriptionAmount,assertion.assertion.memberSubscriptionAmount);
+      await this.page.waitForSelector(this.myInfoLocators.membership.membershipCurency);
       await this.selectDropDownElements(this.myInfoLocators.membership.membershipCurency,this.myInfoLocators.membership.membershipCurencyDropDown,assertion.assertion.membershipCurrency);
+      await this.page.waitForSelector(this.myInfoLocators.membership.membershipSubscriptionCommenceDate);
       await this.enterText(this.myInfoLocators.membership.membershipSubscriptionCommenceDate,assertion.assertion.qualificationFrom);
       await this.page.waitForSelector(this.myInfoLocators.membership.membershipSubscriptionRenewalDate);
       await this.enterText(this.myInfoLocators.membership.membershipSubscriptionRenewalDate,assertion.assertion.qualificationTO);
       await this.page.click(this.myInfoLocators.membership.membershipSubscriptionRenewalDate);
-      await this.clickElementAndVerifyToastNew(this.myInfoLocators.qualification.qualificationSkillSaveBtn);
+      await this.clickElement(this.myInfoLocators.qualification.qualificationSaveBtn);
       await this.getToastMessageNew(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
+      // await this.interactWithTableTextField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, assertion.assertion.projectInfocustomerEditedName);
     }
 
 }

@@ -1,6 +1,9 @@
 {
     "assertionURL": {
         "addCandidatesURL": "https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate",
+        "viewCandidates" :"https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/viewCandidates",
+        "viewJobVacancy":"https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/viewJobVacancy",
+        "addJobVacancy":"https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addJobVacancy",
         "viewMyTimeSheet" : "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet",
         "viewMyTimeSheetDate": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet?startDate=2023-10-23",
         "viewEmployeeTimeSheet": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewEmployeeTimesheet",
@@ -40,6 +43,10 @@
         "home":"1234567890",
         "mobile": "0987654321",
         "work" : "112-898-8765",
+        "email": "vimalraja@gmail.com",
+        "contactNo": "9911234456",
+        "keywords":"Software Engineer",
+        "notes": "Good Person",
         "workEmail" : "vima@gmail.com",
         "otherEmail" : "vira@gmail.com",
         "name" : "vimalraj",
@@ -93,7 +100,13 @@
         "reportSubUnit": "Administration",
         "reportEmployeeStatus": "Freelance",
         "employeeName":"Haneen M Ibrahem",
-        "todayDate": "2023-10-25"
+        "todayDate": "2023-10-25",
+        "hiringManage": "Ravi M",
+        "totalOpening": "10",
+        "description":"QA Engineer",
+        "role" : "Chief Technical Officer",
+        "vacancy": "QA Lead",
+        "modifiedName" : "vimalraja"
 
     }
 }

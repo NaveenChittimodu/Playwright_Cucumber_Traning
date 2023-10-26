@@ -339,7 +339,6 @@ export class CommonMethods {
     }
 
     async selectOptionFromAutocomplete(inputSelector: string, dropdownSelector:string, optionText: string) {
-        // await this.page.goto("https://www.redbus.in/"); // Navigate to the webpage
       
         await this.page.locator(inputSelector).fill(optionText); // Fill the input field
       
@@ -369,6 +368,51 @@ export class CommonMethods {
         const isChecked = await checkbox.isChecked();
       
         return isChecked;
+      }
+
+      //1.  This method for to fill an input field and retrieve its value.
+
+      async fillInputFieldAndGetText(inputSelector: string, textToFill: string) {
+        await this.page.waitForSelector(inputSelector); // Wait for the input field
+        await this.page.locator(inputSelector).isVisible(); // check the input field visible
+        await this.page.locator(inputSelector).fill(textToFill); // Fill the input field
+      
+        // To get the value of the input field, use inputValue()
+        const inputValue = this.page.locator(inputSelector).inputValue();
+        return inputValue;
+      }
+
+
+      async fillInputFieldAndGetText1(inputSelector: string, textToFill: string) {
+        await this.page.waitForSelector(inputSelector); // Wait for the input field
+        await this.page.locator(inputSelector).fill(textToFill); // Fill the input field
+      
+        // To get the value of the input field, use inputValue()
+        const inputElement = this.page.locator(inputSelector);
+        const inputValue = await inputElement.inputValue();
+        return inputValue;
+      }
+
+      async validateRequiredErrorMessage(inputSelector: string, submitButtonSelector: string, expectedErrorMessage: string) {
+        try {
+          // Ensure that the input field is empty
+          await this.page.fill(inputSelector, '');
+          
+          // Submit the form (you can use a specific submit button)
+          await this.page.click(submitButtonSelector);
+          
+          // Wait for the error message to appear
+          await this.page.waitForSelector('Your error message selector here');
+          
+          // Get the error message text
+          const errorMessage = await this.page.textContent('Your error message selector here');
+          
+          // Check if the error message matches the expected message
+          return errorMessage === expectedErrorMessage;
+        } catch (error) {
+          console.error(`An error occurred: ${error}`);
+          return false; // Handle the error and return false
+        }
       }
 
 }

@@ -190,6 +190,7 @@ When('User is able to fill the Skills fields', async function () {
 });
 
 When('User is able to fill the Languages fields', async function () {
+
     await myInfoPage.languageDetails();
     const toastMsg = await myInfoPage.getToastMessage()
     await expect(toastMsg).toBe("Successfully Saved");
@@ -197,13 +198,13 @@ When('User is able to fill the Languages fields', async function () {
 });
 
 When('User is able to fill the License fields', async function () {
+    await myInfoPage.navigateToMyInfo();
     await myInfoPage.licenseDetails();
     const toastMsg = await myInfoPage.getToastMessage()
     await expect(toastMsg).toBe("Successfully Saved");
-    await page.waitForTimeout(5000);
 });
 
-When('User is able to fill the License fields', async function () {
+When('User is able to fill the License fields1', async function () {
     await myInfoPage.licenseDetails();
     const toastMsg = await myInfoPage.getToastMessage()
     await expect(toastMsg).toBe("Successfully Saved");
