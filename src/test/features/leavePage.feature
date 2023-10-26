@@ -98,12 +98,6 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to perform cancel leave functionality in the list page
 
 
-  
-
-
-
-
-
 
 
         # Then user is able to see total leave list record in list page

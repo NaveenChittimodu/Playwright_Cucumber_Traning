@@ -372,18 +372,18 @@ Then('user is able to see view leave details in the list page', async function (
 });
 Then('user is able to see view leave request details components in the list page', async function () {
     await leavePage.viewLeaveRequestDetailsComponents();
-    console.log("tc69")
+    console.log("user is able to see view leave request details components in the list page")
 
 });
 Then('user is able to see total record components in the list page', async function () {
     await leavePage.LeaveRequestRecordComponents();
-    console.log("tc70")
+    console.log("user is able to see total record components in the list page")
 
 });
 
 Then('user is able to perform cancel leave functionality in the list page', async function () {
     await leavePage.cancelLeasveList();
-    console.log("tc74")
+    console.log("user is able to perform cancel leave functionality in the list page")
 
 });
 

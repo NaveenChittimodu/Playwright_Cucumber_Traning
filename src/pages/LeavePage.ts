@@ -752,7 +752,7 @@ export class LeavePage {
             await this.page.locator(this.leavePageLocators.leaveRequestRecords).isVisible();
             const leaveRecords = await this.page.locator(this.leavePageLocators.leaveRequestRecords).textContent();
             console.log(leaveRecords);
-            // console.log("View Leave Request records component verification success")
+           
 
 
         }
@@ -777,8 +777,6 @@ export class LeavePage {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
             console.log('No record found');
         }
-
-
 
     }
     // async getToastMessage() {

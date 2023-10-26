@@ -311,7 +311,6 @@ export class LeavePageLocators {
         this.viewLeaveListComments="//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']";
         this.viewLeaveListCancel="//button[text()=' Cancel ']";
 
-
     }
 
 }
