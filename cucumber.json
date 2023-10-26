@@ -18,6 +18,7 @@
             "html:test-results/cucumber-report.html",
              "json:test-results/cucumber-report.json",
              "rerun:@rerun.txt"
-        ]
+        ],
+        "resolveJsonModule": true
     }
 }

@@ -29,6 +29,8 @@ export class Performancelocators{
     readonly reviewPeriodEndDate : string;
     readonly reviewPeriodDueDate : string;
     readonly required : string;
+    readonly myTrackers : string;
+    readonly employeeTrackers : string;
 
 
    
@@ -64,6 +66,11 @@ export class Performancelocators{
         this.reviewPeriodDueDate = `(//label[text()='Due Date']/following::input)[1]`
         this.supervisorName = `(//label[text()='Supervisor Reviewer']/following::input)[1]`
         this.required = `//p[text()=' * Required']`
+
+        // myTrackers
+        this.myTrackers = `//a[text() = 'My Trackers']`
+        // myTrackers
+        this.employeeTrackers = `//a[text()='Employee Trackers']`
 
     }
 }

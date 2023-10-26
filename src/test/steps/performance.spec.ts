@@ -54,8 +54,9 @@ When('User click on Performance', async function () {
    await performancePage.managefields_ManageReviews();
    await performancePage.managePerformanceReview();
 
-
-
+  //**My Trackers */
+    await performancePage.myTracker();
+    await performancePage.employeeTrackers();
 });
 
 

@@ -122,4 +122,14 @@ export class PerformancePage {
         await this.page.locator(this.performancelocators.save).isVisible();;
         await this.page.locator(this.performancelocators.save).click();    
     }
+
+
+    async myTracker(){
+        await this.page.locator(this.performancelocators.myTrackers).isVisible();
+        await this.page.locator(this.performancelocators.myTrackers).click();
+    }
+    async  employeeTrackers(){
+        await this.page.locator(this.performancelocators.employeeTrackers).isVisible();
+        await this.page.locator(this.performancelocators.employeeTrackers).click();
+    }
 }
