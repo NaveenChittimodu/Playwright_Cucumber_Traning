@@ -1,4 +1,4 @@
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
 dotenv.config({path:'./src/testData/env/.env'});
 
 export default class ENV {
