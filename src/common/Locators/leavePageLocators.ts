@@ -149,6 +149,10 @@ export class LeavePageLocators {
     readonly commentClose:string;
     readonly viewLeaveDetails:string;
     readonly leaveListNoRecord:string;
+    readonly leaveRequestComponents:string;
+    readonly leaveRequestRecords:string;
+    readonly viewLeaveListComments:string;
+    readonly viewLeaveListCancel:string;
 
 
 
@@ -302,6 +306,11 @@ export class LeavePageLocators {
         this.commentClose="//button[text()='×']";
         this.viewLeaveDetails="//p[text()='View Leave Details']";
         this.leaveListNoRecord="//span[text()='No Records Found']";
+        this.leaveRequestComponents="//div[@class='oxd-layout-context']";
+        this.leaveRequestRecords="//div[@class='orangehrm-container']";
+        this.viewLeaveListComments="//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']";
+        this.viewLeaveListCancel="//button[text()=' Cancel ']";
+
 
     }
 

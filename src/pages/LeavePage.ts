@@ -520,13 +520,13 @@ export class LeavePage {
 
     }
     async leaveListResetFunctionality() {
-        try{
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.leaveListReset).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveListReset).click();
-        await expect(this.page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewLeaveList");
-        console.log('leaveListResetFunctionality in leave list was successful.');
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.leaveListReset).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveListReset).click();
+            await expect(this.page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewLeaveList");
+            console.log('leaveListResetFunctionality in leave list was successful.');
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -536,12 +536,12 @@ export class LeavePage {
 
     }
     async leaveListSearchFunctionality() {
-        try{
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.leaveListSearch).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveListSearch).click();
-        console.log('leaveListSearchFunctionality in leave list was successful.');
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.leaveListSearch).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveListSearch).click();
+            console.log('leaveListSearchFunctionality in leave list was successful.');
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -550,11 +550,11 @@ export class LeavePage {
     }
 
     async totalLeaveListRecord() {
-        try{
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.leaveListRecord).isVisible();
-        console.log('TotalLeaveListRecord in leave list was successful.');
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.leaveListRecord).isVisible();
+            console.log('TotalLeaveListRecord in leave list was successful.');
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -565,12 +565,12 @@ export class LeavePage {
     }
     async multiSelectionLeaveList() {
         try {
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.multiSelectionLeaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.multiSelectionLeaveList).click();
-        console.log('multiSelectionLeaveList in leave list was successful.');
-    }
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.multiSelectionLeaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.multiSelectionLeaveList).click();
+            console.log('multiSelectionLeaveList in leave list was successful.');
+        }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
             console.log('No record found');
@@ -583,18 +583,18 @@ export class LeavePage {
             await this.page.locator(this.leavePageLocators.singleSelectionLeaveList).isVisible();
             await this.page.locator(this.leavePageLocators.singleSelectionLeaveList).click();
             console.log('Single selection in leave list was successful.');
-        } 
+        }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
             console.log('No record found');
         }
     }
     async leaveListApprove() {
-        try{
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.leaveListApprove).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveListApprove).click();
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.leaveListApprove).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveListApprove).click();
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -602,11 +602,11 @@ export class LeavePage {
         }
     }
     async leaveListReject() {
-        try{
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.leaveListReject).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveListReject).click();
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.leaveListReject).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveListReject).click();
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -614,17 +614,17 @@ export class LeavePage {
         }
     }
     async leaveListAddComments() {
-        try{
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.dotDropDown).click();
-        await this.page.waitForTimeout(3000)
-        await this.page.locator(this.leavePageLocators.addComments).isVisible();
-        await this.page.locator(this.leavePageLocators.addComments).click();
-        await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
-        await this.page.locator(this.leavePageLocators.addCommentsTextBox).fill("Leave request approved");
-        await this.page.locator(this.leavePageLocators.commentsSave).click();
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.waitForTimeout(3000)
+            await this.page.locator(this.leavePageLocators.addComments).isVisible();
+            await this.page.locator(this.leavePageLocators.addComments).click();
+            await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
+            await this.page.locator(this.leavePageLocators.addCommentsTextBox).fill("Leave request approved");
+            await this.page.locator(this.leavePageLocators.commentsSave).click();
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -633,15 +633,15 @@ export class LeavePage {
 
     }
     async leaveListCommentsComponent() {
-        try{
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.dotDropDown).click();
-        await this.page.locator(this.leavePageLocators.addComments).isVisible();
-        await this.page.locator(this.leavePageLocators.addComments).click();
-        await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
-        await this.page.locator(this.leavePageLocators.commentClose).click();
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.locator(this.leavePageLocators.addComments).isVisible();
+            await this.page.locator(this.leavePageLocators.addComments).click();
+            await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
+            await this.page.locator(this.leavePageLocators.commentClose).click();
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -649,17 +649,17 @@ export class LeavePage {
         }
     }
     async leaveListCommentsCancel() {
-        try{
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.dotDropDown).click();
-        await this.page.waitForTimeout(3000)
-        await this.page.locator(this.leavePageLocators.addComments).isVisible();
-        await this.page.locator(this.leavePageLocators.addComments).click();
-        await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
-        await this.page.locator(this.leavePageLocators.addCommentsTextBox).fill("Leave request approved");
-        await this.page.locator(this.leavePageLocators.commentsCancel).click();
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.waitForTimeout(3000)
+            await this.page.locator(this.leavePageLocators.addComments).isVisible();
+            await this.page.locator(this.leavePageLocators.addComments).click();
+            await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
+            await this.page.locator(this.leavePageLocators.addCommentsTextBox).fill("Leave request approved");
+            await this.page.locator(this.leavePageLocators.commentsCancel).click();
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -669,17 +669,17 @@ export class LeavePage {
 
     }
     async leaveListCommentsSave() {
-        try{
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.dotDropDown).click();
-        await this.page.waitForTimeout(3000)
-        await this.page.locator(this.leavePageLocators.addComments).isVisible();
-        await this.page.locator(this.leavePageLocators.addComments).click();
-        await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
-        await this.page.locator(this.leavePageLocators.addCommentsTextBox).fill("Leave request approved");
-        await this.page.locator(this.leavePageLocators.commentsSave).click();
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.waitForTimeout(3000)
+            await this.page.locator(this.leavePageLocators.addComments).isVisible();
+            await this.page.locator(this.leavePageLocators.addComments).click();
+            await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
+            await this.page.locator(this.leavePageLocators.addCommentsTextBox).fill("Leave request approved");
+            await this.page.locator(this.leavePageLocators.commentsSave).click();
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -689,15 +689,15 @@ export class LeavePage {
     }
 
     async leaveListCommentsClose() {
-        try{
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.dotDropDown).click();
-        await this.page.locator(this.leavePageLocators.addComments).isVisible();
-        await this.page.locator(this.leavePageLocators.addComments).click();
-        await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
-        await this.page.locator(this.leavePageLocators.commentClose).click();
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.locator(this.leavePageLocators.addComments).isVisible();
+            await this.page.locator(this.leavePageLocators.addComments).click();
+            await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible();
+            await this.page.locator(this.leavePageLocators.commentClose).click();
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -705,12 +705,12 @@ export class LeavePage {
         }
     }
     async viewLeaveDetails() {
-        try{
-        await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-        await this.page.locator(this.leavePageLocators.leaveList).click();
-        await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
-        await this.page.locator(this.leavePageLocators.dotDropDown).click();
-        await this.page.locator(this.leavePageLocators.viewLeaveDetails).isVisible();
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.locator(this.leavePageLocators.viewLeaveDetails).isVisible();
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -718,6 +718,79 @@ export class LeavePage {
         }
 
     }
+
+    async viewLeaveRequestDetailsComponents() {
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.locator(this.leavePageLocators.viewLeaveDetails).isVisible();
+            await this.page.locator(this.leavePageLocators.viewLeaveDetails).click();
+            await this.page.locator(this.leavePageLocators.leaveRequestComponents).isVisible();
+            const listcomponents = await this.page.locator(this.leavePageLocators.leaveRequestComponents);
+            console.log(listcomponents.textContent());
+            console.log("View Leave Request component verification success")
+
+
+        }
+        catch (error) {
+            await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
+            console.log('No record found');
+        }
+
+    }
+
+    async LeaveRequestRecordComponents() {
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.locator(this.leavePageLocators.viewLeaveDetails).isVisible();
+            await this.page.locator(this.leavePageLocators.viewLeaveDetails).click();
+            await this.page.locator(this.leavePageLocators.leaveRequestRecords).isVisible();
+            const leaveRecords = await this.page.locator(this.leavePageLocators.leaveRequestRecords).textContent();
+            console.log(leaveRecords);
+            // console.log("View Leave Request records component verification success")
+
+
+        }
+        catch (error) {
+            await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
+            console.log('No record found');
+        }
+    }
+    async cancelLeasveList() {
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.locator(this.leavePageLocators.viewLeaveDetails).isVisible();
+            await this.page.locator(this.leavePageLocators.viewLeaveDetails).click();
+            await this.page.locator(this.leavePageLocators.viewLeaveListComments).click();
+            await this.page.locator(this.leavePageLocators.viewLeaveListComments).click();
+            await this.page.locator(this.leavePageLocators.viewLeaveListCancel).click();
+        }
+        catch (error) {
+            await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
+            console.log('No record found');
+        }
+
+
+
+    }
+    // async getToastMessage() {
+    //     const getToastText = await this.page.locator(this.recruitmentLocators.candidates.candidateToastMsg).textContent();
+    //     console.log(`GetToastMessage Method` , getToastText);
+    //     return getToastText;
+    // }
+
+
+
+
+
 
 }
 

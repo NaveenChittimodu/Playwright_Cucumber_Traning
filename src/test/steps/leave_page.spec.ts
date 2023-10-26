@@ -330,18 +330,18 @@ Then('user is able to perform individual select functionality in the list page',
 
 Then('user is able to perform approve functionality in the list page', async function () {
     await leavePage.leaveListApprove();
-    console.log("tc61")
+    console.log("user is able to perform approve functionality in the list page")
 
 });
 Then('user is able to perform reject functionality in the list page', async function () {
     await leavePage.leaveListReject();
-    console.log("tc62")
+    console.log("user is able to perform reject functionality in the list pagetc62")
 
 });
 
 Then('user is able to perform Add comment functionality in the list page', async function () {
     await leavePage.leaveListAddComments();
-    console.log("tc63")
+    console.log("user is able to perform Add comment functionality in the list page")
 
 });
 Then('user is able to see leave request Comments components in the list page', async function () {
@@ -370,6 +370,27 @@ Then('user is able to see view leave details in the list page', async function (
     console.log("tc68")
 
 });
+Then('user is able to see view leave request details components in the list page', async function () {
+    await leavePage.viewLeaveRequestDetailsComponents();
+    console.log("tc69")
+
+});
+Then('user is able to see total record components in the list page', async function () {
+    await leavePage.LeaveRequestRecordComponents();
+    console.log("tc70")
+
+});
+
+Then('user is able to perform cancel leave functionality in the list page', async function () {
+    await leavePage.cancelLeasveList();
+    console.log("tc74")
+
+});
+
+
+
+
+
 
 
 
