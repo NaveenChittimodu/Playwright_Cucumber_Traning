@@ -28,7 +28,7 @@ Feature: Fill the data in pim
     Then User click on Add reattachment and upload file
     Then User enter the Attachment reComment
     Then User click on Add attachment Save Button
-    # Then User click on Delete Button
+    Then User click on Delete Button
     Then User click on Contct Details
     Then User enter the street1 Contct Details
     Then User enter the street2 Contct Details
@@ -45,3 +45,12 @@ Feature: Fill the data in pim
     Then User enter the relationship in Assigned Emergency Contacts
     Then User enter the Home Telephone in Assigned Emergency Contacts
     Then User enter the mobile in Assigned Emergency Contacts
+    Then User click on save Assigned Emergency Contacts
+
+    Then User click on Dependents
+
+    Then User click on Job
+
+    Then User click on Reportv to
+
+    Then User fill the Employee Information

@@ -231,8 +231,7 @@ Then('User click on Emergency Contacts',async function () {
 Then('User click on Add Assigned Emergency Contacts',async function () {
     await pimmenu.clickADDEmergencyContacts();
     console.log("test34")
-        // await page.waitForTimeout(3000);
-
+    // await page.waitForTimeout(3000);
 })
 
 Then('User enter the name in Assigned Emergency Contacts', async function () {
@@ -258,6 +257,35 @@ Then('User enter the mobile in Assigned Emergency Contacts', async function () {
     // await page.waitForTimeout(3000);
 });
 
+Then('User click on save Assigned Emergency Contacts',async function () {
+    await pimmenu.clickSAVEEmergencyContacts();
+    console.log("test39")
+    // await page.waitForTimeout(3000);
+})
+
+Then('User click on Dependents',async function () {
+    await pimmenu.clickDependents();
+    console.log("test40")
+    // await page.waitForTimeout(3000);
+})
+
+Then('User click on Job',async function () {
+    await pimmenu.clickJob();
+    console.log("test41")
+    // await page.waitForTimeout(3000);
+})
+
+Then('User click on Reportv to',async function () {
+    await pimmenu.clickReport_to();
+    console.log("test42")
+    // await page.waitForTimeout(3000);
+})
+
+Then('User fill the Employee Information',async function () {
+    await pimmenu.fillEmployee_Information();
+    console.log("test43")
+    // await page.waitForTimeout(3000);
+})
 
 
 // AfterAll(async () => {

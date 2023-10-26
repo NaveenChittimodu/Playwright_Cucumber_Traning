@@ -30,7 +30,7 @@ export  class Pimmenu {
     async fillPIMmiddlename(){
         await (await this.page.waitForSelector(this.pimlocators.middlename)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.middlename)).isEditable();
-        await  this.page.locator(this.pimlocators.middlename).fill('le');
+        await  this.page.locator(this.pimlocators.middlename).fill('uru');
     }
     
     async fillPIMlastname(){
@@ -42,7 +42,7 @@ export  class Pimmenu {
     async fillEmployeeid(){
         await (await this.page.waitForSelector(this.pimlocators.employeeId)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.employeeId)).isEditable();
-        await  this.page.locator(this.pimlocators.employeeId).fill('7532');
+        await  this.page.locator(this.pimlocators.employeeId).fill('6432');
     }
 
     async clickSavebutton() {
@@ -230,5 +230,67 @@ export  class Pimmenu {
         await (await this.page.waitForSelector(this.pimlocators.mobile_AssignedEmergencyContacts)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.mobile_AssignedEmergencyContacts)).isEditable();
         await  this.page.locator(this.pimlocators.mobile_AssignedEmergencyContacts).fill('9236637727');
+    }
+
+    async clickSAVEEmergencyContacts() {
+        await (await this.page.waitForSelector(this.pimlocators.save_AssignedEmergencyContacts)).isVisible();
+        await this.page.locator(this.pimlocators.save_AssignedEmergencyContacts).click();
+    }
+
+    async clickDependents() {
+        await (await this.page.waitForSelector(this.pimlocators.clickon_Dependents)).isVisible();
+        await this.page.locator(this.pimlocators.clickon_Dependents).click();
+        await this.page.locator(this.pimlocators.add_AssignedDependents).click();
+        await (await this.page.waitForSelector(this.pimlocators.name_AssignedDependents)).isEditable();
+        await this.page.locator(this.pimlocators.name_AssignedDependents).fill('RAJ');
+        await this.page.locator(this.pimlocators.relationship_AssignedDependents).click();
+        await this.page.locator(this.pimlocators.select_relatioship_AssignedDependents).click();
+        await this.page.locator(this.pimlocators.save_relatioship_AssignedDependents).click();
+    }
+
+    async clickJob() {
+        await (await this.page.waitForSelector(this.pimlocators.clickon_job)).isVisible();
+        await this.page.locator(this.pimlocators.clickon_job).click();
+        await this.page.locator(this.pimlocators.joinedDate).click();
+        await this.page.locator(this.pimlocators.joinedDate_selection).click();
+        await this.page.locator(this.pimlocators.jobtitle).click();
+        await this.page.locator(this.pimlocators.jobtitle_selection).click();
+        await this.page.locator(this.pimlocators.jobcategory).click();
+        await this.page.locator(this.pimlocators.jobcategory_selection).click();
+        await this.page.locator(this.pimlocators.employmentStatus).click();
+        await this.page.locator(this.pimlocators.employmentStatus_selection).click();
+        await this.page.locator(this.pimlocators.save_Jobdetails).click();
+    }
+
+    async clickReport_to() {
+        await (await this.page.waitForSelector(this.pimlocators.clickon_Reportto)).isVisible();
+        await this.page.locator(this.pimlocators.clickon_Reportto).click();
+        await this.page.locator(this.pimlocators.add_AssignedSupervisors).click();
+        await (await this.page.waitForSelector(this.pimlocators.name_AssignedSupervisors)).isEditable();
+        await this.page.locator(this.pimlocators.name_AssignedSupervisors).fill('l');
+        await this.page.locator(this.pimlocators.selectname_AssignedSupervisors).click();
+        await this.page.locator(this.pimlocators.reportingMethod_AssignedSupervisors).click();
+        await this.page.locator(this.pimlocators.selectreportingMethod_AssignedSupervisors).click();
+        await this.page.locator(this.pimlocators.save_AssignedSupervisors).click();
+    }
+
+    async fillEmployee_Information() {
+        await (await this.page.waitForSelector(this.pimlocators.PIM)).isVisible();
+        await this.page.locator(this.pimlocators.PIM).click();
+        await (await this.page.waitForSelector(this.pimlocators.employee_Name_EmployeeInformation)).isEditable();
+        await this.page.locator(this.pimlocators.employee_Name_EmployeeInformation).fill('yas');
+        await this.page.locator(this.pimlocators.selectemployee_Name_EmployeeInformation).click();
+        await this.page.locator(this.pimlocators.employee_ID_EmployeeInformation).fill('6432');
+        await this.page.locator(this.pimlocators.employment_Status_EmployeeInformation).click();
+        await this.page.locator(this.pimlocators.selectemployment_Status_EmployeeInformation).click();
+        await (await this.page.waitForSelector(this.pimlocators.supervisor_Name_EmployeeInformation)).isEditable();
+        await this.page.locator(this.pimlocators.supervisor_Name_EmployeeInformation).fill('lin');
+        await this.page.locator(this.pimlocators.selectsupervisor_Name_EmployeeInformation).click();
+        await this.page.locator(this.pimlocators.jobtitle_EmployeeInformation).click();
+        await this.page.locator(this.pimlocators.selectjobtitle_EmployeeInformation).click();
+        await this.page.locator(this.pimlocators.search_EmployeeInformation).click();
+        await (await this.page.waitForSelector(this.pimlocators.searchRecord)).isVisible();
+        const recordResult = await this.page.locator(this.pimlocators.searchRecord).textContent();
+        console.log("result",recordResult)
     }
 }
