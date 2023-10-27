@@ -4,11 +4,11 @@
             "snippetInterface": "async-await"
         },
         "paths": [
-            "src/test/features/pim.feature"
+            "src/test/features/directory.feature"
         ],
         "dryRun": false,
         "require": [
-            "src/test/steps/pimPage.spec.ts"
+            "src/test/steps/directoryPage.spec.ts"
         ],
         "requireModule": [ 
             "ts-node/register"

@@ -30,7 +30,7 @@ export  class Pimmenu {
     async fillPIMmiddlename(){
         await (await this.page.waitForSelector(this.pimlocators.middlename)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.middlename)).isEditable();
-        await  this.page.locator(this.pimlocators.middlename).fill('uru');
+        await  this.page.locator(this.pimlocators.middlename).fill('l');
     }
     
     async fillPIMlastname(){
@@ -42,7 +42,7 @@ export  class Pimmenu {
     async fillEmployeeid(){
         await (await this.page.waitForSelector(this.pimlocators.employeeId)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.employeeId)).isEditable();
-        await  this.page.locator(this.pimlocators.employeeId).fill('6432');
+        await  this.page.locator(this.pimlocators.employeeId).fill('8754');
     }
 
     async clickSavebutton() {
@@ -293,4 +293,14 @@ export  class Pimmenu {
         const recordResult = await this.page.locator(this.pimlocators.searchRecord).textContent();
         console.log("result",recordResult)
     }
+ 
+    async Deleterecord() {
+        await (await this.page.waitForSelector(this.pimlocators.PIM)).isVisible();
+        await this.page.locator(this.pimlocators.PIM).click();
+        await (await this.page.waitForSelector(this.pimlocators.deleterecord)).isVisible();
+        await this.page.locator(this.pimlocators.deleterecord).click();
+        await (await this.page.waitForSelector(this.pimlocators.yesdeleterecord)).isVisible();
+        await this.page.locator(this.pimlocators.yesdeleterecord).click();
+    }
+
 }

@@ -287,6 +287,13 @@ Then('User fill the Employee Information',async function () {
     // await page.waitForTimeout(3000);
 })
 
+Then('User delete the record',async function () {
+    await pimmenu.Deleterecord();
+    await page.waitForTimeout(3000);
+    console.log("test44")
+    await page.waitForTimeout(3000);
+})
+
 
 // AfterAll(async () => {
 

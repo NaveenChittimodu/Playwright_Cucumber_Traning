@@ -78,6 +78,9 @@ export class Pimlocators{
     readonly selectjobtitle_EmployeeInformation:string;
     readonly search_EmployeeInformation:string;
     readonly searchRecord:string;
+    readonly deleterecord:string;
+    readonly yesdeleterecord :string;
+    
 
     
    
@@ -166,8 +169,8 @@ export class Pimlocators{
         this.selectjobtitle_EmployeeInformation="//span[text()='QA Engineer']";
         this.search_EmployeeInformation="//button[text()=' Search ']";
         this.searchRecord="//div[@class='oxd-table-row oxd-table-row--with-border oxd-table-row--clickable']";
-
-
+        this.deleterecord ="(//i[@class='oxd-icon bi-trash'])[1]";
+        this.yesdeleterecord="//button[text()=' Yes, Delete ']";
         // `//div[@class='oxd-form-row']//child::div//label[text()='Vacancy']//parent::div//following-sibling::div//child::div[@class='oxd-select-text-input']`,
 
     }
