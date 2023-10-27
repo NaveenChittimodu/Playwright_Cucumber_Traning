@@ -92,10 +92,16 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to see view leave details in the list page
         Then user is able to see view leave request details components in the list page
         Then user is able to see total record components in the list page
-        Then user is able to perform approve functionality in the list page
-        Then user is able to perform reject functionality in the list page
-        Then user is able to perform Add comment functionality in the list page
+
+        Then user is able to perform approve functionality in the view Leave list page
+        Then user is able to perform reject functionality in the view leave list page
+        Then user is able to perform Add comment functionality in the view leave list page
+
+
+
         Then user is able to perform cancel leave functionality in the list page
+        Then user is able to see back components in the list page
+        Then user is able to perform add comments in the list page
 
 
 

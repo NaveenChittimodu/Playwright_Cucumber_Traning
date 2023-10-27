@@ -132,7 +132,7 @@ Then('user is able to see Leave Entitlements and Usage Report components', async
 
 });
 Then('user is able to perform Leave Entitlements and Usage Report generate functionality', async function () {
-    await leavePage.genrateLeaveEntitilementAndReport();
+    await leavePage.generateLeaveEntitilementAndReport();
 
 });
 Then('user is able to see My Leave Entitlements and Usage Report components', async function () {
@@ -243,7 +243,7 @@ Then('user is able to see Holidays components', async function () {
 });
 Then('user is able to perform Holidays reset functionality', async function () {
     await leavePage.holidaysReset();
-    console.log("tc45")
+    console.log("tc45 testdata successs fro json")
 
 });
 Then('user is able to perform Holidays search functionality', async function () {
@@ -381,11 +381,46 @@ Then('user is able to see total record components in the list page', async funct
 
 });
 
+Then('user is able to perform approve functionality in the view Leave list page', async function () {
+    await leavePage.viewleaveListApprove();
+    console.log("user is able to perform approve functionality in the list page")
+
+});
+
+Then('user is able to perform reject functionality in the view leave list page', async function () {
+    await leavePage.viewleaveListReject();
+    console.log("user is able to perform reject functionality in the view leave list pagetc62")
+
+});
+
+Then('user is able to perform Add comment functionality in the view leave list page', async function () {
+    await leavePage.viewleaveListAddComments();
+    console.log("user is able to perform Add comment functionality in the list page")
+
+});
+
+
+
+
+
+
 Then('user is able to perform cancel leave functionality in the list page', async function () {
-    await leavePage.cancelLeasveList();
+    await leavePage.viewLeaveListCancel();
     console.log("user is able to perform cancel leave functionality in the list page")
 
 });
+Then('user is able to see back components in the list page', async function () {
+    await leavePage.backComponentVerification();
+    console.log("user is able to see back components in the list page:::75")
+
+});
+Then('user is able to perform add comments in the list page', async function () {
+    await leavePage.addCommentsVerification();
+    console.log("user is able to see back components in the list page:::75")
+
+});
+
+
 
 
 

@@ -71,7 +71,8 @@ export class LeavePageLocators {
     readonly myLeavePeriod: string;
     readonly myLeavePeriodValue: string;
     readonly myLeaveGenerate: string;
-    readonly fillScreenReport: string;
+    readonly fullScreenReport: string;
+    readonly minfullScreen:string;
     // config 
     readonly config: string;
     readonly leavePeriodComponent: string;
@@ -153,6 +154,8 @@ export class LeavePageLocators {
     readonly leaveRequestRecords:string;
     readonly viewLeaveListComments:string;
     readonly viewLeaveListCancel:string;
+    readonly viewListBackComponent:string;
+    readonly commentsTextBox:string;
 
 
 
@@ -226,7 +229,8 @@ export class LeavePageLocators {
         this.myLeavePeriod = "//div[@class='oxd-select-text-input']";
         this.myLeavePeriodValue = "//div[@class='oxd-select-option --selected']";
         this.myLeaveGenerate = "//button[text()=' Generate ']";
-        this.fillScreenReport = "//i[@class='oxd-icon bi-arrows-fullscreen oxd-icon-button__icon --toggable-icon']";
+        this.fullScreenReport = "//i[@class='oxd-icon bi-arrows-fullscreen oxd-icon-button__icon --toggable-icon']";
+        this.minfullScreen="await this.page.locator(this.leavePageLocators.fillScreenReport).click()";
         this.myLeaveEntitilementAndReport = "//a[text()='My Leave Entitlements and Usage Report']";
         this.myLeaveEntitilementAndReportComponent = "div[@class='oxd-report-table --frame']";
         this.leavePeriod = "//div[@class='oxd-select-text oxd-select-text--active']";
@@ -310,6 +314,8 @@ export class LeavePageLocators {
         this.leaveRequestRecords="//div[@class='orangehrm-container']";
         this.viewLeaveListComments="//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']";
         this.viewLeaveListCancel="//button[text()=' Cancel ']";
+        this.viewListBackComponent="//button[text()=' Back ']";
+        this.commentsTextBox="//textarea[@class='oxd-textarea oxd-textarea--active oxd-textarea--resize-vertical']";
 
     }
 

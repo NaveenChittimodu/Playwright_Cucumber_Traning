@@ -1,6 +1,8 @@
 {
     "testData":{
         "beforeCancelUrl":"https://opensource-demo.orangehrmlive.com/web/index.php/leave/addLeaveEntitlement",
-        "afterCancelUrl":"https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewLeaveEntitlements"
+        "afterCancelUrl":"https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewLeaveEntitlements",
+        "holidayFromDate":"2023-02-14",
+        "holidayToDate":"2023-04-21"
     }
 }
