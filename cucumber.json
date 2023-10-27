@@ -4,11 +4,11 @@
             "snippetInterface": "async-await"
         },
         "paths": [
-            "src/test/features/performance.feature"
+            "src/test/features/admin.feature"
         ],
         "dryRun": false,
         "require": [
-            "src/test/steps/performance.spec.ts"
+            "src/test/steps/admin.spec.ts"
         ],
         "requireModule": [ 
             "ts-node/register"

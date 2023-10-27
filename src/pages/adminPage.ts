@@ -72,5 +72,20 @@ export class AdminPage {
         await this.page.locator(this.adminloctators.jobTitles).click();
         await this.page.locator(this.adminloctators.adminAddbtn).isVisible();
         await this.page.locator(this.adminloctators.adminAddbtn).click();
+        await this.page.locator(this.adminloctators.jobTitle).fill("naveen1")
+        await this.page.locator(this.adminloctators.save).click();
     }
+    async payGrades(){
+        await this.page.locator(this.adminloctators.payGrades).isVisible();
+        await this.page.locator(this.adminloctators.payGrades).click();
+        await this.page.locator(this.adminloctators.addbtn).isVisible();
+        await this.page.locator(this.adminloctators.addbtn).click();
+        await this.page.locator(this.adminloctators.paygradeName).isVisible();
+        await this.page.locator(this.adminloctators.paygradeName).click();
+        await this.page.locator(this.adminloctators.paygradeName).fill("Naveen");
+        await this.page.locator(this.adminloctators.save).isVisible();
+        await this.page.locator(this.adminloctators.save).click();
+
+    }
+
 }

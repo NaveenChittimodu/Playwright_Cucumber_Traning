@@ -16,6 +16,11 @@ export class Adminlocators{
     readonly password : string
     readonly confirmPassword : string
     readonly jobTitles : string
+    readonly jobTitle : string
+    readonly payGrades : string
+    readonly addbtn : string
+    readonly paygradeName : string
+    readonly save : string
 
 
    
@@ -33,7 +38,20 @@ export class Adminlocators{
         this.password  = `(//label[text()='Password']/following::input)[1]`
         this.confirmPassword  = `(//label[text()='Confirm Password']/following::input)[1]`
 
+        //job titles
         this.jobTitles = `//a[text()='Job Titles']`
+        this.jobTitle = `(//label[text()='Job Title']/following::input)[1]`
 
+
+        //paygrades
+        this.payGrades = `//a[text()='Pay Grades']`
+        this.addbtn = `//button[text() = ' Add ']`
+        // this.paygradeName = `//input[@placeholder='Search']`
+        this.paygradeName = `//label[text()='Name']/following::input`
+        this.save = `//button[text()=' Save ']`
+
+
+        //
+        
     }
 }
