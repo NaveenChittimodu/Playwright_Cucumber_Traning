@@ -920,6 +920,40 @@ export class LeavePage {
         }
 
     }
+    async performPIMFunctionality() {
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.locator(this.leavePageLocators.viewPIMPage).isVisible()
+
+        }
+        catch (error) {
+            await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
+            console.log('No record found');
+        }
+
+    }
+    async navigationToPimPage() {
+        try {
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.locator(this.leavePageLocators.viewPIMPage).isVisible();
+            await this.page.locator(this.leavePageLocators.viewPIMPage).click();
+            await expect(this.page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/29");
+
+        }
+        catch (error) {
+            await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
+            console.log('No record found');
+        }
+
+    }
+    
+    
 
     
 

@@ -85,7 +85,6 @@ export class LeavePageLocators {
     readonly startDate: string;
     readonly startDateValue: string;
     readonly leavePeriodSave: string;
-
     readonly addLeaveType: string;
     readonly addLeaveTypeName: string;
     readonly saveLeaveType: string;
@@ -115,12 +114,10 @@ export class LeavePageLocators {
     readonly leaveDuration: string;
     readonly saveHoliday: string;
     readonly fulldayHoliday: string;
-
     readonly holidayFromDate: string;
     readonly holidayToDate: string;
     readonly holidayReset: string;
     readonly holidaySearch: string;
-
     readonly addHolidays: string;
     readonly holidaysname: string;
     readonly holidaysDate: string;
@@ -156,6 +153,7 @@ export class LeavePageLocators {
     readonly viewLeaveListCancel:string;
     readonly viewListBackComponent:string;
     readonly commentsTextBox:string;
+    readonly viewPIMPage:string;
 
 
 
@@ -203,7 +201,6 @@ export class LeavePageLocators {
         this.myEntitlements = "//a[text()='My Entitlements']";
         this.myLeaveEntitlement = "//h5[text()='My Leave Entitlements']";
         this.myLeaveEntitlementSerch = "//button[@type='submit']";
-
         this.employeeName = "//input[@placeholder='Type for hints...']";
         this.employeenameList = "//div[@role='option']//span[text()='Lavonne  Casper']"
         this.employeenameNumber = "//div[@class='oxd-grid-item oxd-grid-item--gutters']//input[@class='oxd-input oxd-input--active']";
@@ -225,7 +222,6 @@ export class LeavePageLocators {
         this.jobTitle = "//label[text()='Job Title']//parent::div//following-sibling::div";
         this.jobTitleDropdown = "div.oxd-select-dropdown .oxd-select-option";
         this.GenerateReport = "//button[text()=' Generate ']";
-
         this.myLeavePeriod = "//div[@class='oxd-select-text-input']";
         this.myLeavePeriodValue = "//div[@class='oxd-select-option --selected']";
         this.myLeaveGenerate = "//button[text()=' Generate ']";
@@ -243,7 +239,6 @@ export class LeavePageLocators {
         this.workWeekComponent = "//a[text()='Work Week']";
         this.holidayComponent = "//a[text()='Holidays']";
         this.addHoliday = "button.oxd-button--secondary i";
-
         this.startMonth = "(//div[@class='oxd-select-text--after']//i)[1]";
         this.selectstartMonth = "//span[text()='February']";
         this.startDate = "(//div[@class='oxd-select-text--after']//i)[2]";
@@ -316,6 +311,9 @@ export class LeavePageLocators {
         this.viewLeaveListCancel="//button[text()=' Cancel ']";
         this.viewListBackComponent="//button[text()=' Back ']";
         this.commentsTextBox="//textarea[@class='oxd-textarea oxd-textarea--active oxd-textarea--resize-vertical']";
+        this.viewPIMPage="//p[text()='View PIM Info']";
+
+
 
     }
 

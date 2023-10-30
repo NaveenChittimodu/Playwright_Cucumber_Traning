@@ -416,9 +416,21 @@ Then('user is able to see back components in the list page', async function () {
 });
 Then('user is able to perform add comments in the list page', async function () {
     await leavePage.addCommentsVerification();
-    console.log("user is able to see back components in the list page:::75")
+    console.log("user is able to perform add comments in the list page")
 
 });
+Then('user is able to perform view PIM info functionality in the list page', async function () {
+    await leavePage.performPIMFunctionality();
+    console.log("user is able to perform view PIM info functionality in the list page")
+
+});
+Then('user is able to see navigation components in the list page', async function () {
+    await leavePage.navigationToPimPage();
+    console.log("user is able to see navigation components in the list page")
+
+});
+
+
 
 
 

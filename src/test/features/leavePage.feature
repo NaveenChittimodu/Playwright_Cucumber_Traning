@@ -61,8 +61,6 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to perform Work Week Sunday sort functionality
         Then user is able to perform Work Week save sort functionality
 
-
-    
         Then user is able to see Holidays components
         Then user is able to perform Holidays reset functionality
         Then user is able to perform Holidays search functionality
@@ -102,6 +100,8 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to perform cancel leave functionality in the list page
         Then user is able to see back components in the list page
         Then user is able to perform add comments in the list page
+        Then user is able to perform view PIM info functionality in the list page
+        Then user is able to see navigation components in the list page
 
 
 
