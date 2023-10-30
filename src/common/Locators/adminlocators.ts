@@ -21,6 +21,15 @@ export class Adminlocators{
     readonly addbtn : string
     readonly paygradeName : string
     readonly save : string
+    readonly employeeStatus : string
+    readonly employeeStatusName : string
+    readonly jobcategories : string
+    readonly jobcategory : string
+    readonly WorkShifts : string
+    readonly WorkShiftName : string
+    readonly WorkShiftFrom : string
+    readonly WorkShiftTo : string
+    readonly assignedemployes : string
 
 
    
@@ -46,12 +55,23 @@ export class Adminlocators{
         //paygrades
         this.payGrades = `//a[text()='Pay Grades']`
         this.addbtn = `//button[text() = ' Add ']`
-        // this.paygradeName = `//input[@placeholder='Search']`
         this.paygradeName = `//label[text()='Name']/following::input`
         this.save = `//button[text()=' Save ']`
 
 
-        //
+        //employee status 
+        this.employeeStatus = "//a[text()='Employment Status']"
+        this.employeeStatusName = `//label[text()='Name']/following::input`
+        
+        this.jobcategories = `//a[contains(text(),'Job Categories')]`
+        this.jobcategory = `//label[text()='Name']/following::input`
+
+        this.WorkShifts = `//a[contains(text(),'Work Shifts')]`
+        this.WorkShiftName = `(//label[text()='Shift Name']/following::input)[1]`
+        this.WorkShiftFrom = `(//label[text()='From']/following::input)[1]`
+        this.WorkShiftTo = `(//label[text()='To']/following::input)[1]`
+        this.assignedemployes = `//label[text()='Assigned Employees']/following::input`
+        
         
     }
 }

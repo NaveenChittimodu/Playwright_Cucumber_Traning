@@ -88,4 +88,47 @@ export class AdminPage {
 
     }
 
+    async employeeStatus(){
+        await this.page.locator(this.adminloctators.employeeStatus).click();
+        await this.page.locator(this.adminloctators.addbtn).isVisible();
+        await this.page.locator(this.adminloctators.addbtn).click();
+        await this.page.locator(this.adminloctators.employeeStatusName).isVisible();
+        await this.page.locator(this.adminloctators.employeeStatusName).click();
+        await this.page.locator(this.adminloctators.employeeStatusName).fill("Naveen");
+        await this.page.locator(this.adminloctators.save).isVisible();
+        await this.page.locator(this.adminloctators.save).click();
+    }
+    async jobcategrories(){
+        await this.page.locator(this.adminloctators.jobcategories).click();
+        await this.page.locator(this.adminloctators.addbtn).isVisible();
+        await this.page.locator(this.adminloctators.addbtn).click();
+        await this.page.locator(this.adminloctators.jobcategory).isVisible();
+        await this.page.locator(this.adminloctators.jobcategory).click();
+        await this.page.locator(this.adminloctators.jobcategory).fill("CEO");
+        await this.page.locator(this.adminloctators.save).isVisible();
+        await this.page.locator(this.adminloctators.save).click();
+    }
+    async workShifts(){
+        await this.page.locator(this.adminloctators.WorkShifts).click();
+        await this.page.locator(this.adminloctators.addbtn).isVisible();
+        await this.page.locator(this.adminloctators.addbtn).click();
+        await this.page.locator(this.adminloctators.WorkShiftName).isVisible();
+        await this.page.locator(this.adminloctators.WorkShiftName).click();
+        await this.page.locator(this.adminloctators.WorkShiftName).fill("Workday1")
+        await this.page.locator(this.adminloctators.WorkShiftFrom).isVisible();
+        await this.page.locator(this.adminloctators.WorkShiftFrom).click();
+        await this.page.locator(this.adminloctators.WorkShiftFrom).fill("01:00 AM");
+        await this.page.locator(this.adminloctators.WorkShiftTo).isVisible();
+        await this.page.locator(this.adminloctators.WorkShiftTo).click();
+        await this.page.locator(this.adminloctators.WorkShiftTo).fill("05:00 PM");
+        await this.page.locator(`//label[text()='Duration Per Day']`).click();
+        await this.page.locator(this.adminloctators.assignedemployes).isVisible();
+        await this.page.locator(this.adminloctators.assignedemployes).click();
+        await this.page.locator(this.adminloctators.assignedemployes).fill("o");
+        await this.page.waitForTimeout(3000)
+        await this.page.locator(`//span[text()='WoW Enjoyer  AlphaTester']`).click();
+        await this.page.locator(this.adminloctators.save).isVisible();
+        await this.page.locator(this.adminloctators.save).click();
+    }
+
 }
