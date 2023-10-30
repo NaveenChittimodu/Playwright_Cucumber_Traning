@@ -18,10 +18,12 @@ export class Pimlocators{
     readonly sinNumber:string;
     readonly nationality :string;
     readonly selectnationality:string;
+    readonly maritalstatus :string;
     readonly selectmaritalstatus:string;
     readonly requiredsavebutton: string; 
     readonly maleRadioButton: string;
     readonly bloodtype: string;
+    readonly selectbloodtype : string;
     readonly customsavebutton :string;
     readonly attachmentAddButton :string;
     readonly clickonUploadBrowser :string;
@@ -80,6 +82,10 @@ export class Pimlocators{
     readonly searchRecord:string;
     readonly deleterecord:string;
     readonly yesdeleterecord :string;
+    readonly reports :string;
+    readonly reportName :string;
+    readonly selectReportName :string;
+    readonly employeeReports_Search :string;
     
 
     
@@ -96,17 +102,19 @@ export class Pimlocators{
         this.employeeId="(//label[text()='Employee Id']/following::div/input)";
         this.savebutton="//button[@type='submit']";
         this.otherID ="//label[normalize-space(text())='Other Id']//parent::div//following-sibling::div//input";
-        this.driversLicenseNumber="";
+        this.driversLicenseNumber=`(//label[text()="Driver's License Number"]/following::div/input)[1]`;
         this.licenseExpiryDate="//label[text()='License Expiry Date']//parent::div//following-sibling::div/div//input";
         this.licenseExpiryDateSelect="//div[text()='31']"
         this.ssnNumber="//label[text()='SSN Number']//parent::div//following-sibling::div//input";
         this.sinNumber =`//label[text()='SIN Number']//parent::div//following-sibling::div//input`;
         this.nationality = "(//div[text()='-- Select --'])[1]";
-        this.selectnationality="//span[text()='Indian']"
-        this.selectmaritalstatus="(//div[@class='oxd-select-text oxd-select-text--active'])[2]";
+        this.selectnationality="//span[text()='Indian']";
+        this.maritalstatus="//label[text()='Marital Status']/following::div[@clear='false']"
+        this.selectmaritalstatus="//span[text()='Single']";
         this.maleRadioButton= "//label[text()='Male']";
-        this.requiredsavebutton = "//p[text()=' * Required']/following-sibling::button"
-        this.bloodtype = "(//div[@class='oxd-select-text oxd-select-text--active'])[3]";
+        this.requiredsavebutton = "//p[text()=' * Required']/following-sibling::button";
+        this.bloodtype = "(//div[@class='oxd-select-text--after']//i)[3]";
+        this.selectbloodtype="//span[text()='A+']";
         this.customsavebutton = "(//form/following::div/hr/following::div/button)[1]";
         this.attachmentAddButton ="//button[@class='oxd-button oxd-button--medium oxd-button--text']";
         this.clickonUploadBrowser ="div.oxd-file-div.oxd-file-div--active";
@@ -153,25 +161,30 @@ export class Pimlocators{
         this.clickon_Reportto ="//a[contains(text(),'Report-to')]";
         this.add_AssignedSupervisors ="//h6[text()='Assigned Supervisors']/following-sibling::button";
         this.name_AssignedSupervisors ="//input[@placeholder='Type for hints...']";
-        this.selectname_AssignedSupervisors="//span[text()='Linda Jane Anderson']";
+        this.selectname_AssignedSupervisors="//span[text()='Willette  Hagenes']";
         this.reportingMethod_AssignedSupervisors="i.oxd-icon.bi-caret-down-fill.oxd-select-text--arrow";
         this.selectreportingMethod_AssignedSupervisors ="//span[text()='Direct']";
         this.save_AssignedSupervisors ="button[type='submit']";
         
         this.employee_Name_EmployeeInformation ="(//label[text()='Employee Name']/following::input)[1]";
-        this.selectemployee_Name_EmployeeInformation="//span[text()='yaswanth uru leburu']";
+        this.selectemployee_Name_EmployeeInformation="//span[text()='yaswanth lebu leburu']";
         this.employee_ID_EmployeeInformation ="(//label[text()='Employee Id']/following::input)[1]";
         this.employment_Status_EmployeeInformation="(//div[text()='-- Select --'])[1]";
         this.selectemployment_Status_EmployeeInformation="//span[text()='Full-Time Permanent']";
         this.supervisor_Name_EmployeeInformation="(//label[text()='Supervisor Name']/following::input)[1]";
-        this.selectsupervisor_Name_EmployeeInformation="//span[text()='Linda Jane Anderson']";
+        this.selectsupervisor_Name_EmployeeInformation="//span[text()='Le mkm Huy']";
         this.jobtitle_EmployeeInformation="(//div[text()='-- Select --'])[1]";
         this.selectjobtitle_EmployeeInformation="//span[text()='QA Engineer']";
         this.search_EmployeeInformation="//button[text()=' Search ']";
         this.searchRecord="//div[@class='oxd-table-row oxd-table-row--with-border oxd-table-row--clickable']";
         this.deleterecord ="(//i[@class='oxd-icon bi-trash'])[1]";
         this.yesdeleterecord="//button[text()=' Yes, Delete ']";
-        // `//div[@class='oxd-form-row']//child::div//label[text()='Vacancy']//parent::div//following-sibling::div//child::div[@class='oxd-select-text-input']`,
+
+        this.reports="//a[contains(text(),'Reports')]";
+        this.reportName ="input[placeholder='Type for hints...']";
+        this.selectReportName ="//span[text()='PIM Sample Report']";
+        this.employeeReports_Search ="//button[text()=' Search ']"
+       
 
     }
 }

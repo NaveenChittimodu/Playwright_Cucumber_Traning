@@ -4,11 +4,11 @@
             "snippetInterface": "async-await"
         },
         "paths": [
-            "src/test/features/buzz.feature"
+            "src/test/features/pim.feature"
         ],
         "dryRun": false,
         "require": [
-            "src/test/steps/buzzPage.spec.ts"
+            "src/test/steps/pimPage.spec.ts"
         ],
         "requireModule": [ 
             "ts-node/register"

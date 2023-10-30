@@ -4,7 +4,7 @@ Feature: Fill the data in pim
     Given User Login to OrangeHrm application
 
   Scenario: User need  to validate PIM in the appliication
-    # When User click on PIM menu
+    When User click on PIM menu
     # Then User click on Add Employee menu
     # Then User enter the First Name
     # Then User enter the Middle Name
@@ -12,12 +12,12 @@ Feature: Fill the data in pim
     # Then User enter the Employee Id
     # Then User click on Save button
     # Then User enter the Other Id
-    # # Then User enter the driversLicenseNumber
+    # Then User enter the driversLicenseNumber
     # Then User enter the licenseExpiryDate
     # Then User enter the Snn Number
     # Then User enter the Sin Number
     # Then User selects nationality as Indian
-    # # Then User selects Marital Status as Single
+    # Then User selects Marital Status as Single
     # Then User click on Male Radio button
     # Then User click on RequiredSave button
     # Then User selects Blood type as A+
@@ -28,7 +28,6 @@ Feature: Fill the data in pim
     # Then User click on Add reattachment and upload file
     # Then User enter the Attachment reComment
     # Then User click on Add attachment Save Button
-    # Then User click on Delete Button
     # Then User click on Contct Details
     # Then User enter the street1 Contct Details
     # Then User enter the street2 Contct Details
@@ -51,8 +50,10 @@ Feature: Fill the data in pim
 
     # Then User click on Job
 
-    # Then User click on Reportv to
+    # Then User click on Report to
 
     # Then User fill the Employee Information
 
-    Then User delete the record
+    # Then User delete the record
+
+    Then User fill the Reports

@@ -39,3 +39,12 @@ When('User click on Buzz menu', async function () {
     console.log("test2")
     // await page.waitForTimeout(3000);
 });
+
+
+AfterAll(async () => {
+
+    await page.close();
+    await browser.close();
+
+
+})

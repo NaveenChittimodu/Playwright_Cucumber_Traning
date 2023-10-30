@@ -80,11 +80,11 @@ Then('User enter the Other Id', async function () {
     // await page.waitForTimeout(3000);
 });
 
-// Then('User enter the driversLicenseNumber',async function () {
-//     console.log("driverslicensenumber",`${ENV.DRIVERSLICENSENUMBER}`)
-//     await pimmenu.filldriverslicensenumber(`${ENV.DRIVERSLICENSENUMBER}`)
-//     console.log("test9")
-// }); 
+Then('User enter the driversLicenseNumber',async function () {
+    await pimmenu.filldriverslicensenumber()
+    console.log("test9")
+    await page.waitForTimeout(3000);
+}); 
 
 Then('User enter the licenseExpiryDate', async function () {
     await pimmenu.filllicenseexpiryDate()
@@ -109,11 +109,11 @@ Then('User selects nationality as Indian', async function () {
     await page.waitForTimeout(3000);
 });
 
-// Then('User selects Marital Status as Single', async function () {
-//     console.log("Marital Status",pimlocators.selectmaritalstatus,`${ENV.MARITALSTATUSDROPDOWNTEXT}`)
-//     await pimmenu.selectdropdown_Marital_Status(pimlocators.selectmaritalstatus,`${ENV.MARITALSTATUSDROPDOWNTEXT}`)
-//     console.log("test14")
-// });
+Then('User selects Marital Status as Single', async function () {
+    await pimmenu.selectdropdown_Marital_Status()
+    console.log("test14")
+    await page.waitForTimeout(3000);
+});
 
 Then('User click on Male Radio button',async function () {
     await pimmenu.clickonMaleRadiobutton();
@@ -126,11 +126,11 @@ Then('User click on RequiredSave button', async function () {
     // await page.waitForTimeout(3000); 
 });
 
-// Then('User selects Blood type as A+', async function () {
-//     console.log("nationality",pimlocators.bloodtype,`${ENV.BLOODTYPEDROPDOWNTEXT}`)
-//     await pimmenu.selectdropdownBloodtype(pimlocators.bloodtype,`${ENV.BLOODTYPEDROPDOWNTEXT}`)
-//     console.log("test17")
-// });
+Then('User selects Blood type as A+', async function () {
+    await pimmenu.selectdropdownBloodtype()
+    console.log("test17")
+    await page.waitForTimeout(3000); 
+});
 
 Then('User click on CustonSave button', async function () {
     await pimmenu.clickcustomSavebutton();
@@ -173,12 +173,6 @@ Then('User click on Add attachment Save Button',async function () {
     console.log("test24")
     // await page.waitForTimeout(3000);
 })
-
-// Then('User click on Delete Button',async function () {
-//     await pimmenu.clickDeletebutton();
-//     console.log("test25")
-//     // await page.waitForTimeout(3000);
-// })
 
 Then('User click on Contct Details',async function () {
     await pimmenu.clickContactDetails();
@@ -275,7 +269,7 @@ Then('User click on Job',async function () {
     // await page.waitForTimeout(3000);
 })
 
-Then('User click on Reportv to',async function () {
+Then('User click on Report to',async function () {
     await pimmenu.clickReport_to();
     console.log("test42")
     // await page.waitForTimeout(3000);
@@ -289,6 +283,13 @@ Then('User fill the Employee Information',async function () {
 
 Then('User delete the record',async function () {
     await pimmenu.Deleterecord();
+    await page.waitForTimeout(3000);
+    console.log("test44")
+    await page.waitForTimeout(3000);
+})
+
+Then('User fill the Reports',async function () {
+    await pimmenu.fillreports();
     await page.waitForTimeout(3000);
     console.log("test44")
     await page.waitForTimeout(3000);

@@ -5,4 +5,4 @@ Feature: Fill the data in pim
 
   Scenario: User need  to validate Directory in the appliication
     When User click on Buzz menu
-    # Then User fill the Directory data
+    

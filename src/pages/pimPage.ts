@@ -30,7 +30,7 @@ export  class Pimmenu {
     async fillPIMmiddlename(){
         await (await this.page.waitForSelector(this.pimlocators.middlename)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.middlename)).isEditable();
-        await  this.page.locator(this.pimlocators.middlename).fill('l');
+        await  this.page.locator(this.pimlocators.middlename).fill('lebu');
     }
     
     async fillPIMlastname(){
@@ -42,7 +42,7 @@ export  class Pimmenu {
     async fillEmployeeid(){
         await (await this.page.waitForSelector(this.pimlocators.employeeId)).isVisible();
         await (await this.page.waitForSelector(this.pimlocators.employeeId)).isEditable();
-        await  this.page.locator(this.pimlocators.employeeId).fill('8754');
+        await  this.page.locator(this.pimlocators.employeeId).fill('8757');
     }
 
     async clickSavebutton() {
@@ -88,13 +88,11 @@ export  class Pimmenu {
         
     }
 
-    // async selectdropdown_Marital_Status(dropdownLocator: string, dropDownText: string) {
-    //     if(await this.page.locator(dropdownLocator).isVisible()){
-    //        await this.page.locator(dropdownLocator).click()
-    //        await this.page.locator(dropDownText).isVisible()
-    //        await this.page.locator(dropDownText).click()
-    //     }
-    // }
+    async selectdropdown_Marital_Status() {
+        await (await this.page.waitForSelector(this.pimlocators.maritalstatus)).isVisible();
+        await this.page.locator(this.pimlocators.maritalstatus).click();
+        await this.page.locator(this.pimlocators.selectmaritalstatus).click();
+    }
 
     async clickrequiredSavebutton() {
         await (await this.page.waitForSelector(this.pimlocators.requiredsavebutton)).isVisible();
@@ -106,11 +104,11 @@ export  class Pimmenu {
         await this.page.locator(this.pimlocators.maleRadioButton).click();
     }
 
-    // async selectdropdownBloodtype(dropdownLocator: string, dropDownText: string) {
-    //     if(await this.page.locator(dropdownLocator).isVisible()){
-    //         await this.page.locator(dropDownText).click()
-    //     }
-    // }
+    async selectdropdownBloodtype() {
+        await (await this.page.waitForSelector(this.pimlocators.bloodtype)).isVisible();
+        await this.page.locator(this.pimlocators.bloodtype).click();
+        await this.page.locator(this.pimlocators.selectbloodtype).click();
+    }
 
     async clickcustomSavebutton() {
         await (await this.page.waitForSelector(this.pimlocators.customsavebutton)).isVisible();
@@ -144,16 +142,7 @@ export  class Pimmenu {
         await (await this.page.waitForSelector(this.pimlocators.attachmentCancelButton)).isVisible();
         await this.page.locator(this.pimlocators.attachmentCancelButton).click();
     }
-
-    // async clickDeletebutton() {
-    //     // await (await this.page.waitForSelector(this.pimlocators.selectRecord)).isVisible();
-    //     // await this.page.locator(this.pimlocators.selectRecord).click();
-    //     await (await this.page.waitForSelector(this.pimlocators.deleteSelected)).isVisible();
-    //     await this.page.locator(this.pimlocators.deleteSelected).click();
-    // }
-
-
-
+    
     async clickContactDetails() {
         await (await this.page.waitForSelector(this.pimlocators.contatDetails)).isVisible();
         await this.page.locator(this.pimlocators.contatDetails).click();
@@ -267,7 +256,7 @@ export  class Pimmenu {
         await this.page.locator(this.pimlocators.clickon_Reportto).click();
         await this.page.locator(this.pimlocators.add_AssignedSupervisors).click();
         await (await this.page.waitForSelector(this.pimlocators.name_AssignedSupervisors)).isEditable();
-        await this.page.locator(this.pimlocators.name_AssignedSupervisors).fill('l');
+        await this.page.locator(this.pimlocators.name_AssignedSupervisors).fill('Willette  Hagenes');
         await this.page.locator(this.pimlocators.selectname_AssignedSupervisors).click();
         await this.page.locator(this.pimlocators.reportingMethod_AssignedSupervisors).click();
         await this.page.locator(this.pimlocators.selectreportingMethod_AssignedSupervisors).click();
@@ -280,11 +269,11 @@ export  class Pimmenu {
         await (await this.page.waitForSelector(this.pimlocators.employee_Name_EmployeeInformation)).isEditable();
         await this.page.locator(this.pimlocators.employee_Name_EmployeeInformation).fill('yas');
         await this.page.locator(this.pimlocators.selectemployee_Name_EmployeeInformation).click();
-        await this.page.locator(this.pimlocators.employee_ID_EmployeeInformation).fill('6432');
+        await this.page.locator(this.pimlocators.employee_ID_EmployeeInformation).fill('8757');
         await this.page.locator(this.pimlocators.employment_Status_EmployeeInformation).click();
         await this.page.locator(this.pimlocators.selectemployment_Status_EmployeeInformation).click();
         await (await this.page.waitForSelector(this.pimlocators.supervisor_Name_EmployeeInformation)).isEditable();
-        await this.page.locator(this.pimlocators.supervisor_Name_EmployeeInformation).fill('lin');
+        await this.page.locator(this.pimlocators.supervisor_Name_EmployeeInformation).fill('Le mkm Huy');
         await this.page.locator(this.pimlocators.selectsupervisor_Name_EmployeeInformation).click();
         await this.page.locator(this.pimlocators.jobtitle_EmployeeInformation).click();
         await this.page.locator(this.pimlocators.selectjobtitle_EmployeeInformation).click();
@@ -302,5 +291,13 @@ export  class Pimmenu {
         await (await this.page.waitForSelector(this.pimlocators.yesdeleterecord)).isVisible();
         await this.page.locator(this.pimlocators.yesdeleterecord).click();
     }
-
+    
+    async fillreports() {
+        await (await this.page.waitForSelector(this.pimlocators.PIM)).isVisible();
+        await this.page.locator(this.pimlocators.PIM).click();
+        await this.page.locator(this.pimlocators.reports).click();
+        await this.page.locator(this.pimlocators.reportName).fill('PIM Sample Report');
+        await this.page.locator(this.pimlocators.selectReportName).click();
+        
+    }
 }
