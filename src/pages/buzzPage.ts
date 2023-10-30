@@ -63,9 +63,11 @@ export  class Buzzmenu {
         await this.page.locator(this.buzzlocators.mostCommentedPosts).click();
         let Commentedpost = await (await this.page.waitForSelector(this.buzzlocators.mostCommentedPostsdata)).isVisible();
         console.log("mostCommentedpostValidation",Commentedpost)
+        
         await this.page.locator(this.buzzlocators.threeDots).click();
         await this.page.locator(this.buzzlocators.deletePost).click();
         await this.page.locator(this.buzzlocators.yesDeletePost).click();
+
         let UpcomingAnniversaries = await (await this.page.waitForSelector(this.buzzlocators.upcomingAnniversaries)).isVisible();
         console.log("Upcoming Anniversaries",UpcomingAnniversaries);
         const Anniversaries = await this.page.locator(this.buzzlocators.upcomingAnniversariesdata).textContent();
