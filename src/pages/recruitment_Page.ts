@@ -1,4 +1,4 @@
-import { expect,Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 import { Recruitmentlocators } from "../common/Locators/recruitmentLocators";
 import { Loginlocators } from "../common/Locators/loginlocators";
 import { urlToHttpOptions } from "url";
@@ -16,31 +16,31 @@ export class RecruitmentPage {
         this.recruitmentLocators = new Recruitmentlocators(page);
     }
 
-    async selectDropDownElements(clickDropDownLocator: string,dropdownLocator: string, dropDownValue: string) {
+    async selectDropDownElements(clickDropDownLocator: string, dropdownLocator: string, dropDownValue: string) {
         try {
             await this.page.locator(clickDropDownLocator).click();
             await this.page.waitForTimeout(1000);
             const dropdownOptions = await this.page.$$(dropdownLocator);
-            console.log(dropdownOptions);
+            // console.log(dropdownOptions);
 
             for (const dropdownoption of dropdownOptions) {
-                
+
                 if (await dropdownoption.isVisible() && await dropdownoption.isEnabled()) {
                     const dropdowntext = await dropdownoption.textContent();
                     console.log(dropdowntext);
-                    
+
                     if (dropdowntext === dropDownValue) {
                         await dropdownoption.click();
                         console.log(`Selected option: ${dropDownValue}`);
-                        return; 
+                        return;
                     }
                 }
             }
-    
+
             console.error(`Option "${dropDownValue}" was not found or not interactable.`);
         } catch (error) {
             console.error('Error selecting dropdown option:', error);
-        
+
         }
     }
 
@@ -95,7 +95,7 @@ export class RecruitmentPage {
 
     async getToastMessage() {
         const getToastText = await this.page.locator(this.recruitmentLocators.candidates.candidateToastMsg).textContent();
-        console.log(`GetToastMessage Method` , getToastText);
+        console.log(`GetToastMessage Method`, getToastText);
         return getToastText;
     }
 
@@ -166,7 +166,7 @@ export class RecruitmentPage {
         await this.page.waitForSelector(this.recruitmentLocators.candidates.lastName);
         await this.page.locator(this.recruitmentLocators.candidates.lastName).fill(``);
         await this.page.waitForSelector(this.recruitmentLocators.candidates.vaccancy);
-        await this.selectDropDownElements(this.recruitmentLocators.candidates.vaccancy,this.recruitmentLocators.candidates.dropDownSelector,"Junior Account Assistant");
+        await this.selectDropDownElements(this.recruitmentLocators.candidates.vaccancy, this.recruitmentLocators.candidates.dropDownSelector, "Junior Account Assistant");
         await this.page.waitForSelector(this.recruitmentLocators.candidates.email);
         await this.page.locator(this.recruitmentLocators.candidates.email).fill(``);
         await this.page.waitForSelector(this.recruitmentLocators.candidates.contactNumber);
@@ -187,7 +187,7 @@ export class RecruitmentPage {
         await this.page.waitForSelector(this.recruitmentLocators.candidates.lastName);
         await this.page.locator(this.recruitmentLocators.candidates.lastName).fill(await this.autoGenerateLName());
         await this.page.waitForSelector(this.recruitmentLocators.candidates.vaccancy);
-        await this.selectDropDownElements(this.recruitmentLocators.candidates.vaccancy,this.recruitmentLocators.candidates.dropDownSelector,"Sales Representative");
+        await this.selectDropDownElements(this.recruitmentLocators.candidates.vaccancy, this.recruitmentLocators.candidates.dropDownSelector, "Sales Representative");
         await this.page.waitForSelector(this.recruitmentLocators.candidates.email);
         await this.page.locator(this.recruitmentLocators.candidates.email).fill(assertion.assertion.email);
         await this.page.waitForSelector(this.recruitmentLocators.candidates.contactNumber);
@@ -258,15 +258,15 @@ export class RecruitmentPage {
         await this.page.waitForSelector(inputSelector); // Wait for the input field
         await this.page.locator(inputSelector).isVisible(); // check the input field visible
         await this.page.locator(inputSelector).fill(textToFill); // Fill the input field
-      
+
         // To get the value of the input field, use inputValue()
         const inputValue = this.page.locator(inputSelector).inputValue();
         // const inputValue = await inputElement.inputValue();
-      
-        return inputValue;
-      }
 
-      async selectOptionFromAutocomplete(inputSelector: string, optionText: string, dropdownSelector: string) {
+        return inputValue;
+    }
+
+    async selectOptionFromAutocomplete(inputSelector: string, optionText: string, dropdownSelector: string) {
         try {
             await this.page.waitForSelector(inputSelector); // Wait for the input field
             await this.page.locator(inputSelector).fill(optionText); // Fill the input field
@@ -341,10 +341,10 @@ export class RecruitmentPage {
         await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
         await this.page.click(this.recruitmentLocators.vacancies.addNewVacancie);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieName);
-        const vacancyName = await this.fillInputFieldAndGetText(this.recruitmentLocators.vacancies.vacancieName,await this.vacancyNameAutoGenerate())
+        const vacancyName = await this.fillInputFieldAndGetText(this.recruitmentLocators.vacancies.vacancieName, await this.vacancyNameAutoGenerate())
         console.log(`The Vacancy Name is : `, vacancyName);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieJobTitle);
-        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancieRole,this.recruitmentLocators.vacancies.vacancieJobTitileDropDown,assertion.assertion.role);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancieRole, this.recruitmentLocators.vacancies.vacancieJobTitileDropDown, assertion.assertion.role);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieDescription);
         await this.page.locator(this.recruitmentLocators.vacancies.vacancieDescription).fill(assertion.assertion.description);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieHiringManager);
@@ -352,7 +352,7 @@ export class RecruitmentPage {
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.totalOpenings);
         await this.page.locator(this.recruitmentLocators.vacancies.totalOpenings).fill(assertion.assertion.totalOpening);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieSave);
-        await this.page.locator(this.recruitmentLocators.vacancies.vacancieSave).click({force:true});
+        await this.page.locator(this.recruitmentLocators.vacancies.vacancieSave).click({ force: true });
         // await this.page.waitForSelector(this.timeLocators.attendanceDetails.timePageToastMsg);
         // const toastText =await this.getToastMessageNew(this.timeLocators.attendanceDetails.timePageToastMsg);
         // expect(toastText).toBe("Successfully Saved");
@@ -362,7 +362,7 @@ export class RecruitmentPage {
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
         await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
         await this.interactWithTableTextField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, this.vacancyName);
-        
+
     }
 
     async addNewVacancieWithInvalideData() {
@@ -370,10 +370,10 @@ export class RecruitmentPage {
         await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
         await this.page.click(this.recruitmentLocators.vacancies.addNewVacancie);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieName);
-        const vacancyName = await this.fillInputFieldAndGetText(this.recruitmentLocators.vacancies.vacancieName,await this.vacancyNameAutoGenerate())
+        const vacancyName = await this.fillInputFieldAndGetText(this.recruitmentLocators.vacancies.vacancieName, await this.vacancyNameAutoGenerate())
         console.log(`The Vacancy Name is : `, vacancyName);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieJobTitle);
-        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancieRole,this.recruitmentLocators.vacancies.vacancieJobTitileDropDown,assertion.assertion.role);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancieRole, this.recruitmentLocators.vacancies.vacancieJobTitileDropDown, assertion.assertion.role);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieDescription);
         await this.page.locator(this.recruitmentLocators.vacancies.vacancieDescription).fill(assertion.assertion.description);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieHiringManager);
@@ -386,7 +386,7 @@ export class RecruitmentPage {
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.totalOpenings);
         await this.page.locator(this.recruitmentLocators.vacancies.totalOpenings).fill(assertion.assertion.totalOpening);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieSave);
-        await this.page.locator(this.recruitmentLocators.vacancies.vacancieSave).click({force:true});
+        await this.page.locator(this.recruitmentLocators.vacancies.vacancieSave).click({ force: true });
         const afterClickerrorMessage = await this.page.textContent(this.recruitmentLocators.vacancies.vacaciesRequired);
         expect(afterClickerrorMessage).toBe("Invalid")
         await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
@@ -394,7 +394,7 @@ export class RecruitmentPage {
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
         await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
         await this.interactWithTableTextField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, this.vacancyName);
-        
+
     }
 
     async interactWithTableEditField(tableSelector: string, headerSelector: string, allRows: string, tableCells: string, cellTextToFind: string) {
@@ -444,16 +444,16 @@ export class RecruitmentPage {
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
         await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancy);
-        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancy,this.recruitmentLocators.vacancies.vacancyDropDown,assertion.assertion.vacancy);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancy, this.recruitmentLocators.vacancies.vacancyDropDown, assertion.assertion.vacancy);
         await this.page.waitForTimeout(2000);
         await this.page.click(this.recruitmentLocators.vacancies.vacancySearch);
         await this.interactWithTableEditField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, assertion.assertion.vacancy);
 
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieName);
-        const vacancyName = await this.fillInputFieldAndGetText(this.recruitmentLocators.vacancies.vacancieName,assertion.assertion.modifiedName)
+        const vacancyName = await this.fillInputFieldAndGetText(this.recruitmentLocators.vacancies.vacancieName, assertion.assertion.modifiedName)
         console.log(`The Vacancy Name is : `, vacancyName);
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacancieSave);
-        await this.page.locator(this.recruitmentLocators.vacancies.vacancieSave).click({force:true});
+        await this.page.locator(this.recruitmentLocators.vacancies.vacancieSave).click({ force: true });
 
         await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
         await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
@@ -468,11 +468,292 @@ export class RecruitmentPage {
         await this.interactWithTableEditField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, "Vimalraja");
         await this.page.click(this.recruitmentLocators.vacancies.vacancyEditBtn);
         await this.page.waitForSelector(this.recruitmentLocators.candidates.firstName);
-        await this.page.fill(this.recruitmentLocators.candidates.firstName,assertion.assertion.modifiedName);
+        await this.page.fill(this.recruitmentLocators.candidates.firstName, assertion.assertion.modifiedName);
         await this.page.click(this.recruitmentLocators.vacancies.afterModifySave);
 
         await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
         await this.interactWithTableTextField(this.timeLocators.projectInfoDetails.tableSelector, this.timeLocators.projectInfoDetails.headerSelector, this.timeLocators.projectInfoDetails.allRows, this.timeLocators.projectInfoDetails.tableCells, "Madhan");
     }
+
+    async deleteAllRecordsFromTable(tableSelector: string, checkboxSelector: string, deleteSelectedButtonSelector: string, confirmButtonSelector: string) {
+        try {
+            await this.page.waitForSelector(tableSelector);
+
+            const rows = await this.page.locator(tableSelector).all();
+
+            for (let i = 0; i < rows.length; i++) {
+                // Find the delete checkbox within the current row
+                const deleteCheckbox = await rows[i].locator(checkboxSelector);
+
+                if (deleteCheckbox) {
+                    await deleteCheckbox.click();
+
+                    // Click the "Delete Selected" button
+                    await this.page.click(deleteSelectedButtonSelector);
+
+                    // Confirm the deletion
+                    await this.page.click(confirmButtonSelector);
+                    await this.page.waitForTimeout(2000); // Adjust the timeout as needed
+
+                    console.log(`Deleted record ${i + 1}`);
+                } else {
+                    console.log(`Delete checkbox not found in record ${i + 1}`);
+                }
+            }
+
+            console.log('All records deleted');
+        } catch (error) {
+            console.error('An error occurred while deleting records:', error);
+        }
+    }
+
+    async deleteAllRecordsFromTable1(rowSelector, deleteCheckboxSelector, deleteButtonSelector, confirmButtonSelector) {
+        try {
+            await this.page.waitForSelector(rowSelector);
+
+            const rows = await this.page.locator(rowSelector).all();
+
+            for (let i = 0; i < rows.length; i++) {
+                // Find the delete checkbox within the current row
+                const deleteCheckbox = await rows[0].locator(deleteCheckboxSelector);
+
+                if (deleteCheckbox) {
+                    await deleteCheckbox.click();
+
+                    // Click the "Delete Selected" button
+                    await this.page.click(deleteButtonSelector);
+
+                    // Confirm the deletion
+                    await this.page.click(confirmButtonSelector);
+                    // await page.waitForTimeout(2000); // Adjust the timeout as needed
+                    await this.page.reload();
+
+                    console.log(`Deleted record ${i + 1}`);
+                } else {
+                    console.log(`Delete checkbox not found in record ${i + 1}`);
+                }
+            }
+
+            console.log('All records deleted');
+        } catch (error) {
+            console.error('An error occurred while deleting records:', error);
+        }
+    }
+
+    async selectAllCandidates() {
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.click(this.recruitmentLocators.candidates.candidatesTab);
+
+        await this.deleteAllRecordsFromTable1(this.recruitmentLocators.vacancies.tableRow, this.recruitmentLocators.vacancies.checkboxSelector, this.recruitmentLocators.vacancies.deleteSelectedButtonSelector, this.recruitmentLocators.vacancies.confirmButtonSelector);
+
+    }
+
+    async getFirstAndLastRowText(rowSelector) {
+        try {
+          // Wait for the table to load
+          await this.page.waitForSelector(rowSelector);
+          const rows = await this.page.locator(rowSelector).all();
+      
+          if (rows.length > 1) {
+            // Get the first row text
+            const firstRow = await rows[1].innerText();
+      
+            // Get the last row text
+            const lastRow = await rows[rows.length - 1].innerText();
+      
+            console.log('Text from the first row:', firstRow);
+            console.log('Text from the last row:', lastRow);
+          } else {
+            console.log('No rows found in the table.');
+          }
+        } catch (error) {
+          console.error('An error occurred while getting row text:', error);
+        }
+      }
+
+    async sortVacancyListInCandidates() {
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.click(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancySort, this.recruitmentLocators.vacancies.sortDropDown, `Ascending`);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+        await this.page.reload();
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancySort, this.recruitmentLocators.vacancies.sortDropDown, `Descending`);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+
+    }
+
+    async sortCandidateListInCandidates() {
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.click(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.candidateSort, this.recruitmentLocators.vacancies.sortDropDown, `Ascending`);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+        await this.page.reload();
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.candidateSort, this.recruitmentLocators.vacancies.sortDropDown, `Descending`);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+
+    }
+
+    async sortHireManageListInCandidates() {
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.click(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.hireManagerSort, this.recruitmentLocators.vacancies.sortDropDown, `Ascending`);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+        await this.page.reload();
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.hireManagerSort, this.recruitmentLocators.vacancies.sortDropDown, `Descending`);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+
+    }
+
+    async sortDateOfApplicationListInCandidates() {
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.click(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.dateOfApplicationSort, this.recruitmentLocators.vacancies.sortDropDown, `Ascending`);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+        await this.page.reload();
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.dateOfApplicationSort, this.recruitmentLocators.vacancies.sortDropDown, `Descending`);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+
+    }
+
+    async sortStatusListInCandidates() {
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.click(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.statusSort, this.recruitmentLocators.vacancies.sortDropDown, `Ascending`);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+        await this.page.reload();
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.statusSort, this.recruitmentLocators.vacancies.sortDropDown, `Descending`);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+
+    }
+
+    async sortVacancyListInVacancies() {
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancySort, this.recruitmentLocators.vacancies.sortDropDown, `Ascending`);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+        await this.page.reload();
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.vacancySort, this.recruitmentLocators.vacancies.sortDropDown, `Descending`);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+
+    }
+
+    async sortHireManageListInVacancies() {
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.hireManagerSort, this.recruitmentLocators.vacancies.sortDropDown, `Ascending`);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+        await this.page.reload();
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.hireManagerSort, this.recruitmentLocators.vacancies.sortDropDown, `Descending`);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+
+    }
+
+    async sortStatusListInVacancies() {
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.click(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.statusSort, this.recruitmentLocators.vacancies.sortDropDown, `Ascending`);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+        await this.page.reload();
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.statusSort, this.recruitmentLocators.vacancies.sortDropDown, `Descending`);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+
+    }
+
+    async sortJobTitleListInVacancies() {
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.click(this.recruitmentLocators.candidates.candidatesTab);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.jobTitleSort, this.recruitmentLocators.vacancies.sortDropDown, `Ascending`);
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+        await this.page.reload();
+        await this.selectDropDownElements(this.recruitmentLocators.vacancies.jobTitleSort, this.recruitmentLocators.vacancies.sortDropDown, `Descending`);
+        await this.getFirstAndLastRowText(this.recruitmentLocators.vacancies.rowTableText);
+
+    }
+
+    async deleteAllRecordsFromTable2(tableRowSelector: string, tableCheckboxSelector: string, tableDeleteButtonSelector: string, tableConfirmButtonSelector: string) {
+        try {
+          // Wait for the table rows to load
+          await this.page.waitForSelector(tableRowSelector);
+      
+          const rows = await this.page.locator(tableRowSelector).all();
+      
+          for (let i = 0; i < rows.length; i++) {
+            // Find the delete checkbox within the current row
+            const deleteCheckbox = await rows[0].locator(tableCheckboxSelector);
+      
+            if (deleteCheckbox) {
+              await deleteCheckbox.click();
+      
+              // Click the "Delete Selected" button
+              await this.page.waitForSelector(tableDeleteButtonSelector);
+              await this.page.click(tableDeleteButtonSelector);
+      
+              // Confirm the deletion
+              await this.page.waitForSelector(tableConfirmButtonSelector);
+              await this.page.click(tableConfirmButtonSelector);
+            //   await this.page.reload();
+      
+              // You can add further confirmation steps if needed.
+      
+              console.log(`Deleted record ${i + 1}`);
+            } else {
+              console.log(`Delete checkbox not found in record ${i + 1}`);
+            }
+          }
+      
+          console.log('All records deleted');
+        } catch (error) {
+          console.error('An error occurred while deleting records:', error);
+        }
+      }
+
+      async deleteInduvidualRecordInVacancies() {
+        await this.page.waitForSelector(this.recruitmentLocators.candidates.recritmentTab, { timeout: 5000 });
+        await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
+        await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
+        await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
+        // await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.deleteAllRecordsFromTable2(this.recruitmentLocators.vacancies.tableRow,this.recruitmentLocators.vacancies.tableCheckBox,this.recruitmentLocators.vacancies.tableSelectedButtonSelector,this.recruitmentLocators.vacancies.tableconfirmButtonSelector)
+      }
+      
 
 }

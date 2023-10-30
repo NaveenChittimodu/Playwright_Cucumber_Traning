@@ -415,6 +415,93 @@ export class CommonMethods {
         }
       }
 
+      async deleteIndividualRecord(recordSelector: string, deleteButtonSelector: string) {
+        // Ensure that the page has loaded
+        await this.page.waitForSelector(recordSelector);
+      
+        // Locate all records
+        const records = await this.page.locator(recordSelector).all();
+      
+        for (const record of records) {
+          // Find the delete button within the record
+          const deleteButton = await record.locator(deleteButtonSelector);
+          
+          if (deleteButton) {
+            await deleteButton.click(); // Click the delete button
+            // You can add further confirmation steps if needed.
+            return; // Record found and deleted
+          }
+        }
+      
+        console.log('Record not found or delete button not found.');
+      }
+
+      async deleteRowsInTableByCriteria(page: Page, tableSelector: string, headerSelector: string, allRows: string, tableCells: string, cellTextToFind: string, deleteButtonSelector: string) {
+        try {
+            // Wait for the table to load
+            await page.waitForSelector(tableSelector);
+            const table = await page.locator(tableSelector);
+            await page.waitForTimeout(5000);
+            const header = table.locator(headerSelector);
+            console.log(await header.innerText());
+            await page.waitForTimeout(2000);
+    
+            // Get all rows in the table
+            const rows = table.locator(allRows);
+            console.log(`Rows Count: `, await rows.count());
+    
+            for (let i = 0; i < await rows.count(); i++) {
+                const row = rows.nth(i);
+                const cells = row.locator(tableCells);
+    
+                for (let j = 0; j < await cells.count(); j++) {
+                    const cellText = await cells.nth(j).innerText();
+    
+                    if (cellText.includes(cellTextToFind)) {
+                        console.log(`The value "${cellTextToFind}" is found in the cell: ${cellText}`);
+    
+                        // Find and click the delete button within the row
+                        const deleteButton = await row.locator(deleteButtonSelector);
+    
+                        if (deleteButton) {
+                            await deleteButton.click();
+                            await page.waitForTimeout(2000);
+                        }
+                        return; // Found the cell text and deleted the row, so exit the function
+                    }
+                }
+            }
+            console.error(`The value "${cellTextToFind}" is not found in the cell: `);
+        } catch (error) {
+            console.error('An error occurred while interacting with the table:', error);
+            //   this.page.screenshot({ path: 'error.png' });
+        }
+    
+      }
+
+      async deleteAllRecordsFromTable(locatorSelector: string, deleteLocator: Locator) {
+        try {
+          const elements = await this.page.locator(locatorSelector).all();
+          for (let index = 0; index < elements.length; index++) {
+            const name = await elements[index].innerText();
+            console.log(name);
+      
+            // Find the delete button within the current row using the provided deleteLocator
+            const deleteButton = await elements[index].locator(deleteLocator);
+      
+            if (deleteButton) {
+              await deleteButton.click();
+              await this.page.click(``);
+              console.log(`Deleted record: ${name}`);
+              // You can add further confirmation steps if needed.
+            }
+          }
+          console.log('All records deleted');
+        } catch (error) {
+          console.error('An error occurred while deleting records:', error);
+        }
+      }
+
 }
 
 

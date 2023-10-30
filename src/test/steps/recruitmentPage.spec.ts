@@ -117,6 +117,61 @@ When('Verify the user can able to see the modified data and able to see the tota
     await expect(page).toHaveURL(assertion.assertionURL.viewCandidates);
 });
 
+When('Verify the user can able to select all the candiates', async function () {
+    await recruitmentPage.selectAllCandidates();
+    await expect(page).toHaveURL(assertion.assertionURL.viewCandidates);
+});
+
+// When('Verify the user can able to sort a vacancy list data', async function () {
+//     await recruitmentPage.sortVacancyListInCandidates();
+//     await expect(page).toHaveURL(assertion.assertionURL.viewCandidates);
+// });
+
+When('Verify the user can able to sort a candidate list data', async function () {
+    await recruitmentPage.sortCandidateListInCandidates();
+    await expect(page).toHaveURL(assertion.assertionURL.viewCandidates);
+});
+
+When('Verify the user can able to sort a Hiring Manager list data', async function () {
+    await recruitmentPage.sortHireManageListInCandidates();
+    await expect(page).toHaveURL(assertion.assertionURL.viewCandidates);
+});
+
+When('Verify the user can able to sort a Date of Application list data', async function () {
+    await recruitmentPage.sortDateOfApplicationListInCandidates();
+    await expect(page).toHaveURL(assertion.assertionURL.viewCandidates);
+});
+
+When('Verify the user can able to sort a status list data', async function () {
+    await recruitmentPage.sortStatusListInCandidates();
+    await expect(page).toHaveURL(assertion.assertionURL.viewCandidates);
+});
+
+When('Verify the user can able to sort a vacancy list data', async function () {
+    await recruitmentPage.sortVacancyListInVacancies();
+    await expect(page).toHaveURL(assertion.assertionURL.viewJobVacancy);
+});
+
+When('Verify the user can able to sort a Hiring Manager list data in Vacancies', async function () {
+    await recruitmentPage.sortHireManageListInVacancies();
+    await expect(page).toHaveURL(assertion.assertionURL.viewJobVacancy);
+});
+
+When('Verify the user can able to sort a status list data in Vacancies', async function () {
+    await recruitmentPage.sortStatusListInVacancies();
+    await expect(page).toHaveURL(assertion.assertionURL.viewJobVacancy);
+});
+
+When('Verify the user can able to sort a Job Title list data in Vacancies', async function () {
+    await recruitmentPage.sortJobTitleListInVacancies();
+    await expect(page).toHaveURL(assertion.assertionURL.viewJobVacancy);
+});
+
+When('Verify the user can able to delete an individual record in Vacancies', async function () {
+    await recruitmentPage.deleteInduvidualRecordInVacancies();
+    await expect(page).toHaveURL(assertion.assertionURL.viewJobVacancy);
+});
+
 // AfterAll(async () => {
 //     await page.close();
 //     await browser.close();

@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 export class Recruitmentlocators{
     readonly page: Page;
@@ -76,7 +76,26 @@ export class Recruitmentlocators{
             vacancyDropDown:`.oxd-select-dropdown .oxd-select-option`,
             vacancySearch:`//button[text()=' Search ']`,
             vacancyEditBtn:`span.oxd-switch-input`,
-            afterModifySave:`//button[@type='submit']`
+            afterModifySave:`//button[@type='submit']`,
+            vacancySort:`//div[text()='Vacancy']//child::div/i`,
+            candidateSort:`//div[text()='Candidate']//child::div/i`,
+            hireManagerSort:`//div[text()='Hiring Manager']//child::div/i`,
+            dateOfApplicationSort:`//div[text()='Date of Application']//child::div/i`,
+            statusSort:`//div[text()='Status']//child::div/i`,
+            jobTitleSort:`//div[text()='Job Title']//child::div/i`,
+            sortDropDown:`//div[@class='--active oxd-table-header-sort-dropdown']//span[@class='oxd-text oxd-text--span']`,
+            recordFound:`//span[@class='oxd-text oxd-text--span']//parent::div`,
+            tableRow:`'.oxd-table-body .oxd-table-row'`,
+            tableRowSelector:`'.oxd-table-body .oxd-table-row'`,
+            rowTableText:`.oxd-table-row`,
+            checkboxSelector:`.oxd-icon.bi-check`,
+            tableCheckBox:`.oxd-icon.bi-check:nth-of-type(1)`,
+            tableCheckboxSelector:`.oxd-icon.bi-check:nth-of-type(1)`,
+            tableSelectedButtonSelector:`//button[text()=' Delete Selected ']`,
+            tableDeleteButtonSelector:`//button[text()=' Delete Selected ']`,
+            tableconfirmButtonSelector:`//button[text()=' Yes, Delete ']`,
+            tableConfirmButtonSelector:`//button[text()=' Yes, Delete ']`
+
         };
 
         this.shortlistLocators = {
