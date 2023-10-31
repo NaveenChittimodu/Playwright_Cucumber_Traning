@@ -154,6 +154,7 @@ export class LeavePageLocators {
     readonly viewListBackComponent:string;
     readonly commentsTextBox:string;
     readonly viewPIMPage:string;
+    readonly cancelLeave:string;
 
 
 
@@ -312,6 +313,7 @@ export class LeavePageLocators {
         this.viewListBackComponent="//button[text()=' Back ']";
         this.commentsTextBox="//textarea[@class='oxd-textarea oxd-textarea--active oxd-textarea--resize-vertical']";
         this.viewPIMPage="//p[text()='View PIM Info']";
+        this.cancelLeave="//p[text()='Cancel Leave']";
 
 
 

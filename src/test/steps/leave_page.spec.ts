@@ -429,6 +429,13 @@ Then('user is able to see navigation components in the list page', async functio
     console.log("user is able to see navigation components in the list page")
 
 });
+Then('user is able to perform Cancel Leave functionality in the list page', async function () {
+    await leavePage.performCancelLeave();
+    console.log("user is able to see navigation components in the list page")
+
+});
+
+
 
 
 

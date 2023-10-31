@@ -102,6 +102,7 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to perform add comments in the list page
         Then user is able to perform view PIM info functionality in the list page
         Then user is able to see navigation components in the list page
+        Then user is able to perform Cancel Leave functionality in the list page
 
 
 
