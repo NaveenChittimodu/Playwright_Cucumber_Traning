@@ -131,4 +131,13 @@ export class AdminPage {
         await this.page.locator(this.adminloctators.save).click();
     }
 
+    async organization (){
+         await this.page.locator(this.adminloctators.organization).isVisible();
+         await this.page.locator(this.adminloctators.organization).click()
+    }
+    async generalinformation (){
+         await this.page.locator(this.adminloctators.generalinformation).isVisible();
+         await this.page.locator(this.adminloctators.generalinformation).click()
+    }
+
 }

@@ -30,6 +30,8 @@ export class Adminlocators{
     readonly WorkShiftFrom : string
     readonly WorkShiftTo : string
     readonly assignedemployes : string
+    readonly organization :string
+    readonly generalinformation : string
 
 
    
@@ -71,6 +73,11 @@ export class Adminlocators{
         this.WorkShiftFrom = `(//label[text()='From']/following::input)[1]`
         this.WorkShiftTo = `(//label[text()='To']/following::input)[1]`
         this.assignedemployes = `//label[text()='Assigned Employees']/following::input`
+
+
+        this.organization = `//span[text() = 'Organization ']`
+        this.generalinformation = `//a[text() = 'General Information']`
+
         
         
     }

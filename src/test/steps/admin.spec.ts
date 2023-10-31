@@ -46,16 +46,22 @@ When('User click on admin', async function () {
   // await adminPage.userName();
   // await adminPage.password();
   // await adminPage.confirmPassword();
-  await adminPage.clickJob();
-  await adminPage.clickJobTitles();
-  await adminPage.clickJob();
-  await adminPage.payGrades();
-  await adminPage.clickJob();
-  await adminPage.employeeStatus();
-  await adminPage.clickJob();
-  await adminPage.jobcategrories();
-  await adminPage.clickJob();
-  await adminPage.workShifts();
+  //========================================
+  // await adminPage.clickJob();
+  // await adminPage.clickJobTitles();
+  // await adminPage.clickJob();
+  // await adminPage.payGrades();
+  // await adminPage.clickJob();
+  // await adminPage.employeeStatus();
+  // await adminPage.clickJob();
+  // await adminPage.jobcategrories();
+  // await adminPage.clickJob();
+  // await adminPage.workShifts();
+
+  //==================
+
+  await adminPage.organization();
+  await adminPage.generalinformation();
 });
 
 
