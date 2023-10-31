@@ -298,6 +298,38 @@ export  class Pimmenu {
         await this.page.locator(this.pimlocators.reports).click();
         await this.page.locator(this.pimlocators.reportName).fill('PIM Sample Report');
         await this.page.locator(this.pimlocators.selectReportName).click();
-        
+        await this.page.locator(this.pimlocators.employeeReports_Search).click();
+        const recordSearch = await this.page.locator(this.pimlocators.recordSearchReport).textContent();
+        console.log("Report record",recordSearch);
+        await this.page.locator(this.pimlocators.editReport).click();
+        await this.page.locator(this.pimlocators.selectionCriteria).click();
+        await this.page.locator(this.pimlocators.select_SelectionCriteria).click();
+        await this.page.locator(this.pimlocators.selectDisplayFieldGroup).click()
+        await this.page.locator(this.pimlocators.select_selectDisplayFieldGroup).click()
+        await this.page.locator(this.pimlocators.selectDisplayField).click()
+        await this.page.locator(this.pimlocators.select_selectDisplayField).click()
+        await this.page.locator(this.pimlocators.includeHeader_off).click()
+        await this.page.locator(this.pimlocators.includeHeader_off).click()
+        await this.page.locator(this.pimlocators.cancel_EditReport).click()
+    }
+
+    async addreports() {
+        await (await this.page.waitForSelector(this.pimlocators.employeeReportsAdd)).isVisible();
+        await this.page.locator(this.pimlocators.employeeReportsAdd).click();
+        await this.page.locator(this.pimlocators.employeeReportsAdd_ReportName).fill("yaswanth");
+        await this.page.locator(this.pimlocators.employeeReportsAdd_SelectionCriteria).click();
+        await this.page.locator(this.pimlocators.employeeReportsAdd_select_SelectionCriteria).click();
+        await this.page.locator(this.pimlocators.employeeReportsAdd_SelectDisplayFieldGroup).click();
+        await this.page.locator(this.pimlocators.employeeReportsAdd_select_SelectDisplayFieldGroup).click();
+        await this.page.locator(this.pimlocators.employeeReportsAdd_SelectDisplayField).click();
+        await this.page.locator(this.pimlocators.employeeReportsAdd_select_SelectDisplayField).click();
+        await this.page.locator(this.pimlocators.employeeReportsAdd_SelectDisplayField_plus).click();
+        await this.page.locator(this.pimlocators.employeeReportsAdd_IncludeHeader_on).click();
+        await this.page.locator(this.pimlocators.employeeReportsAdd_save).click();
+        await this.page.locator(this.pimlocators.reports).click();
+        let recordData = await (await this.page.waitForSelector(this.pimlocators.employeeReports_data)).isVisible();
+        console.log("record Validation",recordData)
+        await this.page.locator(this.pimlocators.employeeReports_RecordDelete).click();
+        await this.page.locator(this.pimlocators.employeeReports_RecordDeleteYes).click();
     }
 }

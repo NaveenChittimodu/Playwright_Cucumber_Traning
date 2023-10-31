@@ -86,10 +86,31 @@ export class Pimlocators{
     readonly reportName :string;
     readonly selectReportName :string;
     readonly employeeReports_Search :string;
-    
-
-    
-   
+    readonly recordSearchReport :string;
+    readonly editReport :string;
+    readonly selectionCriteria :string;
+    readonly select_SelectionCriteria :string;
+    readonly selectDisplayFieldGroup :string;
+    readonly select_selectDisplayFieldGroup :string;
+    readonly selectDisplayField :string;
+    readonly select_selectDisplayField :string;
+    readonly includeHeader_off :string;
+    readonly includeHeader_on :string;
+    readonly cancel_EditReport :string;
+    readonly employeeReportsAdd :string;
+    readonly employeeReportsAdd_ReportName :string;
+    readonly employeeReportsAdd_SelectionCriteria :string;
+    readonly employeeReportsAdd_select_SelectionCriteria :string;
+    readonly employeeReportsAdd_SelectDisplayFieldGroup :string;
+    readonly employeeReportsAdd_select_SelectDisplayFieldGroup :string;
+    readonly employeeReportsAdd_SelectDisplayField :string;
+    readonly employeeReportsAdd_select_SelectDisplayField :string;
+    readonly employeeReportsAdd_SelectDisplayField_plus :string;
+    readonly employeeReportsAdd_IncludeHeader_on :string;
+    readonly employeeReportsAdd_save :string;
+    readonly employeeReports_data :string;
+    readonly employeeReports_RecordDelete :string;
+    readonly employeeReports_RecordDeleteYes :string;
    
    
     constructor(page: Page){
@@ -183,8 +204,35 @@ export class Pimlocators{
         this.reports="//a[contains(text(),'Reports')]";
         this.reportName ="input[placeholder='Type for hints...']";
         this.selectReportName ="//span[text()='PIM Sample Report']";
-        this.employeeReports_Search ="//button[text()=' Search ']"
-       
+        this.employeeReports_Search ="//button[text()=' Search ']";
+        this.recordSearchReport ="//div[text()='PIM Sample Report']";
+        this.editReport =" //i[@class='oxd-icon bi-pencil-fill']";
+        this.selectionCriteria ="//label[text()='Selection Criteria']/following::i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'][1]";
+        this.select_SelectionCriteria ="//span[text()='Employee Name']";
+        this.selectDisplayFieldGroup ="//label[text()='Selection Criteria']/following::i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'][3]";
+        this.select_selectDisplayFieldGroup ="//span[text()='Emergency Contacts']";
+        this.selectDisplayField ="//label[text()='Selection Criteria']/following::i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'][4]";
+        this.select_selectDisplayField ="//span[text()='ecSeqNo']";
+        this.includeHeader_off ="(//span[contains(@class,'oxd-switch-input oxd-switch-input--active')])[1]";
+        this.includeHeader_on= "span.oxd-switch-input.oxd-switch-input--focus.--label-right";
+        this.cancel_EditReport="//button[text()=' Cancel ']";
+
+        this.employeeReportsAdd="//button[text()=' Add ']";
+        this.employeeReportsAdd_ReportName ="//label[text()='Report Name']/following::input";
+        this.employeeReportsAdd_SelectionCriteria="(//div[@class='oxd-select-text--after']//i)[1]";
+        this.employeeReportsAdd_select_SelectionCriteria="//span[text()='Employee Name']";
+        this.employeeReportsAdd_SelectDisplayFieldGroup="(//div[text()='-- Select --'])[1]";
+        this.employeeReportsAdd_select_SelectDisplayFieldGroup= "//span[text()='Personal']";
+        this.employeeReportsAdd_SelectDisplayField ="//div[text()='-- Select --']";
+        this.employeeReportsAdd_select_SelectDisplayField ="//span[text()='Employee Last Name']";
+        this.employeeReportsAdd_SelectDisplayField_plus="//label[text()='Select Display Field']/following::i[@class='oxd-icon bi-plus']";
+        this.employeeReportsAdd_IncludeHeader_on="//div[@class='oxd-switch-wrapper']//label[1]";
+        this.employeeReportsAdd_save="//button[text()=' Save ']";
+        this.employeeReports_data="//div[text()='yaswanth']";
+        this.employeeReports_RecordDelete="//div[text()='yaswanth']/following::i[@class='oxd-icon bi-trash']";
+        this.employeeReports_RecordDeleteYes="//button[text()=' Yes, Delete ']";
+
+
 
     }
 }

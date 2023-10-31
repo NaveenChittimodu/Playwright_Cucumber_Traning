@@ -35,13 +35,11 @@ Given('User Login to OrangeHrm application', async function () {
 When('User click on Directory menu', async function () {
     await directorymenu.clickDirectory();
     console.log("test1")
-    // await page.waitForTimeout(3000);
 });
 
 Then('User fill the Directory data', async function () {
     await directorymenu.fillDirectorydata();
     console.log("test2")
-    // await page.waitForTimeout(3000);
 });
 
 AfterAll(async () => {

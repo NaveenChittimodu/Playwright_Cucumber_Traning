@@ -37,7 +37,6 @@ When('User click on Buzz menu', async function () {
     console.log("test1")
     await buzzmenu.sharephoto();
     console.log("test2")
-    // await page.waitForTimeout(3000);
 });
 
 

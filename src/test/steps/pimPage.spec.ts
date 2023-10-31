@@ -35,67 +35,56 @@ Given('User Login to OrangeHrm application', async function () {
 When('User click on PIM menu', async function () {
     await pimmenu.clickpim();
     console.log("test1")
-    // await page.waitForTimeout(3000);
 });
 
 Then('User click on Add Employee menu', async function () {
     await pimmenu.clickaddemployee();
     console.log("test2")
-    // await page.waitForTimeout(3000);
 });
 
 Then('User enter the First Name', async function () {
     await pimmenu.fillPIMfirstname()
     console.log("test3");
-    // await page.waitForTimeout(3000);
 });
 
 Then('User enter the Middle Name', async function () {
     await pimmenu.fillPIMmiddlename()
     console.log("test4")
-    // await page.waitForTimeout(3000);
 });
 
 Then('User enter the Last Name', async function () {
     await pimmenu.fillPIMlastname()
     console.log("test5")
-    // await page.waitForTimeout(3000);
 });
 
 Then('User enter the Employee Id', async function () {
     await pimmenu.fillEmployeeid()
     console.log("test6")
-    // await page.waitForTimeout(3000);
 });
 
 Then('User click on Save button', async function () {
     await pimmenu.clickSavebutton();
     console.log("test7")
-    // await page.waitForTimeout(3000);
 });
 
 Then('User enter the Other Id', async function () {
     await pimmenu.fillOtherId()
-    console.log("test8")
-    // await page.waitForTimeout(3000);
+    console.log("test8")    
 });
 
 Then('User enter the driversLicenseNumber',async function () {
     await pimmenu.filldriverslicensenumber()
     console.log("test9")
-    await page.waitForTimeout(3000);
 }); 
 
 Then('User enter the licenseExpiryDate', async function () {
     await pimmenu.filllicenseexpiryDate()
     console.log("test10")
-    // await page.waitForTimeout(3000);
 });
 
 Then('User enter the Snn Number', async function () {
     await pimmenu.fillSnnNumber()
     console.log("test11")
-    // await page.waitForTimeout(3000);
 });
 
 Then('User enter the Sin Number', async function () {
@@ -106,13 +95,11 @@ Then('User enter the Sin Number', async function () {
 Then('User selects nationality as Indian', async function () {
     await pimmenu.selectdropdown_Nationality()
     console.log("test13")
-    await page.waitForTimeout(3000);
 });
 
 Then('User selects Marital Status as Single', async function () {
     await pimmenu.selectdropdown_Marital_Status()
     console.log("test14")
-    await page.waitForTimeout(3000);
 });
 
 Then('User click on Male Radio button',async function () {
@@ -123,183 +110,161 @@ Then('User click on Male Radio button',async function () {
 Then('User click on RequiredSave button', async function () {
     await pimmenu.clickrequiredSavebutton();
     console.log("test16")
-    // await page.waitForTimeout(3000); 
 });
 
 Then('User selects Blood type as A+', async function () {
     await pimmenu.selectdropdownBloodtype()
     console.log("test17")
-    await page.waitForTimeout(3000); 
 });
 
 Then('User click on CustonSave button', async function () {
     await pimmenu.clickcustomSavebutton();
     console.log("test18")
-    // await page.waitForTimeout(3000); 
 });
 
 Then('User click on Add attachment and upload file',async function () {
     await pimmenu.clickattachmentAddandUploadfile();
     console.log("test19")
-    // await page.waitForTimeout(3000);
 })
 
 Then('User enter the Attachment Comment', async function () {
     await pimmenu.fillAttacmentComment()
     console.log("test20")
-    // await page.waitForTimeout(3000);
 });
 
 Then('User click on Add attachment Cancel Button',async function () {
     await pimmenu.clickAttachmentSave();
     console.log("test21")
-    // await page.waitForTimeout(3000);
 })
 
 Then('User click on Add reattachment and upload file',async function () {
     await pimmenu.clickattachmentAddandUploadfile();
     console.log("test22")
-    // await page.waitForTimeout(3000);
 })
 
 Then('User enter the Attachment reComment', async function () {
     await pimmenu.fillAttacmentComment()
     console.log("test23")
-    // await page.waitForTimeout(3000);
 });
 
 Then('User click on Add attachment Save Button',async function () {
     await pimmenu.clickAttachmentSave();
     console.log("test24")
-    // await page.waitForTimeout(3000);
 })
 
 Then('User click on Contct Details',async function () {
     await pimmenu.clickContactDetails();
-    console.log("test26")
-    // await page.waitForTimeout(3000);
+    console.log("test25")
 })
 
 Then('User enter the street1 Contct Details',async function () {
     await pimmenu.fillstreet1()
-    console.log("test27")
-    await page.waitForTimeout(3000);
+    console.log("test26")
 })
 
 Then('User enter the street2 Contct Details', async function () {
     await pimmenu.fillstreet2()
-    console.log("test28")
-    await page.waitForTimeout(3000);
+    console.log("test27")
 });
 
 Then('User enter the city Contct Details', async function () {
     await pimmenu.fillcity()
-    console.log("test29")
-    await page.waitForTimeout(3000);
- });
+    console.log("test28")
+});
 
 Then('User enter the HomeNO Contct Details', async function () {
     await pimmenu.fillHomeNO()
-    console.log("test30")
-    await page.waitForTimeout(3000);
+    console.log("test29")
 });
 
 Then('User enter the otherEmail Contct Details', async function () {
     await pimmenu.fillotherEmail()
-    console.log("test31")
-    await page.waitForTimeout(3000);
-
+    console.log("test30")
 });
 
 Then('User click on Contct Details Save Button', async function () {
     await pimmenu.clickContact_Details_Save()
-    console.log("test32")
+    console.log("test31")
 });
 
 Then('User click on Emergency Contacts',async function () {
     await pimmenu.clickEmergencyContacts();
-    console.log("test33")
-    // await page.waitForTimeout(3000);
+    console.log("test32")
+    
 })
 
 Then('User click on Add Assigned Emergency Contacts',async function () {
     await pimmenu.clickADDEmergencyContacts();
-    console.log("test34")
-    // await page.waitForTimeout(3000);
+    console.log("test33")
+    
 })
 
 Then('User enter the name in Assigned Emergency Contacts', async function () {
     await pimmenu.fillname_AssignedEmergencyContacts()
-    console.log("test35")
-    // await page.waitForTimeout(3000);
+    console.log("test34")
+    
 });
 
 Then('User enter the relationship in Assigned Emergency Contacts', async function () {
     await pimmenu.fillrelationship_AssignedEmergencyContacts()
-    console.log("test36")
-    // await page.waitForTimeout(3000);
+    console.log("test35")
+    
 });
 
 Then('User enter the Home Telephone in Assigned Emergency Contacts', async function () {
     await pimmenu.fillHomeTelephone_AssignedEmergencyContacts()
-    console.log("test37")
+    console.log("test36")
 });
 
 Then('User enter the mobile in Assigned Emergency Contacts', async function () {
     await pimmenu.fillmobile_AssignedEmergencyContacts()
-    console.log("test38")
-    // await page.waitForTimeout(3000);
+    console.log("test37")
+    
 });
 
 Then('User click on save Assigned Emergency Contacts',async function () {
     await pimmenu.clickSAVEEmergencyContacts();
-    console.log("test39")
-    // await page.waitForTimeout(3000);
+    console.log("test38")
 })
 
 Then('User click on Dependents',async function () {
     await pimmenu.clickDependents();
-    console.log("test40")
-    // await page.waitForTimeout(3000);
+    console.log("test39")
 })
 
 Then('User click on Job',async function () {
     await pimmenu.clickJob();
-    console.log("test41")
-    // await page.waitForTimeout(3000);
+    console.log("test40")
 })
 
 Then('User click on Report to',async function () {
     await pimmenu.clickReport_to();
-    console.log("test42")
-    // await page.waitForTimeout(3000);
+    console.log("test41")
 })
 
 Then('User fill the Employee Information',async function () {
     await pimmenu.fillEmployee_Information();
-    console.log("test43")
-    // await page.waitForTimeout(3000);
+    console.log("test42")
 })
 
 Then('User delete the record',async function () {
     await pimmenu.Deleterecord();
-    await page.waitForTimeout(3000);
-    console.log("test44")
-    await page.waitForTimeout(3000);
+    console.log("test43")
+
 })
 
 Then('User fill the Reports',async function () {
     await pimmenu.fillreports();
-    await page.waitForTimeout(3000);
     console.log("test44")
-    await page.waitForTimeout(3000);
+    await pimmenu.addreports();
+    console.log("test45")
 })
 
 
-// AfterAll(async () => {
+AfterAll(async () => {
 
-//     await page.close();
-//     await browser.close();
+     await page.close();
+     await browser.close();
 
 
-// })
+})
