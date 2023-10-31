@@ -39,8 +39,19 @@ When('User click on Maintenance menu',async function(){
 
     await maintenance.verifymenu();
     console.log("menu verified passed");
+
+    await maintenance.dropdown();
+    console.log("drop down success");
     
 
 
+});
+
+
+Then('User cilck on access records',async function(){
+
+    await maintenance.accessreords();
+    console.log("accessreords success");
+    
 });
 

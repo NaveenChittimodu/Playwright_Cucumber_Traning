@@ -9,7 +9,17 @@ export class MaintenancerdLocator{
     readonly puremployeerecords:any;
     readonly typeforhints:any;
     readonly searchbtn:any;
- 
+    readonly dropdown:any;
+    readonly candidaterec:any;
+    readonly candidatesearchbtn:any;
+    readonly associatemanager:any;
+    readonly searchbtncandidate:any;
+    readonly record:any;
+    readonly purgeall:any;
+    readonly yesbtn:any;
+
+    readonly accessrecords:any;
+    readonly searchrecords:any;
 
   
    
@@ -23,6 +33,16 @@ export class MaintenancerdLocator{
         this.puremployeerecords = "//h6[text()='Purge Employee Records']";
         this.typeforhints ="//input[@placeholder='Type for hints...']";
         this.searchbtn = "//button[text()=' Search ']";
+        this.dropdown = "//i[@class='oxd-icon bi-chevron-down']";
+        this.candidaterec ="//a[text()='Candidate Records']";
+        this.candidatesearchbtn = "//input[@placeholder='Type for hints...']";
+        this.associatemanager = "//span[text()='Senior QA Lead']";
+        this.searchbtncandidate = "//button[text()=' Search ']";
+        this.record = "//span[@class='oxd-text oxd-text--span']";
+        this.purgeall = "//button[text()=' Purge All ']";
+        this.yesbtn = "//button[text()=' Yes, Purge ']";
+        this.accessrecords = "//a[text()='Access Records']";
+        this.searchrecords = "//div[@class='oxd-autocomplete-wrapper']";
 
        
       

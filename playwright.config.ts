@@ -17,7 +17,8 @@ export default defineConfig({
     // navigationTimeout: Number.parseInt(process.env.NAVIGATION_TIMEOUT, 10) * timeInMin,
     ignoreHTTPSErrors: true,
     screenshot:"on",
-    trace : "on"
+    trace : "on",
+    
 },
 
 

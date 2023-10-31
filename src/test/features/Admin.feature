@@ -3,6 +3,6 @@ Feature: Fill the data in pim
   Background:
     Given User Login to OrangeHrm application
 
-    Scenario:
-    When User click on Maintenance menu
-    Then User cilck on access records
+  Scenario:
+    When User click on Admin menu
+    Then User click on the time and work
