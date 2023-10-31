@@ -1,4 +1,4 @@
-Feature: Fill the data in pim
+Feature: Fill the data in directory
 
   Background:
     Given User Login to OrangeHrm application

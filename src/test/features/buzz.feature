@@ -1,4 +1,4 @@
-Feature: Fill the data in pim
+Feature: Fill the data in buzz
 
   Background:
     Given User Login to OrangeHrm application
