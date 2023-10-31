@@ -5,7 +5,7 @@
         "viewJobVacancy":"https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/viewJobVacancy",
         "addJobVacancy":"https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addJobVacancy",
         "viewMyTimeSheet" : "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet",
-        "viewMyTimeSheetDate": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet?startDate=2023-10-23",
+        "viewMyTimeSheetDate": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewMyTimesheet?startDate=2023-10-30",
         "viewEmployeeTimeSheet": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewEmployeeTimesheet",
         "viewProject" : "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewProjects",
         "viewCustomer" :"https://opensource-demo.orangehrmlive.com/web/index.php/time/viewCustomers",
@@ -13,7 +13,10 @@
         "displayEmployeeReportCreteria":"https://opensource-demo.orangehrmlive.com/web/index.php/time/displayEmployeeReportCriteria",
         "displayAttendanceSummaryReportCriteria":"https://opensource-demo.orangehrmlive.com/web/index.php/time/displayAttendanceSummaryReportCriteria",
         "configure" : "https://opensource-demo.orangehrmlive.com/web/index.php/attendance/configure",
-        "viewMyAttendanceRecord":"https://opensource-demo.orangehrmlive.com/web/index.php/attendance/viewMyAttendanceRecord"
+        "viewMyAttendanceRecord":"https://opensource-demo.orangehrmlive.com/web/index.php/attendance/viewMyAttendanceRecord",
+        "viewTimeSheetEmployee":"https://opensource-demo.orangehrmlive.com/web/index.php/time/viewTimesheet/employeeId/7",
+        "punchIn":"https://opensource-demo.orangehrmlive.com/web/index.php/attendance/punchIn",
+        "punchOut":"https://opensource-demo.orangehrmlive.com/web/index.php/attendance/punchOut"
     },
     "assertion": {
         "invalidCredentials": "Invalid credentials",
@@ -96,17 +99,23 @@
         "reportEmployeeName" : "Odis  Adalwin",
         "reportProjectName": "FreeWave Technologies",
         "reportActivityName": "Bug Fixes",
-        "reportJobTitle": "accountant",
+        "reportJobTitle": "Account Assistant",
         "reportSubUnit": "Administration",
         "reportEmployeeStatus": "Freelance",
-        "employeeName":"Haneen M Ibrahem",
-        "todayDate": "2023-10-25",
+        "employeeName":"Ravi",
+        "todayDate": "2023-10-31",
         "hiringManage": "Ravi M",
         "totalOpening": "10",
         "description":"QA Engineer",
         "role" : "Chief Technical Officer",
         "vacancy": "QA Lead",
-        "modifiedName" : "vimalraja"
+        "modifiedName" : "vimalraja",
+        "editTimeSheetProject" : "A",
+        "editTimeSheetActivityDropDown" : "Bug Fixes",
+        "loginUserName": "JorrJorr",
+        "punchDate": "2023-10-19",
+        "punchTime":"07:23 PM",
+        "punchComments": "Test Engineer"
 
     }
 }

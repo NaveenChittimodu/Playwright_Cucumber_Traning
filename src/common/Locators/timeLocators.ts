@@ -53,7 +53,9 @@ export class TimeLocators{
         timeSheetEmpNameSearch:`//input[@placeholder='Type for hints...']`,
         timeSheetEmpOdis:`//span[text()='Odis  Adalwin']`,
         timeSheetViewBtn:`//p[text()=' * Required']/following-sibling::button`,
-        noTimeSheetFound:`//p[text()='No Timesheets Found']`
+        noTimeSheetFound:`//p[text()='No Timesheets Found']`,
+        timeSheetNameSearchDropDown:`.oxd-autocomplete-dropdown .oxd-autocomplete-option`,
+        loginUserName : `p.oxd-userdropdown-name`
     };
     this.attendanceDetails = {
         attendeanceTitle: `//h5[text()='My Attendance Records']`,
@@ -69,7 +71,7 @@ export class TimeLocators{
         punchedOutDate:`//label[text()='Date']//parent::div//following-sibling::div//input`,
         punchedOutTime:`//label[text()='Time']//parent::div//following-sibling::div`,
         punchOutComments:`//label[text()='Note']//parent::div//following-sibling::div`,
-        punchOutBtn:`//button[contains(@class,'oxd-button oxd-button--medium')]`,
+        punchOutBtn:`//button[text()=' Out ']`,
         employeeTitle:`//h5[text()='Employee Attendance Records']`,
         employeeName:`//label[text()='Employee Name']//parent::div//following-sibling::div//input`,
         employeeDate:`//label[text()='Date']//parent::div//following-sibling::div//input`,
@@ -123,7 +125,7 @@ export class TimeLocators{
         projectsSearch:`//button[text()=' Reset ']/following-sibling::button`,
         projectsAddBtn:`//button[text()=' Add ']`,
         addProjectsTitle:`//h6[text()='Add Project']`,
-        addProjectsName:`//label[text()='Project Name']//parent::div//following-sibling::div//input`,
+        addProjectsName:`//label[text()='Name']//parent::div//following-sibling::div//input`,
         addProjectsCustomerName:`//label[text()='Customer Name']//parent::div//following-sibling::div//input`,
         addProjectsDescription:`//label[text()='Description']//parent::div//following-sibling::div//textarea`,
         addProjectsAdmin:`//label[text()='Project Admin']//parent::div//following-sibling::div//input`,

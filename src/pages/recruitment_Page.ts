@@ -709,27 +709,27 @@ export class RecruitmentPage {
 
     }
 
-    async deleteAllRecordsFromTable2(tableRowSelector: string, tableCheckboxSelector: string, tableDeleteButtonSelector: string, tableConfirmButtonSelector: string) {
+    async deleteAllRecordsFromTable2(rowSelector: string, checkboxSelector: string, deleteButtonSelector: string, confirmButtonSelector: string) {
         try {
           // Wait for the table rows to load
-          await this.page.waitForSelector(tableRowSelector);
+          await this.page.waitForSelector(rowSelector);
       
-          const rows = await this.page.locator(tableRowSelector).all();
+          const rows = await this.page.locator(rowSelector).all();
       
           for (let i = 0; i < rows.length; i++) {
             // Find the delete checkbox within the current row
-            const deleteCheckbox = await rows[0].locator(tableCheckboxSelector);
+            const deleteCheckbox = await rows[0].locator(checkboxSelector);
       
             if (deleteCheckbox) {
               await deleteCheckbox.click();
       
               // Click the "Delete Selected" button
-              await this.page.waitForSelector(tableDeleteButtonSelector);
-              await this.page.click(tableDeleteButtonSelector);
+              await this.page.waitForSelector(deleteButtonSelector);
+              await this.page.click(deleteButtonSelector);
       
               // Confirm the deletion
-              await this.page.waitForSelector(tableConfirmButtonSelector);
-              await this.page.click(tableConfirmButtonSelector);
+              await this.page.waitForSelector(confirmButtonSelector);
+              await this.page.click(confirmButtonSelector);
             //   await this.page.reload();
       
               // You can add further confirmation steps if needed.
@@ -743,6 +743,9 @@ export class RecruitmentPage {
           console.log('All records deleted');
         } catch (error) {
           console.error('An error occurred while deleting records:', error);
+
+        //   const toastMessage = `Error: ${error.this.getToastMessageNew}`;
+        //   console.log(toastMessage);
         }
       }
 
@@ -751,7 +754,7 @@ export class RecruitmentPage {
         await this.page.locator(this.recruitmentLocators.candidates.recritmentTab).click();
         await this.page.waitForSelector(this.recruitmentLocators.vacancies.vacanciesTab);
         await this.page.click(this.recruitmentLocators.vacancies.vacanciesTab);
-        // await this.page.waitForSelector(this.recruitmentLocators.vacancies.recordFound);
+        await this.page.waitForSelector(`.oxd-table-body .oxd-table-row`);
         await this.deleteAllRecordsFromTable2(this.recruitmentLocators.vacancies.tableRow,this.recruitmentLocators.vacancies.tableCheckBox,this.recruitmentLocators.vacancies.tableSelectedButtonSelector,this.recruitmentLocators.vacancies.tableconfirmButtonSelector)
       }
       

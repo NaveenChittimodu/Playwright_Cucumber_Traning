@@ -6,6 +6,7 @@ import ENV from "../../../src/utils/env";
 import { TimeLocators } from "../../common/Locators/timeLocators";
 import { TimePage } from "../../pages/time_page";
 import * as assertion from "../../testData/json/assertion.json";
+import { MyInfoLocators } from "../../common/Locators/myInfoLocators";
 
 
 let page: Page;
@@ -14,6 +15,7 @@ let loginpage: LoginPage;
 let commonMethods: CommonMethods
 let timeLocators: TimeLocators;
 let timePage: TimePage;
+let myInfoLocators: MyInfoLocators;
 
 setDefaultTimeout(60 * 1000 * 2)
 
@@ -23,6 +25,8 @@ BeforeAll(async () => {
   loginpage = new LoginPage(page);
   timeLocators = new TimeLocators(page);
   timePage = new TimePage(page);
+  commonMethods = new CommonMethods(page);
+  myInfoLocators = new MyInfoLocators(page);
 
 });
 
@@ -44,31 +48,27 @@ When('Verify the Timesheet period should be Current week date', async function (
 When('Verify the Edit Timesheet after clicking cancel button', async function () {
     await timePage.timeSheetEditCancel();
     expect(page.url()).toBe(assertion.assertionURL.viewMyTimeSheetDate);
-    const toastMsg = await timePage.getToastMessageNew(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
-    await expect(toastMsg).toBe("No Records Found");
-    await page.waitForTimeout(5000);
 });
 
 When('Verify the Edit Timesheet after clicking Reset button', async function () {
-    await timePage.timeSheetEditCancel();
-    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/editTimesheet/263");
+    await timePage.timeSheetEditReset();
+    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/editTimesheet/262");
 
 });
 
 When('Verify the Edit Timesheet and save the timesheet', async function () {
     await timePage.timeSheetEditSave();
-    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/editTimesheet/263");
-    const toastMsg = await timePage.getToastMessageNew(this.myInfoLocators.contactDetails.contactDetailsToastMsg);
+    expect(page.url()).toBe("https://opensource-demo.orangehrmlive.com/web/index.php/time/editTimesheet/262");
+    const toastMsg = await commonMethods.getToastMessageNew(myInfoLocators.contactDetails.contactDetailsToastMsg);
     await expect(toastMsg).toBe("Successfully Saved");
-    await page.waitForTimeout(5000);
 });
 
 When('Verify the user is able to search and view the Employee timesheet', async function () {
     await timePage.timeSheetEmployeeSearch();
-    const noSheetFount = await timePage.getTextFromElement(timeLocators.timeSheetDetails.noTimeSheetFound);
-    console.log(noSheetFount);
-    expect(noSheetFount).toBe("No Timesheets Found");
-    
+    expect(page.url()).toBe(assertion.assertionURL.viewTimeSheetEmployee);
+    const userNameText = await page.locator(timeLocators.timeSheetDetails.loginUserName).innerText();
+    console.log(userNameText);
+    expect(userNameText).toContain(assertion.assertion.loginUserName);
 });
 
 When('Verify the user is able to search and view the My Attendance Recods', async function () {
@@ -78,10 +78,9 @@ When('Verify the user is able to search and view the My Attendance Recods', asyn
 
 When('Verify the user is able to fill the Punch In and Punch Out details', async function () {
     await timePage.attendancePunchInOut();
-    // const noSheetFount = await timePage.getTextFromElement(timeLocators.attendanceDetails.noRecordsFound);
-    // console.log(noSheetFount);
-    // expect(noSheetFount).toBe("No Records Found");
-    
+    await expect(page.url()).toBe(assertion.assertionURL.punchOut);
+    const punchOutToastMsg = await commonMethods.getToastMessageNew(myInfoLocators.contactDetails.contactDetailsToastMsg);
+    await expect(punchOutToastMsg).toBe("Successfully Saved");
 });
 
 When('Verify the user is able to search and retrieve Employee Attendance Records', async function () {
