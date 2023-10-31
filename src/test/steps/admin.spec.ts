@@ -40,23 +40,23 @@ Given('User Login to OrangeHrm application', async function () {
 When('User click on admin', async function () {
   await adminPage.clickAdmin();
   await adminPage.adminAddBtn();
-  // await adminPage.adminUserSelect();
-  // await adminPage.adminStatusSelect();
-  // await adminPage.employeeName();
-  // await adminPage.userName();
-  // await adminPage.password();
-  // await adminPage.confirmPassword();
+  await adminPage.adminUserSelect();
+  await adminPage.adminStatusSelect();
+  await adminPage.employeeName();
+  await adminPage.userName();
+  await adminPage.password();
+  await adminPage.confirmPassword();
   //========================================
-  // await adminPage.clickJob();
-  // await adminPage.clickJobTitles();
-  // await adminPage.clickJob();
-  // await adminPage.payGrades();
-  // await adminPage.clickJob();
-  // await adminPage.employeeStatus();
-  // await adminPage.clickJob();
-  // await adminPage.jobcategrories();
-  // await adminPage.clickJob();
-  // await adminPage.workShifts();
+  await adminPage.clickJob();
+  await adminPage.clickJobTitles();
+  await adminPage.clickJob();
+  await adminPage.payGrades();
+  await adminPage.clickJob();
+  await adminPage.employeeStatus();
+  await adminPage.clickJob();
+  await adminPage.jobcategrories();
+  await adminPage.clickJob();
+  await adminPage.workShifts();
 
   //==================
 
