@@ -20,6 +20,8 @@ export  class Adminmenu {
     }
 
     async clickLanguages(){
+        await this.page.locator(this.adminlocators.admin).click();
+        await this.page.locator(this.adminlocators.qualifications).click();
         await this.page.locator(this.adminlocators.languages).click();
         await this.page.locator(this.adminlocators.languages_Add).click();
         await this.page.locator(this.adminlocators.languages_Name).fill('Telugu');
@@ -45,6 +47,8 @@ export  class Adminmenu {
     }
 
     async clickMemberships(){
+        await this.page.locator(this.adminlocators.admin).click();
+        await this.page.locator(this.adminlocators.qualifications).click();
         await (await this.page.waitForSelector(this.adminlocators.memberships)).isVisible();
         await this.page.locator(this.adminlocators.memberships).click();
         await this.page.locator(this.adminlocators.memberships_Add).click();
@@ -67,5 +71,34 @@ export  class Adminmenu {
         await this.page.locator(this.adminlocators.memberships_YesDelete).click();
         const membershipRecordCount1 = await this.page.locator(this.adminlocators.memberships_recordcount).textContent();
         console.log("Membership Record count After Delete",membershipRecordCount1);
+    }
+
+    async clickNationalities(){
+        await this.page.locator(this.adminlocators.admin).click();
+        await (await this.page.waitForSelector(this.adminlocators.nationalities)).isVisible();
+        await this.page.locator(this.adminlocators.nationalities).click();
+        await this.page.locator(this.adminlocators.nationalities_Add).click();
+        await this.page.locator(this.adminlocators.nationalities_Name).fill('India');
+        await this.page.locator(this.adminlocators.nationalities_Save).click();
+        await this.page.locator(this.adminlocators.nationalities_Pages).click();
+        let nationalities = await (await this.page.waitForSelector(this.adminlocators.nationalities_Data)).isVisible();
+        console.log("Nationalities Validation",nationalities);
+        await this.page.locator(this.adminlocators.nationalities_Edit).click();
+        await this.page.waitForTimeout(3000);
+        await this.page.locator(this.adminlocators.nationalities_Name).fill('Indian');
+        const nationalitiesError = await this.page.locator(this.adminlocators.nationalities_errorAlert).textContent();
+        console.log("Error reson",nationalitiesError);
+        await this.page.locator(this.adminlocators.nationalities_Name).fill('Indo');
+        await this.page.locator(this.adminlocators.nationalities_Save).click();
+        await this.page.locator(this.adminlocators.nationalities_Pages).click();
+        let editNationalities = await (await this.page.waitForSelector(this.adminlocators.editnationalities_Data)).isVisible();
+        console.log("Edited Nationalities Validation",editNationalities);
+        const nationalitiesRecordCount = await this.page.locator(this.adminlocators.nationalities_recordcount).textContent();
+        console.log("Nationalities Record count Before Delete",nationalitiesRecordCount);
+        await this.page.locator(this.adminlocators.nationalities_Pages).click();
+        await this.page.locator(this.adminlocators.nationalities_Delete).click();
+        await this.page.locator(this.adminlocators.nationalities_YesDelete).click();
+        const nationalitiesRecordCount1 = await this.page.locator(this.adminlocators.nationalities_recordcount).textContent();
+        console.log("Nationalities Record count After Delete",nationalitiesRecordCount1);
     }
 }

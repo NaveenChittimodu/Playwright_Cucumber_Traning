@@ -29,10 +29,20 @@ export class Adminlocators{
     readonly memberships_recordcount : string;
     readonly memberships_Delete : string;
     readonly memberships_YesDelete : string;
-    // readonly postShareIcon : string;
-    // readonly postSharedata : string;
-    // readonly shareInShareIcon : string;
-    // readonly postHeart : string;
+    
+    readonly nationalities : string;
+    readonly nationalities_Add : string;
+    readonly nationalities_Name: string;
+    readonly nationalities_Save: string;
+    readonly nationalities_Data : string;
+    readonly nationalities_Edit : string;
+    readonly nationalities_errorAlert : string;
+    readonly editnationalities_Data : string;
+    readonly nationalities_recordcount : string;
+    readonly nationalities_Delete : string;
+    readonly nationalities_YesDelete : string;
+    readonly nationalities_Pages : string;
+    readonly corporateBranding : string;
     // readonly postLikecount : string;
     // readonly sharecount : string;
     // readonly commentCount : string;
@@ -59,7 +69,6 @@ export class Adminlocators{
         this.memberships="//a[contains(text(),'Memberships')]";
         this.memberships_Add="//h6[text()='Memberships']/following::i[@class='oxd-icon bi-plus oxd-button-icon']";
         this.memberships_Name="//label[text()='Name']/following::input";
-
         this.memberships_Save="//button[text()=' Save ']";
         this.memberships_Data="//div[text()='IPS']";
         this.memberships_Edit="//div[text()='IPS']/following::i[@class='oxd-icon bi-pencil-fill']";
@@ -68,6 +77,21 @@ export class Adminlocators{
         this.memberships_recordcount="//span[@class='oxd-text oxd-text--span']";
         this.memberships_Delete="//div[text()='IAS']/following::i[@class='oxd-icon bi-trash'][1]";
         this.memberships_YesDelete="//button[text()=' Yes, Delete ']";
+
+        this.nationalities="//a[contains(text(),'Nationalities')]";
+        this.nationalities_Add="//h6[text()='Nationalities']/following::i[@class='oxd-icon bi-plus oxd-button-icon']";
+        this.nationalities_Name="//label[text()='Name']/following::input";
+        this.nationalities_Save="//button[text()=' Save ']";
+        this.nationalities_Pages ="//button[text()='2']";
+        this.nationalities_Data="//div[text()='India']";
+        this.nationalities_Edit="(//div[text()='India']/following::i[@class='oxd-icon bi-pencil-fill'])[1]";
+        this.nationalities_errorAlert="//span[text()='Already exists']";
+        this.editnationalities_Data="//div[text()='Indo']";
+        this.nationalities_recordcount="//span[@class='oxd-text oxd-text--span']";
+        this.nationalities_Delete="//div[text()='Indo']/following::i[@class='oxd-icon bi-trash'][1]";
+        this.nationalities_YesDelete="//button[text()=' Yes, Delete ']";
+
+        this.corporateBranding ="//a[contains(text(),'Corporate Branding')]";
         
     }
 }

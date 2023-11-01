@@ -46,9 +46,13 @@ Then('User fill the Languages data', async function () {
 });
 
 Then('User fill the Memberships data', async function () {
-    await adminmenu.clickAdmin();
     await adminmenu.clickMemberships();
     console.log("test3")
+});
+
+Then('User fill the Nationalities data', async function () {
+    await adminmenu.clickNationalities();
+    console.log("test4")
 });
 
 

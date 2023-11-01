@@ -7,4 +7,4 @@ Feature: Fill the data in admin
     When User click on Admin menu
     Then User fill the Languages data
     Then User fill the Memberships data
-    
+    Then User fill the Nationalities data
