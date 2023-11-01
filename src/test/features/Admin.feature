@@ -5,4 +5,6 @@ Feature: Fill the data in pim
 
   Scenario:
     When User click on Admin menu
-    Then User click on the time and work
+    Then User click on the jobcategories
+    Then User click on the Job add
+    Then User editing the existing job name

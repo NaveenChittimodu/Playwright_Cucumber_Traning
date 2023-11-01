@@ -20,6 +20,10 @@ export class MaintenancerdLocator{
 
     readonly accessrecords:any;
     readonly searchrecords:any;
+    readonly empname:any;
+    readonly searchbtnemp:any;
+    readonly downloadbtn:any;
+   
 
   
    
@@ -42,7 +46,11 @@ export class MaintenancerdLocator{
         this.purgeall = "//button[text()=' Purge All ']";
         this.yesbtn = "//button[text()=' Yes, Purge ']";
         this.accessrecords = "//a[text()='Access Records']";
-        this.searchrecords = "//div[@class='oxd-autocomplete-wrapper']";
+        this.searchrecords = "//label[text()='Employee Name']/following::input";
+        this.empname = "//span[text()='vigneshwaran  rajababu']";
+        this.searchbtnemp = "//button[@type='submit']";
+        this.downloadbtn = "//button[text()=' Download ']";
+
 
        
       

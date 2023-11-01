@@ -5,4 +5,5 @@ Feature: Fill the data in pim
 
     Scenario:
     When User click on Maintenance menu
+    # Then User click on Candidate menu
     Then User cilck on access records

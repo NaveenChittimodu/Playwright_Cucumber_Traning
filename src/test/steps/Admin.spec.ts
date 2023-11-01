@@ -4,15 +4,15 @@ import { LoginPage } from "../../pages/login_Page"
 import { myBrowserFixture } from "../../common/Fixtures/fixtures";
 import ENV from "../../utils/env";
 import { Loginlocators } from "../../common/Locators/loginlocators";
-import { MaintenancerdLocator } from "../../common/Locators/maintenancelocator";
-import { Maintenance } from "../../pages/MaintenancePage";
+import { AdminLocators } from "../../common/Locators/Adminlocators";
+import { Admin } from "../../pages/AdminPage";
 import { count } from "console";
 
 
 let page: Page;
-let maintenance: Maintenance;
+let admin: Admin;
 let browser: Browser;
-let maintenanceloc : MaintenancerdLocator;
+let adminloc : AdminLocators;
 let loginPage : LoginPage;
 
 setDefaultTimeout(60 * 1000 * 2)
@@ -21,8 +21,8 @@ BeforeAll(async () => {
     browser = await chromium.launch({ headless: false ,args: ['--window-position=-8,0']});
     page = await browser.newPage();
     loginPage = new LoginPage(page);
-    maintenanceloc = new MaintenancerdLocator(page);
-    maintenance = new Maintenance(page);
+    adminloc = new AdminLocators(page);
+    admin = new Admin(page);
 });
 
 Given('User Login to OrangeHrm application', async function () {
@@ -32,32 +32,33 @@ Given('User Login to OrangeHrm application', async function () {
     await loginPage.loginOrangeHRM(`${ENV.USERNAME}`,`${ENV.PASSWORD}`);    
 });
 
-When('User click on Maintenance menu',async function(){
+When('User click on Admin menu',async function(){
 
-    await maintenance.maintainanceMenu();
-    console.log("main passed");
+    await admin.clickBtn();
+    console.log("admin menu passed");
 
 });
 
-// Then('User click on Candidate menu',async function(){
+Then('User click on the jobcategories',async function(){
 
-//     await maintenance.verifymenu();
-//     console.log("menu verified passed");
+    await admin.jobdropdown();
+    console.log("Job categories passed");
 
-//     await maintenance.dropdown();
-//     console.log("drop down success");
-    
-
-
-
-// });
-
-
-
-Then('User cilck on access records',async function(){
-
-    await maintenance.accessreords();
-    console.log("accessreords success");
-    
 });
 
+Then('User click on the Job add',async function(){
+
+    await admin.addBtn();
+    console.log("Add button passed")
+
+    await admin.alreadyCreatedjob();
+    
+
+});
+
+Then('User editing the existing job name',async function(){
+
+    await admin.rowlist();
+    console.log("row list passed");
+    
+});

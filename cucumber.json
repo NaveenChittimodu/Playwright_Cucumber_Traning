@@ -5,12 +5,12 @@
         },
         "paths": [
             
-            "src/test/features/Maintenance.feature"
+            "src/test/features/Admin.feature"
         ],
         "dryRun": false,
         "require": [
             
-            "src/test/steps/Maintenance.spec.ts"
+            "src/test/steps/Admin.spec.ts"
 
         ],
         "requireModule": [ 
