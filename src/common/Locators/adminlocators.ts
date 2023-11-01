@@ -12,23 +12,23 @@ export class Adminlocators{
     readonly languages_Save : string;
     readonly languages_Data : string;
     readonly languages_Edit : string;
-    readonly error_Alert : string;
+    readonly languages_errorAlert : string;
     readonly editlanguages_Data  : string;
-    readonly languages_recoundcount : string;
+    readonly languages_recordcount : string;
     readonly languages_Delete : string;
     readonly languages_YesDelete : string;
     
-    // readonly mostRecentPosts : string;
-    // readonly mostLikedPosts : string;
-    // readonly mostCommentedPosts : string;
-    // readonly mostRecentpostdata : string;
-    // readonly mostLikedPostsdata : string;
-    // readonly mostCommentedPostsdata : string;
-    // readonly threeDots : string;
-    // readonly deletePost : string;
-    // readonly yesDeletePost : string;
-    // readonly postComment : string;
-    // readonly writeComment : string;
+    readonly memberships : string;
+    readonly memberships_Add : string;
+    readonly memberships_Name : string;
+    readonly memberships_Save : string;
+    readonly memberships_Data : string;
+    readonly memberships_Edit : string;
+    readonly memberships_errorAlert : string;
+    readonly editmemberships_Data : string;
+    readonly memberships_recordcount : string;
+    readonly memberships_Delete : string;
+    readonly memberships_YesDelete : string;
     // readonly postShareIcon : string;
     // readonly postSharedata : string;
     // readonly shareInShareIcon : string;
@@ -50,12 +50,24 @@ export class Adminlocators{
         this.languages_Save="//button[text()=' Save ']";
         this.languages_Data="//div[text()='Telugu']";
         this.languages_Edit="//div[text()='Telugu']/following::i[@class='oxd-icon bi-pencil-fill']";
-        this.error_Alert="//span[text()='Already exists']";
+        this.languages_errorAlert="//span[text()='Already exists']";
         this.editlanguages_Data="//div[text()='Hindi']";
-        this.languages_recoundcount="//span[@class='oxd-text oxd-text--span']";
+        this.languages_recordcount="//span[@class='oxd-text oxd-text--span']";
         this.languages_Delete="//div[text()='Hindi']/following::i[@class='oxd-icon bi-trash'][1]";
         this.languages_YesDelete="//button[text()=' Yes, Delete ']";
-        
+
+        this.memberships="//a[contains(text(),'Memberships')]";
+        this.memberships_Add="//h6[text()='Memberships']/following::i[@class='oxd-icon bi-plus oxd-button-icon']";
+        this.memberships_Name="//label[text()='Name']/following::input";
+
+        this.memberships_Save="//button[text()=' Save ']";
+        this.memberships_Data="//div[text()='IPS']";
+        this.memberships_Edit="//div[text()='IPS']/following::i[@class='oxd-icon bi-pencil-fill']";
+        this.memberships_errorAlert="//span[text()='Already exists']";
+        this.editmemberships_Data="//div[text()='ACCA']";
+        this.memberships_recordcount="//span[@class='oxd-text oxd-text--span']";
+        this.memberships_Delete="//div[text()='IAS']/following::i[@class='oxd-icon bi-trash'][1]";
+        this.memberships_YesDelete="//button[text()=' Yes, Delete ']";
         
     }
 }

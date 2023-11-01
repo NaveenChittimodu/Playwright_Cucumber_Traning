@@ -42,7 +42,13 @@ When('User click on Admin menu', async function () {
 
 Then('User fill the Languages data', async function () {
     await adminmenu.clickLanguages();
-    console.log("test1")
+    console.log("test2")
+});
+
+Then('User fill the Memberships data', async function () {
+    await adminmenu.clickAdmin();
+    await adminmenu.clickMemberships();
+    console.log("test3")
 });
 
 
