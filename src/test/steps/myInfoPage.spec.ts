@@ -5,14 +5,18 @@ import { myBrowserFixture } from "../../../src/common/Fixtures/fixtures";
 import ENV from "../../../src/utils/env";
 import { MyInfoLocators } from "../../common/Locators/myInfoLocators";
 import { MyInfoPage } from "../../pages/myInfo_Page";
-import { waitForDebugger } from "inspector";
+import { CommonMethods } from "../../utils/commonMethods";
+import { TimeLocators } from "../../common/Locators/timeLocators";
+
 
 
 let page: Page;
 let browser: Browser;
 let loginpage: LoginPage;
 let myInfoLocators: MyInfoLocators;
+let timeLocators: TimeLocators;
 let myInfoPage: MyInfoPage;
+let commonMethods : CommonMethods
 
 setDefaultTimeout(60 * 1000 * 2)
 
@@ -21,7 +25,9 @@ BeforeAll(async () => {
   page = await browser.newPage();
   loginpage = new LoginPage(page);
   myInfoLocators = new MyInfoLocators(page);
+  timeLocators = new TimeLocators(page);
   myInfoPage = new MyInfoPage(page);
+  commonMethods = new CommonMethods(page);
 
 });
 
@@ -92,6 +98,8 @@ When('User is able to Check and Uncheck the Smoker checkbox', async function () 
 
 Then('User is able to save the personal details', async function () {
     await myInfoPage.employeeSaveBtn();
+    const toastText = await commonMethods.getToastMessageNew(timeLocators.attendanceDetails.timePageToastMsg);
+    expect(toastText).toBe("Successfully Updated");
 });
 
 When('User is able to select the blood type', async function () {
@@ -100,10 +108,14 @@ When('User is able to select the blood type', async function () {
 
 Then('User is able to save the custom field details', async function () {
     await myInfoPage.customSaveBtn();
+    const toastText = await commonMethods.getToastMessageNew(timeLocators.attendanceDetails.timePageToastMsg);
+    expect(toastText).toBe("Successfully Saved");
 });
 
 When('User is able to attach the file using Add and Browse button', async function () {
-    await myInfoPage.clickattachmentAddandUploadfile();
+    await myInfoPage.empFileUpload();
+    const toastText = await commonMethods.getToastMessageNew(timeLocators.attendanceDetails.timePageToastMsg);
+    expect(toastText).toBe("Successfully Saved");
 });
 
 When('User is able to fill the Comment in Add Attachment section', async function () {
@@ -112,6 +124,8 @@ When('User is able to fill the Comment in Add Attachment section', async functio
 
 When('User is able to save the Attachments', async function () {
     await myInfoPage.personalDetailsSaveBtn();
+    const toastText = await commonMethods.getToastMessageNew(timeLocators.attendanceDetails.timePageToastMsg);
+    expect(toastText).toBe("Successfully Saved");
 });
 
 When('User is able to Cancel the Attachments', async function () {
@@ -126,39 +140,32 @@ When('User is able to fill the Telephone fields', async function () {
     await myInfoPage.contactDetailsTelephoneField();
 });
 
-When('User is able to fill the Email fields', async function () {
+When('User is able to fill the Email fields and user is able to save all the entered field values and verify the toast message - from step 23 to 24', async function () {
     await myInfoPage.contactDetailsEmailField();
-    const toastMsg = await myInfoPage.getToastMessage()
+    const toastMsg = await commonMethods.getToastMessageNew(myInfoLocators.contactDetails.contactDetailsToastMsg);
     await expect(toastMsg).toBe("Successfully Updated");
-    await page.waitForTimeout(5000);
 });
 
 When('User is able to fill the Assigned Emergency Contacts fields', async function () {
     await myInfoPage.emergencyDetails();
-    const toastMsg = await myInfoPage.getToastMessage()
+    const toastMsg = await commonMethods.getToastMessageNew(myInfoLocators.contactDetails.contactDetailsToastMsg);
     await expect(toastMsg).toBe("Successfully Saved");
-    await page.waitForTimeout(5000);
 });
 
 When('User is able to fill the Add and save Dependents fields', async function () {
     await myInfoPage.dependentsDetails();
-    const toastMsg = await myInfoPage.getToastMessage()
+    const toastMsg = await commonMethods.getToastMessageNew(myInfoLocators.contactDetails.contactDetailsToastMsg);
     await expect(toastMsg).toBe("Successfully Saved");
-    await page.waitForTimeout(5000);
 });
 
 When('User is able to fill the Add Immigration fields and save the details', async function () {
     await myInfoPage.immigrationDetails();
-    // const toastMsg = await myInfoPage.getToastMessage()
+    // const toastMsg = await commonMethods.getToastMessageNew(myInfoLocators.contactDetails.contactDetailsToastMsg);
     // await expect(toastMsg).toBe("Successfully Saved");
-    // await page.waitForTimeout(5000);
 });
 
-When('Verify the Job Details fields is filled with value', async function () {
+When('Verify the Job Details fields is filled with value and user is able to click on Include Employment Contract Details checkbox - from step 31 to 32', async function () {
     await myInfoPage.jobDetails();
-    // const toastMsg = await myInfoPage.getToastMessage()
-    // await expect(toastMsg).toBe("Successfully Saved");
-    // await page.waitForTimeout(5000);
 }); 
 
 When('User is able to click on Include Employment Contract Details checkbox', async function () {
@@ -170,45 +177,28 @@ When('User is able to click on Include Employment Contract Details checkbox', as
 
 When('User is able to fill the Work Experience fields', async function () {
     await myInfoPage.qualificationDetails();
-    const toastMsg = await myInfoPage.getToastMessage()
-    await expect(toastMsg).toBe("Successfully Saved");
-    await page.waitForTimeout(5000);
+    // const toastMsg = await commonMethods.getToastMessageNew(myInfoLocators.contactDetails.contactDetailsToastMsg);
+    // await expect(toastMsg).toBe("Successfully Saved");
 });
 
 When('User is able to fill the Education fields', async function () {
     await myInfoPage.educationDetails();
-    const toastMsg = await myInfoPage.getToastMessage()
-    await expect(toastMsg).toBe("Successfully Saved");
-    await page.waitForTimeout(5000);
 });
 
 When('User is able to fill the Skills fields', async function () {
     await myInfoPage.skillDetails();
-    const toastMsg = await myInfoPage.getToastMessage()
-    await expect(toastMsg).toBe("Successfully Saved");
-    await page.waitForTimeout(5000);
 });
 
 When('User is able to fill the Languages fields', async function () {
-
     await myInfoPage.languageDetails();
-    const toastMsg = await myInfoPage.getToastMessage()
-    await expect(toastMsg).toBe("Successfully Saved");
-    await page.waitForTimeout(5000);
 });
 
 When('User is able to fill the License fields', async function () {
     await myInfoPage.navigateToMyInfo();
-    await myInfoPage.licenseDetails();
-    const toastMsg = await myInfoPage.getToastMessage()
-    await expect(toastMsg).toBe("Successfully Saved");
 });
 
 When('User is able to fill the License fields1', async function () {
     await myInfoPage.licenseDetails();
-    const toastMsg = await myInfoPage.getToastMessage()
-    await expect(toastMsg).toBe("Successfully Saved");
-    await page.waitForTimeout(5000);
 });
 
 

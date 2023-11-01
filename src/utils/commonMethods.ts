@@ -414,7 +414,7 @@ export class CommonMethods {
 
     //1.  This method for to fill an input field and retrieve its value.
 
-    async fillInputFieldAndGetText(inputSelector: string, textToFill: string) {
+    async fillInputFieldAndGetText1(inputSelector: string, textToFill: string) {
         await this.page.waitForSelector(inputSelector); // Wait for the input field
         await this.page.locator(inputSelector).isVisible(); // check the input field visible
         await this.page.locator(inputSelector).fill(textToFill); // Fill the input field
@@ -425,15 +425,25 @@ export class CommonMethods {
     }
 
 
-    async fillInputFieldAndGetText1(inputSelector: string, textToFill: string) {
-        await this.page.waitForSelector(inputSelector); // Wait for the input field
-        await this.page.locator(inputSelector).fill(textToFill); // Fill the input field
-
-        // To get the value of the input field, use inputValue()
-        const inputElement = this.page.locator(inputSelector);
-        const inputValue = await inputElement.inputValue();
-        return inputValue;
-    }
+    async fillInputFieldAndGetText(inputSelector: string, textToFill: string) {
+        try {
+          await this.page.waitForSelector(inputSelector); // Wait for the input field
+          await this.page.locator(inputSelector).isVisible(); //  To check input filed is visible
+          await this.page.locator(inputSelector).click();  // To click the input filed
+          await this.page.locator(inputSelector).clear(); //  If to clear the existing text
+          await this.page.locator(inputSelector).fill(textToFill); // Fill the input field
+      
+          // To get the value of the input field, use inputValue()
+          const inputElement = this.page.locator(inputSelector);
+          const inputValue = await inputElement.inputValue();
+          console.log(inputValue);
+          return inputValue;
+        } catch (error) {
+          console.error('An error occurred while filling input field and getting text:', error);
+          return null; // Return null or another value to indicate the operation failed
+        }
+      }
+      
 
     async validateRequiredErrorMessage(inputSelector: string, submitButtonSelector: string, expectedErrorMessage: string) {
         try {
@@ -611,6 +621,58 @@ export class CommonMethods {
             console.error('An error occurred while clearing and sending keys to elements:', error);
         }
     }
+
+    async checkBox(locator: string, isChecked: boolean){
+        try {
+          await this.page.waitForSelector(locator);
+          await this.page.locator(locator).isVisible;
+          const checkbox = this.page.locator(locator);
+          const currentCheckedState = await checkbox.isChecked();
+      
+          if (isChecked !== currentCheckedState) {
+            await checkbox.click();
+          }
+        } catch (error) {
+          console.error('Error the checkbox:', error);
+        }
+      }
+
+      async selectRadioButton(locator: string) {
+        try {
+          await this.page.waitForSelector(locator);
+          await this.page.locator(locator).isVisible;
+          const radioButton = this.page.locator(locator);
+      
+          if (!(await radioButton.isChecked())) {
+            await radioButton.click();
+            console.log(`The radio button has been checked`);
+            
+          }
+        } catch (error) {
+          console.error('Error selecting the radio button:', error);
+        }
+      }
+
+      async uploadFile(fileInputSelector: string, browseButtonSelector: string, filePaths: string[]) {
+        try {
+          await this.page.waitForSelector(browseButtonSelector);
+          await this.page.locator(browseButtonSelector).click({ force: true });
+      
+          const [fileChooser] = await Promise.all([
+            this.page.waitForEvent("filechooser"),
+            this.page.waitForSelector(fileInputSelector),
+          ]);
+      
+          const isMultiple = fileChooser.isMultiple();
+          console.log(isMultiple);
+      
+          await fileChooser.setFiles(filePaths);
+        } catch (error) {
+          console.error('Error uploading files:', error);
+        }
+      }
+      
+      
       
 }
 

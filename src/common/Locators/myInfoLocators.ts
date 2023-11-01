@@ -137,7 +137,7 @@ export class MyInfoLocators{
             qualificationJobTitle:`//label[text()='Job Title']//parent::div//following-sibling::div/input`,
             qualificationFrom:`//label[text()='From']//parent::div//following-sibling::div//input`,
             qualificationTo:`//label[text()='To']//parent::div//following-sibling::div//input`,
-            qualificationComments:`//textarea[contains(@class,'oxd-textarea oxd-textarea--active')]`,
+            qualificationComments:`//label[text()='Comment']//parent::div//following-sibling::div/textarea`,
             qualificationRequired:`p.oxd-text.oxd-text--p.orangehrm-form-hint`,
             qualificationCancelBtn:`button.oxd-button.oxd-button--medium.oxd-button--ghost`,
             qualificationSaveBtn:`button[type='submit']`,
