@@ -794,6 +794,7 @@ export class LeavePage {
 
     async viewleaveListReject() {
         try {
+            
             await this.page.locator(this.leavePageLocators.leaveList).isVisible();
             await this.page.locator(this.leavePageLocators.leaveList).click();
             await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
@@ -811,7 +812,6 @@ export class LeavePage {
     }
     async viewleaveListAddComments() {
         try {
-
             await this.page.locator(this.leavePageLocators.leaveList).isVisible();
             await this.page.locator(this.leavePageLocators.leaveList).click();
             await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
@@ -923,6 +923,7 @@ export class LeavePage {
     }
     async performPIMFunctionality() {
         try {
+            await this.page.pause();
             await this.page.locator(this.leavePageLocators.leaveList).isVisible();
             await this.page.locator(this.leavePageLocators.leaveList).click();
             await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
@@ -973,11 +974,79 @@ export class LeavePage {
     }
     async handleToastMessage() {
 
-        const toastSelector = 'your--selector'; // Change this to the actual selector for the toast message
+        const toastSelector = `//div[@class='oxd-text oxd-text--p oxd-text--toast-message oxd-toast-content-text']`; // Change this to the actual selector for the toast message
         await this.page.waitForSelector(toastSelector);
         const toastMessage = await this.page.textContent(toastSelector);
         return toastMessage;
     }
+    async successToastMessage() {
+        try {
+            await this.page.locator(this.leavePageLocators.mainLeave).isVisible();
+            await this.page.locator(this.leavePageLocators.mainLeave).click();
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
+            await this.page.locator(this.leavePageLocators.dotDropDown).click();
+            await this.page.locator(this.leavePageLocators.viewLeaveDetails).isVisible();
+            await this.page.locator(this.leavePageLocators.viewLeaveDetails).click();
+            await this.page.locator(this.leavePageLocators.comments).isVisible();
+            await this.page.locator(this.leavePageLocators.comments).click();
+            await this.page.locator(this.leavePageLocators.addCommentsTextBox).isVisible()
+            await this.page.locator(this.leavePageLocators.addCommentsTextBox).type("Leave request approved");
+            await this.page.locator(this.leavePageLocators.commentsSave).click();
+            await this.handleToastMessage();
+
+           
+
+        }
+        catch (error) {
+            await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
+            console.log('No record found');
+        }
+
+    }
+
+    
+
+
+
+    async seeAssignLeave() {
+        try {
+            await this.page.locator(this.leavePageLocators.mainLeave).isVisible();
+            await this.page.locator(this.leavePageLocators.mainLeave).click();
+            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            await this.page.locator(this.leavePageLocators.leaveList).click();
+            await this.page.locator(this.leavePageLocators.assignLeave).isVisible();
+            const assignLeave = await this.page.locator(this.leavePageLocators.assignLeave);
+            console.log(assignLeave.textContent());
+            
+            
+        }
+        catch (error) {
+            await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
+            console.log('No record found');
+        }
+
+    }
+
+
+    async performAssignLeave() {
+        try {
+            await this.page.locator(this.leavePageLocators.mainLeave).isVisible();
+            await this.page.locator(this.leavePageLocators.mainLeave).click();
+            await this.page.locator(this.leavePageLocators.assignLeave).isVisible();
+            await this.page.locator(this.leavePageLocators.assignLeave).click();   
+        }
+        catch (error) {
+            await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
+            console.log('No record found');
+        }
+
+    }
+
+
+
+    
 
     // Call the function and handle the toast message
 

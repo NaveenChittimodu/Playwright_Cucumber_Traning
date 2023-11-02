@@ -399,11 +399,6 @@ Then('user is able to perform Add comment functionality in the view leave list p
 
 });
 
-
-
-
-
-
 Then('user is able to perform cancel leave functionality in the list page', async function () {
     await leavePage.viewLeaveListCancel();
     console.log("user is able to perform cancel leave functionality in the list page")
@@ -434,6 +429,27 @@ Then('user is able to perform Cancel Leave functionality in the list page', asyn
     console.log("user is able to see navigation components in the list page")
 
 });
+Then('user is able to see success toast message once saved in the list page', async function () {
+    await leavePage.successToastMessage();
+    console.log("user is able to see navigation components in the list page")
+
+});
+
+Then('user is able to see assign leave components', async function () {
+    await leavePage.seeAssignLeave();
+    console.log("user is able to see assign leave components")
+
+});
+
+Then('user is able to perform assign functionality', async function () {
+    await leavePage.performAssignLeave();
+    console.log("user is able to perform assign functionality")
+
+});
+
+
+
+
 
 
 

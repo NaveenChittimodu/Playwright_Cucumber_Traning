@@ -155,6 +155,7 @@ export class LeavePageLocators {
     readonly commentsTextBox:string;
     readonly viewPIMPage:string;
     readonly cancelLeave:string;
+    readonly assignLeave:string;
 
 
 
@@ -172,7 +173,8 @@ export class LeavePageLocators {
         this.leaveBalance = "//label[text()='Leave Balance']";
         this.fromDate = "//label[text()='From Date']";
         this.toDate = "//label[text()='To Date']";
-        this.comments = "//label[text()='Comments']";
+        // this.comments = "//label[text()='Comments']";
+        this.comments="//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']"
         this.applyBtn = "//button[text()=' Apply ']";
 
         // my leave 
@@ -314,6 +316,7 @@ export class LeavePageLocators {
         this.commentsTextBox="//textarea[@class='oxd-textarea oxd-textarea--active oxd-textarea--resize-vertical']";
         this.viewPIMPage="//p[text()='View PIM Info']";
         this.cancelLeave="//p[text()='Cancel Leave']";
+        this.assignLeave="//a[text()='Assign Leave']";
 
 
 

@@ -103,6 +103,9 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
         Then user is able to perform view PIM info functionality in the list page
         Then user is able to see navigation components in the list page
         Then user is able to perform Cancel Leave functionality in the list page
+        Then user is able to see success toast message once saved in the list page
+        Then user is able to see assign leave components
+        Then user is able to perform assign functionality
 
 
 
