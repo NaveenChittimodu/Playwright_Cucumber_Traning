@@ -101,4 +101,27 @@ export  class Adminmenu {
         const nationalitiesRecordCount1 = await this.page.locator(this.adminlocators.nationalities_recordcount).textContent();
         console.log("Nationalities Record count After Delete",nationalitiesRecordCount1);
     }
+
+    async clickcorporateBranding(){
+        await this.page.locator(this.adminlocators.admin).click();
+        await (await this.page.waitForSelector(this.adminlocators.corporateBranding)).isVisible();
+        await this.page.locator(this.adminlocators.corporateBranding).click();
+        await this.page.locator(this.adminlocators.primaryFontColor).click();
+        await this.page.locator(this.adminlocators.primaryFontColor_Hex).fill('#6a48b9')
+        await this.page.keyboard.press('Enter');
+        await this.page.locator(this.adminlocators.secondaryFontColor).click();
+        await this.page.locator(this.adminlocators.secondaryFontColor_Hex).fill('#fdd80a')
+        await this.page.keyboard.press('Enter');
+    }
+
+    async uploadImage() {
+        const [uploadFiles] = await Promise.all([
+            this.page.waitForEvent("filechooser"),
+            this.page.locator(this.adminlocators.clientLogo_Browser).click()
+        ])
+        const isMultiple = uploadFiles.isMultiple();
+        console.log(isMultiple);
+        uploadFiles.setFiles(["50px.png"
+        ])
+    }
 }

@@ -43,11 +43,11 @@ export class Adminlocators{
     readonly nationalities_YesDelete : string;
     readonly nationalities_Pages : string;
     readonly corporateBranding : string;
-    // readonly postLikecount : string;
-    // readonly sharecount : string;
-    // readonly commentCount : string;
-    // readonly upcomingAnniversaries : string;
-    // readonly upcomingAnniversariesdata : string;
+    readonly primaryFontColor : string;
+    readonly primaryFontColor_Hex : string;
+    readonly secondaryFontColor : string;
+    readonly secondaryFontColor_Hex : string;
+    readonly clientLogo_Browser : string;
     
     constructor(page: Page){
         this.page = page
@@ -92,6 +92,11 @@ export class Adminlocators{
         this.nationalities_YesDelete="//button[text()=' Yes, Delete ']";
 
         this.corporateBranding ="//a[contains(text(),'Corporate Branding')]";
+        this.primaryFontColor ="//label[text()='Primary Font Color']/following-sibling::div";
+        this.primaryFontColor_Hex="//label[text()='HEX']/following-sibling::input";
+        this.secondaryFontColor ="//label[text()='Secondary Font Color']/following-sibling::div";
+        this.secondaryFontColor_Hex ="//label[text()='Secondary Font Color']/following::label[text()='HEX']/following-sibling::input"
+        this.clientLogo_Browser="(//div[text()='Browse'])[1]";
         
     }
 }

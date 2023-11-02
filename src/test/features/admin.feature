@@ -4,7 +4,8 @@ Feature: Fill the data in admin
     Given User Login to OrangeHrm application
 
   Scenario: User need  to validate Directory in the appliication
-    When User click on Admin menu
-    Then User fill the Languages data
-    Then User fill the Memberships data
-    Then User fill the Nationalities data
+    # When User click on Admin menu
+    # Then User fill the Languages data
+    # Then User fill the Memberships data
+    # Then User fill the Nationalities data
+    Then User fill the Corporate Branding data

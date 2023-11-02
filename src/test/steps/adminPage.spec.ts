@@ -55,6 +55,13 @@ Then('User fill the Nationalities data', async function () {
     console.log("test4")
 });
 
+Then('User fill the Corporate Branding data', async function () {
+    await adminmenu.clickcorporateBranding();
+    console.log("test5")
+    await adminmenu.uploadImage();
+    console.log("test6")
+});
+
 
 // AfterAll(async () => {
 
