@@ -10,6 +10,8 @@ export class CommonMethods {
 
     }
 
+// This method clicks an element on a web page using Playwright
+
     async clickElement(locator: string) {
 
         try {
@@ -23,6 +25,8 @@ export class CommonMethods {
         }
 
     }
+
+// This method force clicks an element on a web page using Playwright
 
     async forceClickElement(locator: string) {
 
@@ -38,6 +42,8 @@ export class CommonMethods {
 
     }
 
+    // This method enters text into an element on a web page using Playwright
+
     async enterText(locator: Locator, text: string) {
         try {
             await this.page.waitForSelector(locator.toString());
@@ -50,6 +56,8 @@ export class CommonMethods {
         }
     }
 
+    // This method clicks an element and verifies the appearance of a new toast message on a web page using Playwright
+
     async clickElementAndVerifyToastNew(elementLocator: string, messageToVerify?: string) {
         await this.page.locator(elementLocator).click({ force: true });
 
@@ -59,6 +67,8 @@ export class CommonMethods {
             expect(toastText).toEqual(messageToVerify);
         }
     }
+
+    // This method retrieves the text of a toast message from an element on a web page using Playwright
 
     async getToastMessageNew(toastLocator: string) {
         const getToastText = await this.page.locator(toastLocator).textContent();
@@ -234,6 +244,8 @@ export class CommonMethods {
         }
     }
 
+    // This method selects a dropdown element on a web page using Playwright
+
     async selectDropDownElements(clickDropDownLocator: string, dropdownLocator: string, dropDownValue: string) {
         try {
             await this.page.locator(clickDropDownLocator).click();
@@ -262,6 +274,8 @@ export class CommonMethods {
         }
     }
 
+    // This method gets text from an element on a web page using Playwright
+
     async getTextFromElement(locator: string): Promise<string> {
         try {
             await this.page.waitForSelector(locator);
@@ -278,6 +292,8 @@ export class CommonMethods {
             return '';
         }
     }
+
+    // This method checks a checkbox and expects a specific state from an element on a web page using Playwright
 
     async checkAndExpectCheckbox(checkboxLocator: Locator, shouldBeChecked: boolean = true) {
         try {
@@ -309,13 +325,15 @@ export class CommonMethods {
         }
     }
 
+    // This method retrieves text from an element on a web page using Playwright
+
     async getElementText(locator: string) {
         try {
             const element = await this.page.locator(locator);
             const text = await element.textContent();
 
             if (text !== null && text !== '') {
-                // Add your specific condition here
+
                 if (text.includes('Some Expected Text')) {
                     console.log('Text contains expected text.');
                 } else {
@@ -358,6 +376,8 @@ export class CommonMethods {
         }
     }
 
+    // This method selects an option from an autocomplete element on a web page using Playwright
+
     async selectOptionFromAutocomplete(inputSelector: string, optionText: string, dropdownSelector: string) {
         try {
             await this.page.waitForSelector(inputSelector); // Wait for the input field
@@ -380,7 +400,7 @@ export class CommonMethods {
         }
     }
 
-     
+    // This method checks if a checkbox is checked on a web page using Playwright 
 
     async isCheckboxChecked(checkboxSelector: string) {
         // Wait for the checkbox element to be present
@@ -397,6 +417,8 @@ export class CommonMethods {
 
         return isChecked;
     }
+
+    // This method checks if an input field is empty on a web page using Playwright
 
     async isInputFieldEmpty(inputSelector: string) {
         // Wait for the input field to be present
@@ -424,6 +446,7 @@ export class CommonMethods {
         return inputValue;
     }
 
+// This method fills an input field and gets text on a web page using Playwright
 
     async fillInputFieldAndGetText(inputSelector: string, textToFill: string) {
         try {
@@ -444,6 +467,7 @@ export class CommonMethods {
         }
       }
       
+// This method validates required error messages on a web page using Playwright
 
     async validateRequiredErrorMessage(inputSelector: string, submitButtonSelector: string, expectedErrorMessage: string) {
         try {
@@ -454,10 +478,10 @@ export class CommonMethods {
             await this.page.click(submitButtonSelector);
 
             // Wait for the error message to appear
-            await this.page.waitForSelector('Your error message selector here');
+            await this.page.waitForSelector('Required');
 
             // Get the error message text
-            const errorMessage = await this.page.textContent('Your error message selector here');
+            const errorMessage = await this.page.textContent('Required');
 
             // Check if the error message matches the expected message
             return errorMessage === expectedErrorMessage;
@@ -466,6 +490,8 @@ export class CommonMethods {
             return false; // Handle the error and return false
         }
     }
+
+    // This method interacts with a table and delete Individual Record from the table on a web page using Playwright
 
     async deleteIndividualRecord(recordSelector: string, deleteButtonSelector: string) {
         // Ensure that the page has loaded
@@ -531,6 +557,8 @@ export class CommonMethods {
 
     }
 
+    // This method interacts with a table and deletes all records from the table on a web page using Playwright
+
     async deleteAllRecordsFromTable(locatorSelector: string, deleteLocator: Locator) {
         try {
             const elements = await this.page.locator(locatorSelector).all();
@@ -543,9 +571,8 @@ export class CommonMethods {
 
                 if (deleteButton) {
                     await deleteButton.click();
-                    await this.page.click(``);
+                    // await this.page.click(``);
                     console.log(`Deleted record: ${name}`);
-                    // You can add further confirmation steps if needed.
                 }
             }
             console.log('All records deleted');
@@ -553,6 +580,8 @@ export class CommonMethods {
             console.error('An error occurred while deleting records:', error);
         }
     }
+
+    // This method interacts with a table and retrieves text from elements on a web page using Playwright
 
     async interactWithTableAndGetText(tableSelector: string, headerSelector: string, allRows: string, tableCells: string, cellTextToFind: string) {
         try {
@@ -580,31 +609,20 @@ export class CommonMethods {
             for (let j = 0; j < await cells.count(); j++) {
               const cellText = await cells.nth(j).innerText();
               cellTexts.push(cellText);
-              // You can collect all cell texts in an array and process them as needed
             }
       
             // Log the cell texts for the current row
             console.log(`Cell Texts in Row ${i}:`, cellTexts);
-      
-            // If you want to perform an action based on cell text, you can do it here
-      
-            // Example: Check a checkbox if a certain cell text is found
-            // if (cellTexts.includes(cellTextToFind)) {
-            //   console.log(`The value "${cellTextToFind}" is found in the cell.`);
-            //   // Perform your action (e.g., check a checkbox)
-      
-            //   // If you only want to check one checkbox and exit, you can return here
-            //   return;
-            // }
           }
       
           // If the text is not found in any cell
           console.error(`The value "${cellTextToFind}" is not found in any cell.`);
         } catch (error) {
           console.error('An error occurred while interacting with the table:', error);
-          // You can add error handling or take a screenshot if needed
         }
       }
+
+      // This method clears and sends keys to elements on a web page using Playwright
 
       async clearAndSendKeysToElements(xpath: string, values: (string | number)[]) {
         try {
@@ -622,6 +640,8 @@ export class CommonMethods {
         }
     }
 
+    // This method selects a checkBox on a web page using Playwright
+
     async checkBox(locator: string, isChecked: boolean){
         try {
           await this.page.waitForSelector(locator);
@@ -636,6 +656,8 @@ export class CommonMethods {
           console.error('Error the checkbox:', error);
         }
       }
+
+      // This method selects a radio button on a web page using Playwright
 
       async selectRadioButton(locator: string) {
         try {
@@ -652,6 +674,8 @@ export class CommonMethods {
           console.error('Error selecting the radio button:', error);
         }
       }
+
+      // This method uploads files to a web page using Playwright
 
       async uploadFile(fileInputSelector: string, browseButtonSelector: string, filePaths: string[]) {
         try {
