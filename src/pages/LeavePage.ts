@@ -5,18 +5,21 @@ import { Page, expect, Keyboard } from "@playwright/test";
 import { LeavePageLocators } from "../common/Locators/leavePageLocators"
 import * as testData from "../testData/json/testData.json"
 import * as dotenv from "dotenv";
+import {generalMethods} from "../common/generalMethods"
 
 // ************* Leave Page class consist of all methods for intracting with Leave page **************//
 
 export class LeavePage {
     readonly page: Page;
     private readonly leavePageLocators: LeavePageLocators;
+    readonly generalMethods:generalMethods;
 
     // Creating object for page and Leave locators class to access All Locators in leave Page//
 
     constructor(page: Page) {
         this.page = page;
         this.leavePageLocators = new LeavePageLocators(page);
+        this.generalMethods = new generalMethods();
     }
 
     // **************    Methods for Leave Module    ******************** //
@@ -72,6 +75,9 @@ export class LeavePage {
         await this.page.locator(this.leavePageLocators.applyBtn).isVisible()
 
     }
+
+  
+    
     async myListComponent() {
         await this.page.locator(this.leavePageLocators.myleave).isVisible();
         await this.page.locator(this.leavePageLocators.myleave).click({ force: true });
@@ -794,7 +800,7 @@ export class LeavePage {
 
     async viewleaveListReject() {
         try {
-            
+
             await this.page.locator(this.leavePageLocators.leaveList).isVisible();
             await this.page.locator(this.leavePageLocators.leaveList).click();
             await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
@@ -877,9 +883,6 @@ export class LeavePage {
         }
 
     }
-
-
-
     async backComponentVerification() {
         try {
             await this.page.locator(this.leavePageLocators.leaveList).isVisible();
@@ -923,7 +926,7 @@ export class LeavePage {
     }
     async performPIMFunctionality() {
         try {
-            await this.page.pause();
+
             await this.page.locator(this.leavePageLocators.leaveList).isVisible();
             await this.page.locator(this.leavePageLocators.leaveList).click();
             await this.page.locator(this.leavePageLocators.dotDropDown).isVisible();
@@ -995,9 +998,6 @@ export class LeavePage {
             await this.page.locator(this.leavePageLocators.addCommentsTextBox).type("Leave request approved");
             await this.page.locator(this.leavePageLocators.commentsSave).click();
             await this.handleToastMessage();
-
-           
-
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -1005,22 +1005,17 @@ export class LeavePage {
         }
 
     }
-
-    
-
-
-
     async seeAssignLeave() {
         try {
             await this.page.locator(this.leavePageLocators.mainLeave).isVisible();
             await this.page.locator(this.leavePageLocators.mainLeave).click();
-            await this.page.locator(this.leavePageLocators.leaveList).isVisible();
-            await this.page.locator(this.leavePageLocators.leaveList).click();
+            // await this.page.locator(this.leavePageLocators.leaveList).isVisible();
+            // await this.page.locator(this.leavePageLocators.leaveList).click();
             await this.page.locator(this.leavePageLocators.assignLeave).isVisible();
             const assignLeave = await this.page.locator(this.leavePageLocators.assignLeave);
             console.log(assignLeave.textContent());
-            
-            
+
+
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -1035,7 +1030,7 @@ export class LeavePage {
             await this.page.locator(this.leavePageLocators.mainLeave).isVisible();
             await this.page.locator(this.leavePageLocators.mainLeave).click();
             await this.page.locator(this.leavePageLocators.assignLeave).isVisible();
-            await this.page.locator(this.leavePageLocators.assignLeave).click();   
+            await this.page.locator(this.leavePageLocators.assignLeave).click();
         }
         catch (error) {
             await this.page.locator(this.leavePageLocators.leaveListNoRecord).isVisible();
@@ -1046,7 +1041,7 @@ export class LeavePage {
 
 
 
-    
+
 
     // Call the function and handle the toast message
 
