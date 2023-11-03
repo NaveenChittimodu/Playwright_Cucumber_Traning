@@ -110,6 +110,7 @@ export  class Adminmenu {
         await this.page.locator(this.adminlocators.primaryFontColor_Hex).fill('#6a48b9')
         await this.page.keyboard.press('Enter');
         await this.page.locator(this.adminlocators.secondaryFontColor).click();
+        
         await this.page.locator(this.adminlocators.secondaryFontColor_Hex).fill('#fdd80a')
         await this.page.keyboard.press('Enter');
     }
