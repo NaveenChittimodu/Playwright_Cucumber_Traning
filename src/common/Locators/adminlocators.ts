@@ -48,6 +48,14 @@ export class Adminlocators{
     readonly secondaryFontColor : string;
     readonly secondaryFontColor_Hex : string;
     readonly clientLogo_Browser : string;
+    readonly clientBanner_Browser : string;
+    readonly preview : string;
+    readonly publish : string;
+    readonly reset_to_Default : string;
+    readonly configuration : string;
+    readonly emailConfiguration : string;
+    readonly emailConfiguration_components : string;
+    
     
     constructor(page: Page){
         this.page = page
@@ -97,6 +105,14 @@ export class Adminlocators{
         this.secondaryFontColor ="//label[text()='Secondary Font Color']/following-sibling::div";
         this.secondaryFontColor_Hex ="//label[text()='Secondary Font Color']/following::label[text()='HEX']/following-sibling::input"
         this.clientLogo_Browser="(//div[text()='Browse'])[1]";
+        this.clientBanner_Browser="(//div[text()='Browse'])[2]";
+        this.preview ="//button[text()=' Preview ']";
+        this.publish = "//button[text()=' Publish ']";
+        this.reset_to_Default ="//button[text()=' Reset to Default ']";
+
+        this.configuration ="//span[text()='Configuration ']";
+        this.emailConfiguration ="//a[contains(text(),'Email Configuration')]";
+        this.emailConfiguration_components ="div.orangehrm-card-container";
         
     }
 }

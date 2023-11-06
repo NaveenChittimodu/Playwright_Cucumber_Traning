@@ -9,3 +9,4 @@ Feature: Fill the data in admin
     Then User fill the Memberships data
     Then User fill the Nationalities data
     Then User fill the Corporate Branding data
+    Then User fill the Email configurations data

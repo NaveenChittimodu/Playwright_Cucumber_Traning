@@ -1,14 +1,17 @@
 import { Page, expect,Locator } from "@playwright/test";
 import { Pimlocators } from "../common/Locators/pimLocators";
+import { GenericMethods } from "../utils/commomMethods";
 
 export  class Pimmenu {
     readonly page: Page;
     private readonly pimlocators: Pimlocators;
+    readonly genericMethods: GenericMethods;
     
 
     constructor(page: Page) {
         this.page = page;
-        this.pimlocators = new Pimlocators(page); 
+        this.pimlocators = new Pimlocators(page);
+        this.genericMethods = new GenericMethods(page); 
     }
 
     async clickpim(){
@@ -117,14 +120,8 @@ export  class Pimmenu {
 
     async clickattachmentAddandUploadfile() {
         await this.page.locator(this.pimlocators.attachmentAddButton).click();
-        const [uploadFiles] = await Promise.all([
-            this.page.waitForEvent("filechooser"),
-            this.page.locator(this.pimlocators.clickonUploadBrowser).click()
-        ])
-        const isMultiple = uploadFiles.isMultiple();
-        console.log(isMultiple);
-        uploadFiles.setFiles(["sampleFile.jpeg"
-        ])
+        await this.genericMethods.uploadFiles(this.pimlocators.clickonUploadBrowser,"sampleFile.jpeg");
+        
     }
     
     async fillAttacmentComment() {

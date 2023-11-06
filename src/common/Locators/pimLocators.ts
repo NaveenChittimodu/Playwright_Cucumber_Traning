@@ -125,7 +125,7 @@ export class Pimlocators{
         this.otherID ="//label[normalize-space(text())='Other Id']//parent::div//following-sibling::div//input";
         this.driversLicenseNumber=`(//label[text()="Driver's License Number"]/following::div/input)[1]`;
         this.licenseExpiryDate="//label[text()='License Expiry Date']//parent::div//following-sibling::div/div//input";
-        this.licenseExpiryDateSelect="//div[text()='31']"
+        this.licenseExpiryDateSelect="//div[text()='10']"
         this.ssnNumber="//label[text()='SSN Number']//parent::div//following-sibling::div//input";
         this.sinNumber =`//label[text()='SIN Number']//parent::div//following-sibling::div//input`;
         this.nationality = "(//div[text()='-- Select --'])[1]";

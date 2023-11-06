@@ -1,15 +1,18 @@
 import { Page, expect,Locator } from "@playwright/test";
 import { Adminlocators } from "../common/Locators/adminlocators";
+import { GenericMethods } from "../utils/commomMethods";
 
 export  class Adminmenu {
     readonly page: Page;
     private readonly adminlocators: Adminlocators;
     readonly path:any
+    readonly genericMethods: GenericMethods;
     
 
     constructor(page: Page) {
         this.page = page;
         this.adminlocators = new Adminlocators(page);
+        this.genericMethods = new GenericMethods(page);
 
     }
 
@@ -113,16 +116,19 @@ export  class Adminmenu {
         
         await this.page.locator(this.adminlocators.secondaryFontColor_Hex).fill('#fdd80a')
         await this.page.keyboard.press('Enter');
+        await this.genericMethods.uploadFiles(this.adminlocators.clientLogo_Browser,"50px.png");
+        await this.genericMethods.uploadFiles(this.adminlocators.clientBanner_Browser,"182px.jpg");
+        await this.page.locator(this.adminlocators.preview).click();
+        await this.page.locator(this.adminlocators.publish).click();
+        await this.page.locator(this.adminlocators.reset_to_Default).click();
     }
 
-    async uploadImage() {
-        const [uploadFiles] = await Promise.all([
-            this.page.waitForEvent("filechooser"),
-            this.page.locator(this.adminlocators.clientLogo_Browser).click()
-        ])
-        const isMultiple = uploadFiles.isMultiple();
-        console.log(isMultiple);
-        uploadFiles.setFiles(["50px.png"
-        ])
+    async clickEmail_configurations(){
+        await this.page.locator(this.adminlocators.admin).click();
+        await (await this.page.waitForSelector(this.adminlocators.configuration)).isVisible();
+        await this.page.locator(this.adminlocators.configuration).click();
+        await this.page.locator(this.adminlocators.emailConfiguration).click();
+        let emailConfiguration = await (await this.page.waitForSelector(this.adminlocators.emailConfiguration_components)).isVisible();
+        console.log("Email Configuration Validation",emailConfiguration);
     }
 }

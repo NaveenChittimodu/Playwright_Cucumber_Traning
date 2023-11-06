@@ -58,7 +58,10 @@ Then('User fill the Nationalities data', async function () {
 Then('User fill the Corporate Branding data', async function () {
     await adminmenu.clickcorporateBranding();
     console.log("test5")
-    await adminmenu.uploadImage();
+});
+
+Then('User fill the Email configurations data', async function () {
+    await adminmenu.clickEmail_configurations();
     console.log("test6")
 });
 
