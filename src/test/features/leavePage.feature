@@ -3,7 +3,6 @@ Feature: :Verifying the OrangeHRM LoginPage Components and Successful Login
     Background: User Leave functionality
         Given User Login to OrangeHrm application
 
-
      Scenario: User can able to see the leave page
         Then user is able to see Apply Leave page and components
         Then user is able to see My leave list components

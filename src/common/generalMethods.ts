@@ -4,7 +4,6 @@ import { LeavePageLocators } from "../common/Locators/leavePageLocators"
 export class generalMethods {
     // readonly page: Page;
     // private readonly Locator: LeavePageLocators;
-
     async enterText(page: Page, locator :string, text: string) {
         await page.waitForSelector(locator);
         await page.fill(locator,text);

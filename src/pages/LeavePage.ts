@@ -838,7 +838,6 @@ export class LeavePage {
 
     }
 
-
     async viewleaveListCommentsCancel() {
         try {
             await this.page.locator(this.leavePageLocators.leaveList).isVisible();

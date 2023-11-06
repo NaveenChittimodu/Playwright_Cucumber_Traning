@@ -162,7 +162,6 @@ export class LeavePageLocators {
 
 
     constructor(page: Page) {
-
         this.page = page
         this.mainLeave = "//span[text()='Leave']";
         this.apply = "//a[text()='Apply']";
