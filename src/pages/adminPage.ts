@@ -120,6 +120,11 @@ export  class Adminmenu {
         await this.genericMethods.uploadFiles(this.adminlocators.clientBanner_Browser,"182px.jpg");
         await this.page.locator(this.adminlocators.preview).click();
         await this.page.locator(this.adminlocators.publish).click();
+        let banner = await (await this.page.waitForSelector(this.adminlocators.brandBanner)).isVisible();
+        console.log("banner Validation",banner);
+        await this.page.locator(this.adminlocators.chevron_Left).click();
+        let logo = await (await this.page.waitForSelector(this.adminlocators.brandLogo)).isVisible();
+        console.log("logo Validation",logo);
         await this.page.locator(this.adminlocators.reset_to_Default).click();
     }
 
@@ -130,5 +135,11 @@ export  class Adminmenu {
         await this.page.locator(this.adminlocators.emailConfiguration).click();
         let emailConfiguration = await (await this.page.waitForSelector(this.adminlocators.emailConfiguration_components)).isVisible();
         console.log("Email Configuration Validation",emailConfiguration);
+        await this.page.locator(this.adminlocators.mailSent_As).fill('yaswan@gmail.com');
+        await this.page.locator(this.adminlocators.sendTestMail_on).click();
+        await this.page.locator(this.adminlocators.testEmailAddress).fill('yaswankilller21@gmail.com');
+        await this.page.locator(this.adminlocators.emailSave).click();
+        await this.page.locator(this.adminlocators.sendTestMail_off).click();
+        await this.page.locator(this.adminlocators.emailReset).click();
     }
 }

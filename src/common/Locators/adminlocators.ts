@@ -55,7 +55,15 @@ export class Adminlocators{
     readonly configuration : string;
     readonly emailConfiguration : string;
     readonly emailConfiguration_components : string;
-    
+    readonly mailSent_As : string;
+    readonly sendTestMail_on : string;
+    readonly testEmailAddress : string;
+    readonly emailSave : string;
+    readonly sendTestMail_off : string;
+    readonly emailReset : string;
+    readonly brandLogo : string;
+    readonly brandBanner : string;
+    readonly chevron_Left : string;
     
     constructor(page: Page){
         this.page = page
@@ -109,11 +117,19 @@ export class Adminlocators{
         this.preview ="//button[text()=' Preview ']";
         this.publish = "//button[text()=' Publish ']";
         this.reset_to_Default ="//button[text()=' Reset to Default ']";
+        this.brandLogo="//img[@alt='client brand logo']";
+        this.brandBanner="//img[@alt='client brand banner']";
+        this.chevron_Left="button[role='none']";
 
         this.configuration ="//span[text()='Configuration ']";
         this.emailConfiguration ="//a[contains(text(),'Email Configuration')]";
         this.emailConfiguration_components ="div.orangehrm-card-container";
-        
+        this.mailSent_As="(//label[text()='Mail Sent As']/following::input)[1]";
+        this.sendTestMail_on ="//p[text()='Send Test Mail']/following-sibling::div";
+        this.testEmailAddress = "//label[text()='Test Email Address']/following::input";
+        this.emailSave = "//button[text()=' Save ']";
+        this.sendTestMail_off="//span[contains(@class,'oxd-switch-input oxd-switch-input--active')]";
+        this.emailReset="//button[text()=' Reset ']"; 
     }
 }
 
