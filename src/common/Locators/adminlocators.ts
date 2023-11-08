@@ -64,7 +64,21 @@ export class Adminlocators{
     readonly brandLogo : string;
     readonly brandBanner : string;
     readonly chevron_Left : string;
+    readonly email_Subscriptions : string;
+    readonly emailSubscriptions_components : string;
+    readonly leaveApplications_Action : string;
+    readonly leaveApplications_Add : string;
+    readonly leaveApplications_Name : string;
+    readonly leaveApplications_Email : string;
+    readonly leaveApplications_Cancel : string;
+    readonly leaveApplications_Save : string;
+    readonly leaveApplications_Recordcount : string;
+    readonly leaveApplications_Trash : string;
+    readonly leaveApplications_Edit : string;
+    readonly leaveApplications_Yes_Delete : string;
+    readonly Localization : string;
     
+
     constructor(page: Page){
         this.page = page
         this.admin = "//span[text()='Admin']";
@@ -130,6 +144,23 @@ export class Adminlocators{
         this.emailSave = "//button[text()=' Save ']";
         this.sendTestMail_off="//span[contains(@class,'oxd-switch-input oxd-switch-input--active')]";
         this.emailReset="//button[text()=' Reset ']"; 
+        
+        this.email_Subscriptions="//a[contains(text(),'Email Subscriptions')]";
+        this.emailSubscriptions_components="div.orangehrm-background-container";
+        this.leaveApplications_Action="(//div[@class='oxd-table-cell-actions']//button)[1]";
+        this.leaveApplications_Add ="//button[text()=' Add ']";
+        this.leaveApplications_Name ="(//label[text()='Name']/following::input)[1]";
+        this.leaveApplications_Email ="//label[text()='Email']/following::input";
+        this.leaveApplications_Cancel ="//button[text()=' Cancel ']";
+        this.leaveApplications_Save ="//button[text()=' Save ']";
+        this.leaveApplications_Recordcount ="//span[@class='oxd-text oxd-text--span']";
+        this.leaveApplications_Edit ="(//button[@type='button']/following-sibling::button)[1]";
+        this.leaveApplications_Trash ="(//i[@class='oxd-icon bi-trash'])[1]";
+        this.leaveApplications_Yes_Delete ="//button[text()=' Yes, Delete ']";
+        
+        this.Localization ="//a[contains(text(),'Localization')]"
+        
+
     }
 }
 

@@ -65,6 +65,11 @@ Then('User fill the Email configurations data', async function () {
     console.log("test6")
 });
 
+Then('User fill the Email Subscriptions data', async function () {
+    await adminmenu.clickEmail_Subscriptions();
+    console.log("test7")
+});
+
 
 // AfterAll(async () => {
 

@@ -142,4 +142,37 @@ export  class Adminmenu {
         await this.page.locator(this.adminlocators.sendTestMail_off).click();
         await this.page.locator(this.adminlocators.emailReset).click();
     }
+
+    async clickEmail_Subscriptions(){
+        await this.page.locator(this.adminlocators.admin).click();
+        await (await this.page.waitForSelector(this.adminlocators.configuration)).isVisible();
+        await this.page.locator(this.adminlocators.configuration).click();
+        await this.page.locator(this.adminlocators.email_Subscriptions).click();
+        let emailSubscriptions = await (await this.page.waitForSelector(this.adminlocators.emailSubscriptions_components)).isVisible();
+        console.log("Email Subscriptions Validation",emailSubscriptions);
+        await this.page.locator(this.adminlocators.leaveApplications_Action).click();
+        await this.page.locator(this.adminlocators.leaveApplications_Add).click();
+        const leaveApplicationsRecordCount = await this.page.locator(this.adminlocators.leaveApplications_Recordcount).textContent();
+        console.log("Leave Applications Record count Before Applying",leaveApplicationsRecordCount);
+        await this.page.locator(this.adminlocators.leaveApplications_Name).fill("Ravi");
+        await this.page.locator(this.adminlocators.leaveApplications_Email).fill("ravi@gmail.com");
+        await this.page.locator(this.adminlocators.leaveApplications_Cancel).click();
+        await this.page.locator(this.adminlocators.leaveApplications_Add).click();
+        await this.page.locator(this.adminlocators.leaveApplications_Name).fill("Ravi");
+        await this.page.locator(this.adminlocators.leaveApplications_Email).fill("ravi@gmail.com");
+        await this.page.locator(this.adminlocators.leaveApplications_Save).click();
+        await this.page.waitForTimeout(3000);
+        const leaveApplicationsRecords = await this.page.locator(this.adminlocators.leaveApplications_Recordcount).textContent();
+        console.log("Leave Applications Record count After Applying , Before Deleting",leaveApplicationsRecords);
+        await this.page.locator(this.adminlocators.leaveApplications_Edit).click();
+        await this.page.locator(this.adminlocators.leaveApplications_Name).fill("Ram");
+        await this.page.locator(this.adminlocators.leaveApplications_Email).fill("ram@gmail.com");
+        await this.page.locator(this.adminlocators.leaveApplications_Save).click();
+        await this.page.locator(this.adminlocators.leaveApplications_Trash).click();
+        await this.page.locator(this.adminlocators.leaveApplications_Yes_Delete).click();
+        const leaveApplicationsCount = await this.page.locator(this.adminlocators.leaveApplications_Recordcount).textContent();
+        console.log("Leave Applications Record count After Deleting",leaveApplicationsCount);
+
+        
+    }
 }
