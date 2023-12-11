@@ -48,33 +48,57 @@ export class AdminPage {
         await this.page.locator(this.adminloctators.employeename).click();
         await this.page.locator(this.adminloctators.employeename).fill("n");
         await this.page.waitForTimeout(3000)
-        await this.page.locator(`//span[text()='Odis  Adalwin']`).click();
+        await this.page.locator(`//span[text()='Russel  Hamilton']`).click();
 
     }
     async userName(){
     await this.page.locator(this.adminloctators.userName).isVisible();;
         await this.page.locator(this.adminloctators.userName).click();
         await this.page.locator(this.adminloctators.userName).clear();
-        await this.page.locator(this.adminloctators.userName).fill("Admin1");
+        await this.page.locator(this.adminloctators.userName).fill("Admin161");
     }
     async password(){
         await this.page.locator(this.adminloctators.password).isVisible();;
         await this.page.locator(this.adminloctators.password).click();
-        await this.page.locator(this.adminloctators.password).fill("admin1232");
+        await this.page.locator(this.adminloctators.password).fill("admin12345");
     }
     async confirmPassword(){
         await this.page.locator(this.adminloctators.confirmPassword).isVisible();;
         await this.page.locator(this.adminloctators.confirmPassword).click();
-        await this.page.locator(this.adminloctators.confirmPassword).fill("admin1232");
+        await this.page.locator(this.adminloctators.confirmPassword).fill("admin12345");
     }
+    async savebtn(){
+        await this.page.locator(this.adminloctators.save).click();
+    }
+async searchRecord(){
+    await this.userName();
+    await this.page.locator(this.adminloctators.searchRoleclick).isVisible();
+    await this.page.locator(this.adminloctators.searchRoleclick).click();
+    await this.page.locator(this.adminloctators.searchRole).isVisible();
+    await this.page.locator(this.adminloctators.searchRole).click();
+    await this.page.locator(this.adminloctators.searchemp).isVisible();
+    await this.page.locator(this.adminloctators.searchemp).fill("n");
+    await this.page.waitForTimeout(3000)
+    await this.page.locator(`//span[text()='Russel  Hamilton']`).click();
+    await this.page.locator(this.adminloctators.search).isVisible();
+    await this.page.locator(this.adminloctators.search).click();
+    let records = await this.page.locator(`(//span[@class='oxd-text oxd-text--span'])[1]`).textContent();
+    console.log(" nnumber of records are : ",records);
+
+}
+
+// ==============================================
+
     async clickJobTitles(){
         await this.page.locator(this.adminloctators.jobTitles).isVisible();
         await this.page.locator(this.adminloctators.jobTitles).click();
         await this.page.locator(this.adminloctators.adminAddbtn).isVisible();
         await this.page.locator(this.adminloctators.adminAddbtn).click();
-        await this.page.locator(this.adminloctators.jobTitle).fill("naveen1")
+        await this.page.locator(this.adminloctators.jobTitle).fill("naveen121")
         await this.page.locator(this.adminloctators.save).click();
-    }
+
+        // await this.page.locator(this.adminloctators.)
+    } 
     async payGrades(){
         await this.page.locator(this.adminloctators.payGrades).isVisible();
         await this.page.locator(this.adminloctators.payGrades).click();
@@ -82,7 +106,7 @@ export class AdminPage {
         await this.page.locator(this.adminloctators.addbtn).click();
         await this.page.locator(this.adminloctators.paygradeName).isVisible();
         await this.page.locator(this.adminloctators.paygradeName).click();
-        await this.page.locator(this.adminloctators.paygradeName).fill("Naveen");
+        await this.page.locator(this.adminloctators.paygradeName).fill("Naveen1");
         await this.page.locator(this.adminloctators.save).isVisible();
         await this.page.locator(this.adminloctators.save).click();
 
@@ -137,7 +161,11 @@ export class AdminPage {
     }
     async generalinformation (){
          await this.page.locator(this.adminloctators.generalinformation).isVisible();
-         await this.page.locator(this.adminloctators.generalinformation).click()
+         await this.page.locator(this.adminloctators.generalinformation)
     }
-
+    // async  locations(){
+    //     await this.page.locator(this.adminloctators.)
+    // }
 }
+
+

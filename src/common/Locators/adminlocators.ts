@@ -15,6 +15,14 @@ export class Adminlocators{
     readonly userName : string
     readonly password : string
     readonly confirmPassword : string
+    readonly searchUN : string
+    readonly searchRoleclick : string 
+    readonly searchRole : string
+    readonly searchemp :string
+    readonly searchStatusclick : string
+    readonly searchStatus : string
+    readonly search :string 
+
     readonly jobTitles : string
     readonly jobTitle : string
     readonly payGrades : string
@@ -49,6 +57,15 @@ export class Adminlocators{
         this.password  = `(//label[text()='Password']/following::input)[1]`
         this.confirmPassword  = `(//label[text()='Confirm Password']/following::input)[1]`
 
+        this.searchUN = `(//label[text()='Username']/following::input)[1]`
+        this.searchRoleclick = `(//div[text()='-- Select --'])[1]`
+        this.searchRole = `(//span[text()='Admin'])[2]`
+        this.searchemp = `(//label[text()='Employee Name']/following::input)[1]`
+        this.searchStatusclick = `(//div[text()='-- Select --'])[2]`
+        this.searchStatus = `(//span[text()='Enabled'])`
+        this.search = `//button[text()=' Search ']`
+
+
         //job titles
         this.jobTitles = `//a[text()='Job Titles']`
         this.jobTitle = `(//label[text()='Job Title']/following::input)[1]`
@@ -77,6 +94,12 @@ export class Adminlocators{
 
         this.organization = `//span[text() = 'Organization ']`
         this.generalinformation = `//a[text() = 'General Information']`
+        // =============
+
+
+        
+
+    
 
         
         
